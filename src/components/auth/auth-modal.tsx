@@ -142,9 +142,9 @@ export function AuthModal() {
               <AnimatePresence mode="wait">
                 {step !== 'verify' && (
                   <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
                     transition={{ duration: 0.2 }}
                     className="flex h-9 bg-white/5 rounded-full p-[3px]"
                   >
@@ -185,7 +185,7 @@ export function AuthModal() {
             <div className="px-[50px] mt-2.5 mb-2.5 text-center">
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={step}
+                  key={step === 'verify' ? 'verify' : mode}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}

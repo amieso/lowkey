@@ -14,6 +14,32 @@ export interface Credit {
   url?: string
 }
 
+export type SegmentType = 'problem' | 'solution' | 'in-action' | 'cta' | 'intro' | 'outro'
+
+export interface Segment {
+  id: string
+  type: SegmentType
+  title: string
+  description: string
+  startTime: number
+  endTime: number
+}
+
+export interface TranscriptEntry {
+  id: string
+  startTime: number
+  text: string
+}
+
+export interface Comment {
+  id: string
+  author: string
+  avatarUrl?: string
+  text: string
+  timestamp: string
+  likes: number
+}
+
 export interface Video {
   id: string
   slug: string

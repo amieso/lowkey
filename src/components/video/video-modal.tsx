@@ -25,6 +25,7 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
   const [lastAction, setLastAction] = useState<'play' | 'pause'>('play')
   const [qualityLevels, setQualityLevels] = useState<QualityLevel[]>([])
   const [currentQuality, setCurrentQuality] = useState(-1)
+  const [currentTime, setCurrentTime] = useState(0)
   const chapters = getChaptersForVideo(video.id)
 
   const handleQualityChange = useCallback((index: number) => {
@@ -89,9 +90,11 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
 
     const handlePlay = () => setIsPlaying(true)
     const handlePause = () => setIsPlaying(false)
+    const handleTimeUpdate = () => setCurrentTime(videoElement.currentTime)
 
     videoElement.addEventListener('play', handlePlay)
     videoElement.addEventListener('pause', handlePause)
+    videoElement.addEventListener('timeupdate', handleTimeUpdate)
 
     // Set initial state
     setIsPlaying(!videoElement.paused)
@@ -99,6 +102,7 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
     return () => {
       videoElement.removeEventListener('play', handlePlay)
       videoElement.removeEventListener('pause', handlePause)
+      videoElement.removeEventListener('timeupdate', handleTimeUpdate)
     }
   }, [videoElement])
 
@@ -119,7 +123,7 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 30 }}
         transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
-        className="relative z-10 flex gap-3 justify-center"
+        className="relative z-10 flex gap-3 justify-center items-start"
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
@@ -178,7 +182,13 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
         {/* Info pane - always visible */}
         <InfoPane
           video={video}
+          currentTime={currentTime}
           onClose={onClose}
+          onSeek={(time) => {
+            if (videoElement) {
+              videoElement.currentTime = time
+            }
+          }}
         />
       </motion.div>
     </motion.div>
