@@ -89,16 +89,16 @@ export function InfoPane({ video, onClose }: InfoPaneProps) {
           {/* Accordion sections */}
           <div className="-mx-[14px] flex flex-col gap-1.5">
             {/* Credits */}
-            <div className="bg-white/5 rounded-lg py-4 px-4">
-              <button
-                onClick={() => toggleSection('credits')}
-                className="w-full flex items-center justify-between group"
-              >
+            <div
+              onClick={() => toggleSection('credits')}
+              className="bg-white/5 rounded-lg py-4 px-4 cursor-pointer group"
+            >
+              <div className="w-full flex items-center justify-between">
                 <span className={`text-xs font-mono uppercase tracking-widest ${openSection === 'credits' ? 'text-foreground' : 'text-muted'} group-hover:text-foreground transition-colors`}>
                   Credits
                 </span>
                 <ChevronDown className={`w-3.5 h-3.5 text-muted/50 transition-transform duration-200 ${openSection === 'credits' ? 'rotate-180' : ''}`} />
-              </button>
+              </div>
               {openSection === 'credits' && (
                 <div className="mt-4 -mx-4 -mb-4 bg-white/[0.03] rounded-b-lg px-4 py-3">
                   {credits.map((credit, i) => (
@@ -123,16 +123,16 @@ export function InfoPane({ video, onClose }: InfoPaneProps) {
             </div>
 
             {/* Links */}
-            <div className="bg-white/5 rounded-lg py-4 px-4">
-              <button
-                onClick={() => toggleSection('links')}
-                className="w-full flex items-center justify-between group"
-              >
+            <div
+              onClick={() => toggleSection('links')}
+              className="bg-white/5 rounded-lg py-4 px-4 cursor-pointer group"
+            >
+              <div className="w-full flex items-center justify-between">
                 <span className={`text-xs font-mono uppercase tracking-widest ${openSection === 'links' ? 'text-foreground' : 'text-muted'} group-hover:text-foreground transition-colors`}>
                   Links
                 </span>
                 <ChevronDown className={`w-3.5 h-3.5 text-muted/50 transition-transform duration-200 ${openSection === 'links' ? 'rotate-180' : ''}`} />
-              </button>
+              </div>
               {openSection === 'links' && (
                 <div className="mt-4 -mx-4 -mb-4 bg-white/[0.03] rounded-b-lg px-4 py-3">
                   {links.map((link, i) => (
