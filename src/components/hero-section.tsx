@@ -1,9 +1,14 @@
+'use client'
+
 import Link from 'next/link'
 import { MorphText } from './ui/morph-text'
+import { useAuth } from '@/contexts/auth-context'
 
 const ROTATING_WORDS = ['launch video', 'product demo', 'announcement']
 
 export function HeroSection() {
+  const { openAuthModal } = useAuth()
+
   return (
     <section className="px-4 md:px-6 py-16 md:py-32">
       <div className="max-w-3xl mx-auto text-center">
@@ -18,12 +23,12 @@ export function HeroSection() {
           Get inspired by how top companies announce their products.
         </p>
         <div className="mt-10 flex items-center justify-center gap-2">
-          <a
-            href="#videos"
+          <button
+            onClick={() => openAuthModal('signup')}
             className="inline-flex items-center justify-center px-4 py-2 text-sm text-muted bg-surface rounded-full transition-colors hover:text-foreground"
           >
             Join Lowkey
-          </a>
+          </button>
           <Link
             href="/submit"
             className="inline-flex items-center justify-center px-4 py-[6px] text-sm text-muted border-2 border-surface rounded-full transition-colors hover:text-foreground/60 hover:border-foreground/60"

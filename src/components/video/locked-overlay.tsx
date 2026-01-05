@@ -4,7 +4,7 @@ import { Lock } from 'lucide-react'
 import { useAuth } from '@/contexts/auth-context'
 
 export function LockedOverlay() {
-  const { toggleAuth } = useAuth()
+  const { openAuthModal } = useAuth()
 
   return (
     <div className="absolute inset-0 pointer-events-none">
@@ -36,13 +36,13 @@ export function LockedOverlay() {
 
           <div className="flex items-center justify-center gap-2">
             <button
-              onClick={toggleAuth}
+              onClick={() => openAuthModal('signup')}
               className="inline-flex items-center justify-center px-4 py-2 text-sm text-muted bg-surface rounded-full transition-colors hover:text-foreground"
             >
               Join Lowkey
             </button>
             <button
-              onClick={toggleAuth}
+              onClick={() => openAuthModal('login')}
               className="inline-flex items-center justify-center px-4 py-[6px] text-sm text-muted border-2 border-surface rounded-full transition-colors hover:text-foreground/60 hover:border-foreground/60"
             >
               Login
