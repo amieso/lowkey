@@ -2,20 +2,21 @@
 
 import { useEffect, useState, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X } from 'lucide-react'
+import { X, Loader2 } from 'lucide-react'
 import { useAuth } from '@/contexts/auth-context'
 import { Input } from '@/components/ui/input'
 
-type AuthStep = 'initial' | 'email' | 'verify'
+type AuthStep = 'initial' | 'email' | 'password' | 'magic-link-sent'
 
 export function AuthModal() {
-  const { isAuthModalOpen, authModalMode, closeAuthModal, login } = useAuth()
+  const { isAuthModalOpen, authModalMode, closeAuthModal, signIn, signUp, signInWithGoogle, signInWithMagicLink } = useAuth()
   const [step, setStep] = useState<AuthStep>('initial')
   const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [name, setName] = useState('')
   const [mode, setMode] = useState<'login' | 'signup'>(authModalMode)
-  const [code, setCode] = useState('')
-  const [countdown, setCountdown] = useState(60)
-  const [canResend, setCanResend] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   // Sync mode with context when modal opens
   useEffect(() => {
@@ -23,21 +24,12 @@ export function AuthModal() {
       setMode(authModalMode)
       setStep('initial')
       setEmail('')
-      setCode('')
-      setCountdown(60)
-      setCanResend(false)
+      setPassword('')
+      setName('')
+      setError(null)
+      setIsLoading(false)
     }
   }, [isAuthModalOpen, authModalMode])
-
-  // Countdown timer for resend
-  useEffect(() => {
-    if (step === 'verify' && countdown > 0) {
-      const timer = setTimeout(() => setCountdown(countdown - 1), 1000)
-      return () => clearTimeout(timer)
-    } else if (countdown === 0) {
-      setCanResend(true)
-    }
-  }, [step, countdown])
 
   const handleEscape = useCallback(
     (e: KeyboardEvent) => {
@@ -60,44 +52,86 @@ export function AuthModal() {
     }
   }, [isAuthModalOpen, handleEscape])
 
-  const handleGoogleAuth = () => {
-    login()
-    closeAuthModal()
+  const handleGoogleAuth = async () => {
+    setIsLoading(true)
+    setError(null)
+    try {
+      await signInWithGoogle()
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to sign in with Google')
+      setIsLoading(false)
+    }
+  }
+
+  const handleMagicLink = async () => {
+    if (!email.trim()) return
+    setIsLoading(true)
+    setError(null)
+    try {
+      await signInWithMagicLink(email)
+      setStep('magic-link-sent')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to send magic link')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (email.trim()) {
-      setStep('verify')
-      setCountdown(60)
-      setCanResend(false)
+      setStep('password')
+      setError(null)
     }
   }
 
-  const handleCodeSubmit = (e: React.FormEvent) => {
+  const handlePasswordSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (code.trim().length === 6) {
-      login()
-      closeAuthModal()
-    }
-  }
+    if (!password.trim()) return
 
-  const handleResendCode = () => {
-    if (canResend) {
-      setCountdown(60)
-      setCanResend(false)
-      setCode('')
+    setIsLoading(true)
+    setError(null)
+
+    try {
+      if (mode === 'login') {
+        await signIn(email, password)
+      } else {
+        await signUp(email, password, name || undefined)
+        // Show success message for signup (email verification may be required)
+        setStep('magic-link-sent')
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Authentication failed')
+    } finally {
+      setIsLoading(false)
     }
   }
 
   const handleBack = () => {
-    if (step === 'verify') {
+    setError(null)
+    if (step === 'password') {
       setStep('email')
-      setCode('')
+      setPassword('')
     } else if (step === 'email') {
       setStep('initial')
       setEmail('')
+    } else if (step === 'magic-link-sent') {
+      setStep('email')
     }
+  }
+
+  const getTitle = () => {
+    if (step === 'magic-link-sent') return 'Check Your Email'
+    return mode === 'login' ? 'Welcome Back' : 'Join Lowkey'
+  }
+
+  const getDescription = () => {
+    if (step === 'magic-link-sent') {
+      return `We sent a sign-in link to ${email}. Click the link to continue.`
+    }
+    return mode === 'login'
+      ? 'Sign in to pick up where you left off and access the full library.'
+      : 'Create a free account to unlock every video in the library.'
   }
 
   return (
@@ -140,7 +174,7 @@ export function AuthModal() {
             {/* Header */}
             <div className="flex items-center justify-between px-4 pt-4 pb-12">
               <AnimatePresence mode="wait">
-                {step !== 'verify' && (
+                {step !== 'magic-link-sent' && (
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -174,7 +208,7 @@ export function AuthModal() {
 
               <button
                 onClick={closeAuthModal}
-                className={`w-9 h-9 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors ${step === 'verify' ? 'ml-auto' : ''}`}
+                className={`w-9 h-9 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors ${step === 'magic-link-sent' ? 'ml-auto' : ''}`}
                 aria-label="Close modal"
               >
                 <X className="w-4 h-4 text-muted" />
@@ -185,45 +219,37 @@ export function AuthModal() {
             <div className="px-[50px] mt-2.5 mb-2.5 text-center">
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={step === 'verify' ? 'verify' : mode}
+                  key={`${step}-${mode}`}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.2 }}
                 >
                   <h2 id="auth-modal-title" className="text-xl font-medium text-foreground mb-2">
-                    {step === 'verify'
-                      ? 'Check Your Email'
-                      : mode === 'login'
-                        ? 'Welcome Back'
-                        : 'Join Lowkey'}
+                    {getTitle()}
                   </h2>
                   <p className="text-sm text-muted">
-                    {step === 'verify' ? (
-                      <>
-                        We sent a verification code to {email}.{' '}
-                        {canResend ? (
-                          <button
-                            onClick={handleResendCode}
-                            className="text-foreground hover:underline"
-                          >
-                            Resend code
-                          </button>
-                        ) : (
-                          <>
-                            Resend code in <span className="font-mono">{countdown}</span>s
-                          </>
-                        )}
-                      </>
-                    ) : mode === 'login' ? (
-                      'Sign in to pick up where you left off and access the full library.'
-                    ) : (
-                      'Create a free account to unlock every video in the library.'
-                    )}
+                    {getDescription()}
                   </p>
                 </motion.div>
               </AnimatePresence>
             </div>
+
+            {/* Error message */}
+            <AnimatePresence>
+              {error && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="px-4 overflow-hidden"
+                >
+                  <div className="bg-red-500/10 border border-red-500/20 rounded-lg px-3 py-2 text-sm text-red-400">
+                    {error}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             <div className="flex flex-col gap-2 px-4 pt-12 pb-4">
               <AnimatePresence mode="wait">
@@ -238,13 +264,19 @@ export function AuthModal() {
                   >
                     <button
                       onClick={handleGoogleAuth}
-                      className="w-full h-9 inline-flex items-center justify-center text-sm text-muted bg-white/10 rounded-full transition-colors hover:text-foreground hover:bg-white/15"
+                      disabled={isLoading}
+                      className="w-full h-9 inline-flex items-center justify-center gap-2 text-sm text-muted bg-white/10 rounded-full transition-colors hover:text-foreground hover:bg-white/15 disabled:opacity-50"
                     >
-                      Continue with Google
+                      {isLoading ? (
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                      ) : (
+                        'Continue with Google'
+                      )}
                     </button>
                     <button
                       onClick={() => setStep('email')}
-                      className="w-full h-9 inline-flex items-center justify-center text-sm text-muted border border-border rounded-full transition-colors hover:text-foreground hover:border-foreground"
+                      disabled={isLoading}
+                      className="w-full h-9 inline-flex items-center justify-center text-sm text-muted border border-border rounded-full transition-colors hover:text-foreground hover:border-foreground disabled:opacity-50"
                     >
                       Continue with Email
                     </button>
@@ -267,65 +299,110 @@ export function AuthModal() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email"
                       autoFocus
+                      disabled={isLoading}
                     />
                     <div className="flex gap-2">
                       <button
                         type="button"
                         onClick={handleBack}
-                        className="flex-1 h-9 inline-flex items-center justify-center text-sm text-muted border border-white/20 rounded-full transition-colors hover:text-foreground hover:border-white/40"
+                        disabled={isLoading}
+                        className="flex-1 h-9 inline-flex items-center justify-center text-sm text-muted border border-white/20 rounded-full transition-colors hover:text-foreground hover:border-white/40 disabled:opacity-50"
                       >
                         Back
                       </button>
                       <button
                         type="submit"
-                        disabled={!email.trim()}
+                        disabled={!email.trim() || isLoading}
                         className="flex-1 h-9 inline-flex items-center justify-center text-sm text-muted bg-white/10 rounded-full transition-colors hover:text-foreground hover:bg-white/15 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        {mode === 'login' ? 'Log In' : 'Sign Up'}
+                        Continue
+                      </button>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={handleMagicLink}
+                      disabled={!email.trim() || isLoading}
+                      className="w-full h-9 inline-flex items-center justify-center text-sm text-muted-dark hover:text-muted transition-colors disabled:opacity-50"
+                    >
+                      {isLoading ? (
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                      ) : (
+                        'Send magic link instead'
+                      )}
+                    </button>
+                  </motion.form>
+                )}
+
+                {step === 'password' && (
+                  <motion.form
+                    key="password"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    onSubmit={handlePasswordSubmit}
+                    className="flex flex-col gap-2"
+                  >
+                    {mode === 'signup' && (
+                      <Input
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Your name (optional)"
+                        disabled={isLoading}
+                      />
+                    )}
+                    <Input
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder={mode === 'signup' ? 'Create a password' : 'Enter your password'}
+                      autoFocus
+                      disabled={isLoading}
+                    />
+                    <div className="flex gap-2">
+                      <button
+                        type="button"
+                        onClick={handleBack}
+                        disabled={isLoading}
+                        className="flex-1 h-9 inline-flex items-center justify-center text-sm text-muted border border-white/20 rounded-full transition-colors hover:text-foreground hover:border-white/40 disabled:opacity-50"
+                      >
+                        Back
+                      </button>
+                      <button
+                        type="submit"
+                        disabled={!password.trim() || isLoading}
+                        className="flex-1 h-9 inline-flex items-center justify-center gap-2 text-sm text-muted bg-white/10 rounded-full transition-colors hover:text-foreground hover:bg-white/15 disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {isLoading ? (
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                        ) : mode === 'login' ? (
+                          'Log In'
+                        ) : (
+                          'Sign Up'
+                        )}
                       </button>
                     </div>
                   </motion.form>
                 )}
 
-                {step === 'verify' && (
-                  <motion.form
-                    key="verify"
+                {step === 'magic-link-sent' && (
+                  <motion.div
+                    key="magic-link-sent"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.2 }}
-                    onSubmit={handleCodeSubmit}
                     className="flex flex-col gap-2"
                   >
-                    <Input
-                      type="text"
-                      inputMode="numeric"
-                      value={code}
-                      onChange={(e) => {
-                        const val = e.target.value.replace(/\D/g, '').slice(0, 6)
-                        setCode(val)
-                      }}
-                      placeholder="000-000"
-                      autoFocus
-                      className="text-center font-mono tracking-widest"
-                    />
-                    <div className="flex gap-2">
-                      <button
-                        type="button"
-                        onClick={handleBack}
-                        className="flex-1 h-9 inline-flex items-center justify-center text-sm text-muted border border-white/20 rounded-full transition-colors hover:text-foreground hover:border-white/40"
-                      >
-                        Back
-                      </button>
-                      <button
-                        type="submit"
-                        disabled={code.length !== 6}
-                        className="flex-1 h-9 inline-flex items-center justify-center text-sm text-muted bg-white/10 rounded-full transition-colors hover:text-foreground hover:bg-white/15 disabled:opacity-50 disabled:cursor-not-allowed"
-                      >
-                        Verify
-                      </button>
-                    </div>
-                  </motion.form>
+                    <button
+                      type="button"
+                      onClick={handleBack}
+                      className="w-full h-9 inline-flex items-center justify-center text-sm text-muted border border-white/20 rounded-full transition-colors hover:text-foreground hover:border-white/40"
+                    >
+                      Use a different email
+                    </button>
+                  </motion.div>
                 )}
               </AnimatePresence>
             </div>

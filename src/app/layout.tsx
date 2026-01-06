@@ -3,6 +3,7 @@ import { Inter, Kanit, JetBrains_Mono } from 'next/font/google'
 import { Footer } from '@/components/layout/footer'
 import { AuthProvider } from '@/contexts/auth-context'
 import { AuthModal } from '@/components/auth/auth-modal'
+import { AuthToast } from '@/components/ui/auth-toast'
 import '@/styles/globals.css'
 
 const inter = Inter({
@@ -50,6 +51,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
           <AuthModal />
+          <AuthToast />
         </AuthProvider>
       </body>
     </html>

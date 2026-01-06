@@ -6,6 +6,7 @@ import { VideoGrid } from './video-grid'
 import { ControlBar } from './control-bar'
 import { FilterSidebar } from './filter-sidebar'
 import { useGridSize } from '@/hooks/use-grid-size'
+import { useAuth } from '@/contexts/auth-context'
 
 interface VideoSectionProps {
   videos: Video[]
@@ -14,6 +15,8 @@ interface VideoSectionProps {
 export function VideoSection({ videos }: VideoSectionProps) {
   const [isFilterOpen, setIsFilterOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
+  const { authState } = useAuth()
+  const isLoggedIn = authState !== 'unauthenticated'
   const {
     columns,
     increase,
@@ -35,27 +38,31 @@ export function VideoSection({ videos }: VideoSectionProps) {
 
   return (
     <div className="px-4 md:px-6 mt-6 md:mt-8">
-      {/* Control Bar Row */}
-      <div className="py-2 mb-6">
-        <Suspense fallback={<div className="h-6" />}>
-          <ControlBar
-            onGridIncrease={increase}
-            onGridDecrease={decrease}
-            canGridIncrease={canIncrease}
-            canGridDecrease={canDecrease}
-            isFilterOpen={isFilterOpen}
-            onFilterToggle={() => setIsFilterOpen(!isFilterOpen)}
-            searchQuery={searchQuery}
-            onSearchChange={setSearchQuery}
-          />
-        </Suspense>
-      </div>
+      {/* Control Bar Row - only shown for logged in users */}
+      {isLoggedIn && (
+        <div className="py-2 mb-6">
+          <Suspense fallback={<div className="h-6" />}>
+            <ControlBar
+              onGridIncrease={increase}
+              onGridDecrease={decrease}
+              canGridIncrease={canIncrease}
+              canGridDecrease={canDecrease}
+              isFilterOpen={isFilterOpen}
+              onFilterToggle={() => setIsFilterOpen(!isFilterOpen)}
+              searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
+            />
+          </Suspense>
+        </div>
+      )}
 
       {/* Content Area with Sidebar + Grid */}
       <div className="flex">
-        <Suspense fallback={null}>
-          <FilterSidebar isOpen={isFilterOpen} />
-        </Suspense>
+        {isLoggedIn && (
+          <Suspense fallback={null}>
+            <FilterSidebar isOpen={isFilterOpen} />
+          </Suspense>
+        )}
         <div className="flex-1 min-w-0">
           <VideoGrid
             videos={filteredVideos}

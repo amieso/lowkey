@@ -1,5 +1,5 @@
 export type VideoStyle = 'kinetic-text' | '3d' | 'motion-graphics' | 'product-demo' | 'mixed'
-export type ProductType = 'saas' | 'mobile-app' | 'consumer' | 'dev-tool' | 'other'
+export type ProductType = 'saas' | 'mobile' | 'fintech' | 'ecommerce' | 'dev-tools' | 'ai'
 
 export interface Chapter {
   id: string
@@ -71,8 +71,9 @@ export const STYLE_LABELS: Record<VideoStyle, string> = {
 
 export const PRODUCT_TYPE_LABELS: Record<ProductType, string> = {
   'saas': 'SaaS',
-  'mobile-app': 'Mobile App',
-  'consumer': 'Consumer',
-  'dev-tool': 'Dev Tool',
-  'other': 'Other',
+  'mobile': 'Mobile',
+  'fintech': 'Fintech',
+  'ecommerce': 'E-commerce',
+  'dev-tools': 'Dev Tools',
+  'ai': 'AI',
 }

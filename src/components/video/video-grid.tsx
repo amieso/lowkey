@@ -19,7 +19,11 @@ interface VideoGridProps {
 
 export function VideoGrid({ videos, isLoading, columns = 4 }: VideoGridProps) {
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
-  const { isLoggedIn } = useAuth()
+  const { authState } = useAuth()
+  // During loading, assume logged in to prevent locked overlay flash
+  // Worst case: logged-out user briefly sees all videos (acceptable)
+  // Better than: logged-in user sees locked overlay flash (jarring)
+  const isLoggedIn = authState !== 'unauthenticated'
 
   const freeVideos = videos.slice(0, FREE_VIDEO_COUNT)
   const lockedVideos = videos.slice(FREE_VIDEO_COUNT)
