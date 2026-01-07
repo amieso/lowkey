@@ -9,6 +9,11 @@ import type { Profile } from '@/types/database'
 // Auth states: 'loading' | 'authenticated' | 'unauthenticated'
 type AuthState = 'loading' | 'authenticated' | 'unauthenticated'
 
+interface AuthProviderProps {
+  children: ReactNode
+  initialAuthState?: AuthState
+}
+
 interface AuthContextType {
   user: AuthUser | null
   profile: Profile | null
@@ -54,20 +59,13 @@ function AuthCallbackHandler() {
       router.replace(newUrl.pathname + newUrl.search, { scroll: false })
 
       if (authStatus === 'success') {
-        setAuthMessage('Signing in...')
-        refreshUser()
-          .then((authUser) => {
-            if (authUser) {
-              setAuthMessage(`Welcome${authUser.profile?.name ? `, ${authUser.profile.name}` : ''}!`)
-            } else {
-              setAuthMessage('Signed in successfully!')
-            }
-            setTimeout(() => setAuthMessage(null), 3000)
-          })
-          .catch(() => {
+        // Small delay to ensure cookies are processed by browser after redirect
+        setTimeout(() => {
+          refreshUser().catch(() => {
             setAuthMessage('Sign in failed. Please try again.')
             setTimeout(() => setAuthMessage(null), 5000)
           })
+        }, 100)
       } else if (errorStatus === 'auth') {
         setAuthMessage('Sign in failed. Please try again.')
         setTimeout(() => setAuthMessage(null), 5000)
@@ -78,10 +76,10 @@ function AuthCallbackHandler() {
   return null
 }
 
-function AuthProviderInner({ children }: { children: ReactNode }) {
+function AuthProviderInner({ children, initialAuthState = 'loading' }: AuthProviderProps) {
   const [user, setUser] = useState<AuthUser | null>(null)
-  // CRITICAL: Start as 'loading' always - this prevents any flash
-  const [authState, setAuthState] = useState<AuthState>('loading')
+  // Use server-provided initial state to prevent flash
+  const [authState, setAuthState] = useState<AuthState>(initialAuthState)
   const isInitializedRef = useRef(false)
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false)
   const [authModalMode, setAuthModalMode] = useState<'login' | 'signup'>('login')
@@ -146,14 +144,21 @@ function AuthProviderInner({ children }: { children: ReactNode }) {
   }, [])
 
   useEffect(() => {
-    // Do explicit auth check on mount - don't rely on onAuthStateChange for initial state
-    // This prevents flash from stale cached sessions
+    // Server already determined auth state via getUser() which validates with Supabase server
+    // Only fetch user data if server says we're authenticated - don't override server's determination
+    // This prevents flash from stale localStorage sessions that server already rejected
     const initAuth = async () => {
       try {
+        // If server says unauthenticated, trust it - don't let stale client session override
+        if (initialAuthState === 'unauthenticated') {
+          isInitializedRef.current = true
+          return
+        }
+
+        // Server says authenticated - fetch user data for the UI
         const currentUser = await authService.getUser()
         if (currentUser) {
           setUser(currentUser)
-          setAuthState('authenticated')
           // Fetch saved videos
           const collections = await collectionService.getCollections(currentUser.id)
           const defaultCollection = collections.find(c => c.is_default)
@@ -164,6 +169,7 @@ function AuthProviderInner({ children }: { children: ReactNode }) {
             }
           }
         } else {
+          // Session expired between SSR and client hydration - update state
           setAuthState('unauthenticated')
         }
       } catch {
@@ -243,6 +249,8 @@ function AuthProviderInner({ children }: { children: ReactNode }) {
     setUser(null)
     setSavedVideoSlugs([])
     setAuthState('unauthenticated')
+    // Force full page reload to clear server cache and get fresh auth state
+    window.location.href = '/'
   }
 
   return (
@@ -280,8 +288,8 @@ function AuthProviderInner({ children }: { children: ReactNode }) {
   )
 }
 
-export function AuthProvider({ children }: { children: ReactNode }) {
-  return <AuthProviderInner>{children}</AuthProviderInner>
+export function AuthProvider({ children, initialAuthState }: AuthProviderProps) {
+  return <AuthProviderInner initialAuthState={initialAuthState}>{children}</AuthProviderInner>
 }
 
 export function useAuth() {

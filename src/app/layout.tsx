@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Kanit, JetBrains_Mono } from 'next/font/google'
 import { Footer } from '@/components/layout/footer'
-import { AuthProvider } from '@/contexts/auth-context'
+import { AuthProviderWrapper } from '@/components/auth/auth-provider-wrapper'
 import { FilterProvider } from '@/contexts/filter-context'
 import { AuthModal } from '@/components/auth/auth-modal'
 import { OnboardingModal } from '@/components/auth/onboarding-modal'
@@ -49,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${kanit.variable} ${jetbrainsMono.variable}`}>
       <body className="min-h-screen flex flex-col">
-        <AuthProvider>
+        <AuthProviderWrapper>
           <FilterProvider>
             <main className="flex-1">{children}</main>
             <Footer />
@@ -57,7 +57,7 @@ export default function RootLayout({
             <OnboardingModal />
             <AuthToast />
           </FilterProvider>
-        </AuthProvider>
+        </AuthProviderWrapper>
       </body>
     </html>
   )

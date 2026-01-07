@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import { LogOut } from 'lucide-react'
 import { useAuth } from '@/contexts/auth-context'
@@ -8,19 +8,14 @@ import { useAuth } from '@/contexts/auth-context'
 export function Header() {
   const { authState, user, profile, openAuthModal, signOut } = useAuth()
   const [showUserMenu, setShowUserMenu] = useState(false)
-  // Prevent hydration mismatch - only render auth UI after client mount
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
   const displayName = profile?.name || user?.email?.split('@')[0] || 'User'
   const initials = displayName.slice(0, 2).toUpperCase()
 
-  // During loading or before mount, show skeleton to prevent flash
+  // Server provides initialAuthState, so we trust it immediately
+  // Only show skeleton during true 'loading' state (not on initial render)
   const renderAuthSection = () => {
-    if (!mounted || authState === 'loading') {
+    if (authState === 'loading') {
       // Render a neutral skeleton placeholder during auth check
       return <div className="w-7 h-7 rounded-full bg-white/10 animate-pulse" />
     }

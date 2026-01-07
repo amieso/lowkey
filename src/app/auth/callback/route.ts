@@ -1,6 +1,5 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
-import { cookies } from 'next/headers'
 
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = new URL(request.url)
@@ -9,7 +8,8 @@ export async function GET(request: NextRequest) {
   const type = searchParams.get('type')
   const next = searchParams.get('next') ?? '/'
 
-  const cookieStore = await cookies()
+  // Store cookies to set on the response
+  const cookiesToSet: { name: string; value: string; options?: object }[] = []
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -17,16 +17,23 @@ export async function GET(request: NextRequest) {
     {
       cookies: {
         getAll() {
-          return cookieStore.getAll()
+          return request.cookies.getAll()
         },
-        setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) => {
-            cookieStore.set(name, value, options)
-          })
+        setAll(cookies) {
+          cookiesToSet.push(...cookies)
         },
       },
     }
   )
+
+  // Helper to create redirect with cookies
+  const redirectWithCookies = (url: string) => {
+    const response = NextResponse.redirect(url)
+    cookiesToSet.forEach(({ name, value, options }) => {
+      response.cookies.set(name, value, options as object)
+    })
+    return response
+  }
 
   // Handle magic link (OTP) verification
   if (token_hash && type) {
@@ -38,7 +45,7 @@ export async function GET(request: NextRequest) {
     if (!error) {
       const redirectUrl = new URL(next, origin)
       redirectUrl.searchParams.set('auth', 'success')
-      return NextResponse.redirect(redirectUrl.toString())
+      return redirectWithCookies(redirectUrl.toString())
     }
 
     console.log('[Auth Callback] OTP Error:', error.message)
@@ -47,15 +54,22 @@ export async function GET(request: NextRequest) {
 
   // Handle OAuth PKCE code exchange
   if (code) {
-    const { error } = await supabase.auth.exchangeCodeForSession(code)
+    const { data, error } = await supabase.auth.exchangeCodeForSession(code)
 
-    if (!error) {
+    console.log('[Auth Callback] Code exchange result:', {
+      hasSession: !!data?.session,
+      hasUser: !!data?.user,
+      error: error?.message,
+      cookiesSet: cookiesToSet.length
+    })
+
+    if (!error && data?.session) {
       const redirectUrl = new URL(next, origin)
       redirectUrl.searchParams.set('auth', 'success')
-      return NextResponse.redirect(redirectUrl.toString())
+      return redirectWithCookies(redirectUrl.toString())
     }
 
-    console.log('[Auth Callback] Code Error:', error.message)
+    console.log('[Auth Callback] Code Error:', error?.message || 'No session returned')
   }
 
   // Return to home with error

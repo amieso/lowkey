@@ -58,8 +58,7 @@ class AuthService {
     const { data, error } = await this.getSupabase().auth.signInWithOAuth({
       provider,
       options: {
-        // Redirect back to origin - the client will detect session in URL
-        redirectTo: `${window.location.origin}`,
+        redirectTo: `${window.location.origin}/auth/callback`,
         skipBrowserRedirect: false,
       },
     })
