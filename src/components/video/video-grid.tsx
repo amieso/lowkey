@@ -41,16 +41,8 @@ export function VideoGrid({ videos, isLoading, columns = 4 }: VideoGridProps) {
   } as React.CSSProperties
 
   if (isLoading) {
-    return (
-      <div
-        className="grid gap-x-6 gap-y-4 grid-cols-1 sm:grid-cols-2 md:[grid-template-columns:repeat(var(--grid-cols),minmax(0,1fr))]"
-        style={gridStyle}
-      >
-        {Array.from({ length: columns * 2 }).map((_, i) => (
-          <VideoCardSkeleton key={i} />
-        ))}
-      </div>
-    )
+    // Return nothing during auth loading to prevent any visual flash
+    return null
   }
 
   if (videos.length === 0) {

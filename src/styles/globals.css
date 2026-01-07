@@ -13,8 +13,11 @@
     @apply bg-background text-foreground text-base leading-normal font-sans;
   }
 
-  * {
+  *,
+  *::before,
+  *::after {
     @apply border-border;
+    border-width: 0;
   }
 }
 
