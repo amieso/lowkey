@@ -78,8 +78,11 @@ function AuthCallbackHandler() {
 
 function AuthProviderInner({ children, initialAuthState = 'loading' }: AuthProviderProps) {
   const [user, setUser] = useState<AuthUser | null>(null)
-  // Use server-provided initial state to prevent flash
-  const [authState, setAuthState] = useState<AuthState>(initialAuthState)
+  // Start as loading until we have user data, even if server says authenticated
+  // This prevents flash of "User" with default avatar before profile loads
+  const [authState, setAuthState] = useState<AuthState>(
+    initialAuthState === 'unauthenticated' ? 'unauthenticated' : 'loading'
+  )
   const isInitializedRef = useRef(false)
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false)
   const [authModalMode, setAuthModalMode] = useState<'login' | 'signup'>('login')
@@ -159,6 +162,7 @@ function AuthProviderInner({ children, initialAuthState = 'loading' }: AuthProvi
         const currentUser = await authService.getUser()
         if (currentUser) {
           setUser(currentUser)
+          setAuthState('authenticated') // Only show as authenticated after user data is loaded
           // Fetch saved videos
           const collections = await collectionService.getCollections(currentUser.id)
           const defaultCollection = collections.find(c => c.is_default)

@@ -80,7 +80,8 @@ class AuthService {
   }
 
   async signOut() {
-    const { error } = await this.getSupabase().auth.signOut()
+    // Use 'global' scope to invalidate all sessions on server, not just local
+    const { error } = await this.getSupabase().auth.signOut({ scope: 'global' })
     if (error) throw error
   }
 
