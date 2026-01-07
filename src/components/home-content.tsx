@@ -6,9 +6,10 @@ import { HeroSection } from './hero-section'
 export function HomeContent() {
   const { authState } = useAuth()
 
-  // During loading, hide hero to prevent flash for logged-in users
-  // Only show hero when we KNOW user is logged out
-  if (authState !== 'unauthenticated') {
+  // Show hero when logged out OR during loading (assume logged out)
+  // This prevents cards from flashing before hero appears
+  // Trade-off: logged-in users briefly see hero, but that's less jarring
+  if (authState === 'authenticated') {
     return null
   }
 
