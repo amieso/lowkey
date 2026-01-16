@@ -9,14 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: '#0a0a0a',
-        surface: '#171717',
-        border: '#262626',
-        foreground: '#fafafa',
-        muted: '#a3a3a3',
-        'muted-dark': '#737373',
-        accent: '#fafafa',
-        'modal-black': '#141414',
+        background: 'rgb(var(--background) / <alpha-value>)',
+        surface: 'rgb(var(--surface) / <alpha-value>)',
+        border: 'rgb(var(--border) / <alpha-value>)',
+        foreground: 'rgb(var(--foreground) / <alpha-value>)',
+        muted: 'rgb(var(--muted) / <alpha-value>)',
+        'muted-dark': 'rgb(var(--muted-dark) / <alpha-value>)',
+        accent: 'rgb(var(--accent) / <alpha-value>)',
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],

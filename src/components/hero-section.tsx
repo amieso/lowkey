@@ -56,7 +56,7 @@ export function HeroSection() {
         <form onSubmit={handleSubmit} className="mt-10 flex justify-center mx-auto">
           <div className="flex flex-col gap-1">
             <div
-              className="relative h-10 rounded-full overflow-hidden bg-white/5"
+              className="relative h-10 rounded-full overflow-hidden bg-foreground/5"
               style={{
                 width: status === 'success' ? 156 : 288,
                 transition: 'width 300ms cubic-bezier(0.4, 0, 0.2, 1)'
@@ -111,7 +111,7 @@ export function HeroSection() {
                 )}
               </button>
             </div>
-            {errorMessage && <span className="text-[11px] text-red-400 text-center px-2">{errorMessage}</span>}
+            {errorMessage && <span className="text-[11px] text-red-500 text-center px-2">{errorMessage}</span>}
           </div>
         </form>
       </div>

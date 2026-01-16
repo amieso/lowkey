@@ -76,3 +76,29 @@
 ## 2026-01-16 - Deployment
 - Deployed to: https://lowkxy.vercel.app
 - Changes included: Video modal now plays with sound on by default (added startMuted prop to VideoPlayer)
+
+## 2026-01-16 - Theme Toggle (Dark/Light Mode)
+Added theme switching with dark as default and oatmeal light mode as option.
+
+**Implementation:**
+- CSS variables in `globals.css` define both themes (`:root` for dark, `:root.light` for light)
+- Tailwind colors reference CSS vars: `background: 'var(--background)'`
+- `ThemeToggle` component in header (self-contained, no context needed)
+- Theme persisted to localStorage, applies `.light` class to `<html>`
+
+**Dark theme (default):**
+- `--background: #0a0a0a` (near black)
+- `--surface: #171717` (dark grey)
+- `--foreground: #fafafa` (off-white)
+- `--muted: #a3a3a3` (medium grey)
+
+**Light theme (oatmeal, Cursor-inspired):**
+- `--background: #f5f3ef` (warm cream)
+- `--surface: #eae7e1` (slightly darker cream)
+- `--foreground: #1a1815` (warm near-black)
+- `--muted: #6b6660` (warm medium grey)
+
+**Design decisions:**
+- Video player controls stay dark-themed (white text on dark overlay) for contrast over video
+- Video card hover overlay stays dark (`bg-black`) for readability
+- Modal backdrop uses `bg-background/90` so it adapts to theme

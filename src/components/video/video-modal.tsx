@@ -107,7 +107,7 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/90 backdrop-blur-lg p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-background/90 backdrop-blur-lg p-4"
     >
       {/* Backdrop - click to close */}
       <div className="absolute inset-0" onClick={onClose} />
@@ -124,7 +124,7 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
         <div className="flex justify-between items-center mb-6 px-1.5">
           <div className="flex flex-col gap-2">
             <motion.span
-              className="text-xs text-white/70 tracking-widest uppercase font-mono"
+              className="text-xs text-muted tracking-widest uppercase font-mono"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
@@ -137,7 +137,7 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
             </motion.span>
             <motion.h2
               id="modal-title"
-              className="text-2xl font-light text-white tracking-tight"
+              className="text-2xl font-light text-foreground tracking-tight"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}

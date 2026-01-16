@@ -21,18 +21,27 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: 'Lowkey - Curated Product Launch Videos',
-  description: 'Discover the best product launch videos for inspiration. Mobbin for launch videos.',
+  description: 'The best product launch videos, curated.',
   openGraph: {
-    title: 'Lowkey - Curated Product Launch Videos',
-    description: 'Discover the best product launch videos for inspiration',
+    title: 'Lowkey',
+    description: 'The best product launch videos, curated.',
     url: 'https://lowkey.so',
     siteName: 'Lowkey',
     type: 'website',
+    images: [
+      {
+        url: '/animated-og.gif',
+        width: 1200,
+        height: 630,
+        alt: 'Lowkey - The best product launch videos, curated.',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Lowkey - Curated Product Launch Videos',
-    description: 'Discover the best product launch videos for inspiration',
+    title: 'Lowkey',
+    description: 'The best product launch videos, curated.',
+    images: ['/animated-og.gif'],
   },
 }
 

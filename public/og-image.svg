@@ -1,0 +1,16 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Black background -->
+  <rect width="1200" height="630" fill="black"/>
+
+  <!-- Icon group - centered and scaled -->
+  <g transform="translate(600, 315) scale(10.14) translate(-8, -8)">
+    <!-- Outer circle -->
+    <circle cx="8" cy="8" r="7" stroke="white" stroke-width="2" fill="none"/>
+
+    <!-- Eye shape -->
+    <path stroke="white" stroke-width="2" fill="none" d="M8 4C10.0517 4 11.8618 4.52179 13.127 5.3125C14.4061 6.11201 15 7.08851 15 8C15 8.91149 14.4061 9.88799 13.127 10.6875C11.8618 11.4782 10.0517 12 8 12C5.9483 12 4.13819 11.4782 2.87305 10.6875C1.59387 9.88799 1 8.91149 1 8C1 7.08851 1.59387 6.11201 2.87305 5.3125C4.13819 4.52179 5.9483 4 8 4Z"/>
+
+    <!-- Pupil -->
+    <circle cx="8" cy="8" r="3" stroke="white" stroke-width="2" fill="none"/>
+  </g>
+</svg>

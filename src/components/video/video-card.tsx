@@ -63,12 +63,12 @@ export function VideoCard({ video, onSelect, disablePlayback = false }: VideoCar
       <motion.div
         layoutId={isGhost ? undefined : `video-${video.id}`}
         transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
-        className="relative aspect-video w-full rounded-[6px] group-hover:ring-1 group-hover:ring-white/[0.08]"
+        className="relative aspect-video w-full rounded-[6px] group-hover:ring-1 group-hover:ring-foreground/10"
       >
         <div className="absolute inset-0 overflow-hidden rounded-[6px] bg-surface isolate">
           {isGhost ? (
             // Ghost card placeholder
-            <div className="absolute inset-0 bg-[#1a1a1a]" />
+            <div className="absolute inset-0 bg-surface" />
           ) : disablePlayback ? (
             // Static thumbnail for locked cards
             <img
