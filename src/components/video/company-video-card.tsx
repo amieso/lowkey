@@ -67,7 +67,7 @@ export function CompanyVideoCard({ video, onSelect }: CompanyVideoCardProps) {
           muted
           loop
           playsInline
-          poster={video.thumbnailUrl}
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
         />
 

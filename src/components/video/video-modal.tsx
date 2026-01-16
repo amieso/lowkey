@@ -2,11 +2,10 @@
 
 import { useEffect, useCallback, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Play, Pause } from 'lucide-react'
+import { Play, Pause, X } from 'lucide-react'
 import { Video } from '@/types/video'
 import { VideoPlayer, VideoPlayerHandle, QualityLevel } from './modal/video-player'
 import { PlayerControls } from './modal/player-controls'
-import { InfoPane } from './modal/info-pane'
 import { getChaptersForVideo } from '@/data/chapters'
 
 interface VideoModalProps {
@@ -25,7 +24,6 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
   const [lastAction, setLastAction] = useState<'play' | 'pause'>('play')
   const [qualityLevels, setQualityLevels] = useState<QualityLevel[]>([])
   const [currentQuality, setCurrentQuality] = useState(-1)
-  const [currentTime, setCurrentTime] = useState(0)
   const chapters = getChaptersForVideo(video.id)
 
   const handleQualityChange = useCallback((index: number) => {
@@ -90,11 +88,9 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
 
     const handlePlay = () => setIsPlaying(true)
     const handlePause = () => setIsPlaying(false)
-    const handleTimeUpdate = () => setCurrentTime(videoElement.currentTime)
 
     videoElement.addEventListener('play', handlePlay)
     videoElement.addEventListener('pause', handlePause)
-    videoElement.addEventListener('timeupdate', handleTimeUpdate)
 
     // Set initial state
     setIsPlaying(!videoElement.paused)
@@ -102,7 +98,6 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
     return () => {
       videoElement.removeEventListener('play', handlePlay)
       videoElement.removeEventListener('pause', handlePause)
-      videoElement.removeEventListener('timeupdate', handleTimeUpdate)
     }
   }, [videoElement])
 
@@ -117,20 +112,29 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
       {/* Backdrop - click to close */}
       <div className="absolute inset-0" onClick={onClose} />
 
+      {/* Close button */}
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-black/50 hover:bg-black/70 transition-colors"
+        aria-label="Close modal"
+      >
+        <X className="w-5 h-5 text-white" />
+      </button>
+
       {/* Modal content */}
       <motion.div
         initial={{ opacity: 0, y: 50, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 30 }}
         transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
-        className="relative z-10 flex gap-3 justify-center items-start"
+        className="relative z-10 w-full max-w-[1600px]"
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Video section with player controls - fixed width */}
-        <div className="shrink-0 w-[min(1344px,calc(100vw-400px))] rounded-lg overflow-hidden">
+        {/* Video section with player controls */}
+        <div className="rounded-lg overflow-hidden">
           <div ref={videoContainerRef} className="relative aspect-video bg-black rounded-lg overflow-hidden isolate">
             {/* Clickable overlay to toggle play/pause - excludes bottom controls area */}
             <button
@@ -160,7 +164,6 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
             <VideoPlayer
               ref={playerRef}
               src={video.videoUrl}
-              poster={video.thumbnailUrl}
               onQualityLevelsChange={setQualityLevels}
             />
 
@@ -178,18 +181,6 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
             )}
           </div>
         </div>
-
-        {/* Info pane - always visible */}
-        <InfoPane
-          video={video}
-          currentTime={currentTime}
-          onClose={onClose}
-          onSeek={(time) => {
-            if (videoElement) {
-              videoElement.currentTime = time
-            }
-          }}
-        />
       </motion.div>
     </motion.div>
   )

@@ -4,7 +4,6 @@ import { useEffect, useRef } from 'react'
 import Hls from 'hls.js'
 import { Video } from '@/types/video'
 import { formatDuration } from '@/lib/utils'
-import { SaveButton } from './save-button'
 import { CompanyLink } from '@/components/ui/company-link'
 
 function toProperCase(str: string): string {
@@ -91,14 +90,9 @@ export function VideoCard({ video, onSelect, disablePlayback = false }: VideoCar
 
           {/* Dark overlay with info on hover */}
           <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-5 pointer-events-none">
-            {/* Title and save button at top */}
+            {/* Title at top */}
             <div className="flex items-start justify-between gap-12">
               <h3 className="text-2xl font-light text-white tracking-tight line-clamp-2">{video.title}</h3>
-              {!isGhost && (
-                <div className="pointer-events-auto shrink-0">
-                  <SaveButton videoSlug={video.slug} size="sm" />
-                </div>
-              )}
             </div>
 
             {/* Bottom row: tags left, company right */}

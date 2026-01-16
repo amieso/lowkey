@@ -1,7 +1,4 @@
-'use client'
-
 import Link from 'next/link'
-import { useAuth } from '@/contexts/auth-context'
 import { companySlug } from '@/lib/utils'
 
 interface CompanyLinkProps {
@@ -12,26 +9,13 @@ interface CompanyLinkProps {
 }
 
 export function CompanyLink({ company, className, onClick, children }: CompanyLinkProps) {
-  const { authState } = useAuth()
-  // Only treat as logged in when we KNOW they're authenticated
-  const isLoggedIn = authState === 'authenticated'
-
-  if (isLoggedIn) {
-    return (
-      <Link
-        href={`/company/${companySlug(company)}`}
-        onClick={onClick}
-        className={className}
-      >
-        {children || company}
-      </Link>
-    )
-  }
-
-  // When logged out: plain text, no hover effects, no link
   return (
-    <span className={className?.replace(/hover:[^\s]+/g, '')}>
+    <Link
+      href={`/company/${companySlug(company)}`}
+      onClick={onClick}
+      className={className}
+    >
       {children || company}
-    </span>
+    </Link>
   )
 }

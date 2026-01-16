@@ -5,11 +5,10 @@ import { cn } from '@/lib/utils'
 
 interface VideoPlayerProps {
   src: string
-  poster: string
   aspectRatio?: '16:9' | '9:16'
 }
 
-export function VideoPlayer({ src, poster, aspectRatio = '16:9' }: VideoPlayerProps) {
+export function VideoPlayer({ src, aspectRatio = '16:9' }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
 
@@ -41,9 +40,9 @@ export function VideoPlayer({ src, poster, aspectRatio = '16:9' }: VideoPlayerPr
       <video
         ref={videoRef}
         src={src}
-        poster={poster}
         controls
         playsInline
+        preload="auto"
         className="h-full w-full object-contain bg-black"
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}

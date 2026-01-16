@@ -20,13 +20,12 @@ export interface VideoPlayerHandle {
 
 interface VideoPlayerProps {
   src: string
-  poster: string
   className?: string
   onQualityLevelsChange?: (levels: QualityLevel[]) => void
 }
 
 export const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(
-  function VideoPlayer({ src, poster, className = '', onQualityLevelsChange }, ref) {
+  function VideoPlayer({ src, className = '', onQualityLevelsChange }, ref) {
     const videoRef = useRef<HTMLVideoElement>(null)
     const hlsRef = useRef<Hls | null>(null)
     const [qualityLevels, setQualityLevels] = useState<QualityLevel[]>([])
@@ -100,10 +99,10 @@ export const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(
     return (
       <video
         ref={videoRef}
-        poster={poster}
         muted
         loop
         playsInline
+        preload="auto"
         className={`h-full w-full object-cover rounded-lg ${className}`}
       />
     )

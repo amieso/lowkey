@@ -1,47 +1,22 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { notFound, useParams, useRouter } from 'next/navigation'
-import { Loader2 } from 'lucide-react'
+import { useState } from 'react'
+import { notFound, useParams } from 'next/navigation'
 import { videos } from '@/data/videos'
 import { Header } from '@/components/layout/header'
 import { INDUSTRY_LABELS, PRODUCT_TYPE_LABELS, Video } from '@/types/video'
 import { VideoCard } from '@/components/video/video-card'
 import { VideoModal } from '@/components/video/video-modal'
-import { useAuth } from '@/contexts/auth-context'
 
 export default function CompanyPage() {
   const params = useParams()
-  const router = useRouter()
   const slug = params.slug as string
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
-  const { authState } = useAuth()
-
-  // Redirect to home if not authenticated
-  useEffect(() => {
-    if (authState === 'unauthenticated') {
-      router.push('/')
-    }
-  }, [authState, router])
 
   // Filter videos for this company
   const companyVideos = videos.filter(
     video => video.company.toLowerCase().replace(/\s+/g, '-') === slug && video.videoUrl
   )
-
-  // Show loading state while checking auth
-  if (authState === 'loading') {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <Loader2 className="w-6 h-6 animate-spin text-muted" />
-      </div>
-    )
-  }
-
-  // Don't render if not authenticated
-  if (authState !== 'authenticated') {
-    return null
-  }
 
   if (companyVideos.length === 0) {
     notFound()
@@ -49,7 +24,6 @@ export default function CompanyPage() {
 
   const firstVideo = companyVideos[0]
   const companyName = firstVideo.company
-
   const topIndustry = firstVideo.industry
 
   return (
@@ -59,7 +33,7 @@ export default function CompanyPage() {
       <main className="px-4 md:px-6 py-8">
         {/* Company Header Section - centered */}
         <div className="flex flex-col items-center text-center mb-12">
-          {/* Logo - mb-6 (24px, was 16px, +20px would be 36px but 24 looks good) */}
+          {/* Logo */}
           <div className="mb-6">
             {firstVideo.companyLogoUrl ? (
               <img
@@ -84,7 +58,7 @@ export default function CompanyPage() {
             )}
           </div>
 
-          {/* Name - mb-4 (was mb-3) */}
+          {/* Name */}
           <h1 className="text-2xl font-normal text-foreground mb-4 tracking-tight">
             {companyName}
           </h1>
@@ -115,7 +89,6 @@ export default function CompanyPage() {
               </div>
             )}
           </div>
-
         </div>
 
         {/* Video grid */}
