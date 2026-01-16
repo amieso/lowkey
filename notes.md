@@ -40,3 +40,9 @@
 **Don't do:**
 - Don't use `poster` prop on videos - it causes flash before playback
 - Don't use `preload="none"` or `preload="metadata"` - causes black screen before first frame loads
+
+---
+
+## 2026-01-16 - Deployment
+- Deployed to: https://lowkxy.vercel.app
+- Changes included: Newsletter subscription with Resend (API route, welcome email template, logo hosted at /logo.png)
