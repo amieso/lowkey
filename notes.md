@@ -72,3 +72,7 @@
 - Success state: Same input field shrinks from 288px → 156px (300ms cubic-bezier)
 - Input text fades out (150ms), "You're subscribed!" fades in after 200ms delay
 - Single container morphs - no separate elements swapping
+
+## 2026-01-16 - Deployment
+- Deployed to: https://lowkxy.vercel.app
+- Changes included: Video modal now plays with sound on by default (added startMuted prop to VideoPlayer)
