@@ -10,63 +10,91 @@ export default function PrivacyPage() {
         <h1 className="text-2xl font-semibold text-foreground mb-8">Privacy Policy</h1>
 
         <div className="space-y-6 text-sm text-muted leading-relaxed">
-          <p className="text-muted-dark">Last updated: January 2025</p>
+          <p className="text-muted-dark">Last updated: January 2026</p>
 
           <section className="space-y-3">
             <h2 className="text-base font-medium text-foreground">1. Information We Collect</h2>
             <p>
-              When you use Lowkey, we may collect information you provide directly, such as your email address
-              when you create an account, and information about how you interact with our service.
+              Lowkey collects minimal information. The only personal data we collect is your email
+              address if you choose to subscribe to our newsletter. This is entirely optional.
             </p>
             <p>
-              We automatically collect certain technical information, including your IP address, browser type,
-              and device information to help improve our service and ensure security.
+              We also store your theme preference (dark or light mode) locally in your browser.
+              This data never leaves your device.
             </p>
           </section>
 
           <section className="space-y-3">
             <h2 className="text-base font-medium text-foreground">2. How We Use Your Information</h2>
-            <p>We use the information we collect to:</p>
+            <p>If you subscribe to our newsletter, we use your email address to:</p>
             <ul className="list-disc list-inside space-y-1 ml-2">
-              <li>Provide, maintain, and improve Lowkey</li>
-              <li>Create and manage your account</li>
-              <li>Send you updates and notifications (if you opt in)</li>
-              <li>Respond to your comments and questions</li>
-              <li>Analyze usage patterns to improve user experience</li>
+              <li>Send you updates about new videos on Lowkey</li>
+              <li>Share platform news and announcements</li>
             </ul>
-          </section>
-
-          <section className="space-y-3">
-            <h2 className="text-base font-medium text-foreground">3. Cookies</h2>
             <p>
-              We use cookies and similar technologies to keep you logged in, remember your preferences,
-              and understand how you use our service. You can control cookie settings through your browser,
-              though some features may not work properly if you disable cookies.
+              We do not track your video viewing activity, browsing behavior, or any other usage
+              patterns on our platform.
             </p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-base font-medium text-foreground">4. Data Sharing</h2>
+            <h2 className="text-base font-medium text-foreground">3. Email Service Provider</h2>
             <p>
-              We do not sell your personal information. We may share your information with third-party
-              service providers who help us operate Lowkey (such as hosting and analytics), but only
-              as necessary for them to perform their services.
+              We use Resend as our email service provider to manage newsletter subscriptions and
+              send emails. When you subscribe, your email address is stored with Resend. You can
+              review their privacy policy at{" "}
+              <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline">
+                resend.com/legal/privacy-policy
+              </a>.
             </p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-base font-medium text-foreground">5. Data Security</h2>
+            <h2 className="text-base font-medium text-foreground">4. Local Storage</h2>
             <p>
-              We implement reasonable security measures to protect your information. However, no method
-              of transmission over the internet is completely secure, and we cannot guarantee absolute security.
+              We use your browser&apos;s local storage to remember your theme preference (dark or
+              light mode). This data is stored only on your device and is not transmitted to our
+              servers or any third parties.
             </p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-base font-medium text-foreground">6. Your Rights</h2>
+            <h2 className="text-base font-medium text-foreground">5. Video Content</h2>
             <p>
-              You can access, update, or delete your account information at any time. If you wish to
-              delete your account entirely, please contact us at{" "}
+              Videos on Lowkey are hosted by Mux, a video streaming platform. When you watch a
+              video, your browser connects directly to Mux&apos;s servers. We do not track which
+              videos you watch or how long you watch them.
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-base font-medium text-foreground">6. Third-Party Links</h2>
+            <p>
+              Our platform contains links to company websites and social media profiles. These
+              external sites have their own privacy policies, and we are not responsible for their
+              practices.
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-base font-medium text-foreground">7. Data Retention</h2>
+            <p>
+              If you subscribe to our newsletter, your email address is retained until you
+              unsubscribe. You can unsubscribe at any time using the link in any of our emails,
+              and your email will be removed from our mailing list.
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-base font-medium text-foreground">8. Your Rights</h2>
+            <p>You have the right to:</p>
+            <ul className="list-disc list-inside space-y-1 ml-2">
+              <li>Unsubscribe from our newsletter at any time</li>
+              <li>Request deletion of your email from our mailing list</li>
+              <li>Clear your local storage to remove theme preferences</li>
+            </ul>
+            <p>
+              To request deletion of your data, contact us at{" "}
               <a href="mailto:hello@lowkey.so" className="text-foreground hover:underline">
                 hello@lowkey.so
               </a>.
@@ -74,15 +102,15 @@ export default function PrivacyPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-base font-medium text-foreground">7. Changes to This Policy</h2>
+            <h2 className="text-base font-medium text-foreground">9. Changes to This Policy</h2>
             <p>
-              We may update this privacy policy from time to time. We will notify you of any significant
-              changes by posting the new policy on this page and updating the &quot;Last updated&quot; date.
+              We may update this privacy policy from time to time. We will post any changes on
+              this page and update the &quot;Last updated&quot; date.
             </p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-base font-medium text-foreground">8. Contact Us</h2>
+            <h2 className="text-base font-medium text-foreground">10. Contact Us</h2>
             <p>
               If you have any questions about this privacy policy, please contact us at{" "}
               <a href="mailto:hello@lowkey.so" className="text-foreground hover:underline">

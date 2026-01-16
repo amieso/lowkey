@@ -18,6 +18,7 @@ interface VideoModalProps {
 export function VideoModal({ video, onClose }: VideoModalProps) {
   const playerRef = useRef<VideoPlayerHandle>(null)
   const videoContainerRef = useRef<HTMLDivElement>(null)
+  const videoElementRef = useRef<HTMLVideoElement | null>(null)
   const [videoElement, setVideoElement] = useState<HTMLVideoElement | null>(null)
   const [isPlaying, setIsPlaying] = useState(true)
   const [showPlayIcon, setShowPlayIcon] = useState(false)
@@ -74,6 +75,7 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
     const checkVideoElement = () => {
       const el = playerRef.current?.getVideoElement()
       if (el) {
+        videoElementRef.current = el
         setVideoElement(el)
       }
     }
@@ -211,7 +213,7 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
             {/* Player controls */}
             {videoElement && (
               <PlayerControls
-                videoRef={{ current: videoElement }}
+                videoRef={videoElementRef}
                 duration={video.duration}
                 chapters={chapters}
                 containerRef={videoContainerRef}

@@ -10,7 +10,7 @@ export default function TermsPage() {
         <h1 className="text-2xl font-semibold text-foreground mb-8">Terms of Service</h1>
 
         <div className="space-y-6 text-sm text-muted leading-relaxed">
-          <p className="text-muted-dark">Last updated: January 2025</p>
+          <p className="text-muted-dark">Last updated: January 2026</p>
 
           <section className="space-y-3">
             <h2 className="text-base font-medium text-foreground">1. Acceptance of Terms</h2>
@@ -24,17 +24,22 @@ export default function TermsPage() {
             <h2 className="text-base font-medium text-foreground">2. Description of Service</h2>
             <p>
               Lowkey is a curated platform for discovering product launch videos. We provide a
-              collection of launch videos for inspiration and research purposes. We may modify,
-              suspend, or discontinue any part of the service at any time.
+              collection of launch videos for inspiration and research purposes. The service is
+              freely accessible without requiring an account.
+            </p>
+            <p>
+              You may optionally subscribe to our newsletter to receive updates about new videos
+              and platform news. We may modify, suspend, or discontinue any part of the service
+              at any time.
             </p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-base font-medium text-foreground">3. User Accounts</h2>
+            <h2 className="text-base font-medium text-foreground">3. Newsletter</h2>
             <p>
-              To access certain features, you may need to create an account. You are responsible
-              for maintaining the confidentiality of your account credentials and for all activities
-              that occur under your account.
+              Our newsletter is opt-in only. By subscribing, you agree to receive periodic emails
+              about new videos and platform updates. You can unsubscribe at any time using the
+              link provided in each email.
             </p>
           </section>
 
@@ -45,26 +50,31 @@ export default function TermsPage() {
               <li>Use the service for any unlawful purpose</li>
               <li>Attempt to gain unauthorized access to our systems</li>
               <li>Interfere with or disrupt the service</li>
-              <li>Scrape, harvest, or collect data without permission</li>
-              <li>Upload malicious code or content</li>
+              <li>Scrape, crawl, or automatically collect videos or data without permission</li>
+              <li>Download, redistribute, or re-host video content</li>
+              <li>Use the service for commercial purposes without authorization</li>
             </ul>
           </section>
 
           <section className="space-y-3">
             <h2 className="text-base font-medium text-foreground">5. Intellectual Property</h2>
             <p>
-              The videos featured on Lowkey are the property of their respective creators and companies.
-              Lowkey curates and indexes these videos for discovery purposes. Our platform design,
-              branding, and original content are owned by Lowkey.
+              The videos featured on Lowkey are the property of their respective creators and
+              companies. Lowkey curates and indexes these videos for discovery purposes only.
+              We do not claim ownership of the video content displayed on our platform.
+            </p>
+            <p>
+              Our platform design, branding, and original content (excluding third-party videos)
+              are owned by Lowkey.
             </p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-base font-medium text-foreground">6. Submissions</h2>
+            <h2 className="text-base font-medium text-foreground">6. Third-Party Links</h2>
             <p>
-              If you submit videos or content to Lowkey, you represent that you have the right to
-              share such content and grant us permission to display it on our platform. We reserve
-              the right to accept or reject any submission at our discretion.
+              Lowkey may contain links to external websites, including company websites and social
+              media profiles. We are not responsible for the content, privacy practices, or
+              availability of these third-party sites.
             </p>
           </section>
 
@@ -72,7 +82,8 @@ export default function TermsPage() {
             <h2 className="text-base font-medium text-foreground">7. Disclaimer of Warranties</h2>
             <p>
               Lowkey is provided &quot;as is&quot; without warranties of any kind. We do not guarantee
-              that the service will be uninterrupted, secure, or error-free.
+              that the service will be uninterrupted, secure, or error-free. Video availability
+              depends on third-party hosting and may change without notice.
             </p>
           </section>
 

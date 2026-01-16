@@ -1,9 +1,13 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import { ThemeToggle } from '@/components/ui/theme-toggle'
+import { AnimatedLogo } from '@/components/ui/animated-logo'
 
 export function Header() {
+  const [isLogoHovered, setIsLogoHovered] = useState(false)
+
   return (
     <header className="sticky top-0 z-40 w-full pb-2">
       {/* Progressive blur layers */}
@@ -17,12 +21,13 @@ export function Header() {
       <div className="relative px-4 md:px-6">
         <div className="flex h-12 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-foreground">
-              <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="2"/>
-              <path d="M8 4C10.0517 4 11.8618 4.52179 13.127 5.3125C14.4061 6.11201 15 7.08851 15 8C15 8.91149 14.4061 9.88799 13.127 10.6875C11.8618 11.4782 10.0517 12 8 12C5.9483 12 4.13819 11.4782 2.87305 10.6875C1.59387 9.88799 1 8.91149 1 8C1 7.08851 1.59387 6.11201 2.87305 5.3125C4.13819 4.52179 5.9483 4 8 4Z" stroke="currentColor" strokeWidth="2"/>
-              <circle cx="8" cy="8" r="3" stroke="currentColor" strokeWidth="2"/>
-            </svg>
+          <Link
+            href="/"
+            className="flex items-center gap-2"
+            onMouseEnter={() => setIsLogoHovered(true)}
+            onMouseLeave={() => setIsLogoHovered(false)}
+          >
+            <AnimatedLogo isHovered={isLogoHovered} />
             <span className="text-lg font-kanit font-bold text-foreground">lowkey</span>
           </Link>
 

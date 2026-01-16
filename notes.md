@@ -102,3 +102,69 @@ Added theme switching with dark as default and oatmeal light mode as option.
 - Video player controls stay dark-themed (white text on dark overlay) for contrast over video
 - Video card hover overlay stays dark (`bg-black`) for readability
 - Modal backdrop uses `bg-background/90` so it adapts to theme
+
+## 2026-01-16 - Branding Assets & Favicon
+
+**Logomark:** Eye/lens symbol (circle + eye shape + pupil) representing "curated view"
+
+**Favicon setup:**
+- `/src/app/icon.svg` - Theme-adaptive (uses CSS `prefers-color-scheme`)
+  - Dark browser theme → white strokes
+  - Light browser theme → black strokes
+- `/src/app/icon.png` - Black PNG fallback for Safari (doesn't support SVG favicons)
+- Safari ignores SVG favicons entirely, so PNG is required
+
+**OG Image:**
+- `/public/animated-og.gif` - Animated eye logo on black background
+- GIF format works for animated previews on Discord/Slack
+- Twitter, Facebook, LinkedIn, iMessage do NOT animate GIFs in link previews (first frame only)
+
+**Logo files in /public:**
+- `logomark.svg` - White eye mark (for dark backgrounds)
+- `logomark-dark.svg` - Black eye mark (for light backgrounds)
+- `logo.svg` - "lowkey" wordmark
+- `favicon-white.png`, `favicon-black.png` - PNG versions
+
+**Header logo:** Icon + 8px gap + wordmark, uses `currentColor` to adapt to theme
+
+## 2026-01-16 - Animated Logo on Hover
+
+Added eye animation to the header logo that triggers on hover over the entire logo lockup (icon + wordmark).
+
+**Implementation:**
+- Component: `src/components/ui/animated-logo.tsx`
+- Header passes `isHovered` prop from mouse enter/leave on Link wrapper
+- Uses SMIL `<animate>` for path morphing (eye blink) and CSS keyframes for pupil movement
+
+**Animation specs (matching OG image exactly):**
+- Duration: 12s, loops infinitely while hovering
+- Pupil movement: translateX(3.6px) right → center → left → center pattern
+- Eye blink: Path morphs at keyTimes 0.58→0.60→0.62 (quick blink near end of cycle)
+- Easing: `0.4 0 0.2 1` spline for smooth motion
+
+**Key learnings:**
+- Use `useId()` to generate unique IDs for clipPath and keyframes to avoid conflicts
+- SMIL animate elements need to be conditionally rendered (not just toggled) to restart animation
+
+## 2026-01-16 - Emoji Confetti Animation
+
+Added emoji explosion animation when users successfully subscribe to the newsletter.
+
+**Implementation:**
+- Component: `src/components/ui/emoji-confetti.tsx`
+- Triggers when `status === 'success'` in hero-section
+- Uses Framer Motion with per-property transitions for smooth animation
+
+**Animation details:**
+- 7 emojis: ♟️ ☑️ 💫 🙌 💪 ✨ 🚀
+- X uses spring physics (stiffness: 100, damping: 20) for smooth horizontal burst
+- Y uses keyframe animation with hold at peak before floating up
+- Opacity fades out at 70% of animation (before reaching top)
+- Stagger delay: 0.08s between emojis
+- Total duration: 3s
+
+**Key learnings:**
+- Single easing for all keyframes causes jitter at transition points
+- Per-property transitions with different easing curves = smoother animation
+- Spring physics on X eliminates horizontal jitter
+- Cubic bezier values > 1 cause overshoot/bounce (can cause jitter if not desired)

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { MorphText } from './ui/morph-text'
+import { EmojiConfetti } from './ui/emoji-confetti'
 
 const ROTATING_WORDS = ['launch video', 'product demo', 'announcement']
 
@@ -33,6 +34,11 @@ export function HeroSection() {
 
       setStatus('success')
       setEmail('')
+
+      // Reset to idle after 4 seconds
+      setTimeout(() => {
+        setStatus('idle')
+      }, 4000)
     } catch {
       setStatus('error')
       setErrorMessage('Something went wrong. Try again.')
@@ -49,14 +55,15 @@ export function HeroSection() {
           <MorphText prefix="Find your next" words={ROTATING_WORDS} />
         </h1>
         <p className="mt-4 text-lg text-muted leading-relaxed max-w-xl mx-auto">
-          A curated collection of the best product launch videos.
-          Get inspired by how top companies announce their products.
+          A curated collection of the best product launch videos. Subscribe to get the latest launches delivered to your inbox.
         </p>
 
         <form onSubmit={handleSubmit} className="mt-10 flex justify-center mx-auto">
           <div className="flex flex-col gap-1">
-            <div
-              className="relative h-10 rounded-full overflow-hidden bg-foreground/5"
+            <div className="relative">
+              <EmojiConfetti trigger={status === 'success'} />
+              <div
+                className="relative h-10 rounded-full overflow-hidden bg-foreground/5"
               style={{
                 width: status === 'success' ? 156 : 288,
                 transition: 'width 300ms cubic-bezier(0.4, 0, 0.2, 1)'
@@ -110,6 +117,7 @@ export function HeroSection() {
                   <ArrowRight className="w-4 h-4" />
                 )}
               </button>
+              </div>
             </div>
             {errorMessage && <span className="text-[11px] text-red-500 text-center px-2">{errorMessage}</span>}
           </div>

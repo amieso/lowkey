@@ -103,15 +103,15 @@ export function PlayerControls({
     <div className="absolute bottom-0 left-0 right-0 z-20">
       {/* Progressive blur layers */}
       <div
-        className="absolute inset-0 backdrop-blur-[2px]"
+        className="absolute inset-0 backdrop-blur-[2px] pointer-events-none"
         style={{ maskImage: 'linear-gradient(to top, black 0%, transparent 60%)' }}
       />
       <div
-        className="absolute inset-0 backdrop-blur-[8px]"
+        className="absolute inset-0 backdrop-blur-[8px] pointer-events-none"
         style={{ maskImage: 'linear-gradient(to top, black 0%, transparent 30%)' }}
       />
       {/* Dark overlay for contrast */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none" />
 
       {/* Segmented seek bar */}
       <div className="relative px-4 pt-8">
