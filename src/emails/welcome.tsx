@@ -4,6 +4,7 @@ import {
   Head,
   Html,
   Img,
+  Link,
   Preview,
   Section,
   Text,
@@ -11,7 +12,11 @@ import {
 
 const LOGO_URL = 'https://lowkxy.vercel.app/logo.png'
 
-export function WelcomeEmail() {
+interface WelcomeEmailProps {
+  email: string
+}
+
+export function WelcomeEmail({ email }: WelcomeEmailProps) {
   return (
     <Html>
       <Head />
@@ -36,11 +41,14 @@ export function WelcomeEmail() {
 
           <Section style={footer}>
             <Text style={footerText}>
-              You are receiving this email because you opted-in to receive updates from Lowkey
+              You opted-in to receive updates from Lowkey
             </Text>
             <Text style={footerText}>
               Amie, Adalbertstr. 20, 10997, Berlin
             </Text>
+            <Link href={`https://lowkxy.vercel.app/unsubscribe?email=${encodeURIComponent(email)}`} style={unsubscribeLink}>
+              Unsubscribe
+            </Link>
           </Section>
         </Container>
       </Body>
@@ -56,5 +64,6 @@ const paragraph = { fontSize: '15px', lineHeight: '1.6', color: '#525252', margi
 const signature = { fontSize: '15px', color: '#525252', margin: '32px 0 0 0' }
 const footer = { marginTop: '48px', paddingTop: '24px', borderTop: '1px solid #e5e5e5' }
 const footerText = { fontSize: '12px', color: '#a1a1a1', margin: '0' }
+const unsubscribeLink = { fontSize: '12px', color: '#a1a1a1', marginTop: '8px', display: 'block' }
 
 export default WelcomeEmail

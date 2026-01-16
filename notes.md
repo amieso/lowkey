@@ -64,3 +64,11 @@
   - Title bar elements slide down with staggered delays (0.15s, 0.18s)
   - Exit animations are fast (0.1s) with upward movement to avoid ghosting
 - No close button - dismiss via backdrop click or Escape key
+
+## 2026-01-16 - Hero Subscribe Input Redesign
+- Placeholder: "Enter your email" (center-aligned)
+- Submit button: 32px round white button with arrow, 4px inset from input edge
+- Button appears with fade when email text is entered
+- Success state: Same input field shrinks from 288px → 156px (300ms cubic-bezier)
+- Input text fades out (150ms), "You're subscribed!" fades in after 200ms delay
+- Single container morphs - no separate elements swapping

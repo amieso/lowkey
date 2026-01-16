@@ -9,6 +9,13 @@
 (none)
 
 ## Just Completed
+- [x] Redesign hero subscribe input
+  - Center-aligned placeholder "Enter your email"
+  - Inline 32px round submit button with arrow (4px inset)
+  - Button fades in when email entered
+  - Success state: field shrinks with smooth animation, text morphs to "You're subscribed!"
+
+## Recently Completed
 - [x] Add card-to-modal morph animation
   - Shared `layoutId={video-${video.id}}` between VideoCard and VideoModal
   - Transition: 0.25s with ease [0.4, 0, 0.2, 1]

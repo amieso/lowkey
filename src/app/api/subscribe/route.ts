@@ -40,7 +40,7 @@ export async function POST(request: Request) {
     from: 'lowkey <onboarding@resend.dev>',
     to: email,
     subject: 'welcome to lowkey',
-    react: WelcomeEmail(),
+    react: WelcomeEmail({ email }),
   })
   console.log('Email result:', { emailData, emailError })
 
