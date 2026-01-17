@@ -50,6 +50,14 @@
 - [ ] Fix intro logo handoff animation (logo jumps during settling phase)
 - [ ] Investigate intro logo trace animation on mobile (user reports it's "messed up")
 
+## Recently Completed (Email Logo Fix - Jan 2026)
+- [x] Fixed welcome email logo not displaying
+  - Issue was Resend's `onboarding@resend.dev` sender can only send to account owner
+  - Purchased domain on IONOS and verified with Resend (DKIM, SPF, DMARC records)
+  - Set up `RESEND_FROM_EMAIL` env var with verified domain
+  - Logo now uses direct URL from `NEXT_PUBLIC_SITE_URL`
+  - Softened logo appearance (32px, 60% opacity)
+
 ## Recently Completed (Security Audit - Jan 2026)
 - [x] Fixed XSS vulnerability in company page (innerHTML → textContent)
 - [x] Restricted image domains in next.config.ts (was allowing **)

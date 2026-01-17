@@ -47,6 +47,27 @@
 - Deployed to: https://lowkxy.vercel.app
 - Changes included: Newsletter subscription with Resend (API route, welcome email template, logo hosted at /logo.png)
 
+## 2026-01-17 - Email Logo Fix
+
+**Problem:** Welcome email logo not displaying - showed broken image.
+
+**Root cause:** Resend's default `onboarding@resend.dev` sender can only send emails to the account owner's email. Trying to send to other emails returned 403 error.
+
+**Solution:**
+1. Purchased domain on IONOS
+2. Added DNS records in IONOS for Resend verification:
+   - TXT: `resend._domainkey` (DKIM)
+   - MX: `send` → `feedback-smtp.eu-west-1.amazonses.com` (priority 10)
+   - TXT: `send` → `v=spf1 include:amazonses.com ~all` (SPF)
+   - TXT: `_dmarc` → `v=DMARC1; p=none;` (DMARC)
+3. Set `RESEND_FROM_EMAIL` env var in Vercel: `lowkey <hello@domain.com>`
+4. Set `NEXT_PUBLIC_SITE_URL` env var for logo URL
+
+**Email template setup:**
+- Logo: `${SITE_URL}/logo-black.png` (direct URL, not CID attachment or base64)
+- Size: 32x32px with 60% opacity (softer appearance)
+- CID attachments and base64 don't work reliably across email clients
+
 ## 2026-01-16 - Video Modal Title Bar
 - Added title bar above video player with company/title + Visit button
 - Staggered animations: company (delay 0.15), title (delay 0.18), button (delay 0.15)
