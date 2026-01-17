@@ -46,9 +46,9 @@ export function HeroSection() {
   }
 
   return (
-    <section className="px-4 md:px-6 pt-11 pb-12 md:pt-[116px] md:pb-32">
+    <section className="px-4 md:px-6 pt-[50px] pb-12 md:pt-[116px] md:pb-32">
       <div className="max-w-3xl mx-auto text-center">
-        <p className="text-[10px] md:text-[12px] font-mono text-muted uppercase tracking-widest mb-5 md:mb-7">
+        <p className="text-[14px] md:text-[12px] font-mono text-muted uppercase tracking-widest mb-5 md:mb-7">
           From the makers of Amie
         </p>
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-medium text-foreground leading-[1.1] tracking-tight">

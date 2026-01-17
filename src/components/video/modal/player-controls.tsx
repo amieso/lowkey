@@ -142,11 +142,15 @@ export function PlayerControls({
             )}
           </button>
 
-          {/* Skip backward 5s */}
-          <SkipButton direction="backward" onSkip={handleSkip} />
+          {/* Skip backward 5s - hidden on mobile */}
+          <div className="hidden sm:block">
+            <SkipButton direction="backward" onSkip={handleSkip} />
+          </div>
 
-          {/* Skip forward 5s */}
-          <SkipButton direction="forward" onSkip={handleSkip} />
+          {/* Skip forward 5s - hidden on mobile */}
+          <div className="hidden sm:block">
+            <SkipButton direction="forward" onSkip={handleSkip} />
+          </div>
 
           {/* Volume with slider */}
           <VolumeSlider videoRef={videoRef} />
@@ -170,16 +174,16 @@ export function PlayerControls({
             />
           )}
 
-          {/* Speed selector */}
-          <SpeedSelector
-            currentSpeed={playbackSpeed}
-            onSpeedChange={handleSpeedChange}
-          />
+          {/* Speed selector - hidden on mobile */}
+          <div className="hidden sm:block">
+            <SpeedSelector
+              currentSpeed={playbackSpeed}
+              onSpeedChange={handleSpeedChange}
+            />
+          </div>
 
           {/* Fullscreen */}
-          {containerRef && (
-            <FullscreenButton containerRef={containerRef} />
-          )}
+          <FullscreenButton containerRef={containerRef} videoRef={videoRef} />
         </div>
       </div>
     </div>
