@@ -35,9 +35,13 @@
 - [x] Fix logo animation on returning visits
   - Set introComplete=true when intro is skipped so logo animates
 - [x] Enable pull-to-refresh on mobile (removed overscroll-behavior: none)
+- [x] Fix iOS input zoom on mobile
+  - Added viewport meta with maximumScale=1, userScalable=false
+  - Changed hero input from text-sm to text-base (16px prevents iOS auto-zoom)
 
 ## In Progress
 - [ ] Fix intro logo handoff animation (logo jumps during settling phase)
+- [ ] Investigate intro logo trace animation on mobile (user reports it's "messed up")
 
 ## Backlog
 (none)

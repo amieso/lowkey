@@ -39,7 +39,7 @@ export function VideoGrid({ videos, columns = 4 }: VideoGridProps) {
   return (
     <>
       <div
-        className="grid gap-x-4 gap-y-3 sm:gap-x-6 sm:gap-y-4 grid-cols-1 sm:grid-cols-2 md:[grid-template-columns:repeat(var(--grid-cols),minmax(0,1fr))]"
+        className="grid gap-x-4 gap-y-3 sm:gap-x-6 sm:gap-y-4 grid-cols-1 sm:grid-cols-2 lg:[grid-template-columns:repeat(var(--grid-cols),minmax(0,1fr))]"
         style={gridStyle}
       >
         {videos.map((video, index) => (

@@ -320,3 +320,25 @@ if (!isLoading && !showIntroFromHook && !introStarted) {
 ## 2026-01-17 - Pull-to-Refresh
 
 Removed `overscroll-behavior: none` from globals.css to enable native pull-to-refresh on mobile Safari/Chrome.
+
+## 2026-01-17 - iOS Input Zoom Fix
+
+**Problem:** Tapping the email input on mobile caused the page to zoom/shift left instead of staying centered.
+
+**Root cause:** Two issues:
+1. iOS Safari auto-zooms when focusing inputs with font-size < 16px
+2. No viewport meta to prevent user scaling
+
+**Fix:**
+1. Added viewport export in `layout.tsx`:
+   ```tsx
+   export const viewport = {
+     width: 'device-width',
+     initialScale: 1,
+     maximumScale: 1,
+     userScalable: false,
+   }
+   ```
+2. Changed hero input from `text-sm` (14px) to `text-base` (16px)
+
+**Key learning:** iOS requires both the viewport meta AND 16px+ font size to prevent zoom on input focus.
