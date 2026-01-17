@@ -41,13 +41,6 @@ export async function POST(request: Request) {
     to: email,
     subject: 'welcome to lowkey',
     react: WelcomeEmail({ email }),
-    attachments: [
-      {
-        filename: 'logo.png',
-        path: 'https://lowkxy.vercel.app/logo-black.png',
-        contentId: 'logo',
-      },
-    ],
   })
 
   if (sendError) {
