@@ -65,7 +65,7 @@
 
 **Email template setup:**
 - Logo: `${SITE_URL}/logo-black.png` (direct URL, not CID attachment or base64)
-- Size: 32x32px with 60% opacity (softer appearance)
+- Size: 32x32px at full opacity
 - CID attachments and base64 don't work reliably across email clients
 
 ## 2026-01-16 - Video Modal Title Bar

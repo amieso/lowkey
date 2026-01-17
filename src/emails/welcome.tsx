@@ -31,7 +31,7 @@ export function WelcomeEmail({ email }: WelcomeEmailProps) {
               width="32"
               height="32"
               alt="lowkey"
-              style={{ display: 'block', outline: 'none', border: 'none', textDecoration: 'none', opacity: 0.6 }}
+              style={{ display: 'block', outline: 'none', border: 'none', textDecoration: 'none' }}
             />
           </Section>
 
