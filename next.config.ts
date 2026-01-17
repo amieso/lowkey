@@ -13,7 +13,8 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: '/:path*',
+        // Security headers for all pages except static assets
+        source: '/:path((?!.*\\.(?:png|jpg|jpeg|gif|ico|svg|webp)$).*)',
         headers: [
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'X-Frame-Options', value: 'DENY' },

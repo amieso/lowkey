@@ -10,8 +10,9 @@ import {
   Text,
 } from '@react-email/components'
 
-// Direct URL - most reliable for email clients
-const LOGO_URL = 'https://lowkxy.vercel.app/logo-black.png'
+// Site URL from environment (defaults for local dev)
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://lowkxy.vercel.app'
+const LOGO_URL = `${SITE_URL}/logo-black.png`
 
 interface WelcomeEmailProps {
   email: string
@@ -53,7 +54,7 @@ export function WelcomeEmail({ email }: WelcomeEmailProps) {
             <Text style={footerText}>
               Amie, Adalbertstr. 20, 10997, Berlin
             </Text>
-            <Link href={`https://lowkxy.vercel.app/unsubscribe?email=${encodeURIComponent(email)}`} style={unsubscribeLink}>
+            <Link href={`${SITE_URL}/unsubscribe?email=${encodeURIComponent(email)}`} style={unsubscribeLink}>
               Unsubscribe
             </Link>
           </Section>

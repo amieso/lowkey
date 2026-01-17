@@ -37,7 +37,7 @@ export async function POST(request: Request) {
   }
 
   const { error: sendError } = await resend.emails.send({
-    from: 'lowkey <onboarding@resend.dev>',
+    from: process.env.RESEND_FROM_EMAIL || 'lowkey <onboarding@resend.dev>',
     to: email,
     subject: 'welcome to lowkey',
     react: WelcomeEmail({ email }),
