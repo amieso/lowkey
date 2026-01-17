@@ -24,7 +24,11 @@ function HomePageContent({ children }: HomePageWrapperProps) {
       setIntroStarted(true)
       setShouldShowIntro(true)
     }
-  }, [isLoading, showIntroFromHook, setShouldShowIntro])
+    // If no intro needed, mark as complete so logo animates
+    if (!isLoading && !showIntroFromHook && !introStarted) {
+      setIntroComplete(true)
+    }
+  }, [isLoading, showIntroFromHook, introStarted, setShouldShowIntro, setIntroComplete])
 
   const handleIntroComplete = () => {
     markAsSeen() // Mark for next visit, but don't change render branch

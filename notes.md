@@ -292,3 +292,31 @@ Created two separate Visit button elements rather than repositioning one:
 - Desktop: `hidden sm:inline-flex` in title bar (row layout)
 - Mobile: `sm:hidden mt-6 w-full` below video (full-width, 24px margin)
 This avoids complex positioning logic and keeps each layout clean.
+
+## 2026-01-17 - Mobile Player Controls
+
+**Hidden on mobile (< 640px / sm breakpoint):**
+- Skip buttons (±5s) - touch devices use scrubbing instead
+- Speed selector (1x) - rarely used on mobile, saves space
+
+**iOS Safari fullscreen:**
+- iOS doesn't support `requestFullscreen` on containers, only on video elements
+- Added `webkitEnterFullscreen` / `webkitSupportsFullscreen` check
+- Falls back to container fullscreen on desktop browsers
+
+## 2026-01-17 - Logo Animation Fix
+
+**Problem:** Logo was static on returning visits (when intro is skipped)
+
+**Root cause:** `introComplete` stayed `false` when no intro was shown, so `AnimatedLogo` didn't animate.
+
+**Fix:** In `home-page-wrapper.tsx`, added useEffect to set `introComplete(true)` when intro is not needed:
+```tsx
+if (!isLoading && !showIntroFromHook && !introStarted) {
+  setIntroComplete(true)
+}
+```
+
+## 2026-01-17 - Pull-to-Refresh
+
+Removed `overscroll-behavior: none` from globals.css to enable native pull-to-refresh on mobile Safari/Chrome.
