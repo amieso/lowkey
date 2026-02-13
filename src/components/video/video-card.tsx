@@ -91,10 +91,10 @@ export const VideoCard = memo(function VideoCard({ video, onSelect, disablePlayb
             />
           )}
 
-          {/* Dark overlay with company + title on hover - hidden on touch devices */}
-          <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-col justify-start p-3 md:p-5 pointer-events-none hidden md:flex">
-            <span className="text-[10px] md:text-xs text-white/70 tracking-widest uppercase font-mono">{video.company}</span>
-            <h3 className="text-lg md:text-2xl font-light text-white tracking-tight line-clamp-2 mt-1 md:mt-2">{video.title}</h3>
+          {/* Hover labels - keep video visible while showing metadata */}
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-col justify-start p-3 md:p-5 pointer-events-none hidden md:flex">
+            <span className="text-[10px] md:text-xs text-white/90 tracking-widest uppercase font-mono w-fit rounded px-2 py-1 bg-black/45 backdrop-blur-sm">{video.company}</span>
+            <h3 className="text-lg md:text-2xl font-light text-white tracking-tight line-clamp-2 mt-1 md:mt-2 w-fit max-w-[85%] rounded px-2 py-1.5 bg-black/45 backdrop-blur-sm">{video.title}</h3>
           </div>
 
         </div>

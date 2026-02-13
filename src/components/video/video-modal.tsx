@@ -338,7 +338,7 @@ export function VideoModal({ video, initialTime = 0, handoffVideoElement = null,
             ref={videoContainerRef}
             layoutId={`video-${video.id}`}
             transition={SHARED_LAYOUT_TRANSITION}
-            className="relative aspect-video bg-black rounded-lg overflow-hidden isolate"
+            className="relative aspect-video bg-surface rounded-lg overflow-hidden isolate"
           >
             {/* Clickable overlay to toggle play/pause - excludes bottom controls area */}
             <button
