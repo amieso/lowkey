@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useCallback, useRef, useState, type TouchEvent } from 'react'
+import { useEffect, useCallback, useRef, useState, type TouchEvent, type WheelEvent } from 'react'
 import { motion } from 'framer-motion'
 import { PlayIcon, PauseIcon } from '@/components/ui/player-icons'
 import { Video } from '@/types/video'
@@ -14,12 +14,16 @@ interface VideoModalProps {
 }
 
 const SWIPE_CLOSE_THRESHOLD = 56
+const WHEEL_CLOSE_THRESHOLD = 140
+const WHEEL_RESET_MS = 180
 
 export function VideoModal({ video, onClose }: VideoModalProps) {
   const playerRef = useRef<VideoPlayerHandle>(null)
   const videoContainerRef = useRef<HTMLDivElement>(null)
   const videoElementRef = useRef<HTMLVideoElement | null>(null)
   const touchStartRef = useRef<{ x: number; y: number } | null>(null)
+  const wheelDeltaRef = useRef(0)
+  const wheelResetTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const [videoElement, setVideoElement] = useState<HTMLVideoElement | null>(null)
   const [isPlaying, setIsPlaying] = useState(true)
   const [showPlayIcon, setShowPlayIcon] = useState(false)
@@ -104,11 +108,45 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
     }
   }, [videoElement])
 
+  const shouldCloseForVerticalGesture = useCallback(
+    (deltaX: number, deltaY: number) => {
+      if (Math.abs(deltaY) < SWIPE_CLOSE_THRESHOLD) return false
+      if (Math.abs(deltaY) <= Math.abs(deltaX)) return false
+      onClose()
+      return true
+    },
+    [onClose]
+  )
+
+  const resetWheelAccumulator = useCallback(() => {
+    wheelDeltaRef.current = 0
+    if (wheelResetTimeoutRef.current) {
+      clearTimeout(wheelResetTimeoutRef.current)
+      wheelResetTimeoutRef.current = null
+    }
+  }, [])
+
   const handleTouchStart = useCallback((event: TouchEvent<HTMLDivElement>) => {
     if (event.touches.length !== 1) return
     const touch = event.touches[0]
     touchStartRef.current = { x: touch.clientX, y: touch.clientY }
   }, [])
+
+  const handleTouchMove = useCallback(
+    (event: TouchEvent<HTMLDivElement>) => {
+      const start = touchStartRef.current
+      if (!start || event.touches.length !== 1) return
+
+      const touch = event.touches[0]
+      const deltaX = touch.clientX - start.x
+      const deltaY = touch.clientY - start.y
+
+      if (shouldCloseForVerticalGesture(deltaX, deltaY)) {
+        touchStartRef.current = null
+      }
+    },
+    [shouldCloseForVerticalGesture]
+  )
 
   const handleTouchEnd = useCallback(
     (event: TouchEvent<HTMLDivElement>) => {
@@ -120,12 +158,44 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
       const deltaX = touch.clientX - start.x
       const deltaY = touch.clientY - start.y
 
-      if (Math.abs(deltaY) >= SWIPE_CLOSE_THRESHOLD && Math.abs(deltaY) > Math.abs(deltaX)) {
+      shouldCloseForVerticalGesture(deltaX, deltaY)
+    },
+    [shouldCloseForVerticalGesture]
+  )
+
+  const handleTouchCancel = useCallback(() => {
+    touchStartRef.current = null
+  }, [])
+
+  const handleWheel = useCallback(
+    (event: WheelEvent<HTMLDivElement>) => {
+      if (event.ctrlKey) return
+      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return
+
+      wheelDeltaRef.current += event.deltaY
+
+      if (wheelResetTimeoutRef.current) {
+        clearTimeout(wheelResetTimeoutRef.current)
+      }
+
+      wheelResetTimeoutRef.current = setTimeout(() => {
+        wheelDeltaRef.current = 0
+        wheelResetTimeoutRef.current = null
+      }, WHEEL_RESET_MS)
+
+      if (Math.abs(wheelDeltaRef.current) >= WHEEL_CLOSE_THRESHOLD) {
+        resetWheelAccumulator()
         onClose()
       }
     },
-    [onClose]
+    [onClose, resetWheelAccumulator]
   )
+
+  useEffect(() => {
+    return () => {
+      resetWheelAccumulator()
+    }
+  }, [resetWheelAccumulator])
 
   return (
     <motion.div
@@ -144,8 +214,11 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
+        onTouchStartCapture={handleTouchStart}
+        onTouchMoveCapture={handleTouchMove}
+        onTouchEndCapture={handleTouchEnd}
+        onTouchCancelCapture={handleTouchCancel}
+        onWheelCapture={handleWheel}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Title bar */}
