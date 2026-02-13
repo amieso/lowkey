@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useCallback, useRef, useState } from 'react'
+import { useEffect, useCallback, useRef, useState, type TouchEvent } from 'react'
 import { motion } from 'framer-motion'
 import { PlayIcon, PauseIcon } from '@/components/ui/player-icons'
 import { Video } from '@/types/video'
@@ -13,10 +13,13 @@ interface VideoModalProps {
   onClose: () => void
 }
 
+const SWIPE_CLOSE_THRESHOLD = 56
+
 export function VideoModal({ video, onClose }: VideoModalProps) {
   const playerRef = useRef<VideoPlayerHandle>(null)
   const videoContainerRef = useRef<HTMLDivElement>(null)
   const videoElementRef = useRef<HTMLVideoElement | null>(null)
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null)
   const [videoElement, setVideoElement] = useState<HTMLVideoElement | null>(null)
   const [isPlaying, setIsPlaying] = useState(true)
   const [showPlayIcon, setShowPlayIcon] = useState(false)
@@ -101,6 +104,29 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
     }
   }, [videoElement])
 
+  const handleTouchStart = useCallback((event: TouchEvent<HTMLDivElement>) => {
+    if (event.touches.length !== 1) return
+    const touch = event.touches[0]
+    touchStartRef.current = { x: touch.clientX, y: touch.clientY }
+  }, [])
+
+  const handleTouchEnd = useCallback(
+    (event: TouchEvent<HTMLDivElement>) => {
+      const start = touchStartRef.current
+      touchStartRef.current = null
+      if (!start || event.changedTouches.length !== 1) return
+
+      const touch = event.changedTouches[0]
+      const deltaX = touch.clientX - start.x
+      const deltaY = touch.clientY - start.y
+
+      if (Math.abs(deltaY) >= SWIPE_CLOSE_THRESHOLD && Math.abs(deltaY) > Math.abs(deltaX)) {
+        onClose()
+      }
+    },
+    [onClose]
+  )
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -118,6 +144,8 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Title bar */}
