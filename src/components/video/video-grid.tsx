@@ -17,6 +17,7 @@ interface VideoGridProps {
 
 export function VideoGrid({ videos, columns = 4 }: VideoGridProps) {
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
+  const [activeLayoutVideoId, setActiveLayoutVideoId] = useState<string | null>(null)
   const { shouldShowIntro } = useIntroContext()
 
   // With the new approach, VideoGrid only mounts when:
@@ -27,6 +28,18 @@ export function VideoGrid({ videos, columns = 4 }: VideoGridProps) {
   const gridStyle = {
     '--grid-cols': columns,
   } as React.CSSProperties
+
+  const handleVideoSelect = (video: Video) => {
+    setActiveLayoutVideoId(video.id)
+    setSelectedVideo(video)
+  }
+
+  const handleModalClose = () => {
+    setSelectedVideo(null)
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur()
+    }
+  }
 
   if (videos.length === 0) {
     return (
@@ -45,6 +58,7 @@ export function VideoGrid({ videos, columns = 4 }: VideoGridProps) {
         {videos.map((video, index) => (
           <motion.div
             key={video.id}
+            className={activeLayoutVideoId === video.id ? 'relative z-[60]' : 'relative z-0'}
             initial={shouldShowIntro ? { opacity: 0, y: 40, scale: 0.92 } : false}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{
@@ -55,17 +69,17 @@ export function VideoGrid({ videos, columns = 4 }: VideoGridProps) {
           >
             <VideoCard
               video={video}
-              onSelect={setSelectedVideo}
+              onSelect={handleVideoSelect}
             />
           </motion.div>
         ))}
       </div>
 
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" onExitComplete={() => setActiveLayoutVideoId(null)}>
         {selectedVideo && (
           <VideoModal
             video={selectedVideo}
-            onClose={() => setSelectedVideo(null)}
+            onClose={handleModalClose}
           />
         )}
       </AnimatePresence>

@@ -16,6 +16,7 @@ interface VideoModalProps {
 const SWIPE_CLOSE_THRESHOLD = 56
 const WHEEL_CLOSE_THRESHOLD = 140
 const WHEEL_RESET_MS = 180
+const SHARED_LAYOUT_SPRING = { type: 'spring', stiffness: 340, damping: 34, mass: 0.8 } as const
 
 export function VideoModal({ video, onClose }: VideoModalProps) {
   const playerRef = useRef<VideoPlayerHandle>(null)
@@ -67,11 +68,33 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
 
   useEffect(() => {
     document.addEventListener('keydown', handleEscape)
-    document.body.style.overflow = 'hidden'
+    const scrollY = window.scrollY
+    const body = document.body
+    const previousBodyStyle = {
+      overflow: body.style.overflow,
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+    }
+
+    body.style.overflow = 'hidden'
+    body.style.position = 'fixed'
+    body.style.top = `-${scrollY}px`
+    body.style.left = '0'
+    body.style.right = '0'
+    body.style.width = '100%'
 
     return () => {
       document.removeEventListener('keydown', handleEscape)
-      document.body.style.overflow = 'unset'
+      body.style.overflow = previousBodyStyle.overflow
+      body.style.position = previousBodyStyle.position
+      body.style.top = previousBodyStyle.top
+      body.style.left = previousBodyStyle.left
+      body.style.right = previousBodyStyle.right
+      body.style.width = previousBodyStyle.width
+      window.scrollTo(0, scrollY)
     }
   }, [handleEscape])
 
@@ -202,8 +225,8 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.2 }}
-      className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-background/90 backdrop-blur-lg p-4"
+      transition={{ duration: 0.16 }}
+      className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto bg-background/90 backdrop-blur-lg p-4"
     >
       {/* Backdrop - click to close */}
       <div className="absolute inset-0" onClick={onClose} />
@@ -275,7 +298,7 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
           <motion.div
             ref={videoContainerRef}
             layoutId={`video-${video.id}`}
-            transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+            transition={SHARED_LAYOUT_SPRING}
             className="relative aspect-video bg-black rounded-lg overflow-hidden isolate"
           >
             {/* Clickable overlay to toggle play/pause - excludes bottom controls area */}

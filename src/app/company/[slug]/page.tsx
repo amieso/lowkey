@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { notFound, useParams } from 'next/navigation'
+import { AnimatePresence } from 'framer-motion'
 import { videos } from '@/data/videos'
 import { Header } from '@/components/layout/header'
 import { INDUSTRY_LABELS, PRODUCT_TYPE_LABELS, Video } from '@/types/video'
@@ -12,6 +13,7 @@ export default function CompanyPage() {
   const params = useParams()
   const slug = params.slug as string
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
+  const [activeLayoutVideoId, setActiveLayoutVideoId] = useState<string | null>(null)
 
   // Filter videos for this company
   const companyVideos = videos.filter(
@@ -25,6 +27,18 @@ export default function CompanyPage() {
   const firstVideo = companyVideos[0]
   const companyName = firstVideo.company
   const topIndustry = firstVideo.industry
+
+  const handleVideoSelect = (video: Video) => {
+    setActiveLayoutVideoId(video.id)
+    setSelectedVideo(video)
+  }
+
+  const handleModalClose = () => {
+    setSelectedVideo(null)
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur()
+    }
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -97,22 +111,25 @@ export default function CompanyPage() {
         {/* Video grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {companyVideos.map(video => (
-            <VideoCard
-              key={video.id}
-              video={video}
-              onSelect={setSelectedVideo}
-            />
+            <div key={video.id} className={activeLayoutVideoId === video.id ? 'relative z-[60]' : 'relative z-0'}>
+              <VideoCard
+                video={video}
+                onSelect={handleVideoSelect}
+              />
+            </div>
           ))}
         </div>
       </main>
 
       {/* Video Modal */}
-      {selectedVideo && (
-        <VideoModal
-          video={selectedVideo}
-          onClose={() => setSelectedVideo(null)}
-        />
-      )}
+      <AnimatePresence mode="wait" onExitComplete={() => setActiveLayoutVideoId(null)}>
+        {selectedVideo && (
+          <VideoModal
+            video={selectedVideo}
+            onClose={handleModalClose}
+          />
+        )}
+      </AnimatePresence>
     </div>
   )
 }
