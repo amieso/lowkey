@@ -16,7 +16,7 @@ interface VideoModalProps {
 const SWIPE_CLOSE_THRESHOLD = 56
 const WHEEL_CLOSE_THRESHOLD = 140
 const WHEEL_RESET_MS = 180
-const SHARED_LAYOUT_SPRING = { type: 'spring', stiffness: 340, damping: 34, mass: 0.8 } as const
+const SHARED_LAYOUT_TRANSITION = { duration: 0.3, ease: [0.22, 1, 0.36, 1] } as const
 
 export function VideoModal({ video, onClose }: VideoModalProps) {
   const playerRef = useRef<VideoPlayerHandle>(null)
@@ -68,33 +68,22 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
 
   useEffect(() => {
     document.addEventListener('keydown', handleEscape)
-    const scrollY = window.scrollY
     const body = document.body
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
     const previousBodyStyle = {
       overflow: body.style.overflow,
-      position: body.style.position,
-      top: body.style.top,
-      left: body.style.left,
-      right: body.style.right,
-      width: body.style.width,
+      paddingRight: body.style.paddingRight,
     }
 
     body.style.overflow = 'hidden'
-    body.style.position = 'fixed'
-    body.style.top = `-${scrollY}px`
-    body.style.left = '0'
-    body.style.right = '0'
-    body.style.width = '100%'
+    if (scrollbarWidth > 0) {
+      body.style.paddingRight = `${scrollbarWidth}px`
+    }
 
     return () => {
       document.removeEventListener('keydown', handleEscape)
       body.style.overflow = previousBodyStyle.overflow
-      body.style.position = previousBodyStyle.position
-      body.style.top = previousBodyStyle.top
-      body.style.left = previousBodyStyle.left
-      body.style.right = previousBodyStyle.right
-      body.style.width = previousBodyStyle.width
-      window.scrollTo(0, scrollY)
+      body.style.paddingRight = previousBodyStyle.paddingRight
     }
   }, [handleEscape])
 
@@ -298,7 +287,7 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
           <motion.div
             ref={videoContainerRef}
             layoutId={`video-${video.id}`}
-            transition={SHARED_LAYOUT_SPRING}
+            transition={SHARED_LAYOUT_TRANSITION}
             className="relative aspect-video bg-black rounded-lg overflow-hidden isolate"
           >
             {/* Clickable overlay to toggle play/pause - excludes bottom controls area */}

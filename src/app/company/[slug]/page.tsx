@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { notFound, useParams } from 'next/navigation'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, LayoutGroup } from 'framer-motion'
 import { videos } from '@/data/videos'
 import { Header } from '@/components/layout/header'
 import { INDUSTRY_LABELS, PRODUCT_TYPE_LABELS, Video } from '@/types/video'
@@ -108,28 +108,30 @@ export default function CompanyPage() {
           </div>
         </div>
 
-        {/* Video grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {companyVideos.map(video => (
-            <div key={video.id} className={activeLayoutVideoId === video.id ? 'relative z-[60]' : 'relative z-0'}>
-              <VideoCard
-                video={video}
-                onSelect={handleVideoSelect}
-              />
-            </div>
-          ))}
-        </div>
-      </main>
+        <LayoutGroup id="company-video-layout">
+          {/* Video grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {companyVideos.map(video => (
+              <div key={video.id} className={activeLayoutVideoId === video.id ? 'relative z-[60]' : 'relative z-0'}>
+                <VideoCard
+                  video={video}
+                  onSelect={handleVideoSelect}
+                />
+              </div>
+            ))}
+          </div>
 
-      {/* Video Modal */}
-      <AnimatePresence mode="wait" onExitComplete={() => setActiveLayoutVideoId(null)}>
-        {selectedVideo && (
-          <VideoModal
-            video={selectedVideo}
-            onClose={handleModalClose}
-          />
-        )}
-      </AnimatePresence>
+          {/* Video Modal */}
+          <AnimatePresence mode="wait" onExitComplete={() => setActiveLayoutVideoId(null)}>
+            {selectedVideo && (
+              <VideoModal
+                video={selectedVideo}
+                onClose={handleModalClose}
+              />
+            )}
+          </AnimatePresence>
+        </LayoutGroup>
+      </main>
     </div>
   )
 }

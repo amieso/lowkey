@@ -7,7 +7,7 @@ import { Video } from '@/types/video'
 import { formatDuration } from '@/lib/utils'
 import { CompanyLink } from '@/components/ui/company-link'
 
-const SHARED_LAYOUT_SPRING = { type: 'spring', stiffness: 340, damping: 34, mass: 0.8 } as const
+const SHARED_LAYOUT_TRANSITION = { duration: 0.3, ease: [0.22, 1, 0.36, 1] } as const
 
 interface VideoCardProps {
   video: Video
@@ -64,7 +64,7 @@ export function VideoCard({ video, onSelect, disablePlayback = false }: VideoCar
       {/* Video container - always 16:9 */}
       <motion.div
         layoutId={isGhost ? undefined : `video-${video.id}`}
-        transition={SHARED_LAYOUT_SPRING}
+        transition={SHARED_LAYOUT_TRANSITION}
         className="relative aspect-video w-full rounded-[6px] group-hover:ring-1 group-hover:ring-foreground/10"
       >
         <div className="absolute inset-0 overflow-hidden rounded-[6px] bg-surface isolate">

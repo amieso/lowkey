@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, LayoutGroup } from 'framer-motion'
 import { Video } from '@/types/video'
 import { VideoCard } from './video-card'
 import { VideoModal } from './video-modal'
@@ -50,7 +50,7 @@ export function VideoGrid({ videos, columns = 4 }: VideoGridProps) {
   }
 
   return (
-    <>
+    <LayoutGroup id="home-video-layout">
       <div
         className="grid gap-x-4 gap-y-3 sm:gap-x-6 sm:gap-y-4 grid-cols-1 sm:grid-cols-2 lg:[grid-template-columns:repeat(var(--grid-cols),minmax(0,1fr))]"
         style={gridStyle}
@@ -83,6 +83,6 @@ export function VideoGrid({ videos, columns = 4 }: VideoGridProps) {
           />
         )}
       </AnimatePresence>
-    </>
+    </LayoutGroup>
   )
 }
