@@ -2,15 +2,20 @@
 
 import { useCallback, useState } from 'react'
 import { notFound, useParams } from 'next/navigation'
+import { AnimatePresence, LayoutGroup } from 'framer-motion'
 import { videos } from '@/data/videos'
 import { Header } from '@/components/layout/header'
 import { INDUSTRY_LABELS, PRODUCT_TYPE_LABELS, Video } from '@/types/video'
 import { VideoCard } from '@/components/video/video-card'
+import { VideoModal } from '@/components/video/video-modal'
 
 export default function CompanyPage() {
   const params = useParams()
   const slug = params.slug as string
-  const [expandedVideoId, setExpandedVideoId] = useState<string | null>(null)
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
+  const [selectedStartTime, setSelectedStartTime] = useState(0)
+  const [selectedHandoffVideoElement, setSelectedHandoffVideoElement] = useState<HTMLVideoElement | null>(null)
+  const [activeLayoutVideoId, setActiveLayoutVideoId] = useState<string | null>(null)
 
   // Filter videos for this company
   const companyVideos = videos.filter(
@@ -25,12 +30,17 @@ export default function CompanyPage() {
   const companyName = firstVideo.company
   const topIndustry = firstVideo.industry
 
-  const handleVideoSelect = useCallback((video: Video) => {
-    setExpandedVideoId(video.id)
+  const handleVideoSelect = useCallback((video: Video, startTime: number, handoffVideoElement?: HTMLVideoElement | null) => {
+    setActiveLayoutVideoId(video.id)
+    setSelectedVideo(video)
+    setSelectedStartTime(startTime)
+    setSelectedHandoffVideoElement(handoffVideoElement ?? null)
   }, [])
 
-  const handleExpandedClose = useCallback(() => {
-    setExpandedVideoId(null)
+  const handleModalClose = useCallback(() => {
+    setSelectedVideo(null)
+    setSelectedStartTime(0)
+    setSelectedHandoffVideoElement(null)
     if (document.activeElement instanceof HTMLElement) {
       document.activeElement.blur()
     }
@@ -104,20 +114,32 @@ export default function CompanyPage() {
           </div>
         </div>
 
-        {/* Video grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {companyVideos.map(video => (
-            <div key={video.id} className={expandedVideoId === video.id ? 'relative z-[130]' : 'relative z-0'}>
-              <VideoCard
-                video={video}
-                onSelect={handleVideoSelect}
-                isExpanded={expandedVideoId === video.id}
-                hasExpandedVideo={expandedVideoId !== null}
-                onClose={handleExpandedClose}
+        <LayoutGroup id="company-video-layout">
+          {/* Video grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {companyVideos.map(video => (
+              <div key={video.id} className={activeLayoutVideoId === video.id ? 'relative z-[60]' : 'relative z-0'}>
+                <VideoCard
+                  video={video}
+                  onSelect={handleVideoSelect}
+                  isLayoutActive={activeLayoutVideoId === video.id}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Video Modal */}
+          <AnimatePresence mode="wait" onExitComplete={() => setActiveLayoutVideoId(null)}>
+            {selectedVideo && (
+              <VideoModal
+                video={selectedVideo}
+                initialTime={selectedStartTime}
+                handoffVideoElement={selectedHandoffVideoElement}
+                onClose={handleModalClose}
               />
-            </div>
-          ))}
-        </div>
+            )}
+          </AnimatePresence>
+        </LayoutGroup>
       </main>
     </div>
   )
