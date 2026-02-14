@@ -24,11 +24,15 @@ export const VideoCard = memo(function VideoCard({
   isLayoutActive = false,
 }: VideoCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
+  const wasLayoutActiveRef = useRef(false)
   const isGhost = !video.videoUrl
   const [hasRenderedFrame, setHasRenderedFrame] = useState(false)
+  const [showLayoutCover, setShowLayoutCover] = useState(false)
 
   useEffect(() => {
     setHasRenderedFrame(false)
+    setShowLayoutCover(false)
+    wasLayoutActiveRef.current = false
   }, [video.id])
 
   useEffect(() => {
@@ -71,6 +75,45 @@ export const VideoCard = memo(function VideoCard({
       videoEl.removeEventListener('playing', markRendered)
     }
   }, [video.id, isGhost, disablePlayback])
+
+  useEffect(() => {
+    if (isGhost || disablePlayback) return
+
+    const videoEl = videoRef.current
+    if (!videoEl) return
+
+    if (isLayoutActive) {
+      wasLayoutActiveRef.current = true
+      setShowLayoutCover(true)
+      return
+    }
+
+    if (!wasLayoutActiveRef.current) return
+    wasLayoutActiveRef.current = false
+
+    // Keep cover until the next decoded frame after the element returns to the card.
+    if ('requestVideoFrameCallback' in videoEl && typeof videoEl.requestVideoFrameCallback === 'function') {
+      const callbackId = videoEl.requestVideoFrameCallback(() => {
+        setShowLayoutCover(false)
+      })
+      return () => {
+        if (typeof videoEl.cancelVideoFrameCallback === 'function') {
+          videoEl.cancelVideoFrameCallback(callbackId)
+        }
+      }
+    }
+
+    let raf1 = 0
+    let raf2 = 0
+    raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => setShowLayoutCover(false))
+    })
+
+    return () => {
+      cancelAnimationFrame(raf1)
+      cancelAnimationFrame(raf2)
+    }
+  }, [isLayoutActive, isGhost, disablePlayback])
 
   const handleClick = () => {
     if (!isGhost) {
@@ -118,8 +161,8 @@ export const VideoCard = memo(function VideoCard({
                 src={video.thumbnailUrl}
                 alt=""
                 aria-hidden="true"
-                className={`absolute inset-0 h-full w-full object-cover rounded-[6px] transition-opacity duration-200 ${
-                  hasRenderedFrame && !isLayoutActive ? 'opacity-0' : 'opacity-100'
+                className={`absolute inset-0 z-20 h-full w-full object-cover rounded-[6px] transition-opacity duration-120 ${
+                  hasRenderedFrame && !showLayoutCover ? 'opacity-0' : 'opacity-100'
                 }`}
               />
               <video
@@ -127,7 +170,7 @@ export const VideoCard = memo(function VideoCard({
                 muted
                 loop
                 playsInline
-                className="absolute inset-0 h-full w-full object-cover rounded-[6px]"
+                className="absolute inset-0 z-10 h-full w-full object-cover rounded-[6px]"
               />
             </>
           )}
