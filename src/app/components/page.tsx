@@ -74,7 +74,7 @@ export default function ComponentsPage() {
   const [confettiTrigger, setConfettiTrigger] = useState(false)
   const [email, setEmail] = useState('')
 
-  const handleVideoSelect = (video: Video, startTime: number) => {
+  const handleVideoSelect = (video: Video, startTime = 0) => {
     setSelectedVideo(video)
     setSelectedStartTime(startTime)
     setLastSelectedId(video.id)
