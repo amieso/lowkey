@@ -26,6 +26,7 @@ export const viewport = {
 }
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://lowkey.so'),
   title: 'Lowkey - Curated Product Launch Videos',
   description: 'The best product launch videos, curated.',
   openGraph: {

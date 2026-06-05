@@ -5,7 +5,6 @@ import { ArrowRight } from 'lucide-react'
 import { Footer } from '@/components/layout/footer'
 import { VideoCard } from '@/components/video/video-card'
 import { VideoCardSkeleton } from '@/components/video/video-card-skeleton'
-import { VideoModal } from '@/components/video/video-modal'
 import { AnimatedLogo } from '@/components/ui/animated-logo'
 import { MorphText } from '@/components/ui/morph-text'
 import { EmojiConfetti } from '@/components/ui/emoji-confetti'
@@ -29,6 +28,7 @@ import { IntroProvider } from '@/context/intro-context'
 const sampleVideo: Video = {
   id: '1',
   slug: 'lovable',
+  companySlug: 'lovable',
   title: 'Lovable Launch',
   company: 'Lovable',
   description: 'Lovable transforms how we build software.',
@@ -50,6 +50,7 @@ const sampleVideo: Video = {
 const ghostVideo: Video = {
   id: '99',
   slug: 'coming-soon',
+  companySlug: 'tbd',
   title: 'Coming Soon',
   company: 'TBD',
   description: '',
@@ -68,22 +69,16 @@ const ghostVideo: Video = {
 }
 
 export default function ComponentsPage() {
-  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
-  const [selectedStartTime, setSelectedStartTime] = useState(0)
-  const [lastSelectedId, setLastSelectedId] = useState<string | null>(null)
+  const [expandedVideoId, setExpandedVideoId] = useState<string | null>(null)
   const [confettiTrigger, setConfettiTrigger] = useState(false)
   const [email, setEmail] = useState('')
 
-  const handleVideoSelect = (video: Video, startTime: number) => {
-    setSelectedVideo(video)
-    setSelectedStartTime(startTime)
-    setLastSelectedId(video.id)
+  const handleVideoSelect = (video: Video) => {
+    setExpandedVideoId(video.id)
   }
 
   const handleModalClose = () => {
-    setSelectedVideo(null)
-    setSelectedStartTime(0)
-    setTimeout(() => setLastSelectedId(null), 300)
+    setExpandedVideoId(null)
   }
 
   return (
@@ -404,9 +399,14 @@ export default function ComponentsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl">
-            <div className={lastSelectedId === sampleVideo.id ? 'relative z-10' : ''}>
+            <div className="relative">
               <p className="text-xs font-mono text-muted uppercase tracking-widest mb-4">Active</p>
-              <VideoCard video={sampleVideo} onSelect={handleVideoSelect} />
+              <VideoCard
+                video={sampleVideo}
+                onSelect={handleVideoSelect}
+                onClose={handleModalClose}
+                isExpanded={expandedVideoId === sampleVideo.id}
+              />
             </div>
             <div>
               <p className="text-xs font-mono text-muted uppercase tracking-widest mb-4">Ghost</p>
@@ -464,10 +464,11 @@ export default function ComponentsPage() {
               <div className="flex items-center gap-4">
                 <CompanyLink
                   company="Lovable"
+                  companySlug="lovable"
                   className="text-base text-muted hover:text-foreground transition-colors"
                 />
                 <span className="text-muted/40">→</span>
-                <span className="text-sm font-mono text-muted">/company/lovable</span>
+                <span className="text-sm font-mono text-muted">/lovable</span>
               </div>
             </div>
           </div>
@@ -486,14 +487,6 @@ export default function ComponentsPage() {
           </div>
         </section>
 
-        {/* Modal */}
-        {selectedVideo && (
-          <VideoModal
-            video={selectedVideo}
-            initialTime={selectedStartTime}
-            onClose={handleModalClose}
-          />
-        )}
       </div>
     </IntroProvider>
   )

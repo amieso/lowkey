@@ -1,53 +1,31 @@
 'use client'
 
-import { useCallback, useState } from 'react'
-import { notFound, useParams } from 'next/navigation'
-import { AnimatePresence, LayoutGroup } from 'framer-motion'
-import { videos } from '@/data/videos'
 import { Header } from '@/components/layout/header'
 import { INDUSTRY_LABELS, PRODUCT_TYPE_LABELS, Video } from '@/types/video'
 import { VideoCard } from '@/components/video/video-card'
-import { VideoModal } from '@/components/video/video-modal'
+import { VideoBackdrop } from '@/components/video/video-backdrop'
+import { useExpandedVideo } from '@/components/video/use-expanded-video'
 
-export default function CompanyPage() {
-  const params = useParams()
-  const slug = params.slug as string
-  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
-  const [selectedStartTime, setSelectedStartTime] = useState(0)
-  const [selectedHandoffVideoElement, setSelectedHandoffVideoElement] = useState<HTMLVideoElement | null>(null)
-  const [activeLayoutVideoId, setActiveLayoutVideoId] = useState<string | null>(null)
+interface CompanyViewProps {
+  videos: Video[]
+  // When set, the matching video starts expanded — this is how a
+  // /[company]/[slug] deep link opens straight into the player.
+  initialVideoSlug?: string
+}
 
-  // Filter videos for this company
-  const companyVideos = videos.filter(
-    video => video.company.toLowerCase().replace(/\s+/g, '-') === slug && video.videoUrl
+export function CompanyView({ videos: companyVideos, initialVideoSlug }: CompanyViewProps) {
+  const { expandedVideoId, instant, open, close } = useExpandedVideo(
+    companyVideos,
+    companyVideos.find((video) => video.slug === initialVideoSlug)?.id ?? null,
   )
-
-  if (companyVideos.length === 0) {
-    notFound()
-  }
 
   const firstVideo = companyVideos[0]
   const companyName = firstVideo.company
   const topIndustry = firstVideo.industry
 
-  const handleVideoSelect = useCallback((video: Video, startTime: number, handoffVideoElement?: HTMLVideoElement | null) => {
-    setActiveLayoutVideoId(video.id)
-    setSelectedVideo(video)
-    setSelectedStartTime(startTime)
-    setSelectedHandoffVideoElement(handoffVideoElement ?? null)
-  }, [])
-
-  const handleModalClose = useCallback(() => {
-    setSelectedVideo(null)
-    setSelectedStartTime(0)
-    setSelectedHandoffVideoElement(null)
-    if (document.activeElement instanceof HTMLElement) {
-      document.activeElement.blur()
-    }
-  }, [])
-
   return (
     <div className="min-h-screen bg-background">
+      <VideoBackdrop show={expandedVideoId !== null} onClose={close} />
       <Header />
 
       <main className="px-4 md:px-6 py-8">
@@ -114,32 +92,20 @@ export default function CompanyPage() {
           </div>
         </div>
 
-        <LayoutGroup id="company-video-layout">
-          {/* Video grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {companyVideos.map(video => (
-              <div key={video.id} className={activeLayoutVideoId === video.id ? 'relative z-[60]' : 'relative z-0'}>
-                <VideoCard
-                  video={video}
-                  onSelect={handleVideoSelect}
-                  isLayoutActive={activeLayoutVideoId === video.id}
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Video Modal */}
-          <AnimatePresence mode="wait" onExitComplete={() => setActiveLayoutVideoId(null)}>
-            {selectedVideo && (
-              <VideoModal
-                video={selectedVideo}
-                initialTime={selectedStartTime}
-                handoffVideoElement={selectedHandoffVideoElement}
-                onClose={handleModalClose}
+        {/* Video grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {companyVideos.map(video => (
+            <div key={video.id} className="relative">
+              <VideoCard
+                video={video}
+                onSelect={open}
+                onClose={close}
+                isExpanded={expandedVideoId === video.id}
+                instant={instant}
               />
-            )}
-          </AnimatePresence>
-        </LayoutGroup>
+            </div>
+          ))}
+        </div>
       </main>
     </div>
   )

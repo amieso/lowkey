@@ -1,17 +1,17 @@
 import Link from 'next/link'
-import { companySlug } from '@/lib/utils'
 
 interface CompanyLinkProps {
-  company: string
+  company: string // display label
+  companySlug: string // stable URL key from the video data
   className?: string
   onClick?: (e: React.MouseEvent) => void
   children?: React.ReactNode
 }
 
-export function CompanyLink({ company, className, onClick, children }: CompanyLinkProps) {
+export function CompanyLink({ company, companySlug, className, onClick, children }: CompanyLinkProps) {
   return (
     <Link
-      href={`/company/${companySlug(company)}`}
+      href={`/${companySlug}`}
       onClick={onClick}
       className={className}
     >

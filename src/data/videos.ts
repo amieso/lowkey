@@ -4,6 +4,7 @@ export const videos: Video[] = [
   {
     id: '1',
     slug: 'lovable',
+    companySlug: 'lovable',
     title: 'Lovable Launch',
     company: 'Lovable',
     companyLogoUrl: 'https://img.logo.dev/lovable.dev?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -29,6 +30,7 @@ export const videos: Video[] = [
   {
     id: '2',
     slug: 'lightfield',
+    companySlug: 'lightfield',
     title: 'Lightfield Announcement',
     company: 'Lightfield',
     companyLogoUrl: 'https://img.logo.dev/lightfieldlab.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -52,6 +54,7 @@ export const videos: Video[] = [
   {
     id: '3',
     slug: 'chatgpt-atlas',
+    companySlug: 'openai',
     title: 'ChatGPT Atlas Browser',
     company: 'OpenAI',
     companyLogoUrl: 'https://img.logo.dev/openai.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -77,6 +80,7 @@ export const videos: Video[] = [
   {
     id: '4',
     slug: 'cluely',
+    companySlug: 'cluely',
     title: 'Cluely Demo',
     company: 'Cluely',
     companyLogoUrl: 'https://img.logo.dev/cluely.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -101,6 +105,7 @@ export const videos: Video[] = [
   {
     id: '5',
     slug: 'dia-arc',
+    companySlug: 'the-browser-company',
     title: 'Dia - Arc Members',
     company: 'The Browser Company',
     companyLogoUrl: 'https://img.logo.dev/thebrowser.company?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -126,6 +131,7 @@ export const videos: Video[] = [
   {
     id: '6',
     slug: 'bump-app',
+    companySlug: 'bump',
     title: 'Bump Launch',
     company: 'Bump',
     companyLogoUrl: 'https://static.amo.co/shared/images/app-icons/location/20250123-167x167.png',
@@ -150,6 +156,7 @@ export const videos: Video[] = [
   {
     id: '7',
     slug: 'ray-bloom',
+    companySlug: 'bloom-ai',
     title: 'Ray by Bloom AI',
     company: 'Bloom AI',
     companyLogoUrl: 'https://img.logo.dev/bloomtech.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -173,6 +180,7 @@ export const videos: Video[] = [
   {
     id: '8',
     slug: 'elevenlabs',
+    companySlug: 'elevenlabs',
     title: 'ElevenLabs Announcement',
     company: 'ElevenLabs',
     companyLogoUrl: 'https://img.logo.dev/elevenlabs.io?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -198,6 +206,7 @@ export const videos: Video[] = [
   {
     id: '9',
     slug: 'human-interface',
+    companySlug: 'human-interface',
     title: 'Human Interface Series B',
     company: 'Human Interface',
     companyLogoUrl: 'https://img.logo.dev/humaninterface.ai?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -221,6 +230,7 @@ export const videos: Video[] = [
   {
     id: '10',
     slug: 'fundraising-update',
+    companySlug: 'stealth-startup',
     title: '$3M Funding Announcement',
     company: 'Stealth Startup',
     description: 'A glimpse into an ambitious seed round and the product vision taking shape behind the scenes. Still in stealth, but the early signals point to something worth watching in the productivity space.',
@@ -242,6 +252,7 @@ export const videos: Video[] = [
   {
     id: '11',
     slug: 'furqan-vc-world',
+    companySlug: 'f.inc',
     title: 'The VC World Has Made A Misstep',
     company: 'F.inc',
     companyLogoUrl: 'https://img.logo.dev/f.inc?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -266,6 +277,7 @@ export const videos: Video[] = [
   {
     id: '12',
     slug: 'amie-launch',
+    companySlug: 'amie',
     title: 'Amie Launch',
     company: 'Amie',
     companyLogoUrl: 'https://img.logo.dev/amie.so?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -292,6 +304,7 @@ export const videos: Video[] = [
   {
     id: '13',
     slug: 'delphi',
+    companySlug: 'delphi',
     title: 'Delphi Clone Launch',
     company: 'Delphi',
     companyLogoUrl: 'https://img.logo.dev/delphi.ai?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -314,6 +327,7 @@ export const videos: Video[] = [
   {
     id: '14',
     slug: 'cosmos',
+    companySlug: 'cosmos',
     title: 'Cosmos Browser',
     company: 'Cosmos',
     companyLogoUrl: 'https://img.logo.dev/cosmos.so?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -336,6 +350,7 @@ export const videos: Video[] = [
   {
     id: '15',
     slug: 'arena',
+    companySlug: 'are.na',
     title: 'Are.na Channels',
     company: 'Are.na',
     companyLogoUrl: 'https://img.logo.dev/are.na?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -358,6 +373,7 @@ export const videos: Video[] = [
   {
     id: '16',
     slug: 'supabase',
+    companySlug: 'supabase',
     title: 'Supabase Studio',
     company: 'Supabase',
     companyLogoUrl: 'https://img.logo.dev/supabase.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -380,6 +396,7 @@ export const videos: Video[] = [
   {
     id: '17',
     slug: 'notion-calendar',
+    companySlug: 'notion',
     title: 'Notion Calendar',
     company: 'Notion',
     companyLogoUrl: 'https://img.logo.dev/notion.so?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -402,6 +419,7 @@ export const videos: Video[] = [
   {
     id: '18',
     slug: 'vercel-v0',
+    companySlug: 'vercel',
     title: 'v0 by Vercel',
     company: 'Vercel',
     companyLogoUrl: 'https://img.logo.dev/vercel.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -424,6 +442,7 @@ export const videos: Video[] = [
   {
     id: '19',
     slug: 'perplexity',
+    companySlug: 'perplexity',
     title: 'Perplexity Pro',
     company: 'Perplexity',
     companyLogoUrl: 'https://img.logo.dev/perplexity.ai?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -446,6 +465,7 @@ export const videos: Video[] = [
   {
     id: '20',
     slug: 'framer',
+    companySlug: 'framer',
     title: 'Framer Sites',
     company: 'Framer',
     companyLogoUrl: 'https://img.logo.dev/framer.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -468,6 +488,7 @@ export const videos: Video[] = [
   {
     id: '21',
     slug: 'resend',
+    companySlug: 'resend',
     title: 'Resend Email',
     company: 'Resend',
     companyLogoUrl: 'https://img.logo.dev/resend.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -490,6 +511,7 @@ export const videos: Video[] = [
   {
     id: '22',
     slug: 'cal',
+    companySlug: 'cal.com',
     title: 'Cal.com Atoms',
     company: 'Cal.com',
     companyLogoUrl: 'https://img.logo.dev/cal.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -512,6 +534,7 @@ export const videos: Video[] = [
   {
     id: '23',
     slug: 'loom',
+    companySlug: 'loom',
     title: 'Loom AI',
     company: 'Loom',
     companyLogoUrl: 'https://img.logo.dev/loom.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -534,6 +557,7 @@ export const videos: Video[] = [
   {
     id: '24',
     slug: 'pitch',
+    companySlug: 'pitch',
     title: 'Pitch Decks',
     company: 'Pitch',
     companyLogoUrl: 'https://img.logo.dev/pitch.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
@@ -554,3 +578,26 @@ export const videos: Video[] = [
     publishedDate: '2024-04-15',
   },
 ]
+
+// All playable videos for a company, keyed off the stored slug (never derived).
+export function findCompanyVideos(companySlug: string): Video[] {
+  return videos.filter((video) => video.companySlug === companySlug && video.videoUrl)
+}
+
+// A single playable video by its (company, video) slug pair.
+export function findVideo(companySlug: string, slug: string): Video | undefined {
+  return videos.find(
+    (video) => video.companySlug === companySlug && video.slug === slug && video.videoUrl,
+  )
+}
+
+// Build-time guard: a video's path must be unique, otherwise `/company/slug`
+// would resolve ambiguously. Throws during build/dev if the data drifts.
+const seenPaths = new Set<string>()
+for (const video of videos) {
+  const path = `${video.companySlug}/${video.slug}`
+  if (seenPaths.has(path)) {
+    throw new Error(`Duplicate video path in videos.ts: "${path}"`)
+  }
+  seenPaths.add(path)
+}

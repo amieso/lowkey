@@ -25,7 +25,8 @@ export interface Credit {
 
 export interface Video {
   id: string
-  slug: string
+  slug: string // unique within a company; used as the URL's second segment
+  companySlug: string // stable URL key for the company, decoupled from the display name
   title: string
   company: string
   companyLogoUrl?: string
