@@ -19,7 +19,7 @@ interface VideoGridProps {
 }
 
 export function VideoGrid({ videos, columns = 4, partnerCardAt }: VideoGridProps) {
-  const { expandedVideoId, instant, open, close } = useExpandedVideo(videos)
+  const { expandedVideoId, instant, open, close } = useExpandedVideo(videos, { basePath: '/' })
   const { shouldShowIntro, introPhase } = useIntroContext()
 
   // The grid now mounts behind the intro overlay, so its entrance is driven by

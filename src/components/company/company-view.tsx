@@ -14,12 +14,14 @@ interface CompanyViewProps {
 }
 
 export function CompanyView({ videos: companyVideos, initialVideoSlug }: CompanyViewProps) {
-  const { expandedVideoId, instant, open, close } = useExpandedVideo(
-    companyVideos,
-    companyVideos.find((video) => video.slug === initialVideoSlug)?.id ?? null,
-  )
-
   const firstVideo = companyVideos[0]
+  const { expandedVideoId, instant, open, close } = useExpandedVideo(companyVideos, {
+    initialId: companyVideos.find((video) => video.slug === initialVideoSlug)?.id ?? null,
+    // Closing a video on a company page returns to that company's page, whether
+    // the visitor opened it from the grid or landed on a /[company]/[slug] link.
+    basePath: `/${firstVideo.companySlug}`,
+  })
+
   const companyName = firstVideo.company
 
   return (

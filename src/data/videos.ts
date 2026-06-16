@@ -444,6 +444,17 @@ export function findVideo(companySlug: string, slug: string): Video | undefined 
   )
 }
 
+// A single video by its id (used to map the expanded-modal state to a URL).
+export function findVideoById(id: string): Video | undefined {
+  return videos.find((video) => video.id === id)
+}
+
+// The canonical deep-link path for a video: /[company]/[slug]. Centralised so
+// the modal URL sync and the deep-link routes can never drift apart.
+export function videoPath(video: Pick<Video, 'companySlug' | 'slug'>): string {
+  return `/${video.companySlug}/${video.slug}`
+}
+
 // Build-time guard: a video's path must be unique, otherwise `/company/slug`
 // would resolve ambiguously. Throws during build/dev if the data drifts.
 const seenPaths = new Set<string>()
