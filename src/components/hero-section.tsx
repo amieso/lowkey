@@ -51,7 +51,7 @@ export function HeroSection() {
           These are the best launch videos.
         </h1>
         <p className="mt-4 text-base md:text-lg text-muted leading-relaxed max-w-xl mx-auto">
-          A curated collection of the best product launch videos. Subscribe to get the latest launches delivered to your inbox.
+          Subscribe to get the latest launches delivered to your inbox.
         </p>
 
         <form onSubmit={handleSubmit} className="mt-10 md:mt-10 w-full md:w-auto flex justify-center">
