@@ -24,12 +24,12 @@ export function Footer() {
               Privacy & Cookies
             </Link>
             <Link
-              href="https://twitter.com/tryamie"
+              href="https://x.com/viewlowkey"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xs text-muted hover:text-foreground transition-colors"
             >
-              Twitter
+              X
             </Link>
           </div>
         </div>
