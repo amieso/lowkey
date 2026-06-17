@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Video } from '@/types/video'
 import { videoPath } from '@/data/videos'
-import { trackGoal } from '@/lib/analytics'
+import { trackGoal, trackGoalWhenReady } from '@/lib/analytics'
 
 interface UseExpandedVideoOptions {
   /** Video open on first render (deep-link landing on /[company]/[slug]). */
@@ -66,6 +66,7 @@ export function useExpandedVideo(
         video_id: video.id,
         company: video.companySlug,
         slug: video.slug,
+        source: 'grid',
       })
       if (syncingFromPopRef.current) return
       writeUrl(videoPath(video), 'push')
@@ -73,6 +74,25 @@ export function useExpandedVideo(
     },
     [writeUrl],
   )
+
+  // Track deep-link landings (a video open on first render, reached via a
+  // direct/shared /[company]/[slug] URL) the same way as in-app opens, tagged
+  // with source: 'direct_link' so the two entry paths stay homogeneous but
+  // remain distinguishable in the dashboard. Fires once per mount.
+  const trackedInitialRef = useRef(false)
+  useEffect(() => {
+    if (trackedInitialRef.current) return
+    if (!initialId) return
+    const video = videos.find((v) => v.id === initialId)
+    if (!video) return
+    trackedInitialRef.current = true
+    trackGoalWhenReady('video_open', {
+      video_id: video.id,
+      company: video.companySlug,
+      slug: video.slug,
+      source: 'direct_link',
+    })
+  }, [initialId, videos])
 
   const close = useCallback(() => {
     setInstant(false)
