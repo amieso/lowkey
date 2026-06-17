@@ -798,6 +798,28 @@ export const videos: Video[] = [
     featured: false,
     publishedDate: '2026-03-16',
   },
+  {
+    id: '39',
+    slug: 'summer-2026',
+    companySlug: 'airbnb',
+    title: 'Airbnb 2026 Summer Release',
+    company: 'Airbnb',
+    companyLogoUrl: 'https://img.logo.dev/airbnb.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
+    companyFounded: 2008,
+    description: 'Co-founder & CEO Brian Chesky unveils Airbnb\'s 2026 Summer Release—the company\'s twice-yearly wave of product updates as it keeps expanding beyond stays into services and experiences.',
+    videoUrl: 'https://stream.mux.com/7sGizr1ug01H00vB8JmNNO02i95UKqmQWT2Id73kJJ99o00.m3u8',
+    thumbnailUrl: 'https://image.mux.com/7sGizr1ug01H00vB8JmNNO02i95UKqmQWT2Id73kJJ99o00/thumbnail.webp?time=5',
+    duration: 69,
+    aspectRatio: '1:1',
+    websiteUrl: 'https://airbnb.com',
+    twitterUrl: 'https://x.com/airbnb',
+    sourceUrl: 'https://x.com/bchesky/status/2057178134542512476',
+    credits: [
+      { role: 'Founder', name: 'Brian Chesky', handle: 'bchesky', url: 'https://airbnb.com', bio: 'Co-founder & CEO of Airbnb. Leads the company\'s twice-yearly product releases and its expansion beyond home stays.', contactUrl: 'https://x.com/bchesky', imageUrl: 'https://unavatar.io/x/bchesky', twitterHandle: 'bchesky' }
+    ],
+    featured: false,
+    publishedDate: '2026-05-20',
+  },
   // INGEST_ANCHOR — scripts/ingest.mjs inserts new video drafts above this line. Keep it.
 ]
 
