@@ -11,6 +11,9 @@ dotenv.config({ path: path.join(process.cwd(), '.env.local') })
 const VIDEOS_FILE = path.join(process.cwd(), 'src/data/videos.ts')
 const METRICS_FILE = path.join(process.cwd(), 'src/data/metrics.json')
 
+// Refresh each tweet's counts at most once per week.
+const STALE_MS = 7 * 24 * 60 * 60 * 1000
+
 function readExistingMetrics() {
   try {
     return JSON.parse(fs.readFileSync(METRICS_FILE, 'utf8'))
@@ -46,9 +49,27 @@ async function main() {
 
   const metrics = readExistingMetrics()
   const fetchedAt = new Date().toISOString()
+  const now = Date.now()
+
+  // Refresh a tweet at most once a week, but always fetch newly added videos
+  // (no cached entry) so a freshly ingested video gets its count immediately.
+  const toFetch = ids.filter((id) => {
+    const cached = metrics[id]
+    if (!cached || !cached.fetchedAt) return true // new video — always fetch
+    const ageMs = now - new Date(cached.fetchedAt).getTime()
+    return ageMs >= STALE_MS // otherwise only when stale (>= 1 week)
+  })
+
+  const fresh = ids.length - toFetch.length
+  console.log(`   ${fresh} fresh (<1w), ${toFetch.length} to fetch`)
+  if (toFetch.length === 0) {
+    console.log('✅ sync-metrics: all counts fresh — no API call.')
+    return
+  }
+
   let updated = 0
 
-  for (const group of chunk(ids, 100)) {
+  for (const group of chunk(toFetch, 100)) {
     const url = `https://api.x.com/2/tweets?ids=${group.join(',')}&tweet.fields=public_metrics`
     let res
     try {

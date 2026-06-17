@@ -188,15 +188,6 @@
     "impressions": 4911401,
     "fetchedAt": "2026-06-17T11:23:53.594Z"
   },
-  "2066939366568804508": {
-    "likes": 1618,
-    "replies": 157,
-    "retweets": 206,
-    "quotes": 232,
-    "bookmarks": 494,
-    "impressions": 1158996,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
-  },
   "2066588050617249904": {
     "likes": 1503,
     "replies": 138,
@@ -331,5 +322,14 @@
     "bookmarks": 1079,
     "impressions": 644985,
     "fetchedAt": "2026-06-17T11:23:53.594Z"
+  },
+  "2066939366568804508": {
+    "likes": 1619,
+    "replies": 157,
+    "retweets": 206,
+    "quotes": 232,
+    "bookmarks": 494,
+    "impressions": 1164140,
+    "fetchedAt": "2026-06-17T11:33:19.200Z"
   }
 }
