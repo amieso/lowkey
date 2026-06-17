@@ -12,18 +12,6 @@ export function Footer() {
 
           <div className="flex flex-col md:flex-row items-center gap-3 md:gap-5 order-1 md:order-2">
             <Link
-              href="/terms"
-              className="text-xs text-muted hover:text-foreground transition-colors"
-            >
-              Terms of Service
-            </Link>
-            <Link
-              href="/privacy"
-              className="text-xs text-muted hover:text-foreground transition-colors"
-            >
-              Privacy & Cookies
-            </Link>
-            <Link
               href="https://x.com/viewlowkey"
               target="_blank"
               rel="noopener noreferrer"
