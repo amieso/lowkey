@@ -820,6 +820,28 @@ export const videos: Video[] = [
     featured: false,
     publishedDate: '2026-05-20',
   },
+  {
+    id: '40',
+    slug: 'fable-5',
+    companySlug: 'anthropic',
+    title: 'Claude Fable 5',
+    company: 'Anthropic',
+    companyLogoUrl: 'https://img.logo.dev/anthropic.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
+    companyFounded: 2021,
+    description: 'Anthropic introduces Claude Fable 5, a Mythos-class model made safe for general use—with capabilities, the company says, that exceed any model it has previously released to the public.',
+    videoUrl: 'https://stream.mux.com/RiVAxF01oKJQREGSPEU9cydTz02xLcSgvmC0128Gavn0001w.m3u8',
+    thumbnailUrl: 'https://image.mux.com/RiVAxF01oKJQREGSPEU9cydTz02xLcSgvmC0128Gavn0001w/thumbnail.webp?time=5',
+    duration: 20,
+    aspectRatio: '1:1',
+    websiteUrl: 'https://claude.com',
+    twitterUrl: 'https://x.com/claudeai',
+    sourceUrl: 'https://x.com/claudeai/status/2064394146916229443?s=20',
+    credits: [
+      { role: 'In-house', name: 'Anthropic', handle: 'AnthropicAI', url: 'https://anthropic.com', bio: 'AI safety and research company, and the maker of Claude. Builds frontier models with a focus on safety and reliability.', contactUrl: 'https://x.com/AnthropicAI', imageUrl: 'https://img.logo.dev/anthropic.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark', twitterHandle: 'AnthropicAI' }
+    ],
+    featured: false,
+    publishedDate: '2026-06-09',
+  },
   // INGEST_ANCHOR — scripts/ingest.mjs inserts new video drafts above this line. Keep it.
 ]
 
