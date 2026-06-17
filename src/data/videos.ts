@@ -789,7 +789,7 @@ export const videos: Video[] = [
     videoUrl: 'https://stream.mux.com/hZWmHLPLBXqow01r8OWAF02EI6W2A8ADOSzSVk2magNSo.m3u8',
     thumbnailUrl: 'https://image.mux.com/hZWmHLPLBXqow01r8OWAF02EI6W2A8ADOSzSVk2magNSo/thumbnail.webp?time=5',
     duration: 39,
-    aspectRatio: '16:9',
+    aspectRatio: '1:1',
     websiteUrl: 'https://spielwerk.app',
     sourceUrl: 'https://x.com/eikedrescher/status/2033566191961137591',
     credits: [

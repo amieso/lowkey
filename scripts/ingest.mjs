@@ -118,7 +118,13 @@ async function getMetadata(videoPath) {
     duration: Math.round(parseFloat(meta.format.duration) || 0),
     width,
     height,
-    aspectRatio: height > width ? '9:16' : '16:9',
+    // Treat near-square (within 5%) as 1:1; otherwise portrait/landscape.
+    aspectRatio:
+      width && height && Math.abs(width - height) / Math.max(width, height) < 0.05
+        ? '1:1'
+        : height > width
+          ? '9:16'
+          : '16:9',
   }
 }
 

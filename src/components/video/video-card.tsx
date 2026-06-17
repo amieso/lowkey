@@ -15,7 +15,30 @@ const SHARED_LAYOUT_TRANSITION = { duration: 0.3, ease: [0.22, 1, 0.36, 1] } as 
 const SWIPE_CLOSE_THRESHOLD = 56
 const WHEEL_CLOSE_THRESHOLD = 140
 const WHEEL_RESET_MS = 180
-const EXPANDED_WIDTH = 'min(1254px, calc(100vw - 2rem), calc((100svh - 7rem) * 16 / 9))'
+// Expanded box sizing per aspect ratio. Width is capped by viewport width and
+// by the height available (100svh − chrome), converted via the ratio so the
+// box always fits on screen whatever its shape.
+function expandedWidth(aspectRatio: Video['aspectRatio']): string {
+  switch (aspectRatio) {
+    case '1:1':
+      return 'min(880px, calc(100vw - 2rem), calc(100svh - 7rem))'
+    case '9:16':
+      return 'min(520px, calc(100vw - 2rem), calc((100svh - 7rem) * 9 / 16))'
+    default:
+      return 'min(1254px, calc(100vw - 2rem), calc((100svh - 7rem) * 16 / 9))'
+  }
+}
+
+function aspectClass(aspectRatio: Video['aspectRatio']): string {
+  switch (aspectRatio) {
+    case '1:1':
+      return 'aspect-square'
+    case '9:16':
+      return 'aspect-[9/16]'
+    default:
+      return 'aspect-video'
+  }
+}
 
 interface VideoCardProps {
   video: Video
@@ -325,7 +348,7 @@ export const VideoCard = memo(function VideoCard({
 
   const boxStyle: CSSProperties = {
     borderRadius: isExpanded ? 12 : 6,
-    ...(isExpanded ? { width: EXPANDED_WIDTH } : {}),
+    ...(isExpanded ? { width: expandedWidth(video.aspectRatio) } : {}),
   }
 
   return (
@@ -354,7 +377,7 @@ export const VideoCard = memo(function VideoCard({
           onTouchEndCapture={handleTouchEnd}
           className={
             isExpanded
-              ? 'fixed inset-0 z-[130] m-auto aspect-video overflow-hidden bg-surface isolate shadow-2xl pointer-events-auto'
+              ? `fixed inset-0 z-[130] m-auto ${aspectClass(video.aspectRatio)} overflow-hidden bg-surface isolate shadow-2xl pointer-events-auto`
               : 'absolute inset-0 overflow-hidden bg-surface isolate transition-shadow duration-300 group-hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6),0_0_0_1px_rgba(0,0,0,0.2),inset_0_0_0_1px_rgba(255,255,255,0.28)]'
           }
         >
