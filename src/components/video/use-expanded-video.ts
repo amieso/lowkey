@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Video } from '@/types/video'
 import { videoPath } from '@/data/videos'
+import { trackGoal } from '@/lib/analytics'
 
 interface UseExpandedVideoOptions {
   /** Video open on first render (deep-link landing on /[company]/[slug]). */
@@ -61,6 +62,11 @@ export function useExpandedVideo(
     (video: Video) => {
       setInstant(false)
       setExpandedVideoId(video.id)
+      trackGoal('video_open', {
+        video_id: video.id,
+        company: video.companySlug,
+        slug: video.slug,
+      })
       if (syncingFromPopRef.current) return
       writeUrl(videoPath(video), 'push')
       pushedEntryRef.current = true
