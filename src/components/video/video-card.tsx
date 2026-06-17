@@ -331,7 +331,7 @@ export const VideoCard = memo(function VideoCard({
       onKeyDown={handleKeyDown}
       onPointerEnter={() => isInteractive && setIsHovered(true)}
       onPointerLeave={() => setIsHovered(false)}
-      className={`group ${isInteractive ? 'cursor-pointer' : ''} ${elevated ? 'relative z-[130]' : ''} ${isExpanded ? 'pointer-events-none' : ''}`}
+      className={`group relative ${isInteractive ? 'cursor-pointer' : ''} ${elevated ? 'z-[130]' : 'hover:z-20'} ${isExpanded ? 'pointer-events-none' : ''}`}
     >
       {/* Reserved grid slot — keeps layout stable while the box expands */}
       <div ref={slotRef} className="relative aspect-video w-full">
@@ -340,6 +340,9 @@ export const VideoCard = memo(function VideoCard({
           layout
           transition={instant ? { duration: 0 } : SHARED_LAYOUT_TRANSITION}
           onLayoutAnimationComplete={() => { if (!isExpanded) setIsCollapsing(false) }}
+          // Lift & pop on hover (collapsed only): a subtle scale composes with
+          // the layout transform, while the shadow/ring are driven by CSS below.
+          whileHover={isInteractive && !isExpanded ? { scale: 1.01 } : undefined}
           style={boxStyle}
           onTouchStartCapture={handleTouchStart}
           onTouchMoveCapture={handleTouchMove}
@@ -347,7 +350,7 @@ export const VideoCard = memo(function VideoCard({
           className={
             isExpanded
               ? 'fixed inset-0 z-[130] m-auto aspect-video overflow-hidden bg-surface isolate shadow-2xl pointer-events-auto'
-              : 'absolute inset-0 overflow-hidden bg-surface isolate group-hover:ring-1 group-hover:ring-foreground/10'
+              : 'absolute inset-0 overflow-hidden bg-surface isolate transition-shadow duration-300 group-hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6),0_0_0_1px_rgba(0,0,0,0.2),inset_0_0_0_1px_rgba(255,255,255,0.28)]'
           }
         >
           {isGhost ? (
@@ -380,14 +383,6 @@ export const VideoCard = memo(function VideoCard({
                 />
               )}
             </>
-          )}
-
-          {/* Hover labels (collapsed only) */}
-          {isInteractive && !isExpanded && (
-            <div className="absolute inset-0 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-col justify-start p-3 md:p-5 pointer-events-none hidden md:flex">
-              <span className="text-[10px] md:text-xs text-white/90 tracking-widest uppercase font-mono w-fit rounded px-2 py-1 bg-black/45 backdrop-blur-sm">{video.company}</span>
-              <h3 className="text-lg md:text-2xl font-light text-white tracking-tight line-clamp-2 mt-1 md:mt-2 w-fit max-w-[85%] rounded px-2 py-1.5 bg-black/45 backdrop-blur-sm">{video.title}</h3>
-            </div>
           )}
 
           {/* Expanded chrome */}
