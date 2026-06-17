@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Kanit, JetBrains_Mono } from 'next/font/google'
+import Script from 'next/script'
 import '@/styles/globals.css'
 
 const inter = Inter({
@@ -61,6 +62,15 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${kanit.variable} ${jetbrainsMono.variable}`}>
       <body className="min-h-screen flex flex-col">
         <main className="flex-1">{children}</main>
+        {process.env.NEXT_PUBLIC_DATAFAST_WEBSITE_ID && (
+          <Script
+            defer
+            data-website-id={process.env.NEXT_PUBLIC_DATAFAST_WEBSITE_ID}
+            data-domain={process.env.NEXT_PUBLIC_DATAFAST_DOMAIN}
+            src="https://datafa.st/js/script.js"
+            strategy="afterInteractive"
+          />
+        )}
       </body>
     </html>
   )
