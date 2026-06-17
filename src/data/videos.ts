@@ -495,6 +495,27 @@ export const videos: Video[] = [
     featured: false,
     publishedDate: '2026-01-12',
   },
+  {
+    id: '25',
+    slug: 'charter',
+    companySlug: 'augustus',
+    title: 'Augustus — Clearing Bank for the AI Era',
+    company: 'Augustus',
+    companyLogoUrl: 'https://img.logo.dev/augustus.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
+    companyFounded: 2022,
+    description: 'Augustus is building the first clearing bank for the AI era—a stablecoin- and AI-native core for always-on, programmable settlement of major currencies. In this thread, co-founder Ferdinand Dabitz explains the OCC charter approval and the story behind the name.',
+    videoUrl: 'https://stream.mux.com/nHe201G02osVMIcmM02xttYJ800tLkdN36tyX00Ub4jxOV4I.m3u8',
+    thumbnailUrl: 'https://image.mux.com/nHe201G02osVMIcmM02xttYJ800tLkdN36tyX00Ub4jxOV4I/thumbnail.webp?time=5',
+    duration: 50,
+    aspectRatio: '16:9',
+    websiteUrl: 'https://augustus.com',
+    sourceUrl: 'https://x.com/FerdiDabitz/status/2053793640581828659',
+    credits: [
+      { role: 'Founder', name: 'Ferdinand Dabitz', handle: 'FerdiDabitz', url: 'https://augustus.com', bio: 'Co-founder & CEO of Augustus and a Thiel Fellow. At 25, the youngest CEO of a federally chartered US bank in modern history. Augustus was founded in 2022 and has raised $40M.', contactUrl: 'https://x.com/FerdiDabitz', imageUrl: 'https://unavatar.io/x/FerdiDabitz', twitterHandle: 'FerdiDabitz' }
+    ],
+    featured: false,
+    publishedDate: '2026-05-11',
+  },
   // INGEST_ANCHOR — scripts/ingest.mjs inserts new video drafts above this line. Keep it.
 ]
 
