@@ -23,9 +23,22 @@ const listeners = new Set<() => void>()
 let admitted = new Set<symbol>()
 
 function recompute() {
-  const wanters = [...registrations.entries()].filter(([, r]) => r.want)
-  wanters.sort((a, b) => a[1].priority - b[1].priority)
-  const next = new Set(wanters.slice(0, MAX_CONCURRENT).map(([key]) => key))
+  // Admission is STICKY: never evict a preview that already holds a slot. HLS
+  // segment loading is driven off the slot, so evicting a loading preview calls
+  // stopLoad() and cancels its in-flight manifest/segment fetches — under the
+  // out-of-order registration that happens on first paint, that turned into a
+  // cancel storm where nothing ever finished loading. Keep everyone still
+  // loading, and only backfill *free* slots with the highest-priority waiters.
+  const next = new Set([...admitted].filter((key) => registrations.get(key)?.want))
+  if (next.size < MAX_CONCURRENT) {
+    const waiters = [...registrations.entries()]
+      .filter(([key, r]) => r.want && !next.has(key))
+      .sort((a, b) => a[1].priority - b[1].priority)
+    for (const [key] of waiters) {
+      if (next.size >= MAX_CONCURRENT) break
+      next.add(key)
+    }
+  }
 
   // Only publish (and re-render subscribers) when the admitted set changes.
   const changed =
@@ -33,6 +46,20 @@ function recompute() {
   if (!changed) return
   admitted = next
   listeners.forEach((notify) => notify())
+}
+
+// Coalesce the burst of registrations that lands when the grid first reveals
+// (each card's IntersectionObserver fires in its own callback) into a single
+// pass, so the initial slots go to the true top-of-grid cards rather than
+// whichever observer happened to fire first.
+let scheduled = false
+function scheduleRecompute() {
+  if (scheduled) return
+  scheduled = true
+  queueMicrotask(() => {
+    scheduled = false
+    recompute()
+  })
 }
 
 /**
@@ -48,10 +75,10 @@ export function usePreviewLoadSlot(priority: number, want: boolean): boolean {
 
   useEffect(() => {
     registrations.set(key, { priority, want })
-    recompute()
+    scheduleRecompute()
     return () => {
       registrations.delete(key)
-      recompute()
+      scheduleRecompute()
     }
   }, [key, priority, want])
 
