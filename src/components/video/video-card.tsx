@@ -12,6 +12,7 @@ import { VideoMetrics } from './video-metrics'
 import { useIntroContext } from '@/context/intro-context'
 import { trackGoal, GOALS } from '@/lib/analytics'
 import { usePageVisible } from '@/hooks/use-page-visible'
+import { usePreviewLoadSlot } from '@/hooks/use-preview-load-slot'
 
 const SHARED_LAYOUT_TRANSITION = { duration: 0.3, ease: [0.22, 1, 0.36, 1] } as const
 const SWIPE_CLOSE_THRESHOLD = 56
@@ -57,6 +58,8 @@ interface VideoCardProps {
   preload?: boolean
   /** Another card is focused — pause this player's loading to free bandwidth. */
   backgrounded?: boolean
+  /** Grid position — drives top-down first-frame load ordering (lower = sooner). */
+  priority?: number
 }
 
 export const VideoCard = memo(function VideoCard({
@@ -68,6 +71,7 @@ export const VideoCard = memo(function VideoCard({
   disablePlayback = false,
   preload = false,
   backgrounded = false,
+  priority = 0,
 }: VideoCardProps) {
   const playerRef = useRef<VideoPlayerHandle>(null)
   const boxRef = useRef<HTMLDivElement>(null)
@@ -156,6 +160,29 @@ export const VideoCard = memo(function VideoCard({
     if (previewActive) videoEl.play().catch(() => {})
     else videoEl.pause()
   }, [videoEl, isExpanded, previewActive])
+
+  // Top-down load ordering for grid previews. Only the initial first-frame race
+  // is gated — expanded and arrow-nav (preload) players load immediately, and a
+  // preview that has already painted keeps its loop buffer topped freely.
+  const [gaveUpSlot, setGaveUpSlot] = useState(false)
+  const gatedPreview = isInteractive && !isExpanded && !preload
+  const wantsLoadSlot = gatedPreview && previewActive && !hasRenderedFrame && !gaveUpSlot
+  const hasLoadSlot = usePreviewLoadSlot(priority, wantsLoadSlot)
+
+  // Don't let a slow/cold asset hold a slot forever and stall the cards below
+  // it — release after a few seconds and keep loading without the gate.
+  useEffect(() => {
+    if (!hasLoadSlot || hasRenderedFrame) return
+    const timer = setTimeout(() => setGaveUpSlot(true), 3000)
+    return () => clearTimeout(timer)
+  }, [hasLoadSlot, hasRenderedFrame])
+
+  // Segment loading is allowed once a gated preview is on-screen AND it's this
+  // card's turn (has a slot, already painted, or gave up waiting). Expanded /
+  // preload players bypass the gate entirely.
+  const loadAllowed = gatedPreview
+    ? previewActive && (hasLoadSlot || hasRenderedFrame || gaveUpSlot)
+    : true
 
   // Grab the underlying <video> element once VideoPlayer has mounted.
   useEffect(() => {
@@ -478,7 +505,11 @@ export const VideoCard = memo(function VideoCard({
                   src={video.videoUrl}
                   startMuted={!isExpanded}
                   expanded={isExpanded}
-                  backgrounded={backgrounded || (!isExpanded && !preload && (!isVisible || !pageVisible))}
+                  backgrounded={
+                    gatedPreview
+                      ? !loadAllowed
+                      : backgrounded || (!isExpanded && !preload && (!isVisible || !pageVisible))
+                  }
                   onQualityLevelsChange={setQualityLevels}
                   className="absolute inset-0 z-10 !rounded-none"
                 />
