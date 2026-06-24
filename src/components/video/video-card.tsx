@@ -517,9 +517,11 @@ export const VideoCard = memo(function VideoCard({
                 className="absolute top-3 left-3 right-3 z-40 flex items-start justify-between gap-3 pointer-events-none"
               >
                 <div>
-                  <span className="block w-fit text-[10px] text-white/80 tracking-widest uppercase font-mono rounded px-2 py-1 bg-black/45 backdrop-blur-sm">{video.company}</span>
+                  <div className="flex items-center gap-2">
+                    <span className="w-fit text-[10px] text-white/80 tracking-widest uppercase font-mono rounded px-2 py-1 bg-black/45 backdrop-blur-sm">{video.company}</span>
+                    <VideoMetrics sourceUrl={video.sourceUrl} />
+                  </div>
                   <h2 className="w-fit max-w-[85%] mt-1 text-sm sm:text-base font-light text-white tracking-tight rounded px-2 py-1 bg-black/45 backdrop-blur-sm">{video.title}</h2>
-                  <VideoMetrics sourceUrl={video.sourceUrl} className="mt-1" />
                 </div>
                 <div className="flex items-center gap-2 pointer-events-auto">
                   {video.sourceUrl && (
