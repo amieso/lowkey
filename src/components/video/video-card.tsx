@@ -3,7 +3,7 @@
 import { memo, useCallback, useEffect, useRef, useState, type CSSProperties, type TouchEvent } from 'react'
 import { motion } from 'framer-motion'
 import { Chapter, Video } from '@/types/video'
-import { formatDuration, sizedThumbnail, platformName } from '@/lib/utils'
+import { sizedThumbnail, platformName } from '@/lib/utils'
 import { CompanyLink } from '@/components/ui/company-link'
 import { PlayIcon, PauseIcon } from '@/components/ui/player-icons'
 import { VideoPlayer, VideoPlayerHandle, QualityLevel } from './modal/video-player'
@@ -622,10 +622,7 @@ export const VideoCard = memo(function VideoCard({
         {isGhost ? (
           <span className="text-xs text-muted shrink-0 font-mono">Soon</span>
         ) : (
-          <div className="flex items-center gap-2 shrink-0">
-            <VideoMetrics sourceUrl={video.sourceUrl} variant="inline" />
-            <span className="text-xs text-muted shrink-0 font-mono">{formatDuration(video.duration)}</span>
-          </div>
+          <VideoMetrics sourceUrl={video.sourceUrl} variant="inline" />
         )}
       </div>
     </article>
