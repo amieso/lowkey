@@ -12,6 +12,7 @@ import { VideoMetrics } from './video-metrics'
 import { useIntroContext } from '@/context/intro-context'
 import { trackGoal, GOALS } from '@/lib/analytics'
 import { usePageVisible } from '@/hooks/use-page-visible'
+import { useWatchTime } from '@/hooks/use-watch-time'
 
 const SHARED_LAYOUT_TRANSITION = { duration: 0.3, ease: [0.22, 1, 0.36, 1] } as const
 const SWIPE_CLOSE_THRESHOLD = 56
@@ -250,6 +251,10 @@ export const VideoCard = memo(function VideoCard({
       videoEl.removeEventListener('timeupdate', handleTimeUpdate)
     }
   }, [isExpanded, videoEl, video.id, video.companySlug, video.slug])
+
+  // Accumulate engaged watch-time for the future "Popular" ranking — the one
+  // signal that can't be backfilled. Reports increments to /api/watch.
+  useWatchTime(video, videoEl, isExpanded)
 
   // Opening via keyboard navigation swaps to a card that was looping off-screen
   // in the grid, so it "appears from nowhere" mid-playback. Restart it from the

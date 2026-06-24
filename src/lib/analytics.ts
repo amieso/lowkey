@@ -21,6 +21,7 @@ export const GOALS = {
   videoOpen: 'video_open',
   videoPlay: 'video_play',
   videoComplete: 'video_complete',
+  videoWatchTime: 'video_watch_time',
   newsletterSignup: 'newsletter_signup',
   outboundVisit: 'outbound_visit',
   outboundPost: 'outbound_post',
