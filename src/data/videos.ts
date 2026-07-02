@@ -976,6 +976,28 @@ export const videos: Video[] = [
     featured: false,
     publishedDate: '2026-06-30',
   },
+  {
+    id: '47',
+    slug: 'voice-agent-builder',
+    companySlug: 'xai',
+    title: 'Voice Agent Builder',
+    company: 'xAI',
+    companyLogoUrl: 'https://img.logo.dev/x.ai?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
+    companyFounded: 2023,
+    description: 'Launch video for xAI\'s Voice Agent Builder — a no-code platform for creating human-like voice agents powered by Grok Voice, priced at $0.05 per minute from day one.',
+    videoUrl: 'https://stream.mux.com/zpvKhSbSsbLeAwvkXdlI5PepZPf024p9jRp7vuiJg7ZQ.m3u8',
+    thumbnailUrl: 'https://image.mux.com/zpvKhSbSsbLeAwvkXdlI5PepZPf024p9jRp7vuiJg7ZQ/thumbnail.webp?time=5',
+    duration: 46,
+    aspectRatio: '16:9',
+    websiteUrl: 'https://x.ai',
+    twitterUrl: 'https://x.com/xai',
+    sourceUrl: 'https://x.com/xai/status/2072342803787702422?s=20',
+    credits: [
+      { role: 'In-house', name: 'xAI', handle: 'xai', url: 'https://x.ai', bio: 'Elon Musk\'s AI company behind Grok — building AI to understand the universe, from frontier models to real-time voice agents.', contactUrl: 'https://x.com/xai', imageUrl: 'https://img.logo.dev/x.ai?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark', twitterHandle: 'xai' }
+    ],
+    featured: false,
+    publishedDate: '2026-07-01',
+  },
   // INGEST_ANCHOR — scripts/ingest.mjs inserts new video drafts above this line. Keep it.
 ]
 
