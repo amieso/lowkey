@@ -954,6 +954,28 @@ export const videos: Video[] = [
     featured: false,
     publishedDate: '2026-03-30',
   },
+  {
+    id: '46',
+    slug: 'launch',
+    companySlug: 'interfere',
+    title: 'Introducing Interfere',
+    company: 'Interfere',
+    companyLogoUrl: 'https://img.logo.dev/interfere.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
+    companyFounded: 2025,
+    description: 'Launch film for Interfere — an AI layer that observes everything happening in production, investigates what\'s broken, and fixes problems before users notice. The YC-backed team pitches it as spending your time building what\'s next, not fixing what\'s broken.',
+    videoUrl: 'https://stream.mux.com/fyAMHuWlpuCCbLF9drX3m21h1i9QkDrwV9TJ6SWVoug.m3u8',
+    thumbnailUrl: 'https://image.mux.com/fyAMHuWlpuCCbLF9drX3m21h1i9QkDrwV9TJ6SWVoug/thumbnail.webp?time=5',
+    duration: 38,
+    aspectRatio: '16:9',
+    websiteUrl: 'https://interfere.com',
+    twitterUrl: 'https://x.com/interfere_',
+    sourceUrl: 'https://x.com/interfere_/status/2072003433926676508?s=20',
+    credits: [
+      { role: 'In-house', name: 'Interfere', handle: 'interfere_', url: 'https://interfere.com', bio: 'YC S25 startup building the self-healing layer of the internet — detecting, triaging, and fixing production bugs automatically.', contactUrl: 'https://x.com/interfere_', imageUrl: 'https://img.logo.dev/interfere.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark', twitterHandle: 'interfere_' }
+    ],
+    featured: false,
+    publishedDate: '2026-06-30',
+  },
   // INGEST_ANCHOR — scripts/ingest.mjs inserts new video drafts above this line. Keep it.
 ]
 
