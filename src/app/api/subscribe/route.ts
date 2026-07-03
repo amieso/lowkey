@@ -27,16 +27,14 @@ export async function POST(request: Request) {
     const resend = new Resend(apiKey)
 
     // Already an active contact? Don't re-send the welcome on repeat submits.
-    // (The modern /contacts endpoint is idempotent, so create alone can't tell
-    // a new signup from a duplicate — we look the contact up first.)
+    // (Contacts land in Resend's default audience — no audienceId needed.)
     const existing = await resend.contacts.get({ email })
     if (existing.data && !existing.data.unsubscribed) return
 
+    // Add to the mailing list, best-effort. Unlike before, a contact failure
+    // must NOT block the welcome email — so we log and carry on to the send.
     const { error } = await resend.contacts.create({ email })
-    if (error) {
-      console.error('Resend error:', error)
-      return
-    }
+    if (error) console.error('Resend contact error:', error)
 
     const { error: sendError } = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || 'lowkey <onboarding@resend.dev>',

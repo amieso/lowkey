@@ -16,9 +16,7 @@ export async function POST(request: Request) {
 
   const resend = new Resend(apiKey)
 
-  const { error } = await resend.contacts.remove({
-    email,
-  })
+  const { error } = await resend.contacts.remove({ email })
 
   if (error) {
     console.error('Unsubscribe error:', error)

@@ -88,7 +88,7 @@ End-to-end flow for turning a source URL (x.com / YouTube / local file) into a l
 ### Environment Variables
 ```
 RESEND_API_KEY
-RESEND_FROM_EMAIL
+RESEND_FROM_EMAIL       # must use a verified domain; onboarding@resend.dev only reaches the account owner
 NEXT_PUBLIC_SITE_URL
 ```
 
