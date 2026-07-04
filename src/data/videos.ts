@@ -998,6 +998,28 @@ export const videos: Video[] = [
     featured: false,
     publishedDate: '2026-07-01',
   },
+  {
+    id: '48',
+    slug: 'launch',
+    companySlug: 'dayflow',
+    title: 'Dayflow',
+    company: 'Dayflow',
+    companyLogoUrl: 'https://img.logo.dev/dayflow.so?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
+    companyFounded: 2024,
+    description: 'Launch video for Dayflow — the open-source, local-first Mac app that turns your screen activity into an automatic work journal, reconstructing what you actually accomplished each day without timers or manual logging.',
+    videoUrl: 'https://stream.mux.com/nx02BsjJNPNjtXNxxHLcVzbWWxgwCO8O1Yei00lWTgnJA.m3u8',
+    thumbnailUrl: 'https://image.mux.com/nx02BsjJNPNjtXNxxHLcVzbWWxgwCO8O1Yei00lWTgnJA/thumbnail.webp?time=5',
+    duration: 42,
+    aspectRatio: '16:9',
+    websiteUrl: 'https://www.dayflow.so',
+    twitterUrl: 'https://x.com/jerryliu',
+    sourceUrl: 'https://x.com/jerryliu/status/2073116662602342734?s=20',
+    credits: [
+      { role: 'In-house', name: 'Jerry Liu', handle: 'jerryliu', url: 'https://www.dayflow.so', bio: 'CEO and cofounder of Dayflow. Previously worked on payments at Flexport and ads at Google.', contactUrl: 'https://x.com/jerryliu', imageUrl: 'https://unavatar.io/twitter/jerryliu', twitterHandle: 'jerryliu' }
+    ],
+    featured: false,
+    publishedDate: '2026-07-03',
+  },
   // INGEST_ANCHOR — scripts/ingest.mjs inserts new video drafts above this line. Keep it.
 ]
 
