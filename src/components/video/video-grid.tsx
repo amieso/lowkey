@@ -20,13 +20,15 @@ interface VideoGridProps {
 
 export function VideoGrid({ videos, columns = 4, partnerCardAt }: VideoGridProps) {
   const { expandedVideoId, instant, open, close } = useExpandedVideo(videos, { basePath: '/' })
-  const { shouldShowIntro, introPhase } = useIntroContext()
+  const { shouldShowIntro, introPhase, introTargetCount } = useIntroContext()
 
   // The grid now mounts behind the intro overlay, so its entrance is driven by
   // the intro phase (the settling reveal) rather than by mount. The supercut
   // fires 'settling' mid-flight, so cards stagger in UNDER the still-flying
-  // rectangle — but the landing card must not appear before the rectangle
-  // covers it, so it waits for 'done' (when the overlay starts its fade).
+  // rectangle — but the cards its pieces land on must not appear before the
+  // pieces cover them, so those wait for 'done' (when the pieces start their
+  // fade). The intro decides at runtime how many cards it lands on
+  // (introTargetCount: 4 when it splits, 1 on narrow layouts).
   const revealed = !shouldShowIntro || introPhase === 'settling' || introPhase === 'done'
   const targetRevealed = !shouldShowIntro || introPhase === 'done'
 
@@ -69,15 +71,19 @@ export function VideoGrid({ videos, columns = 4, partnerCardAt }: VideoGridProps
         style={gridStyle}
       >
       {items.map((item, index) => {
-        // The first card is the supercut intro's landing slot: the intro
-        // rectangle shrinks onto its exact rect and IS its entrance, so it
-        // must appear instantly at the reveal (no fly-in, no stagger delay)
-        // — it's covered pixel-for-pixel by the landed rectangle anyway.
-        const isSupercutTarget = index === 0
+        // The first cards are the supercut intro's landing slots: its pieces
+        // shrink onto their exact rects and ARE their entrances, so they must
+        // appear instantly at the reveal (no fly-in, no stagger delay) —
+        // they're covered pixel-for-pixel by the landed pieces anyway. All
+        // four candidates carry the marker (the intro measures them before
+        // deciding whether to split); only the first introTargetCount are
+        // actually held back from the normal stagger.
+        const isSupercutCandidate = item.video != null && index < 4
+        const isSupercutTarget = isSupercutCandidate && index < introTargetCount
         return (
         <motion.div
           key={item.key}
-          data-supercut-target={isSupercutTarget ? 'true' : undefined}
+          data-supercut-target={isSupercutCandidate ? String(index) : undefined}
           className="relative"
           initial={shouldShowIntro ? (isSupercutTarget ? { opacity: 0 } : { opacity: 0, y: 40, scale: 0.92 }) : false}
           animate={

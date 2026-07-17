@@ -13,6 +13,11 @@ interface IntroContextType {
   setContentReady: (value: boolean) => void
   introPhase: IntroPhase
   setIntroPhase: (phase: IntroPhase) => void
+  /** How many leading grid cards the intro lands on (supercut split). The
+   *  grid holds these cards' reveal until 'done' so the landed pieces cover
+   *  them; the intro lowers it to 1 when it can't split (narrow layouts). */
+  introTargetCount: number
+  setIntroTargetCount: (n: number) => void
   /** True once every registered above-the-fold preview has painted a frame. */
   mediaReady: boolean
   /** A preview declares it's loading and should gate the intro reveal. */
@@ -28,6 +33,7 @@ export function IntroProvider({ children }: { children: ReactNode }) {
   const [shouldShowIntro, setShouldShowIntro] = useState(false)
   const [contentReady, setContentReady] = useState(false)
   const [introPhase, setIntroPhase] = useState<IntroPhase>('tracing')
+  const [introTargetCount, setIntroTargetCount] = useState(4)
 
   const pendingMediaRef = useRef<Set<string>>(new Set())
   const loadedMediaRef = useRef<Set<string>>(new Set())
@@ -64,6 +70,8 @@ export function IntroProvider({ children }: { children: ReactNode }) {
         setContentReady,
         introPhase,
         setIntroPhase,
+        introTargetCount,
+        setIntroTargetCount,
         mediaReady,
         registerMedia,
         markMediaLoaded,
@@ -87,6 +95,8 @@ export function useIntroContext() {
       setContentReady: () => {},
       introPhase: 'done' as IntroPhase,
       setIntroPhase: () => {},
+      introTargetCount: 0,
+      setIntroTargetCount: () => {},
       mediaReady: true,
       registerMedia: () => {},
       markMediaLoaded: () => {},
