@@ -24,6 +24,11 @@ export const viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
+  // Dark canvas from the very first paint — without these the browser shows
+  // its default white canvas until the stylesheet applies (visible as a
+  // white flash before the intro).
+  themeColor: '#0a0a0a',
+  colorScheme: 'dark',
 }
 
 export const metadata: Metadata = {

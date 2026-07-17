@@ -16,6 +16,11 @@
 @layer base {
   html {
     @apply antialiased;
+    /* Belt-and-braces with viewport.colorScheme: the root element paints
+       dark even before the body's utility classes resolve, so a hard load
+       never flashes white. */
+    background-color: rgb(10 10 10);
+    color-scheme: dark;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overscroll-behavior-y: none;

@@ -15,17 +15,20 @@ import { trackGoal, GOALS } from '@/lib/analytics'
  * supercut of the entire catalog — one frame per launch video, speed-ramped
  * from ~3.5 ticks per frame down to 1 — while shrinking in one continuous
  * move into the real first video card of the grid, corners morphing from
- * razor-sharp to the card's 6px radius. The cut runs oldest → newest, so the
- * final frame IS the first card's thumbnail: the rectangle lands and simply
- * is the card. The intro then flips the shared intro phase to 'settling',
+ * razor-sharp to the card's 6px radius. The cut runs oldest → newest, and
+ * the final frame is a LIVE canvas mirror of the first card's playing
+ * preview (static thumbnail fallback): the rectangle lands and simply is
+ * the card. The intro then flips the shared intro phase to 'settling',
  * which is what the header logo and the staggered grid reveal already key
  * off — and fades itself out over the live card.
  *
  * Contracts carried over from the eye intro:
  *   - The page mounts behind this opaque overlay from the start, so previews
- *     load while the cut plays; the cut doesn't start until the above-fold
- *     previews have painted (mediaReady) or MEDIA_WAIT_CAP_MS passes —
- *     a slow network must never trap the visitor on the intro.
+ *     load while the cut plays. Unlike the eye intro there is NO wait on
+ *     mediaReady before starting: the cut begins the moment its own frames
+ *     are ready, because the reveal degrades gracefully — cards show their
+ *     static thumbnails until their previews paint. mediaReady is only kept
+ *     for the analytics dimension.
  *   - onContentReady fires at the settling reveal, onComplete at done
  *     (which marks the intro as seen for the session).
  *   - GOALS.introCompleted is tracked with waited_for_media, keeping the
@@ -61,7 +64,6 @@ const CUT_SCALE = 0.7
 const CRT_ON_MS = 240
 const START_COVER = 0.8
 const CARD_RADIUS = 6 // VideoCard's collapsed borderRadius
-const MEDIA_WAIT_CAP_MS = 2500
 const PRELOAD_DEADLINE_MS = 20000
 
 const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
@@ -83,10 +85,13 @@ const ITEMS = videos
 
 // Chronological cut (oldest → newest): the sequence crescendos into the
 // newest video, which is exactly the card the rectangle lands on.
+// 640px, not 1280: each frame flashes for a few ticks under the halftone
+// screen, so the resolution is invisible — and 640 is the exact variant the
+// grid cards request, so the Mux CDN always has it hot (halved preload time).
 const FLASH_SRCS = [...ITEMS.slice(1)]
   .reverse()
-  .map((v) => sizedThumbnail(v.thumbnailUrl!, 1280))
-  .concat(sizedThumbnail(ITEMS[0].thumbnailUrl!, 1280))
+  .map((v) => sizedThumbnail(v.thumbnailUrl!, 640))
+  .concat(sizedThumbnail(ITEMS[0].thumbnailUrl!, 640))
 
 type Phase = 'waiting' | 'cut' | 'landed' | 'done' | 'gone'
 
@@ -100,12 +105,11 @@ type AudioRig = {
 export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps) {
   const [frames, setFrames] = useState<string[] | null>(null)
   const [phase, setPhase] = useState<Phase>('waiting')
-  // Flips when the above-fold previews painted, or after the wait cap.
-  const [capElapsed, setCapElapsed] = useState(false)
   const { setIntroPhase, mediaReady } = useIntroContext()
 
   const overlayRef = useRef<HTMLDivElement>(null)
   const bloomRef = useRef<HTMLDivElement>(null)
+  const mirrorRef = useRef<HTMLCanvasElement>(null)
   const frameEls = useRef<(HTMLImageElement | null)[]>([])
   const objectUrlsRef = useRef<string[]>([])
   const audioRef = useRef<AudioRig | null>(null)
@@ -120,11 +124,6 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
   onContentReadyRef.current = onContentReady
   const mediaReadyRef = useRef(mediaReady)
   mediaReadyRef.current = mediaReady
-
-  useEffect(() => {
-    const cap = window.setTimeout(() => setCapElapsed(true), MEDIA_WAIT_CAP_MS)
-    return () => window.clearTimeout(cap)
-  }, [])
 
   // ── preload every frame ────────────────────────────────────────────────────
   useEffect(() => {
@@ -254,6 +253,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     let entryShown = -1
     let frameShown = -1
     let landedFlag = false
+    let landedAt = 0
     let humStarted = false
     let lastRect = { left: 0, top: 0, width: 0, height: 0 }
     let start = performance.now()
@@ -264,6 +264,48 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       if (frameShown >= 0 && els[frameShown]) els[frameShown]!.style.visibility = 'hidden'
       if (f >= 0 && els[f]) els[f]!.style.visibility = 'visible'
       frameShown = f
+    }
+
+    // Live landing frame: instead of the static thumbnail, the final "frame"
+    // of the cut is a canvas mirroring the card's actual playing preview —
+    // and it keeps mirroring through the hold and fade, so the moment the
+    // rectangle drops away there is zero discontinuity with the video
+    // underneath. drawImage on a cross-origin video taints the canvas, but
+    // display-only use is allowed — we never read pixels back.
+    let mirrorCtx: CanvasRenderingContext2D | null = null
+    let mirrorVideo: HTMLVideoElement | null = null
+    const drawMirror = (): boolean => {
+      if (!mirrorCtx || !mirrorVideo) return false
+      const w = mirrorVideo.videoWidth
+      const h = mirrorVideo.videoHeight
+      if (!w || !h || mirrorVideo.readyState < 2) return false
+      const canvas = mirrorCtx.canvas
+      if (canvas.width !== w || canvas.height !== h) {
+        canvas.width = w
+        canvas.height = h
+      }
+      try {
+        mirrorCtx.drawImage(mirrorVideo, 0, 0, w, h)
+        return true
+      } catch {
+        return false
+      }
+    }
+    const startMirror = (): boolean => {
+      const canvas = mirrorRef.current
+      const video = target.querySelector('video')
+      if (!canvas || !video) return false
+      mirrorCtx = canvas.getContext('2d')
+      mirrorVideo = video
+      if (!drawMirror()) {
+        // Preview isn't decodable yet — fall back to the static thumbnail.
+        mirrorCtx = null
+        mirrorVideo = null
+        return false
+      }
+      canvas.style.visibility = 'visible'
+      showFrame(-1) // hide the current still; the canvas carries the frame now
+      return true
     }
 
     // Re-measure the landing card every tick: it's nearly free, and a scroll
@@ -290,6 +332,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     frameEls.current.forEach((el) => {
       if (el) el.style.visibility = 'hidden'
     })
+    if (mirrorRef.current) mirrorRef.current.style.visibility = 'hidden'
 
     const tick = (now: number) => {
       // RAF pauses in hidden tabs — shift the clock over big gaps so the cut
@@ -334,7 +377,14 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
         while (e < entries.length - 1 && tc >= cum[e + 1]) e++
         if (e !== entryShown) {
           entryShown = e
-          showFrame(entries[e].frame)
+          const f = entries[e].frame
+          // The final frame goes live: mirror the card's playing preview if
+          // it has decodable frames, else keep the static thumbnail.
+          if (f === N - 1 && startMirror()) {
+            frameShown = N - 1 // the canvas stands in for the landing still
+          } else {
+            showFrame(f)
+          }
           if (bloomRef.current) bloomRef.current.style.opacity = '0'
           overlay.style.filter = 'none'
           overlay.style.boxShadow = 'none'
@@ -346,12 +396,14 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
             playClick(rig, e)
           }
         }
+        if (mirrorVideo) drawMirror()
         rafRef.current = requestAnimationFrame(tick)
         return
       }
 
       if (!landedFlag) {
         landedFlag = true
+        landedAt = t
         // Clock jumps can skip schedule entries — force the landing frame so
         // the card never resolves showing the wrong one.
         if (frameShown !== N - 1) showFrame(N - 1)
@@ -362,14 +414,20 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
         stopHum()
         finish(true)
       }
+
+      // Keep the mirror live through the hold and fade-out — the overlay
+      // stops painting anything of its own once it's fully transparent.
+      if (mirrorVideo && t < landedAt + 1200) {
+        drawMirror()
+        rafRef.current = requestAnimationFrame(tick)
+      }
     }
     rafRef.current = requestAnimationFrame(tick)
   }, [frames, setIntroPhase, cleanupUrls])
 
-  // Start once: frames preloaded, previews painted (or cap), tab visible.
+  // Start once: frames preloaded and tab visible.
   useEffect(() => {
     if (!frames || startedRef.current) return
-    if (!mediaReady && !capElapsed) return
     const startWhenVisible = () => {
       if (startedRef.current || document.visibilityState !== 'visible') return
       document.removeEventListener('visibilitychange', startWhenVisible)
@@ -378,7 +436,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     startWhenVisible()
     document.addEventListener('visibilitychange', startWhenVisible)
     return () => document.removeEventListener('visibilitychange', startWhenVisible)
-  }, [frames, mediaReady, capElapsed, play])
+  }, [frames, play])
 
   if (phase === 'gone') return null
 
@@ -422,6 +480,15 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
             style={{ visibility: 'hidden' }}
           />
         ))}
+        {/* Landing mirror — a live canvas copy of the first card's playing
+            preview, swapped in as the cut's final frame so the handoff to
+            the real card underneath is seamless. object-cover crops it the
+            same way the card's player does. */}
+        <canvas
+          ref={mirrorRef}
+          className="absolute inset-0 h-full w-full object-cover"
+          style={{ visibility: 'hidden', zIndex: 1 }}
+        />
         {/* Halftone screen — dot texture riding the flashes; it scales with
             the FLIP transform and dissolves as the rectangle lands. */}
         <div

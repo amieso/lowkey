@@ -74,10 +74,11 @@ const ITEMS = videos
   .sort((a, b) => b.publishedDate.localeCompare(a.publishedDate))
 const CARDS = ITEMS.slice(0, 9)
 
-// Request a bounded width — the full-size Mux thumbnails are heavy, and 48
-// of them would sit in memory for the whole session.
+// 640px to match the production intro: each frame flashes for a few ticks
+// under the halftone screen, so the resolution is invisible — and 640 is
+// the exact variant the grid cards request, so the Mux CDN has it hot.
 const flashSrc = (thumbnailUrl: string) =>
-  `${thumbnailUrl}${thumbnailUrl.includes('?') ? '&' : '?'}width=1280`
+  `${thumbnailUrl}${thumbnailUrl.includes('?') ? '&' : '?'}width=640`
 
 // Chronological cut (oldest → newest): the sequence crescendos into the
 // newest video, which is exactly the card the rectangle lands on.
