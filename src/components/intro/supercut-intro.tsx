@@ -572,10 +572,9 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       const sx = qw / c.width
       const sy = qh / c.height
       const e = easeInOutCubic(u)
-      // Curved flight: bow the path perpendicular to the travel direction
-      // (always upward-biased, like a card being dealt in an arc) instead of
-      // sliding on a straight rail; a slight tilt that peaks mid-flight and
-      // lands flat sells the physicality. Both scale with travel distance.
+      // Curved flight: a gentle bow perpendicular to the travel direction
+      // (upward-biased), zero at both ends so the split handoff and the
+      // seating stay pixel-exact. No rotation — just the arc.
       const len = Math.hypot(dx, dy) || 1
       let px = -dy / len
       let py = dx / len
@@ -583,9 +582,8 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
         px = -px
         py = -py
       }
-      const bow = Math.min(48, len * 0.22) * Math.sin(Math.PI * e)
-      const tilt = (dx > 0 ? -1 : 1) * Math.min(3, len * 0.012) * Math.sin(Math.PI * e)
-      node.style.transform = `translate(${(dx * (1 - e) + px * bow).toFixed(2)}px, ${(dy * (1 - e) + py * bow).toFixed(2)}px) scale(${lerp(sx, 1, e).toFixed(4)}, ${lerp(sy, 1, e).toFixed(4)}) rotate(${tilt.toFixed(2)}deg)`
+      const bow = Math.min(20, len * 0.09) * Math.sin(Math.PI * e)
+      node.style.transform = `translate(${(dx * (1 - e) + px * bow).toFixed(2)}px, ${(dy * (1 - e) + py * bow).toFixed(2)}px) scale(${lerp(sx, 1, e).toFixed(4)}, ${lerp(sy, 1, e).toFixed(4)})`
       // Corners: at the split instant only the piece's OUTER corner carries
       // the rectangle's radius (inner corners are flush seams); the inner
       // ones round to the card radius as the pieces separate.
