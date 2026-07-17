@@ -12,27 +12,30 @@ import { trackGoal, GOALS } from '@/lib/analytics'
  * design iterations live on the /supercut sandbox route).
  *
  * A rectangle covering ~80% of the viewport plays a supercut of the entire
- * catalog — one frame per launch video, speed-ramped from ~3.5 ticks per
- * frame down to 1 — while shrinking toward a 2×2 mosaic anchored over the
- * first grid row (so the split happens on top of where the pieces land).
- * When the cut ends the rectangle SPLITS seamlessly into four card-sized
- * pieces: each initially renders its exact quadrant of the final frame (a
- * 200% shard of the same image, outer corner rounded, inner seams square),
- * so the swap is pixel-invisible. The pieces then fall one after another
- * into the first four grid slots, each hard-cutting to its own video a
- * little into its flight — four more cuts in the supercut's rhythm — with
- * live mirrors of the cards' playing previews (thumbnail fallback), so
- * they land, hold, and fade into cards that are already playing.
+ * catalog — one frame per launch video, speed-ramped — while shrinking
+ * toward a 2×2 mosaic anchored over the first grid row. MID-CUT (SPLIT_AT)
+ * it splits seamlessly into four card-sized pieces: at the split instant
+ * each piece renders its exact quadrant of the then-current frame (a 200%
+ * shard of the same image, outer corner rounded, inner seams square), so
+ * the swap is pixel-invisible — and the supercut DOESN'T STOP: each piece
+ * keeps flashing its own dealt stream of catalog frames while it flies
+ * into its grid slot, resolving onto its destination video (live canvas
+ * mirror of the card's playing preview, blob thumbnail fallback) in the
+ * last stretch of its flight. Pieces launch staggered, so four flashing
+ * screens fall into the row one after another, land, hold, and fade into
+ * cards that are already playing.
  *
- * On layouts where the first four cards aren't all on screen (single-column
- * mobile), the split is skipped and the rectangle flies to the first card
- * alone — the original single-landing behavior. The grid learns which cards
- * to hold back via introTargetCount on the intro context.
+ * The mosaic is bottom-pinned over the target card row and height-capped
+ * so it only ever covers the row and the empty padding band above it —
+ * when the pieces depart, nothing (hero copy, the email form) pops out
+ * from underneath. On layouts where the first four cards aren't all on
+ * screen (single-column mobile), the split is skipped and the rectangle
+ * flies to the first card alone. The grid learns which cards to hold back
+ * via introTargetCount on the intro context.
  *
- * The shared intro phase flips to 'settling' mid-flight (REVEAL_AT of the
- * cut), so the backdrop fades and the header logo and staggered grid
- * assemble UNDER the still-flying rectangle; the pieces then fade out over
- * the live cards after landing.
+ * The shared intro phase flips to 'settling' mid-cut (REVEAL_AT), so the
+ * backdrop fades and the header logo and staggered grid assemble UNDER the
+ * still-flying rectangle.
  *
  * Contracts carried over from the eye intro:
  *   - The page mounts behind this opaque overlay from the start, so previews
@@ -49,13 +52,16 @@ import { trackGoal, GOALS } from '@/lib/analytics'
  *   - Frames preload via fetch → blob → object URL behind one global
  *     deadline; failures just shorten the cut (Chrome stalls <img> loads in
  *     hidden tabs; fetch runs at full speed).
+ *   - The big rectangle flashes stacked pre-mounted <img>s; the pieces
+ *     flash via a two-img flip-flop pipeline (the next frame's src is set
+ *     one dwell ahead on the hidden img, so a swap never waits on decode).
  *   - FLIP throughout: the big rectangle is laid out on the mosaic rect
- *     (screen-space, so it needs no re-measuring); each piece is laid out
- *     on its card's rect — re-measured every tick so a scroll mid-fall
- *     can't make a piece land beside its card.
+ *     (screen-fixed); each piece is laid out on its card's rect —
+ *     re-measured every tick so a scroll mid-fall can't make a piece land
+ *     beside its card.
  *   - The intro waits for the tab to be visible before starting — RAF is
  *     paused in hidden tabs and the one-shot intro shouldn't burn there.
- *   - Projector audio (click per swap, a thunk per piece landing, hum) is
+ *   - Projector audio (clicks per cut, a thunk per piece seating, hum) is
  *     attempted but stays silent on a true first visit: browsers keep
  *     AudioContext suspended until a user gesture.
  */
@@ -74,16 +80,27 @@ const RAMP_END = 1
 const CUT_SCALE = 0.7
 const START_COVER = 0.8
 const CARD_RADIUS = 6 // VideoCard's collapsed borderRadius
-// The split: piece flight time, the per-piece launch stagger ("fall into
-// place" one after another), and how far into its flight a piece hard-cuts
-// from its shard of the final frame to its own video (one more supercut cut).
-const FALL_MS = 550
+// The split happens mid-cut: at SPLIT_AT of the schedule the rectangle (by
+// then exactly on the mosaic) breaks into four pieces that KEEP flashing
+// while they fly for FALL_MS each, launching PIECE_STAGGER_MS apart, and
+// resolve onto their destination video at PIECE_RESOLVE_AT of their flight.
+const SPLIT_AT = 0.6
+const FALL_MS = 650
 const PIECE_STAGGER_MS = 70
-const PIECE_CUT_AT = 0.12
+const PIECE_RESOLVE_AT = 0.72
+// Piece flashing cadence (in ticks): continues the ramp from roughly where
+// the big cut left off down to a strobe as the piece closes in.
+const PIECE_DWELL_START = 1.9
+const PIECE_DWELL_END = 1.1
 // How far through the cut (0..1) the page reveal starts: the backdrop fades
 // and the grid staggers in UNDER the still-flying rectangle. The landing
 // cards themselves stay hidden until the pieces start fading over them.
-const REVEAL_AT = 0.55
+const REVEAL_AT = 0.45
+// The rectangle's own entry: it eases in from 0.95× scale and 50% opacity
+// over the first ENTRY_MS of the cut instead of popping on.
+const ENTRY_MS = 350
+const ENTRY_SCALE = 0.95
+const ENTRY_OPACITY = 0.5
 const PRELOAD_DEADLINE_MS = 20000
 
 const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
@@ -137,8 +154,9 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
   const mirrorRef = useRef<HTMLCanvasElement>(null)
   const frameEls = useRef<(HTMLImageElement | null)[]>([])
   const pieceRefs = useRef<(HTMLDivElement | null)[]>([])
-  const pieceImgRefs = useRef<(HTMLImageElement | null)[]>([])
   const pieceShardRefs = useRef<(HTMLImageElement | null)[]>([])
+  const pieceFlashARefs = useRef<(HTMLImageElement | null)[]>([])
+  const pieceFlashBRefs = useRef<(HTMLImageElement | null)[]>([])
   const pieceCanvasRefs = useRef<(HTMLCanvasElement | null)[]>([])
   const pieceHalftoneRefs = useRef<(HTMLDivElement | null)[]>([])
   const objectUrlsRef = useRef<string[]>([])
@@ -302,12 +320,13 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     }
 
     // The big rectangle's destination:
-    //  - split: a screen-fixed 2×2 mosaic sized EXACTLY 2 cards × 2 cards —
-    //    no grid gap baked in, so its quadrants are pixel-identical to the
-    //    pieces and the handoff is seamless; the gaps emerge as the pieces
-    //    separate. It's anchored over the centroid of the four target cards
-    //    (clamped on-screen), so the split happens on top of where the
-    //    pieces land and nothing unrelated is revealed underneath it.
+    //  - split: a screen-fixed 2×2 mosaic whose quadrants keep the card
+    //    aspect (no grid gap baked in — gaps emerge as the pieces separate),
+    //    bottom-pinned to the target cards and height-capped so it only
+    //    covers the card rows and the empty band directly above them:
+    //    when the pieces depart, nothing (hero copy, the email form) pops
+    //    out from underneath. Scales down uniformly to fit; the pieces just
+    //    grow a little as they fly.
     //  - single: the first card's rect (re-measured every tick, as before).
     const r0 = targetRects[0]
     let mosaic: Rect | null = null
@@ -316,12 +335,6 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       const sameRow = (a: DOMRect, b: DOMRect) => Math.abs(a.top - b.top) < 2
       const margin = 16
       const clamp = (v: number, lo: number, hi: number) => Math.min(Math.max(v, lo), hi)
-      // Bottom-pinned to the target cards and height-capped so the mosaic
-      // only ever covers the card rows and the empty padding band directly
-      // above them — when the pieces depart, nothing (hero copy, the email
-      // form) pops out from underneath. The mosaic scales down uniformly to
-      // fit (quadrants keep the card aspect, so the pieces just grow a
-      // little as they fly).
       const rowTop = Math.min(...targetRects.map((r) => r.top))
       const rowBottom = Math.max(...targetRects.map((r) => r.top + r.height))
       const bottom = Math.min(rowBottom, vh - margin)
@@ -355,8 +368,11 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     const cum: number[] = [0]
     for (const e of entries) cum.push(cum[cum.length - 1] + e.dur)
     const duration = cum[cum.length - 1]
+    // In split mode the big rectangle's flight (and its share of the cut)
+    // ends at the split; the pieces carry the supercut the rest of the way.
+    const splitTime = splitMode ? duration * SPLIT_AT : duration
     const fallEnd = splitMode
-      ? duration + (PIECE_COUNT - 1) * PIECE_STAGGER_MS + FALL_MS
+      ? splitTime + (PIECE_COUNT - 1) * PIECE_STAGGER_MS + FALL_MS
       : duration
 
     let entryShown = -1
@@ -372,8 +388,13 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       width: r.width,
       height: r.height,
     }))
+    // Per-piece flashing pipeline state.
+    const pieceStream: string[][] = [[], [], [], []]
+    const pieceStep: number[] = [0, 0, 0, 0]
+    const pieceNextFlashAt: number[] = [0, 0, 0, 0]
+    const pieceFlip: number[] = [0, 0, 0, 0]
+    const pieceResolved: boolean[] = [false, false, false, false]
     const pieceLanded: boolean[] = [false, false, false, false]
-    const pieceCutDone: boolean[] = [false, false, false, false]
     let start = performance.now()
     let lastTick = start
 
@@ -452,16 +473,18 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
 
     // Hand off from the one big rectangle to the four pieces, seamlessly:
     // each piece is laid out on its card, FLIP-transformed back onto its
-    // quadrant of the mosaic, and initially shows a SHARD of the final cut
-    // frame — the same image the big rectangle was showing, at 200% size,
-    // offset so the piece renders exactly its quadrant of it. Together the
-    // four shards reproduce the rectangle pixel-for-pixel, so the swap is
-    // invisible. Each piece then hard-cuts to its own video a little into
-    // its flight (pieceCut below) — four more cuts in the supercut's rhythm.
+    // quadrant of the mosaic, and initially shows a SHARD of the cut's
+    // then-current frame — the same image the big rectangle was showing, at
+    // 200% size, offset so the piece renders exactly its quadrant of it.
+    // Together the four shards reproduce the rectangle pixel-for-pixel, so
+    // the swap is invisible. The supercut then continues WITHIN each piece:
+    // the remaining catalog frames are dealt round-robin across the pieces
+    // (stride 4, so no two pieces flash the same frame at the same time).
     const split = () => {
       splitDone = true
       overlay.style.visibility = 'hidden'
-      const shardSrc = frames[N - 1]
+      const shardSrc = frames[Math.max(0, frameShown)]
+      const dealFrom = (Math.max(0, frameShown) + 1) % N
       for (let i = 0; i < PIECE_COUNT; i++) {
         const node = pieceRefs.current[i]
         if (!node || !mosaic) continue
@@ -474,30 +497,60 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
           shard.style.top = `${-Math.floor(q / 2) * 100}%`
           shard.style.visibility = 'visible'
         }
-        // The halftone came along from the big rectangle; dissolve it as the
-        // pieces become real cards.
-        const ht = pieceHalftoneRefs.current[i]
-        if (ht) {
-          ht.style.transition = 'opacity 0.35s ease-out'
-          ht.style.opacity = '0'
-        }
+        // Deal this piece its continuation of the cut, and pre-set the
+        // first frame on the hidden flip img so the first flash is instant.
+        const stream: string[] = []
+        for (let k = 0; k < 16; k++) stream.push(frames[(dealFrom + i + k * PIECE_COUNT) % N])
+        pieceStream[i] = stream
+        const prep = pieceFlashARefs.current[i]
+        if (prep) prep.src = stream[0]
+        pieceNextFlashAt[i] = splitTime + lerp(PIECE_DWELL_START, PIECE_DWELL_END, 0) * TICK_MS
         node.style.visibility = 'visible'
       }
     }
 
-    // A piece's own cut: drop the shard, show its destination video (live
-    // mirror when the preview is decodable, blob thumbnail otherwise).
-    const pieceCut = (i: number) => {
-      if (!startMirrorOn(i, pieceCanvasRefs.current[i], targets[i])) {
-        const img = pieceImgRefs.current[i]
-        const remote = sizedThumbnail(ITEMS[i].thumbnailUrl!, 640)
-        if (img) {
-          img.src = blobBySrcRef.current.get(remote) ?? remote
-          img.style.visibility = 'visible'
-        }
-      }
+    // One flash inside a piece: show the img prepared last time, prepare the
+    // next frame on the now-hidden one. Double-buffering means a swap never
+    // waits on image decode.
+    const pieceFlash = (i: number, u: number, tc: number) => {
+      const a = pieceFlashARefs.current[i]
+      const b = pieceFlashBRefs.current[i]
+      if (!a || !b) return
+      const showEl = pieceFlip[i] === 0 ? a : b
+      const prepEl = pieceFlip[i] === 0 ? b : a
+      showEl.style.visibility = 'visible'
+      prepEl.style.visibility = 'hidden'
       const shard = pieceShardRefs.current[i]
       if (shard) shard.style.visibility = 'hidden'
+      pieceFlip[i] = 1 - pieceFlip[i]
+      pieceStep[i]++
+      prepEl.src = pieceStream[i][pieceStep[i] % pieceStream[i].length]
+      pieceNextFlashAt[i] = tc + lerp(PIECE_DWELL_START, PIECE_DWELL_END, u) * TICK_MS
+      if (rig) playClick(rig, 300 + i * 37 + pieceStep[i], 0.1)
+    }
+
+    // A piece's resolve: the flashing stops on its destination video (live
+    // mirror when the preview is decodable, blob thumbnail otherwise), and
+    // its halftone dissolves — it's becoming a real card now.
+    const pieceResolve = (i: number) => {
+      if (!startMirrorOn(i, pieceCanvasRefs.current[i], targets[i])) {
+        const remote = sizedThumbnail(ITEMS[i].thumbnailUrl!, 640)
+        const dest = blobBySrcRef.current.get(remote) ?? remote
+        const showEl = pieceFlip[i] === 0 ? pieceFlashARefs.current[i] : pieceFlashBRefs.current[i]
+        const otherEl = pieceFlip[i] === 0 ? pieceFlashBRefs.current[i] : pieceFlashARefs.current[i]
+        if (showEl) {
+          showEl.src = dest
+          showEl.style.visibility = 'visible'
+        }
+        if (otherEl) otherEl.style.visibility = 'hidden'
+        const shard = pieceShardRefs.current[i]
+        if (shard) shard.style.visibility = 'hidden'
+      }
+      const ht = pieceHalftoneRefs.current[i]
+      if (ht) {
+        ht.style.transition = 'opacity 0.3s ease-out'
+        ht.style.opacity = '0'
+      }
       if (rig) playClick(rig, 850 + i)
     }
 
@@ -551,8 +604,8 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       lastTick = now
       const tc = now - start // schedule clock
 
-      // ── phase A: the cut on the big rectangle ──
-      if (tc < duration) {
+      // ── phase A: the cut on the big rectangle, flying to the mosaic ──
+      if (tc < splitTime) {
         let rect: Rect
         if (splitMode && mosaic) {
           rect = mosaic // screen-fixed — no measuring needed
@@ -562,9 +615,16 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
         const scale0 = startW / rect.width
         const dx0 = vw / 2 - (rect.left + rect.width / 2)
         const dy0 = vh / 2 - (rect.top + rect.height / 2)
-        const p = easeInOutCubic(clamp01(tc / duration))
+        // The flight completes exactly at the split (or, in single mode, at
+        // the end of the cut) — the pieces launch from rest.
+        const p = easeInOutCubic(clamp01(tc / splitTime))
         const s = lerp(scale0, 1, p)
-        overlay.style.transform = `translate(${lerp(dx0, 0, p)}px, ${lerp(dy0, 0, p)}px) scale(${s})`
+        // Entry: ease in from ENTRY_SCALE/ENTRY_OPACITY on top of the FLIP
+        // transform (multiplied into the scale, so both animations compose).
+        const te = clamp01(tc / ENTRY_MS)
+        const entry = 1 - Math.pow(1 - te, 3)
+        overlay.style.opacity = te < 1 ? lerp(ENTRY_OPACITY, 1, entry).toFixed(3) : '1'
+        overlay.style.transform = `translate(${lerp(dx0, 0, p)}px, ${lerp(dy0, 0, p)}px) scale(${s * lerp(ENTRY_SCALE, 1, entry)})`
         // Corner morph, scale-compensated: the on-screen radius is an exact
         // 0 → CARD_RADIUS ease regardless of the rectangle's current size.
         overlay.style.borderRadius = `${((CARD_RADIUS * p) / s).toFixed(2)}px`
@@ -603,15 +663,19 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
         return
       }
 
-      // ── phase B: the split & fall (split mode only) ──
+      // ── phase B: the pieces fly, still supercutting (split mode only) ──
       if (splitMode && tc < fallEnd) {
         if (!splitDone) split()
         for (let i = 0; i < PIECE_COUNT; i++) {
-          const u = clamp01((tc - duration - i * PIECE_STAGGER_MS) / FALL_MS)
+          const u = clamp01((tc - splitTime - i * PIECE_STAGGER_MS) / FALL_MS)
           pieceTransform(i, u)
-          if (u >= PIECE_CUT_AT && !pieceCutDone[i]) {
-            pieceCutDone[i] = true
-            pieceCut(i)
+          if (!pieceResolved[i]) {
+            if (u >= PIECE_RESOLVE_AT) {
+              pieceResolved[i] = true
+              pieceResolve(i)
+            } else if (tc >= pieceNextFlashAt[i]) {
+              pieceFlash(i, u, tc)
+            }
           }
           if (u >= 1 && !pieceLanded[i]) {
             pieceLanded[i] = true
@@ -633,9 +697,9 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
           if (!splitDone) split() // clock-jump safety: never skip the handoff
           for (let i = 0; i < PIECE_COUNT; i++) {
             pieceTransform(i, 1)
-            if (!pieceCutDone[i]) {
-              pieceCutDone[i] = true
-              pieceCut(i)
+            if (!pieceResolved[i]) {
+              pieceResolved[i] = true
+              pieceResolve(i)
             }
             if (!pieceLanded[i]) {
               pieceLanded[i] = true
@@ -734,9 +798,10 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
         <div className="absolute inset-0" style={{ ...halftoneStyle, zIndex: 2 }} />
       </div>
 
-      {/* The four pieces — born at the split as the rectangle's quadrants,
-          each falling onto its own card with its own video (live mirror or
-          blob thumbnail), then fading over the real card underneath. */}
+      {/* The four pieces — born at the split as the rectangle's quadrants
+          (shard of the current frame), each continuing the supercut with its
+          own dealt frame stream while falling onto its card, resolving to
+          the card's live preview, then fading over the real card. */}
       {Array.from({ length: PIECE_COUNT }, (_, i) => (
         <div
           key={i}
@@ -752,8 +817,27 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
             willChange: 'transform',
           }}
         >
-          {/* The shard: the final cut frame at 200%, offset per quadrant in
-              split(), so the four pieces initially reproduce the big
+          {/* Flip-flop pair for the piece's own supercut */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            ref={(el) => {
+              pieceFlashARefs.current[i] = el
+            }}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ visibility: 'hidden', zIndex: 1 }}
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            ref={(el) => {
+              pieceFlashBRefs.current[i] = el
+            }}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ visibility: 'hidden', zIndex: 1 }}
+          />
+          {/* The shard: the split-instant frame at 200%, offset per quadrant
+              in split(), so the four pieces initially reproduce the big
               rectangle pixel-for-pixel. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -762,30 +846,21 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
             }}
             alt=""
             className="absolute object-cover"
-            style={{ visibility: 'hidden', width: '200%', height: '200%' }}
-          />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            ref={(el) => {
-              pieceImgRefs.current[i] = el
-            }}
-            alt=""
-            className="absolute inset-0 h-full w-full object-cover"
-            style={{ visibility: 'hidden', zIndex: 1 }}
+            style={{ visibility: 'hidden', width: '200%', height: '200%', zIndex: 2 }}
           />
           <canvas
             ref={(el) => {
               pieceCanvasRefs.current[i] = el
             }}
             className="absolute inset-0 h-full w-full object-cover"
-            style={{ visibility: 'hidden', zIndex: 2 }}
+            style={{ visibility: 'hidden', zIndex: 3 }}
           />
           <div
             ref={(el) => {
               pieceHalftoneRefs.current[i] = el
             }}
             className="absolute inset-0"
-            style={{ ...halftoneStyle, zIndex: 3 }}
+            style={{ ...halftoneStyle, zIndex: 4 }}
           />
         </div>
       ))}
@@ -834,16 +909,16 @@ function startHum(rig: AudioRig) {
   rig.hum = { osc, gain }
 }
 
-function playClick(rig: AudioRig, seed: number) {
+function playClick(rig: AudioRig, seed: number, gain = 0.25) {
   if (rig.ctx.state !== 'running') return
   const src = rig.ctx.createBufferSource()
   src.buffer = rig.noise
   src.playbackRate.value = 0.7 + rand(seed, 8) * 0.6
-  const gain = rig.ctx.createGain()
+  const g = rig.ctx.createGain()
   const t0 = rig.ctx.currentTime
-  gain.gain.setValueAtTime(0.25, t0)
-  gain.gain.exponentialRampToValueAtTime(0.01, t0 + 0.03)
-  src.connect(gain)
-  gain.connect(rig.master)
+  g.gain.setValueAtTime(gain, t0)
+  g.gain.exponentialRampToValueAtTime(0.01, t0 + 0.03)
+  src.connect(g)
+  g.connect(rig.master)
   src.start()
 }
