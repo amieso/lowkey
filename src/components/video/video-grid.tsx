@@ -23,8 +23,12 @@ export function VideoGrid({ videos, columns = 4, partnerCardAt }: VideoGridProps
   const { shouldShowIntro, introPhase } = useIntroContext()
 
   // The grid now mounts behind the intro overlay, so its entrance is driven by
-  // the intro phase (the settling reveal) rather than by mount.
+  // the intro phase (the settling reveal) rather than by mount. The supercut
+  // fires 'settling' mid-flight, so cards stagger in UNDER the still-flying
+  // rectangle — but the landing card must not appear before the rectangle
+  // covers it, so it waits for 'done' (when the overlay starts its fade).
   const revealed = !shouldShowIntro || introPhase === 'settling' || introPhase === 'done'
+  const targetRevealed = !shouldShowIntro || introPhase === 'done'
 
   // While a video is full-screen, keep its arrow-nav neighbours (n-1 / n+1)
   // mounted and pre-upscaled so switching to them is instant and already sharp.
@@ -77,7 +81,7 @@ export function VideoGrid({ videos, columns = 4, partnerCardAt }: VideoGridProps
           className="relative"
           initial={shouldShowIntro ? (isSupercutTarget ? { opacity: 0 } : { opacity: 0, y: 40, scale: 0.92 }) : false}
           animate={
-            revealed
+            (isSupercutTarget ? targetRevealed : revealed)
               ? { opacity: 1, y: 0, scale: 1 }
               : isSupercutTarget
                 ? { opacity: 0 }

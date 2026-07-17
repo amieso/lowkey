@@ -18,9 +18,10 @@ import { trackGoal, GOALS } from '@/lib/analytics'
  * razor-sharp to the card's 6px radius. The cut runs oldest → newest, and
  * the final frame is a LIVE canvas mirror of the first card's playing
  * preview (static thumbnail fallback): the rectangle lands and simply is
- * the card. The intro then flips the shared intro phase to 'settling',
- * which is what the header logo and the staggered grid reveal already key
- * off — and fades itself out over the live card.
+ * the card. The shared intro phase flips to 'settling' mid-flight (at
+ * REVEAL_AT of the shrink), so the backdrop fades and the header logo and
+ * staggered grid assemble UNDER the still-flying rectangle; the intro then
+ * fades itself out over the live card after landing.
  *
  * Contracts carried over from the eye intro:
  *   - The page mounts behind this opaque overlay from the start, so previews
@@ -64,6 +65,12 @@ const CUT_SCALE = 0.7
 const CRT_ON_MS = 240
 const START_COVER = 0.8
 const CARD_RADIUS = 6 // VideoCard's collapsed borderRadius
+// How far through the shrink (schedule clock, 0..1) the page reveal starts:
+// the backdrop fades and the grid staggers in UNDER the still-flying
+// rectangle, so the landing happens into an already-assembling page instead
+// of a black void. The landing card itself stays hidden until the overlay
+// starts fading (it's covered pixel-for-pixel by then).
+const REVEAL_AT = 0.55
 const PRELOAD_DEADLINE_MS = 20000
 
 const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
@@ -105,6 +112,9 @@ type AudioRig = {
 export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps) {
   const [frames, setFrames] = useState<string[] | null>(null)
   const [phase, setPhase] = useState<Phase>('waiting')
+  // True once the mid-flight reveal has fired — drives the backdrop fade
+  // independently of `phase` (halftone dissolve etc. still key off landing).
+  const [revealedEarly, setRevealedEarly] = useState(false)
   const { setIntroPhase, mediaReady } = useIntroContext()
 
   const overlayRef = useRef<HTMLDivElement>(null)
@@ -182,10 +192,21 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     const overlay = overlayRef.current
     if (!overlay) return
 
-    const finish = (landed: boolean) => {
-      setPhase('landed')
+    // The page reveal: backdrop fade + grid stagger + header logo, all keyed
+    // off the shared 'settling' phase. Fired mid-flight (REVEAL_AT) for the
+    // overlap; idempotent so the landing/fallback path can call it safely.
+    let revealed = false
+    const reveal = () => {
+      if (revealed) return
+      revealed = true
+      setRevealedEarly(true)
       setIntroPhase('settling')
       onContentReadyRef.current?.()
+    }
+
+    const finish = (landed: boolean) => {
+      reveal()
+      setPhase('landed')
       timersRef.current.push(
         window.setTimeout(() => {
           setPhase('done')
@@ -373,6 +394,9 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
         // 0 → CARD_RADIUS ease regardless of the rectangle's current size.
         overlay.style.borderRadius = `${((CARD_RADIUS * p) / s).toFixed(2)}px`
 
+        // Mid-flight overlap: reveal the page under the flying rectangle.
+        if (tc >= duration * REVEAL_AT) reveal()
+
         let e = entryShown < 0 ? 0 : entryShown
         while (e < entries.length - 1 && tc >= cum[e + 1]) e++
         if (e !== entryShown) {
@@ -440,16 +464,14 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
 
   if (phase === 'gone') return null
 
-  const settling = phase === 'landed' || phase === 'done'
-
   return (
     <div className="fixed inset-0 z-[100] pointer-events-none">
-      {/* Opaque cover — the page loads behind it; fades at the settling
-          reveal exactly like the eye intro's backdrop. */}
+      {/* Opaque cover — the page loads behind it; fades at the mid-flight
+          reveal so the grid staggers in under the still-flying rectangle. */}
       <div
         className="absolute inset-0"
         style={{
-          backgroundColor: settling ? 'rgba(10, 10, 10, 0)' : 'rgba(10, 10, 10, 1)',
+          backgroundColor: revealedEarly ? 'rgba(10, 10, 10, 0)' : 'rgba(10, 10, 10, 1)',
           transition: 'background-color 0.5s ease-out',
         }}
       />
