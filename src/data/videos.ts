@@ -1008,7 +1008,7 @@ export const videos: Video[] = [
     companyFounded: 2024,
     description: 'Launch video for Dayflow — the open-source, local-first Mac app that turns your screen activity into an automatic work journal, reconstructing what you actually accomplished each day without timers or manual logging.',
     videoUrl: 'https://stream.mux.com/nx02BsjJNPNjtXNxxHLcVzbWWxgwCO8O1Yei00lWTgnJA.m3u8',
-    thumbnailUrl: 'https://image.mux.com/nx02BsjJNPNjtXNxxHLcVzbWWxgwCO8O1Yei00lWTgnJA/thumbnail.webp?time=5',
+    thumbnailUrl: 'https://image.mux.com/nx02BsjJNPNjtXNxxHLcVzbWWxgwCO8O1Yei00lWTgnJA/thumbnail.webp?time=3',
     duration: 42,
     aspectRatio: '16:9',
     websiteUrl: 'https://www.dayflow.so',

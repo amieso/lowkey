@@ -84,7 +84,7 @@ const CARD_RADIUS = 6 // VideoCard's collapsed borderRadius
 // then exactly on the mosaic) breaks into four pieces that KEEP flashing
 // while they fly for FALL_MS each, launching PIECE_STAGGER_MS apart, and
 // resolve onto their destination video at PIECE_RESOLVE_AT of their flight.
-const SPLIT_AT = 0.6
+const SPLIT_AT = 0.38
 const FALL_MS = 650
 const PIECE_STAGGER_MS = 70
 const PIECE_RESOLVE_AT = 0.72
@@ -93,9 +93,10 @@ const PIECE_RESOLVE_AT = 0.72
 const PIECE_DWELL_START = 1.9
 const PIECE_DWELL_END = 1.1
 // How far through the cut (0..1) the page reveal starts: the backdrop fades
-// and the grid staggers in UNDER the still-flying rectangle. The landing
-// cards themselves stay hidden until the pieces start fading over them.
-const REVEAL_AT = 0.45
+// and the grid staggers in UNDER the still-flying rectangle. Must stay
+// below SPLIT_AT (the check runs in phase A; split() also guarantees it).
+// The landing cards themselves stay hidden until the pieces fade over them.
+const REVEAL_AT = 0.28
 // The rectangle's own entry: it eases in from 0.95× scale and 50% opacity
 // over the first ENTRY_MS of the cut instead of popping on.
 const ENTRY_MS = 350
@@ -482,6 +483,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     // (stride 4, so no two pieces flash the same frame at the same time).
     const split = () => {
       splitDone = true
+      reveal() // guarantee the page is revealing by the time pieces fly
       overlay.style.visibility = 'hidden'
       const shardSrc = frames[Math.max(0, frameShown)]
       const dealFrom = (Math.max(0, frameShown) + 1) % N
