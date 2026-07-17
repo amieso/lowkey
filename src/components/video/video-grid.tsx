@@ -64,15 +64,28 @@ export function VideoGrid({ videos, columns = 4, partnerCardAt }: VideoGridProps
         className="no-focus-ring grid gap-x-4 gap-y-3 sm:gap-x-6 sm:gap-y-4 grid-cols-1 sm:grid-cols-2 lg:[grid-template-columns:repeat(var(--grid-cols),minmax(0,1fr))]"
         style={gridStyle}
       >
-      {items.map((item, index) => (
+      {items.map((item, index) => {
+        // The first card is the supercut intro's landing slot: the intro
+        // rectangle shrinks onto its exact rect and IS its entrance, so it
+        // must appear instantly at the reveal (no fly-in, no stagger delay)
+        // — it's covered pixel-for-pixel by the landed rectangle anyway.
+        const isSupercutTarget = index === 0
+        return (
         <motion.div
           key={item.key}
+          data-supercut-target={isSupercutTarget ? 'true' : undefined}
           className="relative"
-          initial={shouldShowIntro ? { opacity: 0, y: 40, scale: 0.92 } : false}
-          animate={revealed ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 40, scale: 0.92 }}
+          initial={shouldShowIntro ? (isSupercutTarget ? { opacity: 0 } : { opacity: 0, y: 40, scale: 0.92 }) : false}
+          animate={
+            revealed
+              ? { opacity: 1, y: 0, scale: 1 }
+              : isSupercutTarget
+                ? { opacity: 0 }
+                : { opacity: 0, y: 40, scale: 0.92 }
+          }
           transition={{
-            duration: 0.5,
-            delay: shouldShowIntro && revealed ? index * 0.05 : 0,
+            duration: isSupercutTarget ? 0 : 0.5,
+            delay: shouldShowIntro && revealed && !isSupercutTarget ? index * 0.05 : 0,
             ease: [0.23, 1, 0.32, 1],
           }}
         >
@@ -90,7 +103,8 @@ export function VideoGrid({ videos, columns = 4, partnerCardAt }: VideoGridProps
             <PartnerCard />
           )}
         </motion.div>
-      ))}
+        )
+      })}
       </div>
     </>
   )

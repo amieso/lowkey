@@ -1,7 +1,9 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { IntroAnimation } from '@/components/intro/intro-animation'
+// The eye-blink intro (IntroAnimation) is kept in intro-animation.tsx —
+// swap the import back to restore it over the supercut.
+import { SupercutIntro } from '@/components/intro/supercut-intro'
 import { useFirstVisit } from '@/hooks/use-first-visit'
 import { IntroProvider, useIntroContext } from '@/context/intro-context'
 
@@ -51,12 +53,12 @@ function HomePageContent({ children }: HomePageWrapperProps) {
 
   // Intro path - once started, stay here even after markAsSeen runs.
   // Children mount immediately (behind the opaque overlay) so the visible
-  // previews load while the logo traces — the intro then holds its reveal
-  // until they've painted. The header logo and grid animate off the intro
-  // phase (not mount), so they still fly in at the settling reveal.
+  // previews load while the supercut frames preload — the intro holds its
+  // start until they've painted. The header logo and grid animate off the
+  // intro phase (not mount), so they still fly in at the settling reveal.
   return (
     <>
-      <IntroAnimation
+      <SupercutIntro
         onComplete={handleIntroComplete}
         onContentReady={handleContentReady}
       />
