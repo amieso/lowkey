@@ -531,23 +531,25 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       if (rig) playClick(rig, 300 + i * 37 + pieceStep[i], 0.1)
     }
 
-    // A piece's resolve: the flashing stops on its destination video (live
-    // mirror when the preview is decodable, blob thumbnail otherwise), and
-    // its halftone dissolves — it's becoming a real card now.
+    // A piece's resolve: the flashing stops on its destination video, and
+    // its halftone dissolves — it's becoming a real card now. The
+    // destination thumbnail is ALWAYS parked in the visible img slot, even
+    // when the live mirror starts: the canvas sits above it while it works,
+    // and if the mirror ever fails or lags, what shows through is the right
+    // video — never a leftover flash frame of some other launch.
     const pieceResolve = (i: number) => {
-      if (!startMirrorOn(i, pieceCanvasRefs.current[i], targets[i])) {
-        const remote = sizedThumbnail(ITEMS[i].thumbnailUrl!, 640)
-        const dest = blobBySrcRef.current.get(remote) ?? remote
-        const showEl = pieceFlip[i] === 0 ? pieceFlashARefs.current[i] : pieceFlashBRefs.current[i]
-        const otherEl = pieceFlip[i] === 0 ? pieceFlashBRefs.current[i] : pieceFlashARefs.current[i]
-        if (showEl) {
-          showEl.src = dest
-          showEl.style.visibility = 'visible'
-        }
-        if (otherEl) otherEl.style.visibility = 'hidden'
-        const shard = pieceShardRefs.current[i]
-        if (shard) shard.style.visibility = 'hidden'
+      const remote = sizedThumbnail(ITEMS[i].thumbnailUrl!, 640)
+      const dest = blobBySrcRef.current.get(remote) ?? remote
+      const showEl = pieceFlip[i] === 0 ? pieceFlashARefs.current[i] : pieceFlashBRefs.current[i]
+      const otherEl = pieceFlip[i] === 0 ? pieceFlashBRefs.current[i] : pieceFlashARefs.current[i]
+      if (showEl) {
+        showEl.src = dest
+        showEl.style.visibility = 'visible'
       }
+      if (otherEl) otherEl.style.visibility = 'hidden'
+      const shard = pieceShardRefs.current[i]
+      if (shard) shard.style.visibility = 'hidden'
+      startMirrorOn(i, pieceCanvasRefs.current[i], targets[i])
       const ht = pieceHalftoneRefs.current[i]
       if (ht) {
         ht.style.transition = 'opacity 0.3s ease-out'
@@ -570,7 +572,20 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       const sx = qw / c.width
       const sy = qh / c.height
       const e = easeInOutCubic(u)
-      node.style.transform = `translate(${(dx * (1 - e)).toFixed(2)}px, ${(dy * (1 - e)).toFixed(2)}px) scale(${lerp(sx, 1, e).toFixed(4)}, ${lerp(sy, 1, e).toFixed(4)})`
+      // Curved flight: bow the path perpendicular to the travel direction
+      // (always upward-biased, like a card being dealt in an arc) instead of
+      // sliding on a straight rail; a slight tilt that peaks mid-flight and
+      // lands flat sells the physicality. Both scale with travel distance.
+      const len = Math.hypot(dx, dy) || 1
+      let px = -dy / len
+      let py = dx / len
+      if (py > 0) {
+        px = -px
+        py = -py
+      }
+      const bow = Math.min(48, len * 0.22) * Math.sin(Math.PI * e)
+      const tilt = (dx > 0 ? -1 : 1) * Math.min(3, len * 0.012) * Math.sin(Math.PI * e)
+      node.style.transform = `translate(${(dx * (1 - e) + px * bow).toFixed(2)}px, ${(dy * (1 - e) + py * bow).toFixed(2)}px) scale(${lerp(sx, 1, e).toFixed(4)}, ${lerp(sy, 1, e).toFixed(4)}) rotate(${tilt.toFixed(2)}deg)`
       // Corners: at the split instant only the piece's OUTER corner carries
       // the rectangle's radius (inner corners are flush seams); the inner
       // ones round to the card radius as the pieces separate.
