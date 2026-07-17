@@ -11,9 +11,9 @@ import { trackGoal, GOALS } from '@/lib/analytics'
  * HomePageWrapper; the eye animation is kept in intro-animation.tsx and the
  * design iterations live on the /supercut sandbox route).
  *
- * A rectangle covering ~80% of the viewport CRT-powers-on and plays a
- * supercut of the entire catalog — one frame per launch video, speed-ramped
- * from ~3.5 ticks per frame down to 1 — while shrinking in one continuous
+ * A rectangle covering ~80% of the viewport plays a supercut of the entire
+ * catalog — one frame per launch video, speed-ramped from ~3.5 ticks per
+ * frame down to 1 — while shrinking in one continuous
  * move into the real first video card of the grid, corners morphing from
  * razor-sharp to the card's 6px radius. The cut runs oldest → newest, and
  * the final frame is a LIVE canvas mirror of the first card's playing
@@ -62,7 +62,6 @@ const TICK_MS = 1000 / 60
 const RAMP_START = 5
 const RAMP_END = 1
 const CUT_SCALE = 0.7
-const CRT_ON_MS = 240
 const START_COVER = 0.8
 const CARD_RADIUS = 6 // VideoCard's collapsed borderRadius
 // How far through the shrink (schedule clock, 0..1) the page reveal starts:
@@ -74,7 +73,6 @@ const REVEAL_AT = 0.55
 const PRELOAD_DEADLINE_MS = 20000
 
 const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
-const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3)
 const clamp01 = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v)
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t
 
@@ -118,7 +116,6 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
   const { setIntroPhase, mediaReady } = useIntroContext()
 
   const overlayRef = useRef<HTMLDivElement>(null)
-  const bloomRef = useRef<HTMLDivElement>(null)
   const mirrorRef = useRef<HTMLCanvasElement>(null)
   const frameEls = useRef<(HTMLImageElement | null)[]>([])
   const objectUrlsRef = useRef<string[]>([])
@@ -367,24 +364,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       const dx0 = window.innerWidth / 2 - (rect.left + rect.width / 2)
       const dy0 = window.innerHeight / 2 - (rect.top + rect.height / 2)
 
-      // CRT power-on pre-roll: the first frame collapses to a bright
-      // horizontal line that expands vertically while a white bloom decays.
-      if (t < CRT_ON_MS) {
-        const u = easeOutCubic(clamp01(t / CRT_ON_MS))
-        overlay.style.transform = `translate(${dx0}px, ${dy0}px) scale(${scale0}) scaleY(${lerp(0.006, 1, u).toFixed(4)})`
-        overlay.style.filter = `brightness(${lerp(5, 1, u).toFixed(3)})`
-        // The tube glows cool white while it warms up.
-        overlay.style.boxShadow = `0 0 120px 40px rgba(200, 220, 255, ${(0.5 * (1 - u)).toFixed(3)})`
-        if (frameShown !== 0) showFrame(0)
-        if (bloomRef.current) bloomRef.current.style.opacity = Math.pow(1 - u, 1.5).toFixed(3)
-        if (rig && !humStarted) {
-          humStarted = true
-          startHum(rig)
-        }
-        rafRef.current = requestAnimationFrame(tick)
-        return
-      }
-      const tc = t - CRT_ON_MS // schedule clock
+      const tc = t // schedule clock
 
       if (tc < duration) {
         const p = easeInOutCubic(clamp01(tc / duration))
@@ -409,9 +389,6 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
           } else {
             showFrame(f)
           }
-          if (bloomRef.current) bloomRef.current.style.opacity = '0'
-          overlay.style.filter = 'none'
-          overlay.style.boxShadow = 'none'
           if (rig) {
             if (!humStarted) {
               humStarted = true
@@ -431,8 +408,6 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
         // Clock jumps can skip schedule entries — force the landing frame so
         // the card never resolves showing the wrong one.
         if (frameShown !== N - 1) showFrame(N - 1)
-        overlay.style.filter = 'none'
-        overlay.style.boxShadow = 'none'
         overlay.style.borderRadius = `${CARD_RADIUS}px`
         overlay.style.transform = 'none'
         stopHum()
@@ -524,8 +499,6 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
             transition: phase === 'cut' ? 'none' : 'opacity 0.35s ease-out',
           }}
         />
-        {/* CRT power-on bloom — opacity driven in the RAF pre-roll */}
-        <div ref={bloomRef} className="absolute inset-0 bg-white" style={{ zIndex: 3, opacity: 0 }} />
       </div>
     </div>
   )

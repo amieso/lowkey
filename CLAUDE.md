@@ -63,7 +63,7 @@ End-to-end flow for turning a source URL (x.com / YouTube / local file) into a l
 - Custom easing: `[0.23, 1, 0.32, 1]`
 
 **Intro Animation** (`src/components/intro/`):
-- The live homepage intro is `SupercutIntro` (supercut-intro.tsx): a rectangle CRT-powers-on at 80% of the viewport, flashes one frame per catalog video (speed-ramped, halftone overlay), and FLIP-shrinks onto the grid's first card (`[data-supercut-target]` in video-grid.tsx). Design iterations live on the `/supercut` sandbox route (with an effects panel).
+- The live homepage intro is `SupercutIntro` (supercut-intro.tsx): a rectangle at 80% of the viewport flashes one frame per catalog video (speed-ramped, halftone overlay), and FLIP-shrinks onto the grid's first card (`[data-supercut-target]` in video-grid.tsx). Design iterations live on the `/supercut` sandbox route (with an effects panel, incl. the dropped CRT power-on).
 - The previous eye-blink intro (`IntroAnimation`, intro-animation.tsx) is kept intact — swap the import in home-page-wrapper.tsx to restore it.
 - Context-based phase tracking via `IntroContext`: tracing → holding → settling → done. Header logo and grid reveal key off `settling`; the grid's first card reveals instantly (no fly-in) because the landed supercut rectangle covers it.
 - `useFirstVisit` hook uses sessionStorage to play intro once per session
