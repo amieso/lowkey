@@ -243,6 +243,9 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     const finish = (variant: string) => {
       reveal()
       setPhase('landed')
+      // Short tail: cards swallow clicks until introComplete ('done'), so
+      // the moment the landing looks finished it must BE finished — 150ms
+      // beat, 300ms piece fade, gone. No dead-to-input period at the end.
       timersRef.current.push(
         window.setTimeout(() => {
           setPhase('done')
@@ -252,13 +255,13 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
             variant,
           })
           onCompleteRef.current?.()
-        }, 600),
+        }, 150),
       )
       timersRef.current.push(
         window.setTimeout(() => {
           setPhase('gone')
           cleanupUrls() // ~48 decoded blobs have no business outliving the intro
-        }, 950),
+        }, 500),
       )
     }
 
@@ -716,7 +719,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
 
       // Keep the mirrors live through the hold and fade-out — the pieces
       // stop painting anything of their own once fully transparent.
-      if (anyMirror() && tc < landedAt + 1200) {
+      if (anyMirror() && tc < landedAt + 700) {
         drawAllMirrors()
         rafRef.current = requestAnimationFrame(tick)
       }
