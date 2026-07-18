@@ -4,11 +4,18 @@ import { useState } from 'react'
 import { ArrowIcon } from './ui/player-icons'
 import { EmojiConfetti } from './ui/emoji-confetti'
 import { trackGoal, GOALS } from '@/lib/analytics'
+import { useIntroContext } from '@/context/intro-context'
 
 export function HeroSection() {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  // During the intro the hero sits half-dimmed under the supercut; the
+  // moment the pieces start uncovering it (the split — introSplitFired) it
+  // eases to full opacity, so it fades IN as it becomes visible instead of
+  // just being uncovered at 100%.
+  const { shouldShowIntro, introSplitFired } = useIntroContext()
+  const dimmed = shouldShowIntro && !introSplitFired
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -45,7 +52,10 @@ export function HeroSection() {
   }
 
   return (
-    <section className="px-4 md:px-6 pt-[50px] pb-12 md:pt-[116px] md:pb-32">
+    <section
+      className="px-4 md:px-6 pt-[50px] pb-12 md:pt-[116px] md:pb-32"
+      style={{ opacity: dimmed ? 0.5 : 1, transition: 'opacity 0.6s ease-out' }}
+    >
       <div className="max-w-3xl mx-auto text-center">
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-medium text-foreground leading-[1.1] tracking-tight">
           The rumors are true.

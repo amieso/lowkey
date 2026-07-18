@@ -58,9 +58,9 @@ import { trackGoal, GOALS } from '@/lib/analytics'
  *     beside its card.
  *   - The intro waits for the tab to be visible before starting — RAF is
  *     paused in hidden tabs and the one-shot intro shouldn't burn there.
- *   - Projector audio (clicks per cut, a thunk per piece seating, hum) is
- *     attempted but stays silent on a true first visit: browsers keep
- *     AudioContext suspended until a user gesture.
+ *   - No audio: browsers keep AudioContext suspended until a user gesture,
+ *     so an auto-playing intro can never sound on a first visit. (The
+ *     projector-sound experiment lives on in the /supercut sandbox.)
  */
 
 interface SupercutIntroProps {
@@ -107,12 +107,6 @@ const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2
 const clamp01 = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v)
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t
 
-// Deterministic per-index noise so every run sounds identical.
-const rand = (i: number, salt: number) => {
-  const x = Math.sin(i * 127.1 + salt * 311.7) * 43758.5453
-  return x - Math.floor(x)
-}
-
 // Newest first — identical to the homepage sort, so ITEMS[0..3] are the
 // videos in the grid's first four cards (the landing targets).
 const ITEMS = videos
@@ -135,12 +129,6 @@ type Phase = 'waiting' | 'cut' | 'landed' | 'done' | 'gone'
 
 type Rect = { left: number; top: number; width: number; height: number }
 
-type AudioRig = {
-  ctx: AudioContext
-  master: GainNode
-  noise: AudioBuffer
-  hum: { osc: OscillatorNode; gain: GainNode } | null
-}
 
 export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps) {
   const [frames, setFrames] = useState<string[] | null>(null)
@@ -153,7 +141,8 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
   // writes in split() (braces) — so no re-render or remount can ever bring
   // the big rectangle's last frame back as a ghost.
   const [splitFired, setSplitFired] = useState(false)
-  const { setIntroPhase, setIntroTargetCount, mediaReady } = useIntroContext()
+  const { setIntroPhase, setIntroTargetCount, setIntroLandedCount, setIntroSplitFired, mediaReady } =
+    useIntroContext()
 
   const overlayRef = useRef<HTMLDivElement>(null)
   const mirrorRef = useRef<HTMLCanvasElement>(null)
@@ -167,7 +156,6 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
   const objectUrlsRef = useRef<string[]>([])
   // remote frame URL → local blob URL, for giving pieces their frames.
   const blobBySrcRef = useRef<Map<string, string>>(new Map())
-  const audioRef = useRef<AudioRig | null>(null)
   const startedRef = useRef(false)
   const rafRef = useRef(0)
   const timersRef = useRef<number[]>([])
@@ -229,7 +217,6 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       cleanupUrls()
       cancelAnimationFrame(rafRef.current)
       timersRef.current.forEach((t) => window.clearTimeout(t))
-      audioRef.current?.ctx.close().catch(() => {})
     }
   }, [cleanupUrls])
 
@@ -286,6 +273,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       // skip the spectacle and reveal the page.
       startedRef.current = true
       setIntroTargetCount(0)
+      setIntroSplitFired(true)
       finish('supercut_fallback')
       return
     }
@@ -309,19 +297,10 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       targets.length === PIECE_COUNT &&
       targetRects.every((r) => r.width > 0 && r.top >= 0 && r.top + r.height * 0.6 <= vh)
     setIntroTargetCount(splitMode ? PIECE_COUNT : 1)
+    // Single mode starts uncovering the hero from the first frame of its
+    // flight, so the hero fade is armed immediately there.
+    if (!splitMode) setIntroSplitFired(true)
     setPhase('cut')
-
-    // Audio will stay suspended without a prior user gesture — that's fine,
-    // the cut just runs mute.
-    const rig = ensureAudio(audioRef)
-    rig?.ctx.resume().catch(() => {})
-    const stopHum = () => {
-      if (!rig?.hum) return
-      const t0 = rig.ctx.currentTime
-      rig.hum.gain.gain.setTargetAtTime(0.0001, t0, 0.03)
-      rig.hum.osc.stop(t0 + 0.25)
-      rig.hum = null
-    }
 
     // Start rect: centered, covering START_COVER of the viewport at 16:9.
     let startW = vw * START_COVER
@@ -380,7 +359,6 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     let splitDone = false
     let landedFlag = false
     let landedAt = 0
-    let humStarted = false
     let lastRect: Rect = { left: 0, top: 0, width: 0, height: 0 }
     const pieceRects: Rect[] = targetRects.map((r) => ({
       left: 0,
@@ -489,6 +467,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       overlay.style.visibility = 'hidden'
       overlay.style.display = 'none'
       setSplitFired(true)
+      setIntroSplitFired(true) // the movement starts uncovering the hero now
       const shardSrc = frames[Math.max(0, frameShown)]
       const dealFrom = (Math.max(0, frameShown) + 1) % N
       for (let i = 0; i < PIECE_COUNT; i++) {
@@ -532,7 +511,6 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       pieceStep[i]++
       prepEl.src = pieceStream[i][pieceStep[i] % pieceStream[i].length]
       pieceNextFlashAt[i] = tc + lerp(PIECE_DWELL_START, PIECE_DWELL_END, u) * TICK_MS
-      if (rig) playClick(rig, 300 + i * 37 + pieceStep[i], 0.1)
     }
 
     // A piece's resolve: the flashing stops on its destination video, and
@@ -559,7 +537,6 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
         ht.style.transition = 'opacity 0.3s ease-out'
         ht.style.opacity = '0'
       }
-      if (rig) playClick(rig, 850 + i)
     }
 
     const pieceTransform = (i: number, u: number) => {
@@ -669,13 +646,6 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
           } else {
             showFrame(f)
           }
-          if (rig) {
-            if (!humStarted) {
-              humStarted = true
-              startHum(rig)
-            }
-            playClick(rig, e)
-          }
         }
         drawAllMirrors()
         rafRef.current = requestAnimationFrame(tick)
@@ -698,7 +668,9 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
           }
           if (u >= 1 && !pieceLanded[i]) {
             pieceLanded[i] = true
-            if (rig) playClick(rig, 900 + i) // a thunk as each piece seats
+            // Reveal this card NOW (its piece covers the media box, so this
+            // is the meta text fading in right at touchdown).
+            setIntroLandedCount(i + 1)
             // Late mirror chance: the preview may have decoded during the
             // fall — upgrading at the seat means the hold shows live video.
             startMirrorOn(i, pieceCanvasRefs.current[i], targets[i])
@@ -722,6 +694,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
             }
             if (!pieceLanded[i]) {
               pieceLanded[i] = true
+              setIntroLandedCount(i + 1)
               startMirrorOn(i, pieceCanvasRefs.current[i], targets[i])
             }
           }
@@ -729,10 +702,10 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
           // Clock jumps can skip schedule entries — force the landing frame
           // so the card never resolves showing the wrong one.
           if (frameShown !== N - 1) showFrame(N - 1)
+          setIntroLandedCount(1) // single mode: reveal card one at touchdown
           overlay.style.borderRadius = `${CARD_RADIUS}px`
           overlay.style.transform = 'none'
         }
-        stopHum()
         finish(splitMode ? 'supercut_split' : 'supercut')
       }
 
@@ -744,7 +717,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       }
     }
     rafRef.current = requestAnimationFrame(tick)
-  }, [frames, setIntroPhase, setIntroTargetCount, cleanupUrls])
+  }, [frames, setIntroPhase, setIntroTargetCount, setIntroLandedCount, setIntroSplitFired, cleanupUrls])
 
   // Start once: frames preloaded and tab visible.
   useEffect(() => {
@@ -893,57 +866,3 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
   )
 }
 
-// ── projector audio helpers ──────────────────────────────────────────────────
-
-function ensureAudio(ref: React.MutableRefObject<AudioRig | null>): AudioRig | null {
-  if (ref.current) return ref.current
-  try {
-    const ctx = new AudioContext()
-    const master = ctx.createGain()
-    master.gain.value = 0.5
-    master.connect(ctx.destination)
-    // Short decaying noise burst — the per-swap shutter click.
-    const noise = ctx.createBuffer(1, Math.ceil(ctx.sampleRate * 0.04), ctx.sampleRate)
-    const data = noise.getChannelData(0)
-    for (let i = 0; i < data.length; i++) {
-      data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / data.length, 2)
-    }
-    ref.current = { ctx, master, noise, hum: null }
-    return ref.current
-  } catch {
-    return null
-  }
-}
-
-function startHum(rig: AudioRig) {
-  if (rig.hum) return
-  const osc = rig.ctx.createOscillator()
-  osc.type = 'sawtooth'
-  osc.frequency.value = 55
-  const filt = rig.ctx.createBiquadFilter()
-  filt.type = 'lowpass'
-  filt.frequency.value = 140
-  const gain = rig.ctx.createGain()
-  const t0 = rig.ctx.currentTime
-  gain.gain.setValueAtTime(0.0001, t0)
-  gain.gain.exponentialRampToValueAtTime(0.05, t0 + 0.15)
-  osc.connect(filt)
-  filt.connect(gain)
-  gain.connect(rig.master)
-  osc.start()
-  rig.hum = { osc, gain }
-}
-
-function playClick(rig: AudioRig, seed: number, gain = 0.25) {
-  if (rig.ctx.state !== 'running') return
-  const src = rig.ctx.createBufferSource()
-  src.buffer = rig.noise
-  src.playbackRate.value = 0.7 + rand(seed, 8) * 0.6
-  const g = rig.ctx.createGain()
-  const t0 = rig.ctx.currentTime
-  g.gain.setValueAtTime(gain, t0)
-  g.gain.exponentialRampToValueAtTime(0.01, t0 + 0.03)
-  src.connect(g)
-  g.connect(rig.master)
-  src.start()
-}

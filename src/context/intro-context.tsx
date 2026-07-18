@@ -18,6 +18,16 @@ interface IntroContextType {
    *  them; the intro lowers it to 1 when it can't split (narrow layouts). */
   introTargetCount: number
   setIntroTargetCount: (n: number) => void
+  /** How many of those pieces have seated so far. A target card reveals the
+   *  moment its piece lands (the piece still covers the media box, so
+   *  visually this is the meta text fading in right at touchdown). */
+  introLandedCount: number
+  setIntroLandedCount: (n: number) => void
+  /** True once the intro's movement starts uncovering the hero (the split
+   *  in split mode; the reveal in single mode). The hero fades 50% → 100%
+   *  off this instead of just being uncovered at full opacity. */
+  introSplitFired: boolean
+  setIntroSplitFired: (v: boolean) => void
   /** True once every registered above-the-fold preview has painted a frame. */
   mediaReady: boolean
   /** A preview declares it's loading and should gate the intro reveal. */
@@ -34,6 +44,8 @@ export function IntroProvider({ children }: { children: ReactNode }) {
   const [contentReady, setContentReady] = useState(false)
   const [introPhase, setIntroPhase] = useState<IntroPhase>('tracing')
   const [introTargetCount, setIntroTargetCount] = useState(4)
+  const [introLandedCount, setIntroLandedCount] = useState(0)
+  const [introSplitFired, setIntroSplitFired] = useState(false)
 
   const pendingMediaRef = useRef<Set<string>>(new Set())
   const loadedMediaRef = useRef<Set<string>>(new Set())
@@ -72,6 +84,10 @@ export function IntroProvider({ children }: { children: ReactNode }) {
         setIntroPhase,
         introTargetCount,
         setIntroTargetCount,
+        introLandedCount,
+        setIntroLandedCount,
+        introSplitFired,
+        setIntroSplitFired,
         mediaReady,
         registerMedia,
         markMediaLoaded,
@@ -97,6 +113,10 @@ export function useIntroContext() {
       setIntroPhase: () => {},
       introTargetCount: 0,
       setIntroTargetCount: () => {},
+      introLandedCount: 0,
+      setIntroLandedCount: () => {},
+      introSplitFired: true,
+      setIntroSplitFired: () => {},
       mediaReady: true,
       registerMedia: () => {},
       markMediaLoaded: () => {},
