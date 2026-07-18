@@ -148,6 +148,11 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
   // True once the mid-flight reveal has fired — drives the backdrop fade
   // independently of `phase` (halftone dissolve etc. still key off landing).
   const [revealedEarly, setRevealedEarly] = useState(false)
+  // True once the rectangle has split into the pieces. The overlay's hiding
+  // is React-owned via this state (belt) in addition to the imperative
+  // writes in split() (braces) — so no re-render or remount can ever bring
+  // the big rectangle's last frame back as a ghost.
+  const [splitFired, setSplitFired] = useState(false)
   const { setIntroPhase, setIntroTargetCount, mediaReady } = useIntroContext()
 
   const overlayRef = useRef<HTMLDivElement>(null)
@@ -471,7 +476,12 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     const split = () => {
       splitDone = true
       reveal() // guarantee the page is revealing by the time pieces fly
+      // Kill the big rectangle three ways: imperatively now (visibility +
+      // display), and via React state so any later re-render/remount keeps
+      // it dead instead of resurrecting its last frame as a center ghost.
       overlay.style.visibility = 'hidden'
+      overlay.style.display = 'none'
+      setSplitFired(true)
       const shardSrc = frames[Math.max(0, frameShown)]
       const dealFrom = (Math.max(0, frameShown) + 1) % N
       for (let i = 0; i < PIECE_COUNT; i++) {
@@ -774,7 +784,13 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       <div
         ref={overlayRef}
         className="fixed z-10 overflow-hidden bg-[#0a0a0a]"
-        style={{ ...fadeStyle, transformOrigin: 'center', willChange: 'transform' }}
+        style={{
+          ...fadeStyle,
+          transformOrigin: 'center',
+          willChange: 'transform',
+          // React-owned kill switch — see split().
+          ...(splitFired ? { display: 'none' as const } : null),
+        }}
       >
         {(frames ?? []).map((src, i) => (
           // eslint-disable-next-line @next/next/no-img-element
