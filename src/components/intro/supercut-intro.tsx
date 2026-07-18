@@ -727,6 +727,19 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     rafRef.current = requestAnimationFrame(tick)
   }, [frames, setIntroPhase, setIntroTargetCount, setIntroLandedCount, setIntroHeroReveal, cleanupUrls])
 
+  // Scrolling mid-intro breaks the choreography — the mosaic is screen-fixed
+  // and the landing targets would move out from under the falling pieces.
+  // Lock the page until the landing is done (the same moment clicks go live).
+  useEffect(() => {
+    if (phase === 'done' || phase === 'gone') return
+    const root = document.documentElement
+    const prev = root.style.overflow
+    root.style.overflow = 'hidden'
+    return () => {
+      root.style.overflow = prev
+    }
+  }, [phase])
+
   // Start once: frames preloaded and tab visible.
   useEffect(() => {
     if (!frames || startedRef.current) return
