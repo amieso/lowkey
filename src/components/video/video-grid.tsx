@@ -19,9 +19,9 @@ interface VideoGridProps {
 }
 
 // How long the non-target cards hold after the intro's 'settling' signal
-// before starting their stagger. Tuned so they begin around the split rather
-// than during the hold (too early) or at the first landing (too late).
-const NON_TARGET_LEAD_S = 0.5
+// before starting their stagger. They lead the header logo, which trails the
+// same signal by its own offset (LOGO_LEAD_S in header.tsx).
+const NON_TARGET_LEAD_S = 0.1
 
 export function VideoGrid({ videos, columns = 4, partnerCardAt }: VideoGridProps) {
   const { expandedVideoId, instant, open, close } = useExpandedVideo(videos, { basePath: '/' })

@@ -6,6 +6,11 @@ import { AnimatedLogo } from '@/components/ui/animated-logo'
 import { LiquidGlass } from '@/components/ui/liquid-glass'
 import { useIntroContext } from '@/context/intro-context'
 
+// How long the logo (and the partner button beside it) trails the intro's
+// 'settling' signal. The grid cards key off the same signal but lead it, so
+// the row is already arriving as the logo flies up into the header.
+const LOGO_LEAD_S = 0.4
+
 export function Header() {
   const { introComplete, shouldShowIntro, introPhase } = useIntroContext()
 
@@ -56,9 +61,9 @@ export function Header() {
                 y: getStartY(),
               }}
               transition={isSettling ? {
-                scale: { duration: 0.7, ease: [0.23, 1, 0.32, 1] },
-                y: { duration: 0.7, ease: [0.23, 1, 0.32, 1] },
-                opacity: { duration: 0.15, ease: 'easeIn' },
+                scale: { duration: 0.7, delay: LOGO_LEAD_S, ease: [0.23, 1, 0.32, 1] },
+                y: { duration: 0.7, delay: LOGO_LEAD_S, ease: [0.23, 1, 0.32, 1] },
+                opacity: { duration: 0.15, delay: LOGO_LEAD_S, ease: 'easeIn' },
               } : {
                 duration: 0.2,
               }}
@@ -72,7 +77,7 @@ export function Header() {
             className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 mt-3 sm:mt-[18px]"
             initial={{ opacity: 0 }}
             animate={{ opacity: showLogo ? 1 : 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.2, delay: isSettling ? LOGO_LEAD_S : 0 }}
           >
             <div className="flex items-center gap-2">
               <Link
