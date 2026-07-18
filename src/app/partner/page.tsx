@@ -21,9 +21,6 @@ export default function PartnerPage() {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="mx-auto max-w-[880px] px-4 sm:px-6 py-12">
-        <p className="text-xs font-mono uppercase tracking-widest text-muted mb-4">
-          Ways to partner
-        </p>
         <h1 className="text-2xl md:text-3xl font-medium text-foreground tracking-tight leading-[1.1] mb-4">
           Partner with us
         </h1>
@@ -55,9 +52,6 @@ export default function PartnerPage() {
 
         {/* Secondary options - deemphasized */}
         <div className="mt-10">
-          <p className="text-xs font-mono uppercase tracking-widest text-muted-dark mb-4">
-            More ways to work together
-          </p>
           <div className="divide-y divide-border rounded-lg border border-border">
             {SECONDARY_OPTIONS.map((option) => (
               <PartnerCtaLink
