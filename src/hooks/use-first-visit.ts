@@ -10,7 +10,10 @@ export function useFirstVisit() {
 
   useEffect(() => {
     const seen = sessionStorage.getItem(STORAGE_KEY)
-    setShouldShowIntro(!seen)
+    void seen
+    // TEMP DEBUG: replay the intro on EVERY load while iterating on the
+    // supercut — restore to `setShouldShowIntro(!seen)` before launch.
+    setShouldShowIntro(true)
     setIsLoading(false)
   }, [])
 
