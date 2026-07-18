@@ -29,14 +29,15 @@ export function VideoGrid({ videos, columns = 4, partnerCardAt }: VideoGridProps
   // pieces cover them, so those wait for 'done' (when the pieces start their
   // fade). The intro decides at runtime how many cards it lands on
   // (introTargetCount: 4 when it splits, 1 on narrow layouts).
-  // The grid waits for the supercut to settle: nothing appears during the
-  // hold or the early fall. The non-target rows start their staggered
-  // fly-in as the FIRST piece seats (the landing is clearly resolving by
-  // then); the target cards reveal as ONE simultaneous fade once the LAST
-  // piece has seated (their media boxes are still covered by the landed
-  // pieces at that moment). 'done' is the catch-all for both.
+  // The non-target rows start their staggered fly-in at 'settling' — fired
+  // partway through the hold, while the rectangle is still cutting in place —
+  // so they're already arriving by the time it splits, rather than waiting on
+  // the first piece to touch down roughly a second later. The target cards
+  // still reveal as ONE simultaneous fade once the LAST piece has seated
+  // (their media boxes are covered by the landed pieces until then).
+  // 'done' is the catch-all for both.
   const allPiecesSeated = introTargetCount > 0 && introLandedCount >= introTargetCount
-  const revealed = !shouldShowIntro || introPhase === 'done' || introLandedCount >= 1
+  const revealed = !shouldShowIntro || introPhase === 'settling' || introPhase === 'done'
   const targetRevealed = !shouldShowIntro || introPhase === 'done' || allPiecesSeated
 
   // While a video is full-screen, keep its arrow-nav neighbours (n-1 / n+1)

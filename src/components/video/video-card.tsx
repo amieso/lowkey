@@ -14,16 +14,36 @@ import { useIntroContext } from '@/context/intro-context'
 import { trackGoal, GOALS } from '@/lib/analytics'
 import { usePageVisible } from '@/hooks/use-page-visible'
 import { useWatchTime } from '@/hooks/use-watch-time'
+import { useIsMobile } from '@/hooks/use-is-mobile'
+import { MobilePlayerPanel } from './modal/mobile-player-panel'
 import { LiquidGlass } from '@/components/ui/liquid-glass'
 
 const SHARED_LAYOUT_TRANSITION = { duration: 0.3, ease: [0.22, 1, 0.36, 1] } as const
 const SWIPE_CLOSE_THRESHOLD = 56
 const WHEEL_CLOSE_THRESHOLD = 140
 const WHEEL_RESET_MS = 180
+// On phones the expanded video is pinned near the top rather than centered, and
+// all its chrome stacks in the letterbox space below (see MobilePlayerPanel), so
+// the box is capped at just over half the viewport height to leave room.
+const MOBILE_TOP = 'calc(env(safe-area-inset-top, 0px) + 14px)'
+const MOBILE_MAX_VIDEO_HEIGHT = '52svh'
+
+function widthOverHeight(aspectRatio: Video['aspectRatio']): string {
+  switch (aspectRatio) {
+    case '1:1': return '1'
+    case '9:16': return '9 / 16'
+    case '4:5': return '4 / 5'
+    default: return '16 / 9'
+  }
+}
+
 // Expanded box sizing per aspect ratio. Width is capped by viewport width and
 // by the height available (100svh − chrome), converted via the ratio so the
 // box always fits on screen whatever its shape.
-function expandedWidth(aspectRatio: Video['aspectRatio']): string {
+function expandedWidth(aspectRatio: Video['aspectRatio'], mobile = false): string {
+  if (mobile) {
+    return `min(calc(100vw - 1.5rem), calc(${MOBILE_MAX_VIDEO_HEIGHT} * ${widthOverHeight(aspectRatio)}))`
+  }
   switch (aspectRatio) {
     case '1:1':
       return 'min(880px, calc(100vw - 2rem), calc(100svh - 7rem))'
@@ -52,17 +72,22 @@ function aspectClass(aspectRatio: Video['aspectRatio']): string {
 // The expanded box is centered via `fixed inset-0 m-auto`, so its edges sit at
 // 50% ± height/2, with height derived from expandedWidth through the aspect
 // ratio. These place the chrome that floats outside the frame.
-function expandedHeightExpr(aspectRatio: Video['aspectRatio']): string {
+function expandedHeightExpr(aspectRatio: Video['aspectRatio'], mobile = false): string {
   const heightRatio =
     aspectRatio === '1:1' ? '1' :
     aspectRatio === '9:16' ? '16 / 9' :
     aspectRatio === '4:5' ? '5 / 4' :
     '9 / 16'
-  return `((${expandedWidth(aspectRatio)}) * ${heightRatio})`
+  return `((${expandedWidth(aspectRatio, mobile)}) * ${heightRatio})`
 }
 
 function aboveChromeTop(aspectRatio: Video['aspectRatio']): string {
   return `calc(50% - ${expandedHeightExpr(aspectRatio)} / 2 - 12px)`
+}
+
+// Top edge of the stacked mobile chrome: directly under the pinned video box.
+function mobilePanelTop(aspectRatio: Video['aspectRatio']): string {
+  return `calc(${MOBILE_TOP} + ${expandedHeightExpr(aspectRatio, true)} + 12px)`
 }
 
 // The chrome row (title, company, stats, actions) needs ~690px to lay out
@@ -110,6 +135,7 @@ export const VideoCard = memo(function VideoCard({
   const isInteractive = !isGhost && !disablePlayback
   const chapters: Chapter[] = getChaptersForVideo(video.id)
   const { shouldShowIntro, introComplete, registerMedia, markMediaLoaded } = useIntroContext()
+  const isMobile = useIsMobile()
   const pageVisible = usePageVisible()
 
   const [videoEl, setVideoEl] = useState<HTMLVideoElement | null>(null)
@@ -456,9 +482,14 @@ export const VideoCard = memo(function VideoCard({
     }
   }, [isExpanded, onClose, guardScrollMomentum])
 
+  // Phones pin the box to the top (chrome stacks below it); everywhere else it
+  // stays optically centered in the viewport.
+  const stackedMobile = isExpanded && isMobile
+
   const boxStyle: CSSProperties = {
     borderRadius: isExpanded ? 12 : 6,
-    ...(isExpanded ? { width: expandedWidth(video.aspectRatio) } : {}),
+    ...(isExpanded ? { width: expandedWidth(video.aspectRatio, isMobile) } : {}),
+    ...(stackedMobile ? { top: MOBILE_TOP } : {}),
   }
 
   return (
@@ -488,9 +519,11 @@ export const VideoCard = memo(function VideoCard({
           onTouchMoveCapture={handleTouchMove}
           onTouchEndCapture={handleTouchEnd}
           className={
-            isExpanded
-              ? `fixed inset-0 z-[130] m-auto ${aspectClass(video.aspectRatio)} overflow-hidden bg-surface isolate shadow-2xl pointer-events-auto`
-              : 'absolute inset-0 overflow-hidden bg-surface isolate transition-shadow duration-300 group-hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6),0_0_0_1px_rgba(0,0,0,0.2),inset_0_0_0_1px_rgba(255,255,255,0.28)]'
+            stackedMobile
+              ? `fixed inset-x-0 z-[130] mx-auto ${aspectClass(video.aspectRatio)} overflow-hidden bg-surface isolate shadow-2xl pointer-events-auto`
+              : isExpanded
+                ? `fixed inset-0 z-[130] m-auto ${aspectClass(video.aspectRatio)} overflow-hidden bg-surface isolate shadow-2xl pointer-events-auto`
+                : 'absolute inset-0 overflow-hidden bg-surface isolate transition-shadow duration-300 group-hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6),0_0_0_1px_rgba(0,0,0,0.2),inset_0_0_0_1px_rgba(255,255,255,0.28)]'
           }
         >
           {isGhost ? (
@@ -535,10 +568,14 @@ export const VideoCard = memo(function VideoCard({
           {/* Expanded chrome */}
           {isExpanded && (
             <>
-              {/* Click-to-toggle overlay (excludes bottom controls) */}
+              {/* Click-to-toggle overlay. On desktop it stops short of the
+                  overlaid controls; on mobile those live outside the frame, so
+                  the whole video surface is tappable. */}
               <button
                 onClick={togglePlay}
-                className="absolute inset-x-0 top-0 bottom-20 z-30 w-full cursor-pointer bg-transparent"
+                className={`absolute inset-x-0 top-0 z-30 w-full cursor-pointer bg-transparent ${
+                  stackedMobile ? 'bottom-0' : 'bottom-20'
+                }`}
                 aria-label={isPlaying ? 'Pause video' : 'Play video'}
               />
 
@@ -561,7 +598,7 @@ export const VideoCard = memo(function VideoCard({
                 </motion.div>
               )}
 
-              {videoEl && (
+              {videoEl && !stackedMobile && (
                 <PlayerControls
                   videoRef={videoElRef}
                   duration={video.duration}
@@ -576,8 +613,30 @@ export const VideoCard = memo(function VideoCard({
           )}
         </motion.div>
 
+        {/* Mobile: title, transport, links and chapters all stack below the
+            pinned video instead of competing for one row above it. */}
+        {stackedMobile && videoEl && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.15, duration: 0.2 }}
+          >
+            <MobilePlayerPanel
+              video={video}
+              videoRef={videoElRef}
+              containerRef={boxRef}
+              chapters={chapters}
+              qualityLevels={qualityLevels}
+              currentQuality={currentQuality}
+              onQualityChange={handleQualityChange}
+              onClose={onClose}
+              top={mobilePanelTop(video.aspectRatio)}
+            />
+          </motion.div>
+        )}
+
         {/* Title + actions — floats above the video frame, outside it */}
-        {isExpanded && (
+        {isExpanded && !stackedMobile && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -591,10 +650,10 @@ export const VideoCard = memo(function VideoCard({
             >
               <div className="flex items-center gap-2 min-w-0">
                 <h2 className="text-sm sm:text-base font-light text-white tracking-tight truncate rounded px-2 py-1 bg-black/45 backdrop-blur-sm">{video.title}</h2>
-                {/* Optical alignment: the smaller mono badge and stats sit 2px low */}
-                <div className="flex items-center gap-2 shrink-0 translate-y-[2px]">
-                  <span className="text-[10px] text-white/80 tracking-widest uppercase font-mono rounded px-2 py-1 bg-black/45 backdrop-blur-sm">{video.company}</span>
-                  <VideoMetrics sourceUrl={video.sourceUrl} />
+                <div className="flex items-center gap-2 shrink-0">
+                  <span className="text-xs sm:text-sm font-light text-white/70 tracking-tight rounded px-2 py-1 bg-black/45 backdrop-blur-sm">{video.company}</span>
+                  {/* Optical alignment: the smaller mono stats sit 2px low */}
+                  <VideoMetrics sourceUrl={video.sourceUrl} className="translate-y-[2px]" />
                 </div>
               </div>
               <div className="flex items-center gap-2 pointer-events-auto">

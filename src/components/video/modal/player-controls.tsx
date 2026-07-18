@@ -12,6 +12,7 @@ import { FullscreenButton } from './fullscreen-button'
 import { SkipButton } from './skip-button'
 import { VolumeSlider } from './volume-slider'
 import { QualityLevel } from './video-player'
+import { useVideoTime } from '@/hooks/use-video-time'
 
 interface PlayerControlsProps {
   videoRef: React.RefObject<HTMLVideoElement | null>
@@ -33,33 +34,25 @@ export function PlayerControls({
   onQualityChange,
 }: PlayerControlsProps) {
   const [isPlaying, setIsPlaying] = useState(true)
-  const [currentTime, setCurrentTime] = useState(0)
   const [isSeeking, setIsSeeking] = useState(false)
   const [playbackSpeed, setPlaybackSpeed] = useState(1)
+  const [currentTime, setCurrentTime] = useVideoTime(videoRef, isSeeking)
 
   useEffect(() => {
     const video = videoRef.current
     if (!video) return
 
-    const handleTimeUpdate = () => {
-      if (!isSeeking) {
-        setCurrentTime(video.currentTime)
-      }
-    }
-
     const handlePlay = () => setIsPlaying(true)
     const handlePause = () => setIsPlaying(false)
 
-    video.addEventListener('timeupdate', handleTimeUpdate)
     video.addEventListener('play', handlePlay)
     video.addEventListener('pause', handlePause)
 
     return () => {
-      video.removeEventListener('timeupdate', handleTimeUpdate)
       video.removeEventListener('play', handlePlay)
       video.removeEventListener('pause', handlePause)
     }
-  }, [videoRef, isSeeking])
+  }, [videoRef])
 
   const togglePlay = useCallback(() => {
     const video = videoRef.current
