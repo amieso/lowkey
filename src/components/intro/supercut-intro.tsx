@@ -12,26 +12,23 @@ import { trackGoal, GOALS } from '@/lib/analytics'
  * design iterations live on the /supercut sandbox route).
  *
  * A rectangle covering ~80% of the viewport plays a supercut of the entire
- * catalog — one frame per launch video, speed-ramped — while shrinking
- * toward a 2×2 mosaic anchored over the first grid row. MID-CUT (SPLIT_AT)
- * it splits seamlessly into four card-sized pieces: at the split instant
- * each piece renders its exact quadrant of the then-current frame (a 200%
- * shard of the same image, outer corner rounded, inner seams square), so
- * the swap is pixel-invisible — and the supercut DOESN'T STOP: each piece
- * keeps flashing its own dealt stream of catalog frames while it flies
- * into its grid slot, resolving onto its destination video (live canvas
- * mirror of the card's playing preview, blob thumbnail fallback) in the
- * last stretch of its flight. Pieces launch staggered, so four flashing
- * screens fall into the row one after another, land, hold, and fade into
- * cards that are already playing.
+ * catalog — one frame per launch video, speed-ramped — HOLDING its centered
+ * spot for HOLD_MS. Then it splits right there, seamlessly, into four
+ * quarter pieces: at the split instant each piece renders its exact
+ * quadrant of the then-current frame (a 200% shard of the same image,
+ * outer corner rounded, inner seams square), so the swap is
+ * pixel-invisible — and the supercut DOESN'T STOP: each piece keeps
+ * flashing its own dealt stream of catalog frames while it carries the
+ * whole journey down into its grid slot on a gentle arc, resolving onto
+ * its destination video (live canvas mirror of the card's playing preview,
+ * blob thumbnail fallback) in the last stretch of its flight. Pieces
+ * launch staggered, so four flashing screens fall into the row one after
+ * another, land, hold, and fade into cards that are already playing.
  *
- * The mosaic is bottom-pinned over the target card row and height-capped
- * so it only ever covers the row and the empty padding band above it —
- * when the pieces depart, nothing (hero copy, the email form) pops out
- * from underneath. On layouts where the first four cards aren't all on
- * screen (single-column mobile), the split is skipped and the rectangle
- * flies to the first card alone. The grid learns which cards to hold back
- * via introTargetCount on the intro context.
+ * On layouts where the first four cards aren't all on screen
+ * (single-column mobile), the split is skipped and the rectangle flies to
+ * the first card alone. The grid learns which cards to hold back via
+ * introTargetCount on the intro context.
  *
  * The shared intro phase flips to 'settling' mid-cut (REVEAL_AT), so the
  * backdrop fades and the header logo and staggered grid assemble UNDER the
@@ -80,12 +77,13 @@ const RAMP_END = 1
 const CUT_SCALE = 0.7
 const START_COVER = 0.8
 const CARD_RADIUS = 6 // VideoCard's collapsed borderRadius
-// The split happens mid-cut: at SPLIT_AT of the schedule the rectangle (by
-// then exactly on the mosaic) breaks into four pieces that KEEP flashing
-// while they fly for FALL_MS each, launching PIECE_STAGGER_MS apart, and
-// resolve onto their destination video at PIECE_RESOLVE_AT of their flight.
-const SPLIT_AT = 0.38
-const FALL_MS = 650
+// The rectangle holds its centered 80% spot, supercutting in place, for
+// HOLD_MS — then splits right there (no approach flight): the four pieces
+// carry the whole journey down to the row, KEEP flashing while they fly
+// for FALL_MS each, launching PIECE_STAGGER_MS apart, and resolve onto
+// their destination video at PIECE_RESOLVE_AT of their flight.
+const HOLD_MS = 1000
+const FALL_MS = 750
 const PIECE_STAGGER_MS = 70
 const PIECE_RESOLVE_AT = 0.72
 // Piece flashing cadence (in ticks): continues the ramp from roughly where
@@ -93,9 +91,10 @@ const PIECE_RESOLVE_AT = 0.72
 const PIECE_DWELL_START = 1.9
 const PIECE_DWELL_END = 1.1
 // How far through the cut (0..1) the page reveal starts: the backdrop fades
-// and the grid staggers in UNDER the still-flying rectangle. Must stay
-// below SPLIT_AT (the check runs in phase A; split() also guarantees it).
-// The landing cards themselves stay hidden until the pieces fade over them.
+// and the grid staggers in UNDER the still-holding rectangle. Must resolve
+// to before the split (the check runs in phase A; split() also guarantees
+// it as a backstop). The landing cards themselves stay hidden until the
+// pieces fade over them.
 const REVEAL_AT = 0.28
 // The rectangle's own entry: it eases in from 0.95× scale and 50% opacity
 // over the first ENTRY_MS of the cut instead of popping on.
@@ -320,35 +319,22 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       startW = (startH * 16) / 9
     }
 
-    // The big rectangle's destination:
-    //  - split: a screen-fixed 2×2 mosaic whose quadrants keep the card
-    //    aspect (no grid gap baked in — gaps emerge as the pieces separate),
-    //    bottom-pinned to the target cards and height-capped so it only
-    //    covers the card rows and the empty band directly above them:
-    //    when the pieces depart, nothing (hero copy, the email form) pops
-    //    out from underneath. Scales down uniformly to fit; the pieces just
-    //    grow a little as they fly.
-    //  - single: the first card's rect (re-measured every tick, as before).
+    // The big rectangle never flies in split mode: it holds the centered
+    // start rect for HOLD_MS, and the "mosaic" the pieces are born from IS
+    // that rect — its quadrants keep the 16:9 card aspect, so the pieces
+    // shrink uniformly as they carry the whole journey down to the row.
+    // (The phase-A flight math degenerates cleanly: zero translate, scale 1.)
+    // Single mode: the first card's rect, re-measured every tick, as before.
     const r0 = targetRects[0]
     let mosaic: Rect | null = null
     let quadOrder: number[] = [0, 1, 2, 3] // quadrant index (TL,TR,BL,BR) per card
     if (splitMode) {
       const sameRow = (a: DOMRect, b: DOMRect) => Math.abs(a.top - b.top) < 2
-      const margin = 16
-      const clamp = (v: number, lo: number, hi: number) => Math.min(Math.max(v, lo), hi)
-      const rowTop = Math.min(...targetRects.map((r) => r.top))
-      const rowBottom = Math.max(...targetRects.map((r) => r.top + r.height))
-      const bottom = Math.min(rowBottom, vh - margin)
-      const topFloor = rowTop - 0.5 * r0.height
-      const h = Math.min(2 * r0.height, Math.max(r0.height, bottom - topFloor))
-      const w = 2 * r0.width * (h / (2 * r0.height))
-      const cx =
-        targetRects.reduce((sum, r) => sum + r.left + r.width / 2, 0) / targetRects.length
       mosaic = {
-        left: clamp(cx - w / 2, margin, Math.max(margin, vw - w - margin)),
-        top: bottom - h,
-        width: w,
-        height: h,
+        left: (vw - startW) / 2,
+        top: (vh - startH) / 2,
+        width: startW,
+        height: startH,
       }
       // Quadrants are handed to cards so paths don't cross: when all four
       // cards sit in one row, columns of the mosaic map to card order
@@ -369,9 +355,10 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     const cum: number[] = [0]
     for (const e of entries) cum.push(cum[cum.length - 1] + e.dur)
     const duration = cum[cum.length - 1]
-    // In split mode the big rectangle's flight (and its share of the cut)
-    // ends at the split; the pieces carry the supercut the rest of the way.
-    const splitTime = splitMode ? duration * SPLIT_AT : duration
+    // In split mode the big rectangle's share of the cut is the hold; the
+    // pieces carry the supercut (and all the movement) the rest of the way.
+    // Guard against tiny catalogs where the schedule is shorter than the hold.
+    const splitTime = splitMode ? Math.min(HOLD_MS, duration * 0.8) : duration
     const fallEnd = splitMode
       ? splitTime + (PIECE_COUNT - 1) * PIECE_STAGGER_MS + FALL_MS
       : duration
