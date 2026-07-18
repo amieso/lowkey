@@ -1020,6 +1020,29 @@ export const videos: Video[] = [
     featured: false,
     publishedDate: '2026-07-03',
   },
+  {
+    id: '49',
+    slug: 'neo-hands',
+    companySlug: '1x',
+    title: 'NEO\'s Tendon-Driven Hands',
+    company: '1X',
+    companyLogoUrl: 'https://img.logo.dev/1x.tech?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
+    companyFounded: 2014,
+    description: '1X unveils the hands of its NEO humanoid — 25 degrees of freedom, tendon-driven, nearing human-level dexterity, strength, and speed. After seventy years of robotics working around the hand problem, the pitch is that the humanoid bet lives or dies at the fingertips.',
+    videoUrl: 'https://stream.mux.com/XjqK4wsfHemzIvQmoOg014Cj7JMB014xqR8sOAgedH4G4.m3u8',
+    thumbnailUrl: 'https://image.mux.com/XjqK4wsfHemzIvQmoOg014Cj7JMB014xqR8sOAgedH4G4/thumbnail.webp?time=5',
+    duration: 107,
+    aspectRatio: '16:9',
+    websiteUrl: 'https://www.1x.tech',
+    twitterUrl: 'https://x.com/1x_tech',
+    sourceUrl: 'https://x.com/BerntBornich/status/2075253825494237660?s=20',
+    credits: [
+      { role: 'In-house', name: '1X', handle: '1x_tech', url: 'https://www.1x.tech', bio: 'Norwegian-American robotics company building NEO, a humanoid robot designed to work and live among people.', contactUrl: 'https://x.com/1x_tech', imageUrl: 'https://img.logo.dev/1x.tech?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark', twitterHandle: '1x_tech' },
+      { role: 'Creator', name: 'Bernt Bornich', handle: 'BerntBornich', url: 'https://x.com/BerntBornich', bio: 'CEO and founder of 1X.', contactUrl: 'https://x.com/BerntBornich', imageUrl: 'https://unavatar.io/twitter/BerntBornich', twitterHandle: 'BerntBornich' }
+    ],
+    featured: false,
+    publishedDate: '2026-07-09',
+  },
   // INGEST_ANCHOR — scripts/ingest.mjs inserts new video drafts above this line. Keep it.
 ]
 
