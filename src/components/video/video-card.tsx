@@ -332,9 +332,13 @@ export const VideoCard = memo(function VideoCard({
   }, [])
 
   const handleSelect = useCallback(() => {
+    // The intro overlay is pointer-events-none, so stray clicks during the
+    // supercut would fall through and expand a card behind it — audio starts
+    // with no video visible. Swallow selection until the intro is done.
+    if (shouldShowIntro && !introComplete) return
     if (!isInteractive || isExpanded) return
     onSelect?.(video)
-  }, [isInteractive, isExpanded, onSelect, video])
+  }, [shouldShowIntro, introComplete, isInteractive, isExpanded, onSelect, video])
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     // Only act as an "open this card" trigger when no modal is open. After
