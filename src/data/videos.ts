@@ -1156,6 +1156,28 @@ export const videos: Video[] = [
     featured: false,
     publishedDate: '2026-07-08',
   },
+  {
+    id: '55',
+    slug: 'kimi-k3',
+    companySlug: 'moonshot',
+    title: 'Kimi K3',
+    company: 'Moonshot AI',
+    companyLogoUrl: 'https://img.logo.dev/kimi.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
+    companyFounded: 2023,
+    description: 'Moonshot AI introduces Kimi K3 — a 2.8-trillion-parameter open-weight MoE model with a 1M-token context window, built for long-horizon coding and agent work. The largest open-source model released to date, closing the gap with the top US frontier models.',
+    videoUrl: 'https://stream.mux.com/pleoZz76pGjTaNrM02xPQxO4ULYw7KH3x00rrFm1XU02uY.m3u8',
+    thumbnailUrl: 'https://image.mux.com/pleoZz76pGjTaNrM02xPQxO4ULYw7KH3x00rrFm1XU02uY/thumbnail.webp?time=5',
+    duration: 57,
+    aspectRatio: '16:9',
+    websiteUrl: 'https://www.kimi.com',
+    twitterUrl: 'https://x.com/Kimi_Moonshot',
+    sourceUrl: 'https://x.com/Kimi_Moonshot/status/2077821890207547467?s=20',
+    credits: [
+      { role: 'In-house', name: 'Moonshot AI', handle: 'Kimi_Moonshot', url: 'https://www.kimi.com', bio: 'Beijing-based AI lab behind the Kimi models — shipping some of the largest open-weight frontier models in the world.', contactUrl: 'https://x.com/Kimi_Moonshot', imageUrl: 'https://img.logo.dev/kimi.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark', twitterHandle: 'Kimi_Moonshot' }
+    ],
+    featured: false,
+    publishedDate: '2026-07-16',
+  },
   // INGEST_ANCHOR — scripts/ingest.mjs inserts new video drafts above this line. Keep it.
 ]
 
