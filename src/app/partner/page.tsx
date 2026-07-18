@@ -75,13 +75,6 @@ export default function PartnerPage() {
           </div>
         </div>
 
-        <p className="mt-12 text-sm text-muted">
-          Prefer email? Reach us anytime at{' '}
-          <a href={`mailto:${CONTACT_EMAIL}`} className="text-foreground hover:underline">
-            {CONTACT_EMAIL}
-          </a>
-          .
-        </p>
       </main>
     </div>
   )

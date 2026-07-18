@@ -41,6 +41,6 @@ export const PARTNER_OPTIONS: PartnerOption[] = [
     name: 'Data partnership',
     tagline: 'Frame-level structured video data',
     description:
-      'License frame-level structured data from our launch video library — labeled frames, transcripts, and metadata for LLM training and evaluation. Built for model providers and AI teams.',
+      "A curated library of the best launch videos, available as structured data — labeled frames, transcripts, and rich metadata. Whether you're training models, running evaluations, doing research, or building something we haven't thought of yet, we're open to shaping a partnership around your use case.",
   },
 ]
