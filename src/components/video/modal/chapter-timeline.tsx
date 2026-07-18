@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback, useEffect } from 'react'
 import { Chapter } from '@/types/video'
+import { LiquidGlass } from '@/components/ui/liquid-glass'
 
 interface ChapterTimelineProps {
   chapters: Chapter[]
@@ -110,7 +111,14 @@ export function ChapterTimeline({
 
   return (
     <div className="relative select-none">
-      {/* Chapter pills */}
+      {/* Chapter pills, seated in a glass trough. One lens behind the whole row
+          rather than one per pill — N filters over a row that animates its
+          height would be far too much per-pixel work. */}
+      <LiquidGlass
+        radius={compact ? 3 : 12}
+        intensity={compact ? 0 : 0.7}
+        className="transition-all duration-300 ease-out"
+      >
       <div
         ref={containerRef}
         className="relative flex gap-1.5 cursor-pointer"
@@ -177,6 +185,7 @@ export function ChapterTimeline({
           )
         })}
       </div>
+      </LiquidGlass>
 
       {/* Tick ruler */}
       <div

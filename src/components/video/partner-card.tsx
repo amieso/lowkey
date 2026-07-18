@@ -1,29 +1,40 @@
 import Link from 'next/link'
 import { PARTNER_OPTIONS } from '@/data/partner'
-import { ArrowIcon } from '@/components/ui/player-icons'
+
+const primary = PARTNER_OPTIONS.find((option) => option.id === 'reach') ?? PARTNER_OPTIONS[0]
 
 export function PartnerCard() {
   return (
     <article className="group">
       {/* Matches the reserved video-card slot so it aligns with sibling cards */}
       <div className="relative aspect-video w-full">
-        <div className="absolute inset-0 flex flex-col overflow-hidden rounded-md bg-surface border border-border p-3 sm:p-4 transition-colors group-hover:border-foreground/15">
-          <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-muted">
-            Ways to partner
-          </span>
+        <div className="absolute inset-0 flex flex-col overflow-hidden rounded-md border border-foreground/15 bg-surface transition-colors group-hover:border-foreground/25">
+          {/* Soft top-left wash so the card reads as a slot, not a hole in the grid */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-70"
+            style={{
+              background:
+                'radial-gradient(120% 100% at 0% 0%, rgba(250,250,250,0.10) 0%, rgba(250,250,250,0.03) 40%, transparent 70%)',
+            }}
+          />
 
-          <div className="mt-2 grid flex-1 grid-cols-2 grid-rows-2 gap-1.5">
-            {PARTNER_OPTIONS.map((option) => (
-              <Link
-                key={option.id}
-                href={`/partner#${option.id}`}
-                className="group/row flex items-center justify-between gap-2 rounded-[5px] bg-foreground/[0.02] px-2.5 transition-colors hover:bg-foreground/[0.06]"
-              >
-                <span className="text-sm text-foreground truncate">{option.name}</span>
-                <ArrowIcon className="h-4 w-4 shrink-0 text-muted transition-all duration-200 group-hover/row:translate-x-0.5 group-hover/row:text-foreground" />
-              </Link>
-            ))}
-          </div>
+          <Link
+            href={`/partner#${primary.id}`}
+            className="relative flex flex-1 flex-col justify-center px-4 sm:px-5 transition-colors hover:bg-foreground/[0.04]"
+          >
+            <span className="block text-lg sm:text-xl font-medium leading-tight text-foreground">
+              {primary.name}
+            </span>
+            <span className="mt-1 block text-xs sm:text-sm text-muted">{primary.tagline}</span>
+          </Link>
+
+          <Link
+            href="/partner"
+            className="relative flex items-center border-t border-foreground/10 px-4 sm:px-5 py-2.5 text-xs text-muted transition-colors hover:bg-foreground/[0.04] hover:text-foreground"
+          >
+            Other ways to partner
+          </Link>
         </div>
       </div>
 

@@ -12,6 +12,7 @@ import { FullscreenButton } from './fullscreen-button'
 import { SkipButton } from './skip-button'
 import { VolumeSlider } from './volume-slider'
 import { QualityLevel } from './video-player'
+import { LiquidGlass } from '@/components/ui/liquid-glass'
 
 interface PlayerControlsProps {
   videoRef: React.RefObject<HTMLVideoElement | null>
@@ -159,7 +160,7 @@ export function PlayerControls({
     // z-40 keeps the controls above the click-to-toggle overlay (z-30 in
     // video-card), which only excludes the bottom 80px — the fullscreen
     // chapter timeline is taller than that
-    <div className="absolute bottom-0 left-0 right-0 z-40">
+    <div data-player-chrome="true" className="absolute bottom-0 left-0 right-0 z-40">
       {/* Progressive blur layers */}
       <div
         className="absolute inset-0 backdrop-blur-[2px] pointer-events-none"
@@ -199,32 +200,36 @@ export function PlayerControls({
       {/* Controls row - 3 column layout */}
       <div className="relative flex items-center justify-between px-4 pt-2 pb-5">
         {/* Left controls */}
-        <div className="flex items-center gap-1 flex-1">
-          {/* Play/Pause */}
-          <button
-            onClick={togglePlay}
-            className="w-8 h-8 flex items-center justify-center rounded hover:bg-white/10 transition-colors"
-            aria-label={isPlaying ? 'Pause' : 'Play'}
-          >
-            {isPlaying ? (
-              <PauseIcon className="w-5 h-5 text-white" />
-            ) : (
-              <PlayIcon className="w-5 h-5 text-white" />
-            )}
-          </button>
+        <div className="flex flex-1 justify-start">
+          <LiquidGlass tint="rgba(0,0,0,0.25)">
+            <div className="flex items-center gap-1 px-1">
+              {/* Play/Pause */}
+              <button
+                onClick={togglePlay}
+                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors"
+                aria-label={isPlaying ? 'Pause' : 'Play'}
+              >
+                {isPlaying ? (
+                  <PauseIcon className="w-5 h-5 text-white" />
+                ) : (
+                  <PlayIcon className="w-5 h-5 text-white" />
+                )}
+              </button>
 
-          {/* Skip backward 5s - hidden on mobile */}
-          <div className="hidden sm:block">
-            <SkipButton direction="backward" onSkip={handleSkip} />
-          </div>
+              {/* Skip backward 5s - hidden on mobile */}
+              <div className="hidden sm:block">
+                <SkipButton direction="backward" onSkip={handleSkip} />
+              </div>
 
-          {/* Skip forward 5s - hidden on mobile */}
-          <div className="hidden sm:block">
-            <SkipButton direction="forward" onSkip={handleSkip} />
-          </div>
+              {/* Skip forward 5s - hidden on mobile */}
+              <div className="hidden sm:block">
+                <SkipButton direction="forward" onSkip={handleSkip} />
+              </div>
 
-          {/* Volume with slider */}
-          <VolumeSlider videoRef={videoRef} />
+              {/* Volume with slider */}
+              <VolumeSlider videoRef={videoRef} />
+            </div>
+          </LiquidGlass>
         </div>
 
         {/* Center - Time display */}
@@ -235,26 +240,30 @@ export function PlayerControls({
         </div>
 
         {/* Right controls */}
-        <div className="flex items-center gap-1 flex-1 justify-end">
-          {/* Resolution selector */}
-          {qualityLevels.length > 0 && onQualityChange && (
-            <ResolutionSelector
-              levels={qualityLevels}
-              currentLevel={currentQuality}
-              onLevelChange={onQualityChange}
-            />
-          )}
+        <div className="flex flex-1 justify-end">
+          <LiquidGlass tint="rgba(0,0,0,0.25)">
+            <div className="flex items-center gap-1 px-1">
+              {/* Resolution selector */}
+              {qualityLevels.length > 0 && onQualityChange && (
+                <ResolutionSelector
+                  levels={qualityLevels}
+                  currentLevel={currentQuality}
+                  onLevelChange={onQualityChange}
+                />
+              )}
 
-          {/* Speed selector - hidden on mobile */}
-          <div className="hidden sm:block">
-            <SpeedSelector
-              currentSpeed={playbackSpeed}
-              onSpeedChange={handleSpeedChange}
-            />
-          </div>
+              {/* Speed selector - hidden on mobile */}
+              <div className="hidden sm:block">
+                <SpeedSelector
+                  currentSpeed={playbackSpeed}
+                  onSpeedChange={handleSpeedChange}
+                />
+              </div>
 
-          {/* Fullscreen */}
-          <FullscreenButton containerRef={containerRef} videoRef={videoRef} />
+              {/* Fullscreen */}
+              <FullscreenButton containerRef={containerRef} videoRef={videoRef} />
+            </div>
+          </LiquidGlass>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { AnimatedLogo } from '@/components/ui/animated-logo'
+import { LiquidGlass } from '@/components/ui/liquid-glass'
 import { useIntroContext } from '@/context/intro-context'
 
 export function Header() {
@@ -82,12 +83,14 @@ export function Header() {
               >
                 Follow on X
               </Link>
-              <Link
-                href="/partner"
-                className="inline-flex h-9 items-center rounded-full bg-foreground/5 px-4 text-sm text-foreground hover:bg-foreground/10 transition-colors"
-              >
-                Partner with us
-              </Link>
+              <LiquidGlass className="group" tint="rgba(255,255,255,0.05)">
+                <Link
+                  href="/partner"
+                  className="inline-flex h-9 items-center rounded-full px-4 text-sm text-foreground bg-white/0 group-hover:bg-white/[0.08] transition-colors"
+                >
+                  Partner with us
+                </Link>
+              </LiquidGlass>
             </div>
           </motion.div>
         </div>
