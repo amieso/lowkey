@@ -107,6 +107,10 @@ const SETTLE_LEAD_MS = 800
 const ENTRY_MS = 350
 const ENTRY_SCALE = 0.95
 const ENTRY_OPACITY = 0.75
+// Opacity resolves well before the scale does: the rectangle is composited
+// over the near-black cover, so a slow ramp leaves the first frames sitting
+// dim. The scale keeps the longer ENTRY_MS ease.
+const ENTRY_OPACITY_MS = 140
 const PRELOAD_DEADLINE_MS = 20000
 
 const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
@@ -636,7 +640,10 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
         // transform (multiplied into the scale, so both animations compose).
         const te = clamp01(tc / ENTRY_MS)
         const entry = 1 - Math.pow(1 - te, 3)
-        overlay.style.opacity = te < 1 ? lerp(ENTRY_OPACITY, 1, entry).toFixed(3) : '1'
+        const to = clamp01(tc / ENTRY_OPACITY_MS)
+        const entryOpacity = 1 - Math.pow(1 - to, 3)
+        overlay.style.opacity =
+          to < 1 ? lerp(ENTRY_OPACITY, 1, entryOpacity).toFixed(3) : '1'
         overlay.style.transform = `translate(${lerp(dx0, 0, p)}px, ${lerp(dy0, 0, p)}px) scale(${s * lerp(ENTRY_SCALE, 1, entry)})`
         // Corner morph, scale-compensated: the on-screen radius is an exact
         // 0 → CARD_RADIUS ease regardless of the rectangle's current size.
