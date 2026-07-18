@@ -80,12 +80,12 @@ const RAMP_END_TICKS = 1
 const START_COVER = 0.8
 // Single mode (portrait phones): a 16:9 rectangle at 80% of a tall viewport
 // is a small letterbox band with dead space above and below, so there the cut
-// plays in a near-fullscreen PORTRAIT rect instead — the landscape stills
-// cropped to ~9:16 by object-cover — which then morphs its geometry down onto
-// the card's 16:9 media box, opening the crop back up as it seats.
-const PORTRAIT_ASPECT = 9 / 16
-const PORTRAIT_COVER_W = 0.92
-const PORTRAIT_COVER_H = 0.78
+// takes the WHOLE viewport instead — the landscape stills cropped to the
+// screen's own portrait aspect by object-cover — and morphs its geometry down
+// onto the card's 16:9 media box, opening the crop back up as it seats. No
+// cover fraction here on purpose: edge-to-edge is the point, and the margin
+// that frames the desktop rectangle has nothing to frame it against on a
+// phone (the backdrop it would sit on is the same near-black).
 // How much of the single-mode cut is spent holding the portrait rect before
 // the descent starts — the phone's answer to HOLD_MS (there's no split to
 // hand off to, so the hold is a fraction of the schedule rather than a
@@ -334,19 +334,15 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     setIntroTargetCount(splitMode ? PIECE_COUNT : 1)
     setPhase('cut')
 
-    // Start rect: centered. Split mode covers START_COVER of the viewport at
+    // Start rect: split mode covers START_COVER of the viewport, centered, at
     // 16:9 (the quadrants have to match the cards' aspect). Single mode on a
-    // tall viewport goes portrait and near-fullscreen instead.
+    // tall viewport takes the whole screen.
     const portrait = !splitMode && vh > vw
     let startW: number
     let startH: number
     if (portrait) {
-      startW = vw * PORTRAIT_COVER_W
-      startH = startW / PORTRAIT_ASPECT
-      if (startH > vh * PORTRAIT_COVER_H) {
-        startH = vh * PORTRAIT_COVER_H
-        startW = startH * PORTRAIT_ASPECT
-      }
+      startW = vw
+      startH = vh
     } else {
       startW = vw * START_COVER
       startH = (startW * 9) / 16
@@ -358,9 +354,9 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     const startLeft = (vw - startW) / 2
     const startTop = (vh - startH) / 2
 
-    // Single mode's descent: geometry, not a uniform scale. A 9:16 rect can't
-    // reach a 16:9 card by scaling (that would either distort the frames or
-    // keep the portrait shape all the way down), so left/top/width/height are
+    // Single mode's descent: geometry, not a uniform scale. A portrait rect
+    // can't reach a 16:9 card by scaling (that would either distort the frames
+    // or keep the portrait shape all the way down), so left/top/width/height are
     // interpolated per tick and object-cover re-crops each frame as the box
     // widens — the landing is the card's exact media box.
     const layoutSingle = (p: number) => {
@@ -705,7 +701,10 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
             clamp01((tc / splitTime - SINGLE_HOLD_FRAC) / (1 - SINGLE_HOLD_FRAC)),
           )
           layoutSingle(p)
-          overlay.style.transform = `scale(${lerp(ENTRY_SCALE, 1, entry)})`
+          // Fullscreen has no room to ease in from: scaling a screen-filling
+          // rect down to ENTRY_SCALE would open black gutters along every
+          // edge, so portrait enters on opacity alone.
+          overlay.style.transform = portrait ? 'none' : `scale(${lerp(ENTRY_SCALE, 1, entry)})`
         }
 
         // Mid-flight overlap: reveal the page under the flying rectangle.
