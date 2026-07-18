@@ -78,30 +78,25 @@ const CHANNEL_MATRIX = {
 interface LiquidGlassProps {
   /** Corner radius of the lens; defaults to a pill (half the height) */
   radius?: number
-  /** Width in px of the refracting band along the rim; defaults to ~22% of height */
+  /** Width in px of the refracting band along the rim */
   depth?: number
-  /** Max displacement in px at the rim; defaults to 2.5x depth */
+  /** Max displacement in px at the rim */
   strength?: number
   /** Extra displacement for the red/blue channels (chromatic fringe) */
   chroma?: number
-  /** Scales the specular highlights and rim — dial down on large surfaces */
-  intensity?: number
   /** Base fill under the glass; needed for legibility over bright video */
   tint?: string
   className?: string
-  style?: React.CSSProperties
   children: React.ReactNode
 }
 
 export function LiquidGlass({
   radius,
-  depth: depthProp,
-  strength: strengthProp,
+  depth = 8,
+  strength = 24,
   chroma = 6,
-  intensity = 1,
   tint,
   className,
-  style,
   children,
 }: LiquidGlassProps) {
   const rawId = useId()
@@ -135,22 +130,9 @@ export function LiquidGlass({
     return () => ro.disconnect()
   }, [])
 
-  // Scale refraction to the element: a 28px pill needs a much narrower rim band
-  // than a 64px one, otherwise the whole surface is displaced and reads as smear.
-  const depth =
-    depthProp ?? (dims ? Math.max(4, Math.min(12, dims.h * 0.22)) : 8)
-  const strength = strengthProp ?? depth * 2.5
-
-  // Debounced: on a surface that animates its size (the chapter timeline
-  // collapsing, say) the ResizeObserver fires every frame, and regenerating a
-  // per-pixel map that often is far too expensive. The previous map keeps
-  // rendering meanwhile — slightly stale refraction is invisible mid-transition.
   useEffect(() => {
     if (!dims || !supported) return
-    const t = window.setTimeout(() => {
-      setMap(makeDisplacementMap(dims.w, dims.h, radius ?? dims.h / 2, depth))
-    }, 120)
-    return () => window.clearTimeout(t)
+    setMap(makeDisplacementMap(dims.w, dims.h, radius ?? dims.h / 2, depth))
   }, [dims, supported, radius, depth])
 
   const r = radius ?? (dims ? dims.h / 2 : 9999)
@@ -170,16 +152,15 @@ export function LiquidGlass({
         WebkitBackdropFilter: active ? undefined : backdrop,
         boxShadow: [
           // edge highlight ring
-          `inset 0 0 0 1px rgba(255,255,255,${0.1 * intensity})`,
+          'inset 0 0 0 1px rgba(255,255,255,0.10)',
           // specular: light from the top
-          `inset 0 1px 0 0 rgba(255,255,255,${0.22 * intensity})`,
-          `inset 0 -1px 1px 0 rgba(255,255,255,${0.05 * intensity})`,
+          'inset 0 1px 0 0 rgba(255,255,255,0.22)',
+          'inset 0 -1px 1px 0 rgba(255,255,255,0.05)',
           // inner glow
-          `inset 0 0 8px 0 rgba(255,255,255,${0.07 * intensity})`,
+          'inset 0 0 8px 0 rgba(255,255,255,0.07)',
           // lift off the backdrop
-          `0 6px 16px rgba(0,0,0,${0.18 * intensity})`,
+          '0 6px 16px rgba(0,0,0,0.18)',
         ].join(', '),
-        ...style,
       }}
     >
       {active && dims && (

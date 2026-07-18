@@ -160,7 +160,7 @@ export function PlayerControls({
     // z-40 keeps the controls above the click-to-toggle overlay (z-30 in
     // video-card), which only excludes the bottom 80px — the fullscreen
     // chapter timeline is taller than that
-    <div data-player-chrome="true" className="absolute bottom-0 left-0 right-0 z-40">
+    <div className="absolute bottom-0 left-0 right-0 z-40">
       {/* Progressive blur layers */}
       <div
         className="absolute inset-0 backdrop-blur-[2px] pointer-events-none"
@@ -234,9 +234,11 @@ export function PlayerControls({
 
         {/* Center - Time display */}
         <div className="flex-shrink-0">
-          <span className="text-xs text-white font-mono tabular-nums">
-            {formatDuration(Math.floor(currentTime))} / {formatDuration(duration)}
-          </span>
+          <LiquidGlass tint="rgba(0,0,0,0.25)">
+            <span className="flex h-8 items-center px-3 text-xs text-white font-mono tabular-nums">
+              {formatDuration(Math.floor(currentTime))} / {formatDuration(duration)}
+            </span>
+          </LiquidGlass>
         </div>
 
         {/* Right controls */}

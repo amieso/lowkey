@@ -1,7 +1,7 @@
 'use client'
 
 import { memo, useCallback, useEffect, useRef, useState, type CSSProperties, type TouchEvent } from 'react'
-import { animate, motion, useMotionValue } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Chapter, Video } from '@/types/video'
 import { getChaptersForVideo } from '@/data/chapters'
 import { sizedThumbnail, platformName } from '@/lib/utils'
@@ -20,16 +20,6 @@ const SHARED_LAYOUT_TRANSITION = { duration: 0.3, ease: [0.22, 1, 0.36, 1] } as 
 const SWIPE_CLOSE_THRESHOLD = 56
 const WHEEL_CLOSE_THRESHOLD = 140
 const WHEEL_RESET_MS = 180
-// While expanded, a touch drags the frame along at half speed, easing off as it
-// goes so even a hard flick only nudges it ~90px — the point is to feel alive
-// under the finger, not to move the video somewhere.
-const SWIPE_FOLLOW_RATIO = 0.5
-const SWIPE_FOLLOW_CAP = 90
-const SWIPE_SETTLE = { type: 'spring', stiffness: 420, damping: 34, mass: 0.7 } as const
-
-function followOffset(delta: number): number {
-  return SWIPE_FOLLOW_CAP * Math.tanh((delta * SWIPE_FOLLOW_RATIO) / SWIPE_FOLLOW_CAP)
-}
 // Expanded box sizing per aspect ratio. Width is capped by viewport width and
 // by the height available (100svh − chrome), converted via the ratio so the
 // box always fits on screen whatever its shape.
@@ -104,9 +94,6 @@ export const VideoCard = memo(function VideoCard({
   const videoElRef = useRef<HTMLVideoElement | null>(null)
   const touchStartRef = useRef<{ x: number; y: number } | null>(null)
   const wheelDeltaRef = useRef(0)
-  const dragX = useMotionValue(0)
-  const dragY = useMotionValue(0)
-  const unwindingRef = useRef(false)
 
   const isGhost = !video.videoUrl
   const isInteractive = !isGhost && !disablePlayback
@@ -392,60 +379,26 @@ export const VideoCard = memo(function VideoCard({
 
   const handleTouchStart = useCallback((event: TouchEvent<HTMLDivElement>) => {
     if (!isExpanded || event.touches.length !== 1) return
-    // Dragging the seek bar or hitting a control shouldn't drag the frame too.
-    if ((event.target as HTMLElement | null)?.closest('[data-player-chrome]')) return
     const touch = event.touches[0]
     touchStartRef.current = { x: touch.clientX, y: touch.clientY }
   }, [isExpanded])
 
-  // Follow the finger in both axes at half speed. The dismiss decision waits for
-  // touchend so a subtle drag can spring back instead of closing out from under
-  // you mid-gesture.
   const handleTouchMove = useCallback((event: TouchEvent<HTMLDivElement>) => {
     const start = touchStartRef.current
     if (!start || event.touches.length !== 1) return
     const touch = event.touches[0]
-    dragX.set(followOffset(touch.clientX - start.x))
-    dragY.set(followOffset(touch.clientY - start.y))
-  }, [dragX, dragY])
+    if (closeForVerticalGesture(touch.clientX - start.x, touch.clientY - start.y)) {
+      touchStartRef.current = null
+    }
+  }, [closeForVerticalGesture])
 
   const handleTouchEnd = useCallback((event: TouchEvent<HTMLDivElement>) => {
     const start = touchStartRef.current
     touchStartRef.current = null
     if (!start || event.changedTouches.length !== 1) return
     const touch = event.changedTouches[0]
-    // On a dismiss the offset keeps springing back through the collapse, so the
-    // frame morphs to its grid slot from where the finger left it — see the
-    // `unwindingRef` guard below, which stops the reset from cutting that short.
-    unwindingRef.current = closeForVerticalGesture(touch.clientX - start.x, touch.clientY - start.y)
-    animate(dragX, 0, SWIPE_SETTLE)
-    animate(dragY, 0, SWIPE_SETTLE)
-  }, [closeForVerticalGesture, dragX, dragY])
-
-  // The offset rides on the CSS `translate` property rather than a motion value
-  // in `style`: `layout` hands framer's projection ownership of `transform`, and
-  // it overwrites anything we put there every frame. `translate` is a separate
-  // property that composes with that transform instead of fighting it.
-  useEffect(() => {
-    const el = boxRef.current
-    if (!el) return
-    const write = () => { el.style.translate = `${dragX.get()}px ${dragY.get()}px` }
-    write()
-    const unsubX = dragX.on('change', write)
-    const unsubY = dragY.on('change', write)
-    return () => { unsubX(); unsubY() }
-  }, [dragX, dragY])
-
-  // Any other exit (Escape, wheel, arrow-nav) leaves the offset behind — clear it.
-  useEffect(() => {
-    if (isExpanded) return
-    if (unwindingRef.current) {
-      unwindingRef.current = false
-      return
-    }
-    dragX.set(0)
-    dragY.set(0)
-  }, [isExpanded, dragX, dragY])
+    closeForVerticalGesture(touch.clientX - start.x, touch.clientY - start.y)
+  }, [closeForVerticalGesture])
 
   // After a scroll-to-close, hold the scroll lock until the trackpad momentum
   // dies down. The page can't scroll while `body` stays `overflow: hidden`, so
@@ -523,7 +476,6 @@ export const VideoCard = memo(function VideoCard({
           onTouchStartCapture={handleTouchStart}
           onTouchMoveCapture={handleTouchMove}
           onTouchEndCapture={handleTouchEnd}
-          onTouchCancelCapture={handleTouchEnd}
           className={
             isExpanded
               ? `fixed inset-0 z-[130] m-auto ${aspectClass(video.aspectRatio)} overflow-hidden bg-surface isolate shadow-2xl pointer-events-auto`

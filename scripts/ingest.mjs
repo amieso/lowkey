@@ -106,6 +106,24 @@ async function download(url) {
   })
 }
 
+// Must stay in sync with the Video['aspectRatio'] union in src/types/video.ts.
+const SUPPORTED_ASPECT_RATIOS = { '16:9': 16 / 9, '4:5': 4 / 5, '1:1': 1, '9:16': 9 / 16 }
+
+function nearestAspectRatio(width, height) {
+  if (!width || !height) return '16:9'
+  const ratio = width / height
+  let best = '16:9'
+  let bestDistance = Infinity
+  for (const [name, value] of Object.entries(SUPPORTED_ASPECT_RATIOS)) {
+    const distance = Math.abs(ratio - value) / value
+    if (distance < bestDistance) {
+      bestDistance = distance
+      best = name
+    }
+  }
+  return best
+}
+
 async function getMetadata(videoPath) {
   const escaped = videoPath.replace(/'/g, "'\\''")
   const cmd = `ffprobe -v quiet -print_format json -show_format -show_streams '${escaped}'`
@@ -118,13 +136,10 @@ async function getMetadata(videoPath) {
     duration: Math.round(parseFloat(meta.format.duration) || 0),
     width,
     height,
-    // Treat near-square (within 5%) as 1:1; otherwise portrait/landscape.
-    aspectRatio:
-      width && height && Math.abs(width - height) / Math.max(width, height) < 0.05
-        ? '1:1'
-        : height > width
-          ? '9:16'
-          : '16:9',
+    // Snap to the nearest ratio the player can size a box for (see
+    // expandedWidth in video-card.tsx). Picking the closest by relative
+    // distance keeps 4:5 portrait from being flattened into 9:16.
+    aspectRatio: nearestAspectRatio(width, height),
   }
 }
 

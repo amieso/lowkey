@@ -83,10 +83,10 @@ export function Header() {
               >
                 Follow on X
               </Link>
-              <LiquidGlass className="group" tint="rgba(255,255,255,0.05)">
+              <LiquidGlass>
                 <Link
                   href="/partner"
-                  className="inline-flex h-9 items-center rounded-full px-4 text-sm text-foreground bg-white/0 group-hover:bg-white/[0.08] transition-colors"
+                  className="inline-flex h-9 items-center rounded-full bg-foreground/5 px-4 text-sm text-foreground hover:bg-foreground/10 transition-colors"
                 >
                   Partner with us
                 </Link>
