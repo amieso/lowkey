@@ -78,12 +78,26 @@ const TICK_MS = 1000 / 60
 const RAMP_START_TICKS = 2.5
 const RAMP_END_TICKS = 1
 const START_COVER = 0.8
+// Single mode (portrait phones): a 16:9 rectangle at 80% of a tall viewport
+// is a small letterbox band with dead space above and below, so there the cut
+// plays in a near-fullscreen PORTRAIT rect instead — the landscape stills
+// cropped to ~9:16 by object-cover — which then morphs its geometry down onto
+// the card's 16:9 media box, opening the crop back up as it seats.
+const PORTRAIT_ASPECT = 9 / 16
+const PORTRAIT_COVER_W = 0.92
+const PORTRAIT_COVER_H = 0.78
+// How much of the single-mode cut is spent holding the portrait rect before
+// the descent starts — the phone's answer to HOLD_MS (there's no split to
+// hand off to, so the hold is a fraction of the schedule rather than a
+// wall-clock beat).
+const SINGLE_HOLD_FRAC = 0.45
 const CARD_RADIUS = 6 // VideoCard's collapsed borderRadius
 // The rectangle holds its centered 80% spot, supercutting in place, for
 // HOLD_MS — then splits right there (no approach flight): the four pieces
 // carry the whole journey down to the row, KEEP flashing while they fly
-// for FALL_MS each, launching PIECE_STAGGER_MS apart, and resolve onto
-// their destination video at PIECE_RESOLVE_AT of their flight.
+// for FALL_MS each, launching in symmetric pairs PIECE_STAGGER_MS apart
+// (see pieceDelay), and resolve onto their destination video at
+// PIECE_RESOLVE_AT of their flight.
 const HOLD_MS = 1000
 const FALL_MS = 750
 const PIECE_STAGGER_MS = 70
@@ -320,12 +334,42 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     setIntroTargetCount(splitMode ? PIECE_COUNT : 1)
     setPhase('cut')
 
-    // Start rect: centered, covering START_COVER of the viewport at 16:9.
-    let startW = vw * START_COVER
-    let startH = (startW * 9) / 16
-    if (startH > vh * START_COVER) {
-      startH = vh * START_COVER
-      startW = (startH * 16) / 9
+    // Start rect: centered. Split mode covers START_COVER of the viewport at
+    // 16:9 (the quadrants have to match the cards' aspect). Single mode on a
+    // tall viewport goes portrait and near-fullscreen instead.
+    const portrait = !splitMode && vh > vw
+    let startW: number
+    let startH: number
+    if (portrait) {
+      startW = vw * PORTRAIT_COVER_W
+      startH = startW / PORTRAIT_ASPECT
+      if (startH > vh * PORTRAIT_COVER_H) {
+        startH = vh * PORTRAIT_COVER_H
+        startW = startH * PORTRAIT_ASPECT
+      }
+    } else {
+      startW = vw * START_COVER
+      startH = (startW * 9) / 16
+      if (startH > vh * START_COVER) {
+        startH = vh * START_COVER
+        startW = (startH * 16) / 9
+      }
+    }
+    const startLeft = (vw - startW) / 2
+    const startTop = (vh - startH) / 2
+
+    // Single mode's descent: geometry, not a uniform scale. A 9:16 rect can't
+    // reach a 16:9 card by scaling (that would either distort the frames or
+    // keep the portrait shape all the way down), so left/top/width/height are
+    // interpolated per tick and object-cover re-crops each frame as the box
+    // widens — the landing is the card's exact media box.
+    const layoutSingle = (p: number) => {
+      const card = mediaEls[0].getBoundingClientRect()
+      overlay.style.left = `${lerp(startLeft, card.left, p).toFixed(2)}px`
+      overlay.style.top = `${lerp(startTop, card.top, p).toFixed(2)}px`
+      overlay.style.width = `${lerp(startW, card.width, p).toFixed(2)}px`
+      overlay.style.height = `${lerp(startH, card.height, p).toFixed(2)}px`
+      overlay.style.borderRadius = `${(CARD_RADIUS * p).toFixed(2)}px`
     }
 
     // The big rectangle never flies in split mode: it holds the centered
@@ -337,6 +381,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     const r0 = targetRects[0]
     let mosaic: Rect | null = null
     let quadOrder: number[] = [0, 1, 2, 3] // quadrant index (TL,TR,BL,BR) per card
+    let oneRow = false
     if (splitMode) {
       const sameRow = (a: DOMRect, b: DOMRect) => Math.abs(a.top - b.top) < 2
       mosaic = {
@@ -345,12 +390,14 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
         width: startW,
         height: startH,
       }
-      // Quadrants are handed to cards so paths don't cross: when all four
-      // cards sit in one row, columns of the mosaic map to card order
-      // (TL,BL,TR,BR → cards 0..3); in a 2×2 grid it's the natural reading
-      // order.
-      const oneRow = targetRects.every((r) => sameRow(r, r0))
-      quadOrder = oneRow ? [0, 2, 1, 3] : [0, 1, 2, 3]
+      // Quadrants are handed to cards so the four paths stay similar in
+      // shape and length: when all four cards sit in one row, the top
+      // quadrants take the outer slots and the bottom ones the inner slots
+      // (TL→0, BL→1, BR→2, TR→3), so each piece travels roughly the same
+      // distance and no path crosses another. In a 2×2 grid it's the
+      // natural reading order.
+      oneRow = targetRects.every((r) => sameRow(r, r0))
+      quadOrder = oneRow ? [0, 2, 3, 1] : [0, 1, 2, 3]
     }
 
     // Dwell schedule — the ramp is TIME-based: each frame's dwell eases from
@@ -372,16 +419,21 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     // pieces carry the supercut (and all the movement) the rest of the way.
     // Guard against tiny catalogs where the schedule is shorter than the hold.
     const splitTime = splitMode ? Math.min(HOLD_MS, duration * 0.8) : duration
-    const fallEnd = splitMode
-      ? splitTime + (PIECE_COUNT - 1) * PIECE_STAGGER_MS + FALL_MS
-      : duration
+    // Launch order matches the quadrant mapping: in one row the outer pair
+    // (the top quadrants, longest arcs) leaves first and the inner pair
+    // follows a beat later, so the four read as one symmetric fan instead of
+    // a left-to-right ripple. Off the one-row layout it stays a plain ripple.
+    const pieceDelay = (oneRow ? [0, 1, 1, 0] : [0, 1, 2, 3]).map(
+      (step) => step * PIECE_STAGGER_MS,
+    )
+    const lastLaunch = Math.max(...pieceDelay)
+    const fallEnd = splitMode ? splitTime + lastLaunch + FALL_MS : duration
 
     let entryShown = -1
     let frameShown = -1
     let splitDone = false
     let landedFlag = false
     let landedAt = 0
-    let lastRect: Rect = { left: 0, top: 0, width: 0, height: 0 }
     const pieceRects: Rect[] = targetRects.map((r) => ({
       left: 0,
       top: 0,
@@ -623,31 +675,38 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
 
       // ── phase A: the cut on the big rectangle, flying to the mosaic ──
       if (tc < splitTime) {
-        let rect: Rect
-        if (splitMode && mosaic) {
-          rect = mosaic // screen-fixed — no measuring needed
-        } else {
-          rect = syncRect(mediaEls[0], overlay, lastRect)
-        }
-        const scale0 = startW / rect.width
-        const dx0 = vw / 2 - (rect.left + rect.width / 2)
-        const dy0 = vh / 2 - (rect.top + rect.height / 2)
-        // The flight completes exactly at the split (or, in single mode, at
-        // the end of the cut) — the pieces launch from rest.
-        const p = easeInOutCubic(clamp01(tc / splitTime))
-        const s = lerp(scale0, 1, p)
-        // Entry: ease in from ENTRY_SCALE/ENTRY_OPACITY on top of the FLIP
-        // transform (multiplied into the scale, so both animations compose).
+        // Entry: ease in from ENTRY_SCALE/ENTRY_OPACITY. In split mode it
+        // multiplies into the FLIP scale (both animations compose); in single
+        // mode it's the only transform, riding on top of the geometry morph.
         const te = clamp01(tc / ENTRY_MS)
         const entry = 1 - Math.pow(1 - te, 3)
         const to = clamp01(tc / ENTRY_OPACITY_MS)
         const entryOpacity = 1 - Math.pow(1 - to, 3)
         overlay.style.opacity =
           to < 1 ? lerp(ENTRY_OPACITY, 1, entryOpacity).toFixed(3) : '1'
-        overlay.style.transform = `translate(${lerp(dx0, 0, p)}px, ${lerp(dy0, 0, p)}px) scale(${s * lerp(ENTRY_SCALE, 1, entry)})`
-        // Corner morph, scale-compensated: the on-screen radius is an exact
-        // 0 → CARD_RADIUS ease regardless of the rectangle's current size.
-        overlay.style.borderRadius = `${((CARD_RADIUS * p) / s).toFixed(2)}px`
+
+        if (splitMode && mosaic) {
+          const rect = mosaic // screen-fixed — no measuring needed
+          const scale0 = startW / rect.width
+          const dx0 = vw / 2 - (rect.left + rect.width / 2)
+          const dy0 = vh / 2 - (rect.top + rect.height / 2)
+          // The flight completes exactly at the split — pieces launch from rest.
+          const p = easeInOutCubic(clamp01(tc / splitTime))
+          const s = lerp(scale0, 1, p)
+          overlay.style.transform = `translate(${lerp(dx0, 0, p)}px, ${lerp(dy0, 0, p)}px) scale(${s * lerp(ENTRY_SCALE, 1, entry)})`
+          // Corner morph, scale-compensated: the on-screen radius is an exact
+          // 0 → CARD_RADIUS ease regardless of the rectangle's current size.
+          overlay.style.borderRadius = `${((CARD_RADIUS * p) / s).toFixed(2)}px`
+        } else {
+          // Hold the (portrait) rect for the first SINGLE_HOLD_FRAC of the
+          // cut, supercutting in place, then descend onto the card — the same
+          // hold-then-travel rhythm the split gives the desktop.
+          const p = easeInOutCubic(
+            clamp01((tc / splitTime - SINGLE_HOLD_FRAC) / (1 - SINGLE_HOLD_FRAC)),
+          )
+          layoutSingle(p)
+          overlay.style.transform = `scale(${lerp(ENTRY_SCALE, 1, entry)})`
+        }
 
         // Mid-flight overlap: reveal the page under the flying rectangle.
         if (tc >= duration * REVEAL_AT) reveal()
@@ -680,7 +739,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       if (splitMode && tc < fallEnd) {
         if (!splitDone) split()
         for (let i = 0; i < PIECE_COUNT; i++) {
-          const u = clamp01((tc - splitTime - i * PIECE_STAGGER_MS) / FALL_MS)
+          const u = clamp01((tc - splitTime - pieceDelay[i]) / FALL_MS)
           pieceTransform(i, u)
           if (!pieceResolved[i]) {
             if (u >= PIECE_RESOLVE_AT) {
@@ -693,8 +752,10 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
           if (u >= 1 && !pieceLanded[i]) {
             pieceLanded[i] = true
             // Reveal this card NOW (its piece covers the media box, so this
-            // is the meta text fading in right at touchdown).
-            setIntroLandedCount(i + 1)
+            // is the meta text fading in right at touchdown). Count actual
+            // touchdowns rather than the index — pieces launch in pairs, so
+            // they do NOT seat in card order.
+            setIntroLandedCount(pieceLanded.filter(Boolean).length)
             // Late mirror chance: the preview may have decoded during the
             // fall — upgrading at the seat means the hold shows live video.
             startMirrorOn(i, pieceCanvasRefs.current[i], targets[i])
@@ -721,7 +782,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
             }
             if (!pieceLanded[i]) {
               pieceLanded[i] = true
-              setIntroLandedCount(i + 1)
+              setIntroLandedCount(pieceLanded.filter(Boolean).length)
               startMirrorOn(i, pieceCanvasRefs.current[i], targets[i])
             }
           }
@@ -730,7 +791,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
           // so the card never resolves showing the wrong one.
           if (frameShown !== N - 1) showFrame(N - 1)
           setIntroLandedCount(1) // single mode: reveal card one at touchdown
-          overlay.style.borderRadius = `${CARD_RADIUS}px`
+          layoutSingle(1) // seat exactly on the card's media box
           overlay.style.transform = 'none'
         }
         finish(splitMode ? 'supercut_split' : 'supercut')
