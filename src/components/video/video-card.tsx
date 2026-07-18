@@ -443,8 +443,10 @@ export const VideoCard = memo(function VideoCard({
       onPointerLeave={() => setIsHovered(false)}
       className={`group relative ${isInteractive ? 'cursor-pointer' : ''} ${elevated ? 'z-[130]' : 'hover:z-20'} ${isExpanded ? 'pointer-events-none' : ''}`}
     >
-      {/* Reserved grid slot — keeps layout stable while the box expands */}
-      <div ref={slotRef} className="relative aspect-video w-full">
+      {/* Reserved grid slot — keeps layout stable while the box expands.
+          data-supercut-media: the intro's pieces land on THIS 16:9 box, not
+          the whole cell — the meta row below is not part of the video. */}
+      <div ref={slotRef} data-supercut-media="true" className="relative aspect-video w-full">
         <motion.div
           ref={boxRef}
           layout

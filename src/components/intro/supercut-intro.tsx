@@ -297,7 +297,14 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     // Split only when all four cards are (mostly) on screen — on a
     // single-column phone the lower cards sit below the fold and pieces
     // would fly off-screen; there the rectangle lands on card one alone.
-    const targetRects = targets.map((el) => el.getBoundingClientRect())
+    // Land on each card's 16:9 MEDIA box, not the whole grid cell — the
+    // cell also contains the company/title/stats row below the video, and a
+    // piece blanketing that row with a video frame reads as a misaligned
+    // landing. VideoCard marks the box with data-supercut-media.
+    const mediaEls = targets.map(
+      (el) => el.querySelector<HTMLElement>('[data-supercut-media]') ?? el,
+    )
+    const targetRects = mediaEls.map((el) => el.getBoundingClientRect())
     const splitMode =
       targets.length === PIECE_COUNT &&
       targetRects.every((r) => r.width > 0 && r.top >= 0 && r.top + r.height * 0.6 <= vh)
@@ -487,7 +494,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       for (let i = 0; i < PIECE_COUNT; i++) {
         const node = pieceRefs.current[i]
         if (!node || !mosaic) continue
-        syncRect(targets[i], node, pieceRects[i])
+        syncRect(mediaEls[i], node, pieceRects[i])
         const q = quadOrder[i]
         const shard = pieceShardRefs.current[i]
         if (shard) {
@@ -558,7 +565,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     const pieceTransform = (i: number, u: number) => {
       const node = pieceRefs.current[i]
       if (!node || !mosaic) return
-      const c = syncRect(targets[i], node, pieceRects[i])
+      const c = syncRect(mediaEls[i], node, pieceRects[i])
       const q = quadOrder[i] // 0 TL · 1 TR · 2 BL · 3 BR
       const qw = mosaic.width / 2
       const qh = mosaic.height / 2
@@ -622,7 +629,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
         if (splitMode && mosaic) {
           rect = mosaic // screen-fixed — no measuring needed
         } else {
-          rect = syncRect(targets[0], overlay, lastRect)
+          rect = syncRect(mediaEls[0], overlay, lastRect)
         }
         const scale0 = startW / rect.width
         const dx0 = vw / 2 - (rect.left + rect.width / 2)

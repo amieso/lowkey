@@ -94,7 +94,10 @@ export function VideoGrid({ videos, columns = 4, partnerCardAt }: VideoGridProps
                 : { opacity: 0, y: 40, scale: 0.92 }
           }
           transition={{
-            duration: isSupercutTarget ? 0 : 0.5,
+            // Targets get a short fade, not a pop: their media box is covered
+            // by the landed piece (which is fading out at the same time), and
+            // the meta row below it eases in instead of snapping.
+            duration: isSupercutTarget ? 0.25 : 0.5,
             delay: shouldShowIntro && revealed && !isSupercutTarget ? index * 0.05 : 0,
             ease: [0.23, 1, 0.32, 1],
           }}
