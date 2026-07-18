@@ -70,11 +70,13 @@ interface SupercutIntroProps {
 
 // ── timing ───────────────────────────────────────────────────────────────────
 const TICK_MS = 1000 / 60
-// Speed ramp: dwell per frame eases from RAMP_START ticks down to RAMP_END,
-// scaled by CUT_SCALE and clamped to ≥1 tick so no frame is skipped at 60Hz.
-const RAMP_START = 5
-const RAMP_END = 1
-const CUT_SCALE = 0.7
+// Speed ramp: dwell per frame eases from RAMP_START_TICKS down to
+// RAMP_END_TICKS as the cut's cumulative time approaches the hold, so the
+// crescendo completes ON SCREEN before the split (the pieces then keep the
+// strobe). Starts faster than the old experimental ramp (which began at 5
+// ticks and never got to finish before the handoff).
+const RAMP_START_TICKS = 2.5
+const RAMP_END_TICKS = 1
 const START_COVER = 0.8
 const CARD_RADIUS = 6 // VideoCard's collapsed borderRadius
 // The rectangle holds its centered 80% spot, supercutting in place, for
@@ -86,10 +88,10 @@ const HOLD_MS = 1000
 const FALL_MS = 750
 const PIECE_STAGGER_MS = 70
 const PIECE_RESOLVE_AT = 0.72
-// Piece flashing cadence (in ticks): continues the ramp from roughly where
-// the big cut left off down to a strobe as the piece closes in.
-const PIECE_DWELL_START = 1.9
-const PIECE_DWELL_END = 1.1
+// Piece flashing cadence (in ticks): the big cut hands off at full strobe,
+// so the pieces keep flashing at nearly that pace all the way down.
+const PIECE_DWELL_START = 1.3
+const PIECE_DWELL_END = 1
 // How far through the cut (0..1) the page reveal starts: the backdrop fades
 // and the grid staggers in UNDER the still-holding rectangle. Must resolve
 // to before the split (the check runs in phase A; split() also guarantees
@@ -336,13 +338,17 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       quadOrder = oneRow ? [0, 2, 1, 3] : [0, 1, 2, 3]
     }
 
-    // Dwell schedule — fractional ms dwells, clamped to ≥1 tick.
+    // Dwell schedule — the ramp is TIME-based: each frame's dwell eases from
+    // RAMP_START_TICKS to RAMP_END_TICKS as the cumulative time approaches
+    // HOLD_MS, so the acceleration lands fully within the visible hold.
     const N = frames.length
     const entries: { frame: number; dur: number }[] = []
+    let cumMs = 0
     for (let i = 0; i < N; i++) {
-      const u = N > 1 ? i / (N - 1) : 1
-      const ticks = lerp(RAMP_START, RAMP_END, u)
-      entries.push({ frame: i, dur: Math.max(1, ticks * CUT_SCALE) * TICK_MS })
+      const u = clamp01(cumMs / HOLD_MS)
+      const dur = Math.max(1, lerp(RAMP_START_TICKS, RAMP_END_TICKS, u)) * TICK_MS
+      entries.push({ frame: i, dur })
+      cumMs += dur
     }
     const cum: number[] = [0]
     for (const e of entries) cum.push(cum[cum.length - 1] + e.dur)
