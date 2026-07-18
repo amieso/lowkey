@@ -99,7 +99,7 @@ const REVEAL_AT = 0.28
 // How far through the lead piece's flight (or the single-mode flight) the
 // hero starts its 50% -> 100% fade — late, once the pieces are basically
 // down at the row and the hero is fully unobstructed.
-const HERO_REVEAL_AT = 0.8
+const HERO_REVEAL_AT = 0.92
 // The rectangle's own entry: it eases in from 0.95× scale and 50% opacity
 // over the first ENTRY_MS of the cut instead of popping on.
 const ENTRY_MS = 350
