@@ -1,10 +1,11 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { PlayIcon, PauseIcon } from '@/components/ui/player-icons'
 import { formatDuration } from '@/lib/utils'
 import { Chapter } from '@/types/video'
 import { SegmentedSeekBar } from './segmented-seek-bar'
+import { ChapterTimeline } from './chapter-timeline'
 import { SpeedSelector } from './speed-selector'
 import { ResolutionSelector } from './resolution-selector'
 import { FullscreenButton } from './fullscreen-button'
@@ -91,6 +92,61 @@ export function PlayerControls({
   const handleSeekStart = useCallback(() => setIsSeeking(true), [])
   const handleSeekEnd = useCallback(() => setIsSeeking(false), [])
 
+  // Cursor-idle tracking: after 1.5s without mouse movement over the player
+  // (or after the cursor leaves it), the chapter timeline shrinks to a thin
+  // bar. Any movement grows it back. Never shrink mid-drag or while the
+  // cursor rests directly on the chapter timeline.
+  const [cursorIdle, setCursorIdle] = useState(false)
+  const idleTimerRef = useRef<number | null>(null)
+  const seekAreaRef = useRef<HTMLDivElement>(null)
+  const hoveringControlsRef = useRef(false)
+  const isSeekingRef = useRef(false)
+  isSeekingRef.current = isSeeking
+
+  useEffect(() => {
+    const el = containerRef?.current
+    if (!el) return
+
+    const arm = () => {
+      if (idleTimerRef.current !== null) window.clearTimeout(idleTimerRef.current)
+      idleTimerRef.current = window.setTimeout(() => {
+        if (!hoveringControlsRef.current && !isSeekingRef.current) {
+          setCursorIdle(true)
+        }
+      }, 1500)
+    }
+    const wake = () => {
+      setCursorIdle(false)
+      arm()
+    }
+    // Resting ON the timeline pins it open (mousemove alone can't — a still
+    // cursor stops producing events, and the idle timer would collapse it
+    // out from under the pointer).
+    const seekEl = seekAreaRef.current
+    const seekEnter = () => {
+      hoveringControlsRef.current = true
+      setCursorIdle(false)
+    }
+    const seekLeave = () => {
+      hoveringControlsRef.current = false
+      arm()
+    }
+
+    el.addEventListener('mousemove', wake)
+    el.addEventListener('mouseleave', arm)
+    seekEl?.addEventListener('mouseenter', seekEnter)
+    seekEl?.addEventListener('mouseleave', seekLeave)
+    arm()
+
+    return () => {
+      el.removeEventListener('mousemove', wake)
+      el.removeEventListener('mouseleave', arm)
+      seekEl?.removeEventListener('mouseenter', seekEnter)
+      seekEl?.removeEventListener('mouseleave', seekLeave)
+      if (idleTimerRef.current !== null) window.clearTimeout(idleTimerRef.current)
+    }
+  }, [containerRef])
+
   const handleSpeedChange = useCallback((speed: number) => {
     const video = videoRef.current
     if (!video) return
@@ -100,7 +156,10 @@ export function PlayerControls({
   }, [videoRef])
 
   return (
-    <div className="absolute bottom-0 left-0 right-0 z-20">
+    // z-40 keeps the controls above the click-to-toggle overlay (z-30 in
+    // video-card), which only excludes the bottom 80px — the fullscreen
+    // chapter timeline is taller than that
+    <div className="absolute bottom-0 left-0 right-0 z-40">
       {/* Progressive blur layers */}
       <div
         className="absolute inset-0 backdrop-blur-[2px] pointer-events-none"
@@ -113,16 +172,28 @@ export function PlayerControls({
       {/* Dark overlay for contrast */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none" />
 
-      {/* Segmented seek bar */}
-      <div className="relative px-4 pt-8">
-        <SegmentedSeekBar
-          chapters={chapters}
-          currentTime={currentTime}
-          duration={duration}
-          onSeek={handleSeek}
-          onSeekStart={handleSeekStart}
-          onSeekEnd={handleSeekEnd}
-        />
+      {/* Seek bar: labeled chapter timeline when chapters exist, thin segmented bar otherwise */}
+      <div ref={seekAreaRef} className="relative px-4 pt-8">
+        {chapters.length > 0 ? (
+          <ChapterTimeline
+            chapters={chapters}
+            currentTime={currentTime}
+            duration={duration}
+            onSeek={handleSeek}
+            onSeekStart={handleSeekStart}
+            onSeekEnd={handleSeekEnd}
+            compact={cursorIdle}
+          />
+        ) : (
+          <SegmentedSeekBar
+            chapters={chapters}
+            currentTime={currentTime}
+            duration={duration}
+            onSeek={handleSeek}
+            onSeekStart={handleSeekStart}
+            onSeekEnd={handleSeekEnd}
+          />
+        )}
       </div>
 
       {/* Controls row - 3 column layout */}

@@ -48,6 +48,22 @@ function aspectClass(aspectRatio: Video['aspectRatio']): string {
   }
 }
 
+// The expanded box is centered via `fixed inset-0 m-auto`, so its edges sit at
+// 50% ± height/2, with height derived from expandedWidth through the aspect
+// ratio. These place the chrome that floats outside the frame.
+function expandedHeightExpr(aspectRatio: Video['aspectRatio']): string {
+  const heightRatio =
+    aspectRatio === '1:1' ? '1' :
+    aspectRatio === '9:16' ? '16 / 9' :
+    aspectRatio === '4:5' ? '5 / 4' :
+    '9 / 16'
+  return `((${expandedWidth(aspectRatio)}) * ${heightRatio})`
+}
+
+function aboveChromeTop(aspectRatio: Video['aspectRatio']): string {
+  return `calc(50% - ${expandedHeightExpr(aspectRatio)} / 2 - 12px)`
+}
+
 interface VideoCardProps {
   video: Video
   onSelect?: (video: Video) => void
@@ -514,70 +530,6 @@ export const VideoCard = memo(function VideoCard({
                 aria-label={isPlaying ? 'Pause video' : 'Play video'}
               />
 
-              {/* Title + actions */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.15, duration: 0.2 }}
-                className="absolute top-3 left-3 right-3 z-40 flex items-start justify-between gap-3 pointer-events-none"
-              >
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-fit text-[10px] text-white/80 tracking-widest uppercase font-mono rounded px-2 py-1 bg-black/45 backdrop-blur-sm">{video.company}</span>
-                    <VideoMetrics sourceUrl={video.sourceUrl} />
-                  </div>
-                  <h2 className="w-fit max-w-[85%] mt-1 text-sm sm:text-base font-light text-white tracking-tight rounded px-2 py-1 bg-black/45 backdrop-blur-sm">{video.title}</h2>
-                </div>
-                <div className="flex items-center gap-2 pointer-events-auto">
-                  {video.sourceUrl && (
-                    <a
-                      href={video.sourceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(event) => {
-                        event.stopPropagation()
-                        trackGoal(GOALS.outboundPost, {
-                          video_id: video.id,
-                          company: video.companySlug,
-                          slug: video.slug,
-                        })
-                      }}
-                      className="h-7 px-3 text-xs rounded-full bg-black/45 text-white border border-white/20 hover:bg-black/55 inline-flex items-center justify-center font-medium transition-colors"
-                    >
-                      View on {platformName(video.sourceUrl)}
-                    </a>
-                  )}
-                  {video.websiteUrl && (
-                    <a
-                      href={video.websiteUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(event) => {
-                        event.stopPropagation()
-                        trackGoal(GOALS.outboundVisit, {
-                          video_id: video.id,
-                          company: video.companySlug,
-                          slug: video.slug,
-                        })
-                      }}
-                      className="h-7 px-3 text-xs rounded-full bg-black/45 text-white border border-white/20 hover:bg-black/55 inline-flex items-center justify-center font-medium transition-colors"
-                    >
-                      Visit
-                    </a>
-                  )}
-                  <button
-                    onClick={(event) => {
-                      event.stopPropagation()
-                      onClose?.()
-                    }}
-                    className="w-7 h-7 rounded-full bg-black/45 text-white border border-white/20 hover:bg-black/55 inline-flex items-center justify-center text-base leading-none"
-                    aria-label="Close video"
-                  >
-                    ×
-                  </button>
-                </div>
-              </motion.div>
-
               {/* Play/pause feedback */}
               {showPlayIcon && (
                 <motion.div
@@ -611,6 +563,80 @@ export const VideoCard = memo(function VideoCard({
             </>
           )}
         </motion.div>
+
+        {/* Title + actions — floats above the video frame, outside it */}
+        {isExpanded && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.15, duration: 0.2 }}
+            className="fixed left-0 right-0 z-[130] flex justify-center pointer-events-none px-4"
+            style={{ top: aboveChromeTop(video.aspectRatio) }}
+          >
+            <div
+              className="flex items-center justify-between gap-3 -translate-y-full"
+              style={{ width: expandedWidth(video.aspectRatio) }}
+            >
+              <div className="flex items-center gap-2 min-w-0">
+                <h2 className="text-sm sm:text-base font-light text-white tracking-tight truncate rounded px-2 py-1 bg-black/45 backdrop-blur-sm">{video.title}</h2>
+                {/* Optical alignment: the smaller mono badge and stats sit 2px low */}
+                <div className="flex items-center gap-2 shrink-0 translate-y-[2px]">
+                  <span className="text-[10px] text-white/80 tracking-widest uppercase font-mono rounded px-2 py-1 bg-black/45 backdrop-blur-sm">{video.company}</span>
+                  <VideoMetrics sourceUrl={video.sourceUrl} />
+                </div>
+              </div>
+              <div className="flex items-center gap-2 pointer-events-auto">
+                {video.sourceUrl && (
+                  <a
+                    href={video.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(event) => {
+                      event.stopPropagation()
+                      trackGoal(GOALS.outboundPost, {
+                        video_id: video.id,
+                        company: video.companySlug,
+                        slug: video.slug,
+                      })
+                    }}
+                    className="h-7 px-3 text-xs rounded-full bg-black/45 text-white border border-white/20 hover:bg-black/55 inline-flex items-center justify-center font-medium transition-colors"
+                  >
+                    View on {platformName(video.sourceUrl)}
+                  </a>
+                )}
+                {video.websiteUrl && (
+                  <a
+                    href={video.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(event) => {
+                      event.stopPropagation()
+                      trackGoal(GOALS.outboundVisit, {
+                        video_id: video.id,
+                        company: video.companySlug,
+                        slug: video.slug,
+                      })
+                    }}
+                    className="h-7 px-3 text-xs rounded-full bg-black/45 text-white border border-white/20 hover:bg-black/55 inline-flex items-center justify-center font-medium transition-colors"
+                  >
+                    Visit
+                  </a>
+                )}
+                <button
+                  onClick={(event) => {
+                    event.stopPropagation()
+                    onClose?.()
+                  }}
+                  className="w-7 h-7 rounded-full bg-black/45 text-white border border-white/20 hover:bg-black/55 inline-flex items-center justify-center text-base leading-none"
+                  aria-label="Close video"
+                >
+                  ×
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
       </div>
 
       {/* Info below card — hidden while expanded so it doesn't float above the backdrop */}

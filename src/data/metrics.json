@@ -1,353 +1,497 @@
 {
   "1948017850809270314": {
-    "likes": 7087,
-    "replies": 987,
-    "retweets": 940,
+    "likes": 7074,
+    "replies": 983,
+    "retweets": 935,
     "quotes": 1471,
-    "bookmarks": 3293,
-    "impressions": 2547681,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 3292,
+    "impressions": 2550034,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "1989015370615910878": {
     "likes": 586,
     "replies": 69,
     "retweets": 42,
     "quotes": 37,
-    "bookmarks": 766,
-    "impressions": 316376,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 765,
+    "impressions": 316705,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "1980685602384441368": {
-    "likes": 29678,
-    "replies": 2340,
-    "retweets": 4143,
-    "quotes": 4457,
-    "bookmarks": 8030,
-    "impressions": 14042951,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "likes": 29589,
+    "replies": 2334,
+    "retweets": 4119,
+    "quotes": 4467,
+    "bookmarks": 7993,
+    "impressions": 14061215,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "1914061483149001132": {
-    "likes": 25284,
-    "replies": 1804,
-    "retweets": 1355,
+    "likes": 25188,
+    "replies": 1798,
+    "retweets": 1349,
     "quotes": 3095,
-    "bookmarks": 12059,
-    "impressions": 13207627,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 12026,
+    "impressions": 13210612,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "1932800009990517190": {
-    "likes": 2334,
-    "replies": 244,
-    "retweets": 173,
+    "likes": 2326,
+    "replies": 242,
+    "retweets": 172,
     "quotes": 191,
     "bookmarks": 628,
-    "impressions": 564059,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "impressions": 564711,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "1993727348882235577": {
-    "likes": 278,
+    "likes": 282,
     "replies": 9,
-    "retweets": 23,
+    "retweets": 22,
     "quotes": 7,
-    "bookmarks": 167,
-    "impressions": 49570,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 172,
+    "impressions": 51588,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "1995946528343818656": {
-    "likes": 5823,
-    "replies": 302,
+    "likes": 5824,
+    "replies": 301,
     "retweets": 312,
     "quotes": 212,
-    "bookmarks": 7557,
-    "impressions": 1495956,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 7531,
+    "impressions": 1497755,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "1894821477230485570": {
-    "likes": 4604,
+    "likes": 4600,
     "replies": 230,
-    "retweets": 467,
+    "retweets": 462,
     "quotes": 168,
-    "bookmarks": 2540,
-    "impressions": 464380,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 2533,
+    "impressions": 464583,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "1988666194795331996": {
-    "likes": 2338,
+    "likes": 2346,
     "replies": 335,
-    "retweets": 295,
-    "quotes": 360,
+    "retweets": 293,
+    "quotes": 361,
     "bookmarks": 1844,
-    "impressions": 1988036,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "impressions": 1990277,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "1978853442190823515": {
-    "likes": 2390,
-    "replies": 170,
+    "likes": 2388,
+    "replies": 169,
     "retweets": 77,
     "quotes": 56,
-    "bookmarks": 1188,
-    "impressions": 365665,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 1187,
+    "impressions": 365996,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "1914416038839755056": {
-    "likes": 2806,
+    "likes": 2814,
     "replies": 273,
-    "retweets": 185,
-    "quotes": 175,
-    "bookmarks": 1180,
-    "impressions": 826240,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "retweets": 186,
+    "quotes": 176,
+    "bookmarks": 1178,
+    "impressions": 829634,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "1909641514533446109": {
-    "likes": 1088,
+    "likes": 1084,
     "replies": 138,
     "retweets": 55,
     "quotes": 35,
-    "bookmarks": 535,
-    "impressions": 241377,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 537,
+    "impressions": 243139,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2054221543593615427": {
-    "likes": 1727,
+    "likes": 1735,
     "replies": 158,
-    "retweets": 66,
+    "retweets": 65,
     "quotes": 76,
-    "bookmarks": 934,
-    "impressions": 948906,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 941,
+    "impressions": 954880,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2048553222697349575": {
-    "likes": 223,
+    "likes": 222,
     "replies": 25,
     "retweets": 6,
     "quotes": 1,
-    "bookmarks": 407,
-    "impressions": 25617,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 405,
+    "impressions": 25679,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2056810614505259226": {
-    "likes": 3874,
-    "replies": 437,
-    "retweets": 292,
+    "likes": 3876,
+    "replies": 438,
+    "retweets": 285,
     "quotes": 114,
-    "bookmarks": 6783,
-    "impressions": 1953922,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 6768,
+    "impressions": 2004121,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2051662847130869780": {
-    "likes": 3378,
-    "replies": 289,
-    "retweets": 289,
+    "likes": 3365,
+    "replies": 286,
+    "retweets": 284,
     "quotes": 244,
-    "bookmarks": 4339,
-    "impressions": 2222986,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 4305,
+    "impressions": 2227544,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2038997562221351087": {
-    "likes": 2114,
+    "likes": 2121,
     "replies": 144,
-    "retweets": 165,
+    "retweets": 164,
     "quotes": 64,
-    "bookmarks": 845,
-    "impressions": 303704,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 850,
+    "impressions": 311624,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2060048202796040655": {
-    "likes": 1564,
+    "likes": 1573,
     "replies": 58,
-    "retweets": 69,
+    "retweets": 68,
     "quotes": 65,
-    "bookmarks": 562,
-    "impressions": 440142,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 566,
+    "impressions": 443498,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2051323944452411773": {
-    "likes": 7682,
-    "replies": 546,
-    "retweets": 410,
-    "quotes": 285,
-    "bookmarks": 8222,
-    "impressions": 4574048,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "likes": 7769,
+    "replies": 553,
+    "retweets": 414,
+    "quotes": 289,
+    "bookmarks": 8235,
+    "impressions": 4597884,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2054207481421975829": {
-    "likes": 2228,
-    "replies": 206,
-    "retweets": 209,
-    "quotes": 144,
-    "bookmarks": 1458,
-    "impressions": 2329481,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "likes": 2309,
+    "replies": 217,
+    "retweets": 217,
+    "quotes": 146,
+    "bookmarks": 1494,
+    "impressions": 2360065,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2062575428213285352": {
-    "likes": 5476,
-    "replies": 437,
-    "retweets": 248,
-    "quotes": 436,
-    "bookmarks": 3125,
-    "impressions": 4911401,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "likes": 5500,
+    "replies": 441,
+    "retweets": 244,
+    "quotes": 443,
+    "bookmarks": 3117,
+    "impressions": 4996731,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2066588050617249904": {
-    "likes": 1503,
-    "replies": 138,
-    "retweets": 155,
-    "quotes": 140,
-    "bookmarks": 1143,
-    "impressions": 1021771,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "likes": 1538,
+    "replies": 145,
+    "retweets": 154,
+    "quotes": 142,
+    "bookmarks": 1144,
+    "impressions": 1072901,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2010805682434666759": {
-    "likes": 86446,
-    "replies": 2533,
-    "retweets": 8364,
-    "quotes": 6885,
-    "bookmarks": 57985,
-    "impressions": 49737689,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "likes": 86187,
+    "replies": 2526,
+    "retweets": 8314,
+    "quotes": 6887,
+    "bookmarks": 57668,
+    "impressions": 49769188,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2053793640581828659": {
-    "likes": 319,
+    "likes": 322,
     "replies": 65,
-    "retweets": 35,
+    "retweets": 36,
     "quotes": 28,
-    "bookmarks": 145,
-    "impressions": 135631,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 147,
+    "impressions": 138089,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2011164301437124892": {
-    "likes": 298,
+    "likes": 297,
     "replies": 44,
     "retweets": 24,
     "quotes": 15,
     "bookmarks": 189,
-    "impressions": 58458,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "impressions": 58673,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2016595100714095039": {
-    "likes": 4146,
-    "replies": 2211,
+    "likes": 4140,
+    "replies": 2207,
     "retweets": 268,
     "quotes": 173,
-    "bookmarks": 3719,
-    "impressions": 1152118,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 3716,
+    "impressions": 1157250,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "1983645004334821706": {
-    "likes": 1131,
-    "replies": 136,
+    "likes": 1127,
+    "replies": 135,
     "retweets": 65,
     "quotes": 26,
-    "bookmarks": 838,
-    "impressions": 128410,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 832,
+    "impressions": 128517,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "1967640858372751540": {
-    "likes": 4469,
-    "replies": 260,
-    "retweets": 376,
+    "likes": 4459,
+    "replies": 258,
+    "retweets": 373,
     "quotes": 247,
-    "bookmarks": 3048,
-    "impressions": 1499135,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 3029,
+    "impressions": 1501216,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "1965093198482866317": {
-    "likes": 3977,
+    "likes": 3981,
     "replies": 481,
-    "retweets": 210,
+    "retweets": 209,
     "quotes": 598,
-    "bookmarks": 2114,
-    "impressions": 3178740,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 2116,
+    "impressions": 3202225,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "1957856991608512898": {
-    "likes": 2915,
-    "replies": 214,
+    "likes": 2923,
+    "replies": 215,
     "retweets": 195,
     "quotes": 76,
-    "bookmarks": 2115,
-    "impressions": 898508,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 2110,
+    "impressions": 899464,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2020850857819205700": {
-    "likes": 8507,
-    "replies": 531,
-    "retweets": 778,
+    "likes": 8493,
+    "replies": 529,
+    "retweets": 775,
     "quotes": 479,
-    "bookmarks": 2741,
-    "impressions": 1510217,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 2736,
+    "impressions": 1513086,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2042662823767990350": {
-    "likes": 5663,
-    "replies": 235,
-    "retweets": 225,
-    "quotes": 190,
-    "bookmarks": 4208,
-    "impressions": 1849662,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "likes": 5807,
+    "replies": 241,
+    "retweets": 228,
+    "quotes": 192,
+    "bookmarks": 4311,
+    "impressions": 1902905,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2006814700802363810": {
-    "likes": 2838,
+    "likes": 2827,
     "replies": 288,
-    "retweets": 198,
+    "retweets": 195,
     "quotes": 170,
-    "bookmarks": 1159,
-    "impressions": 578547,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 1153,
+    "impressions": 580350,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2005641579449770217": {
-    "likes": 848,
+    "likes": 847,
     "replies": 52,
     "retweets": 51,
     "quotes": 26,
-    "bookmarks": 686,
-    "impressions": 159581,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 685,
+    "impressions": 160171,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "1915481869585703191": {
-    "likes": 2765,
+    "likes": 2766,
     "replies": 187,
     "retweets": 206,
     "quotes": 148,
-    "bookmarks": 1077,
-    "impressions": 1314781,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 1075,
+    "impressions": 1314933,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2039696115818225909": {
-    "likes": 2119,
-    "replies": 418,
+    "likes": 2118,
+    "replies": 416,
     "retweets": 43,
     "quotes": 83,
-    "bookmarks": 1079,
-    "impressions": 644985,
-    "fetchedAt": "2026-06-17T11:23:53.594Z"
+    "bookmarks": 1075,
+    "impressions": 646290,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2066939366568804508": {
-    "likes": 1619,
-    "replies": 157,
-    "retweets": 206,
-    "quotes": 232,
-    "bookmarks": 494,
-    "impressions": 1164140,
-    "fetchedAt": "2026-06-17T11:33:19.200Z"
+    "likes": 2052,
+    "replies": 214,
+    "retweets": 252,
+    "quotes": 267,
+    "bookmarks": 662,
+    "impressions": 2842904,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2033566191961137591": {
-    "likes": 2154,
+    "likes": 2159,
     "replies": 83,
     "retweets": 105,
     "quotes": 52,
     "bookmarks": 1702,
-    "impressions": 296141,
-    "fetchedAt": "2026-06-17T11:35:18.780Z"
+    "impressions": 297303,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
   },
   "2057178134542512476": {
-    "likes": 3393,
-    "replies": 227,
-    "retweets": 154,
-    "quotes": 78,
-    "bookmarks": 860,
-    "impressions": 737878,
-    "fetchedAt": "2026-06-17T11:45:34.657Z"
+    "likes": 3474,
+    "replies": 302,
+    "retweets": 171,
+    "quotes": 82,
+    "bookmarks": 864,
+    "impressions": 764434,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
+  },
+  "2064394146916229443": {
+    "likes": 104686,
+    "replies": 5011,
+    "retweets": 14403,
+    "quotes": 9952,
+    "bookmarks": 21613,
+    "impressions": 57097927,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
+  },
+  "1750224209324708049": {
+    "likes": 506,
+    "replies": 16,
+    "retweets": 35,
+    "quotes": 27,
+    "bookmarks": 161,
+    "impressions": 91028,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
+  },
+  "2028502791237284067": {
+    "likes": 11,
+    "replies": 0,
+    "retweets": 2,
+    "quotes": 0,
+    "bookmarks": 0,
+    "impressions": 408,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
+  },
+  "2029180822838759703": {
+    "likes": 6791,
+    "replies": 291,
+    "retweets": 564,
+    "quotes": 471,
+    "bookmarks": 6509,
+    "impressions": 2451381,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
+  },
+  "2070137108174365141": {
+    "likes": 849,
+    "replies": 65,
+    "retweets": 23,
+    "quotes": 26,
+    "bookmarks": 367,
+    "impressions": 199621,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
+  },
+  "2038670159259619644": {
+    "likes": 3035,
+    "replies": 200,
+    "retweets": 408,
+    "quotes": 270,
+    "bookmarks": 1276,
+    "impressions": 1232067,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
+  },
+  "2072003433926676508": {
+    "likes": 572,
+    "replies": 49,
+    "retweets": 88,
+    "quotes": 20,
+    "bookmarks": 361,
+    "impressions": 781099,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
+  },
+  "2072342803787702422": {
+    "likes": 9833,
+    "replies": 464,
+    "retweets": 1038,
+    "quotes": 280,
+    "bookmarks": 4254,
+    "impressions": 33055899,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
+  },
+  "2073116662602342734": {
+    "likes": 1925,
+    "replies": 81,
+    "retweets": 85,
+    "quotes": 26,
+    "bookmarks": 3188,
+    "impressions": 399266,
+    "fetchedAt": "2026-07-17T19:40:43.154Z"
+  },
+  "2075253825494237660": {
+    "likes": 23953,
+    "replies": 1249,
+    "retweets": 2876,
+    "quotes": 1530,
+    "bookmarks": 6460,
+    "impressions": 8527491,
+    "fetchedAt": "2026-07-18T10:22:26.515Z"
+  },
+  "2075274271845404744": {
+    "likes": 21790,
+    "replies": 1185,
+    "retweets": 2243,
+    "quotes": 985,
+    "bookmarks": 5788,
+    "impressions": 10367195,
+    "fetchedAt": "2026-07-18T10:25:54.085Z"
+  },
+  "2069828784723771583": {
+    "likes": 697,
+    "replies": 19,
+    "retweets": 29,
+    "quotes": 15,
+    "bookmarks": 171,
+    "impressions": 47978,
+    "fetchedAt": "2026-07-18T10:25:54.085Z"
+  },
+  "2019084435035967516": {
+    "likes": 492,
+    "replies": 61,
+    "retweets": 45,
+    "quotes": 12,
+    "bookmarks": 397,
+    "impressions": 67571,
+    "fetchedAt": "2026-07-18T10:25:54.085Z"
+  },
+  "2074907025537224840": {
+    "likes": 24495,
+    "replies": 1263,
+    "retweets": 2240,
+    "quotes": 1840,
+    "bookmarks": 6554,
+    "impressions": 7891301,
+    "fetchedAt": "2026-07-18T10:25:54.085Z"
+  },
+  "2074911381141209259": {
+    "likes": 181,
+    "replies": 26,
+    "retweets": 13,
+    "quotes": 4,
+    "bookmarks": 115,
+    "impressions": 30726,
+    "fetchedAt": "2026-07-18T10:27:35.122Z"
+  },
+  "2077821890207547467": {
+    "likes": 28842,
+    "replies": 690,
+    "retweets": 2572,
+    "quotes": 898,
+    "bookmarks": 6579,
+    "impressions": 7710428,
+    "fetchedAt": "2026-07-18T10:34:11.116Z"
   }
 }
