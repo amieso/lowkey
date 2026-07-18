@@ -98,79 +98,98 @@ export function MobilePlayerPanel({
 
   return (
     <div
-      className="fixed inset-x-0 bottom-0 z-[130] flex flex-col gap-3 overflow-y-auto overscroll-contain px-3 pt-3 pointer-events-auto"
-      style={{ top, paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 16px)' }}
+      className="fixed inset-x-0 bottom-0 z-[130] flex flex-col pointer-events-auto"
+      style={{ top }}
       // The card's swipe-to-close listens on the video box; stop taps in here
       // from bubbling up to the article's select handler.
       onClick={(event) => event.stopPropagation()}
     >
-      {/* Title + close */}
-      <div className="flex items-start gap-3">
-        <h2 className="min-w-0 flex-1 text-base font-light leading-snug tracking-tight text-white">
-          {video.title}
-        </h2>
-        <button
-          onClick={(event) => {
-            event.stopPropagation()
-            onClose?.()
-          }}
-          className="-mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-lg leading-none text-white active:bg-white/20"
-          aria-label="Close video"
-        >
-          ×
-        </button>
-      </div>
+      {/* Everything above the outbound links scrolls; the links stay pinned. */}
+      <div className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto overscroll-contain px-3 pt-3 pb-3">
+        {/* Title + close */}
+        <div className="flex items-start gap-3">
+          <h2 className="min-w-0 flex-1 text-base font-light leading-snug tracking-tight text-white">
+            {video.title}
+          </h2>
+          <button
+            onClick={(event) => {
+              event.stopPropagation()
+              onClose?.()
+            }}
+            className="-mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-lg leading-none text-white active:bg-white/20"
+            aria-label="Close video"
+          >
+            ×
+          </button>
+        </div>
 
-      {/* Company + engagement */}
-      <div className="-mt-1.5 flex items-center gap-2.5">
-        <span className="font-mono text-[10px] uppercase tracking-widest text-white/60">
-          {video.company}
-        </span>
-        <VideoMetrics sourceUrl={video.sourceUrl} variant="inline" className="!text-white/45" />
-      </div>
+        {/* Company + engagement */}
+        <div className="-mt-1.5 flex items-center gap-2.5">
+          <span className="font-mono text-[10px] uppercase tracking-widest text-white/60">
+            {video.company}
+          </span>
+          <VideoMetrics sourceUrl={video.sourceUrl} variant="inline" className="!text-white/45" />
+        </div>
 
-      {/* Transport */}
-      <div className="flex items-center gap-1">
-        <button
-          onClick={togglePlay}
-          className="flex h-9 w-9 items-center justify-center rounded-full active:bg-white/10"
-          aria-label={isPlaying ? 'Pause' : 'Play'}
-        >
-          {isPlaying ? (
-            <PauseIcon className="h-5 w-5 text-white" />
-          ) : (
-            <PlayIcon className="h-5 w-5 text-white" />
+        {/* Transport */}
+        <div className="flex items-center gap-1">
+          <button
+            onClick={togglePlay}
+            className="flex h-9 w-9 items-center justify-center rounded-full active:bg-white/10"
+            aria-label={isPlaying ? 'Pause' : 'Play'}
+          >
+            {isPlaying ? (
+              <PauseIcon className="h-5 w-5 text-white" />
+            ) : (
+              <PlayIcon className="h-5 w-5 text-white" />
+            )}
+          </button>
+          <VolumeSlider videoRef={videoRef} />
+
+          <span className="flex-1 text-center font-mono text-xs tabular-nums text-white/80">
+            {formatDuration(Math.floor(currentTime))} / {formatDuration(video.duration)}
+          </span>
+
+          <SpeedSelector currentSpeed={playbackSpeed} onSpeedChange={handleSpeedChange} />
+          {qualityLevels.length > 0 && (
+            <ResolutionSelector
+              levels={qualityLevels}
+              currentLevel={currentQuality}
+              onLevelChange={onQualityChange}
+            />
           )}
-        </button>
-        <VolumeSlider videoRef={videoRef} />
+          <FullscreenButton containerRef={containerRef} videoRef={videoRef} />
+        </div>
 
-        <span className="flex-1 text-center font-mono text-xs tabular-nums text-white/80">
-          {formatDuration(Math.floor(currentTime))} / {formatDuration(video.duration)}
-        </span>
+        <MobileScrubBar
+          chapters={chapters}
+          currentTime={currentTime}
+          duration={video.duration}
+          onSeek={handleSeek}
+          onSeekStart={() => setIsSeeking(true)}
+          onSeekEnd={() => setIsSeeking(false)}
+        />
 
-        <SpeedSelector currentSpeed={playbackSpeed} onSpeedChange={handleSpeedChange} />
-        {qualityLevels.length > 0 && (
-          <ResolutionSelector
-            levels={qualityLevels}
-            currentLevel={currentQuality}
-            onLevelChange={onQualityChange}
-          />
+        {chapters.length > 0 && (
+          <>
+            <div className="h-px bg-white/10" />
+            <ChapterList
+              chapters={chapters}
+              currentTime={currentTime}
+              duration={video.duration}
+              onSeek={handleSeek}
+            />
+          </>
         )}
-        <FullscreenButton containerRef={containerRef} videoRef={videoRef} />
       </div>
 
-      <MobileScrubBar
-        chapters={chapters}
-        currentTime={currentTime}
-        duration={video.duration}
-        onSeek={handleSeek}
-        onSeekStart={() => setIsSeeking(true)}
-        onSeekEnd={() => setIsSeeking(false)}
-      />
-
-      {/* Outbound links */}
+      {/* Outbound links — pinned to the bottom of the viewport so the primary
+          actions stay reachable however long the chapter list runs. */}
       {(video.sourceUrl || video.websiteUrl) && (
-        <div className="flex items-center gap-2">
+        <div
+          className="flex shrink-0 items-center gap-2 border-t border-white/10 bg-black/60 px-3 pt-3 backdrop-blur-md"
+          style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 12px)' }}
+        >
           {video.sourceUrl && (
             <a
               href={video.sourceUrl}
@@ -200,18 +219,6 @@ export function MobilePlayerPanel({
             </a>
           )}
         </div>
-      )}
-
-      {chapters.length > 0 && (
-        <>
-          <div className="h-px bg-white/10" />
-          <ChapterList
-            chapters={chapters}
-            currentTime={currentTime}
-            duration={video.duration}
-            onSeek={handleSeek}
-          />
-        </>
       )}
     </div>
   )
