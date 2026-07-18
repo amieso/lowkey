@@ -98,6 +98,10 @@ const PIECE_DWELL_END = 1
 // it as a backstop). The landing cards themselves stay hidden until the
 // pieces fade over them.
 const REVEAL_AT = 0.28
+// The backdrop fades at REVEAL_AT, but the page content keyed off 'settling'
+// (grid stagger, header logo) trails it by this much so it doesn't crowd the
+// cut still playing above it.
+const SETTLE_LEAD_MS = 800
 // The rectangle's own entry: it eases in from 0.95× scale and 50% opacity
 // over the first ENTRY_MS of the cut instead of popping on.
 const ENTRY_MS = 350
@@ -232,11 +236,18 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     // off the shared 'settling' phase. Fired mid-flight (REVEAL_AT) for the
     // overlap; idempotent so the landing/fallback path can call it safely.
     let revealed = false
+    // Set once the intro reaches 'done', so a fast finish can't let the
+    // trailing settle timer flip the phase backwards.
+    let settled = false
     const reveal = () => {
       if (revealed) return
       revealed = true
       setRevealedEarly(true)
-      setIntroPhase('settling')
+      timersRef.current.push(
+        window.setTimeout(() => {
+          if (!settled) setIntroPhase('settling')
+        }, SETTLE_LEAD_MS),
+      )
       onContentReadyRef.current?.()
     }
 
@@ -248,6 +259,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       // beat, 300ms piece fade, gone. No dead-to-input period at the end.
       timersRef.current.push(
         window.setTimeout(() => {
+          settled = true
           setPhase('done')
           setIntroPhase('done')
           trackGoal(GOALS.introCompleted, {
