@@ -75,6 +75,14 @@ const videoChapters: Record<string, Chapter[]> = {
     { id: 'c3', title: 'In Action', startTime: 32 },
     { id: 'c4', title: 'CTA', startTime: 45 },
   ],
+  '49': [ // 1X NEO's Tendon-Driven Hands (107s)
+    { id: 'c1', title: 'Wine Glass', startTime: 0 },
+    { id: 'c2', title: 'Bulb & Reveal', startTime: 12 },
+    { id: 'c3', title: 'Dexterity Trials', startTime: 24 },
+    { id: 'c4', title: 'Teleoperation', startTime: 62 },
+    { id: 'c5', title: 'Everyday Objects', startTime: 68 },
+    { id: 'c6', title: 'Self-Charging', startTime: 89 },
+  ],
 }
 
 export function getChaptersForVideo(videoId: string): Chapter[] {

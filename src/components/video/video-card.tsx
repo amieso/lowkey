@@ -3,6 +3,7 @@
 import { memo, useCallback, useEffect, useRef, useState, type CSSProperties, type TouchEvent } from 'react'
 import { motion } from 'framer-motion'
 import { Chapter, Video } from '@/types/video'
+import { getChaptersForVideo } from '@/data/chapters'
 import { sizedThumbnail, platformName } from '@/lib/utils'
 import { CompanyLink } from '@/components/ui/company-link'
 import { PlayIcon, PauseIcon } from '@/components/ui/player-icons'
@@ -79,9 +80,7 @@ export const VideoCard = memo(function VideoCard({
 
   const isGhost = !video.videoUrl
   const isInteractive = !isGhost && !disablePlayback
-  // Segments hidden for now — pass no chapters so the seek bar renders as a
-  // single continuous track. Restore with getChaptersForVideo(video.id) later.
-  const chapters: Chapter[] = []
+  const chapters: Chapter[] = getChaptersForVideo(video.id)
   const { shouldShowIntro, introComplete, registerMedia, markMediaLoaded } = useIntroContext()
   const pageVisible = usePageVisible()
 
