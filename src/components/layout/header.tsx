@@ -18,13 +18,6 @@ export function Header() {
   const showLogo = !shouldShowIntro || introPhase === 'settling' || introPhase === 'done'
   const isSettling = shouldShowIntro && introPhase === 'settling'
 
-  // Calculate starting position (center of screen relative to header position)
-  const getStartY = () => {
-    if (typeof window === 'undefined') return 348
-    // Header logo is at roughly y=52 from top, center is at windowHeight/2
-    return window.innerHeight / 2 - 52
-  }
-
   return (
     <header className="sticky top-0 z-40 w-full pb-2">
       {/* Progressive blur layers */}
@@ -37,36 +30,12 @@ export function Header() {
       <div className="absolute inset-0 bg-gradient-to-b from-background/70 to-transparent" />
       <div className="relative px-4 md:px-6">
         <div className="flex h-16 items-center justify-center pt-6 sm:pt-9">
-          {/* Logo - animates from center to header during settling phase.
-              Phase-driven (not mount-driven) so it flies in at the reveal even
-              though the header now mounts at the very start of the intro. */}
+          {/* Logo - fades in on the same beat as the partner button. */}
           <Link href="/" className="flex items-center">
             <motion.div
-              initial={shouldShowIntro ? {
-                opacity: 0,
-                scale: 160 / 44,
-                y: getStartY()
-              } : {
-                opacity: 1,
-                scale: 1,
-                y: 0,
-              }}
-              animate={showLogo ? {
-                opacity: 1,
-                scale: 1,
-                y: 0,
-              } : {
-                opacity: 0,
-                scale: 160 / 44,
-                y: getStartY(),
-              }}
-              transition={isSettling ? {
-                scale: { duration: 0.7, delay: LOGO_LEAD_S, ease: [0.23, 1, 0.32, 1] },
-                y: { duration: 0.7, delay: LOGO_LEAD_S, ease: [0.23, 1, 0.32, 1] },
-                opacity: { duration: 0.15, delay: LOGO_LEAD_S, ease: 'easeIn' },
-              } : {
-                duration: 0.2,
-              }}
+              initial={{ opacity: shouldShowIntro ? 0 : 1 }}
+              animate={{ opacity: showLogo ? 1 : 0 }}
+              transition={{ duration: 0.2, delay: isSettling ? LOGO_LEAD_S : 0 }}
             >
               <AnimatedLogo isHovered={introComplete} />
             </motion.div>
