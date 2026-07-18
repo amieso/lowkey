@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Chapter, Video } from '@/types/video'
 import { getChaptersForVideo } from '@/data/chapters'
 import { sizedThumbnail, platformName } from '@/lib/utils'
+import { lockScroll, unlockScroll } from '@/lib/scroll-lock'
 import { CompanyLink } from '@/components/ui/company-link'
 import { PlayIcon, PauseIcon } from '@/components/ui/player-icons'
 import { VideoPlayer, VideoPlayerHandle, QualityLevel } from './modal/video-player'
@@ -331,22 +332,14 @@ export const VideoCard = memo(function VideoCard({
     return () => document.removeEventListener('keydown', handleEscape)
   }, [isExpanded, onClose])
 
-  // Lock body scroll while expanded — and keep it locked briefly after a
+  // Lock page scroll while expanded — and keep it locked briefly after a
   // scroll-to-close so leftover trackpad momentum doesn't scroll the page.
+  // handleSelect already locked at tap time; this keeps it held for the life
+  // of the expansion and owns the release.
   useEffect(() => {
     if (!isExpanded && !momentumGuard) return
-
-    const body = document.body
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-    const previousOverflow = body.style.overflow
-    const previousPaddingRight = body.style.paddingRight
-    body.style.overflow = 'hidden'
-    if (scrollbarWidth > 0) body.style.paddingRight = `${scrollbarWidth}px`
-
-    return () => {
-      body.style.overflow = previousOverflow
-      body.style.paddingRight = previousPaddingRight
-    }
+    lockScroll()
+    return unlockScroll
   }, [isExpanded, momentumGuard])
 
   const togglePlay = useCallback(() => {
@@ -391,6 +384,10 @@ export const VideoCard = memo(function VideoCard({
     // with no video visible. Swallow selection until the intro is done.
     if (shouldShowIntro && !introComplete) return
     if (!isInteractive || isExpanded) return
+    // Lock NOW, not a render later: on a phone the tap often lands mid-swipe,
+    // and waiting for `isExpanded` let the page keep gliding behind the
+    // opening video. The expansion effect takes ownership of the release.
+    lockScroll()
     onSelect?.(video)
   }, [shouldShowIntro, introComplete, isInteractive, isExpanded, onSelect, video])
 
