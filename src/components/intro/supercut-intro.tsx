@@ -102,6 +102,12 @@ const HOLD_MS = 1000
 const FALL_MS = 750
 const PIECE_STAGGER_MS = 70
 const PIECE_RESOLVE_AT = 0.72
+// How far into the fall (0..1) the hero's 50% → 100% fade starts. The pieces
+// leave the hero's band early — they're born centre-screen and travel DOWN —
+// so waiting for the last touchdown made the headline arrive visibly after
+// the cards were already seated. Firing mid-fall lets the 0.6s ease finish in
+// the same beat as the landing instead of starting there.
+const HERO_REVEAL_AT = 0.45
 // Piece flashing cadence (in ticks): the big cut hands off at full strobe,
 // so the pieces keep flashing at nearly that pace all the way down.
 const PIECE_DWELL_START = 1.3
@@ -446,6 +452,15 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     let start = performance.now()
     let lastTick = start
 
+    // The hero's 50% → 100% fade. Idempotent, so the mid-fall trigger and the
+    // landing backstop can both call it.
+    let heroRevealed = false
+    const revealHero = () => {
+      if (heroRevealed) return
+      heroRevealed = true
+      setIntroHeroReveal(true)
+    }
+
     const showFrame = (f: number) => {
       const els = frameEls.current
       if (frameShown >= 0 && els[frameShown]) els[frameShown]!.style.visibility = 'hidden'
@@ -705,6 +720,9 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
           // rect down to ENTRY_SCALE would open black gutters along every
           // edge, so portrait enters on opacity alone.
           overlay.style.transform = portrait ? 'none' : `scale(${lerp(ENTRY_SCALE, 1, entry)})`
+          // Same beat as the split's fall: the shrinking rect has uncovered
+          // the hero well before it seats.
+          if (p >= HERO_REVEAL_AT) revealHero()
         }
 
         // Mid-flight overlap: reveal the page under the flying rectangle.
@@ -740,6 +758,10 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
         for (let i = 0; i < PIECE_COUNT; i++) {
           const u = clamp01((tc - splitTime - pieceDelay[i]) / FALL_MS)
           pieceTransform(i, u)
+          // Mid-fall: the pieces have left the hero's band, so start its fade
+          // now — waiting for the last touchdown landed the headline after
+          // the cards. The first piece to reach the mark carries it.
+          if (u >= HERO_REVEAL_AT) revealHero()
           if (!pieceResolved[i]) {
             if (u >= PIECE_RESOLVE_AT) {
               pieceResolved[i] = true
@@ -768,9 +790,9 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       if (!landedFlag) {
         landedFlag = true
         landedAt = tc
-        // The hero's 50% -> 100% fade fires only now — once every piece is
-        // down — well after the split, in the same beat as the card text.
-        setIntroHeroReveal(true)
+        // Backstop: normally the fade already started mid-fall, but a clock
+        // jump can skip straight past HERO_REVEAL_AT.
+        revealHero()
         if (splitMode) {
           if (!splitDone) split() // clock-jump safety: never skip the handoff
           for (let i = 0; i < PIECE_COUNT; i++) {
