@@ -780,7 +780,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     transition: phase === 'done' ? 'opacity 0.3s ease-out' : 'none',
   } as const
   const halftoneStyle = {
-    backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.65) 0.15px, transparent 0.25px)',
+    backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.45) 0.15px, transparent 0.25px)',
     backgroundSize: '0.5px 0.5px',
     opacity: phase === 'cut' ? 1 : 0,
     transition: phase === 'cut' ? ('none' as const) : ('opacity 0.35s ease-out' as const),

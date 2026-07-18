@@ -516,7 +516,7 @@ export default function SupercutPage() {
             style={{
               zIndex: 2,
               backgroundImage:
-                'radial-gradient(circle, rgba(0,0,0,0.65) 0.15px, transparent 0.25px)',
+                'radial-gradient(circle, rgba(0,0,0,0.45) 0.15px, transparent 0.25px)',
               backgroundSize: '0.5px 0.5px',
               opacity: phase === 'cut' ? 1 : 0,
               transition: phase === 'cut' ? 'none' : 'opacity 0.35s ease-out',
