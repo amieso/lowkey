@@ -100,7 +100,7 @@ const REVEAL_AT = 0.28
 // over the first ENTRY_MS of the cut instead of popping on.
 const ENTRY_MS = 350
 const ENTRY_SCALE = 0.95
-const ENTRY_OPACITY = 0.5
+const ENTRY_OPACITY = 0.75
 const PRELOAD_DEADLINE_MS = 20000
 
 const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
