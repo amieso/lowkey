@@ -65,6 +65,17 @@ function aboveChromeTop(aspectRatio: Video['aspectRatio']): string {
   return `calc(50% - ${expandedHeightExpr(aspectRatio)} / 2 - 12px)`
 }
 
+// The chrome row (title, company, stats, actions) needs ~690px to lay out
+// without truncating the title or wrapping the buttons. A portrait or square
+// frame is narrower than that, so the row keeps its own comfortable width and
+// simply extends past the frame edges. Landscape frames are already wider than
+// the floor, so they stay flush with the video as before.
+const MIN_CHROME_WIDTH = '880px'
+
+function chromeWidth(aspectRatio: Video['aspectRatio']): string {
+  return `max(${expandedWidth(aspectRatio)}, min(${MIN_CHROME_WIDTH}, calc(100vw - 2rem)))`
+}
+
 interface VideoCardProps {
   video: Video
   onSelect?: (video: Video) => void
@@ -576,7 +587,7 @@ export const VideoCard = memo(function VideoCard({
           >
             <div
               className="flex items-center justify-between gap-3 -translate-y-full"
-              style={{ width: expandedWidth(video.aspectRatio) }}
+              style={{ width: chromeWidth(video.aspectRatio) }}
             >
               <div className="flex items-center gap-2 min-w-0">
                 <h2 className="text-sm sm:text-base font-light text-white tracking-tight truncate rounded px-2 py-1 bg-black/45 backdrop-blur-sm">{video.title}</h2>
@@ -588,7 +599,7 @@ export const VideoCard = memo(function VideoCard({
               </div>
               <div className="flex items-center gap-2 pointer-events-auto">
                 {video.sourceUrl && (
-                  <LiquidGlass className="group" tint="rgba(0,0,0,0.28)">
+                  <LiquidGlass tint="rgba(0,0,0,0.28)">
                     <a
                       href={video.sourceUrl}
                       target="_blank"
@@ -601,14 +612,14 @@ export const VideoCard = memo(function VideoCard({
                           slug: video.slug,
                         })
                       }}
-                      className="h-7 px-3 text-xs rounded-full text-white bg-white/0 group-hover:bg-white/[0.12] inline-flex items-center justify-center font-medium transition-colors"
+                      className="h-7 px-3 text-xs rounded-full text-white bg-white/0 hover:bg-white/[0.12] inline-flex items-center justify-center font-medium transition-colors"
                     >
                       View on {platformName(video.sourceUrl)}
                     </a>
                   </LiquidGlass>
                 )}
                 {video.websiteUrl && (
-                  <LiquidGlass className="group" tint="rgba(0,0,0,0.28)">
+                  <LiquidGlass tint="rgba(0,0,0,0.28)">
                     <a
                       href={video.websiteUrl}
                       target="_blank"
@@ -621,19 +632,19 @@ export const VideoCard = memo(function VideoCard({
                           slug: video.slug,
                         })
                       }}
-                      className="h-7 px-3 text-xs rounded-full text-white bg-white/0 group-hover:bg-white/[0.12] inline-flex items-center justify-center font-medium transition-colors"
+                      className="h-7 px-3 text-xs rounded-full text-white bg-white/0 hover:bg-white/[0.12] inline-flex items-center justify-center font-medium transition-colors"
                     >
                       Visit
                     </a>
                   </LiquidGlass>
                 )}
-                <LiquidGlass className="group" tint="rgba(0,0,0,0.28)">
+                <LiquidGlass tint="rgba(0,0,0,0.28)">
                   <button
                     onClick={(event) => {
                       event.stopPropagation()
                       onClose?.()
                     }}
-                    className="w-7 h-7 rounded-full text-white bg-white/0 group-hover:bg-white/[0.12] inline-flex items-center justify-center text-base leading-none transition-colors"
+                    className="w-7 h-7 rounded-full text-white bg-white/0 hover:bg-white/[0.12] inline-flex items-center justify-center text-base leading-none transition-colors"
                     aria-label="Close video"
                   >
                     ×

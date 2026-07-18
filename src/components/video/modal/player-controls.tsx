@@ -12,7 +12,6 @@ import { FullscreenButton } from './fullscreen-button'
 import { SkipButton } from './skip-button'
 import { VolumeSlider } from './volume-slider'
 import { QualityLevel } from './video-player'
-import { LiquidGlass } from '@/components/ui/liquid-glass'
 
 interface PlayerControlsProps {
   videoRef: React.RefObject<HTMLVideoElement | null>
@@ -200,72 +199,62 @@ export function PlayerControls({
       {/* Controls row - 3 column layout */}
       <div className="relative flex items-center justify-between px-4 pt-2 pb-5">
         {/* Left controls */}
-        <div className="flex flex-1 justify-start">
-          <LiquidGlass tint="rgba(0,0,0,0.25)">
-            <div className="flex items-center gap-1 px-1">
-              {/* Play/Pause */}
-              <button
-                onClick={togglePlay}
-                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors"
-                aria-label={isPlaying ? 'Pause' : 'Play'}
-              >
-                {isPlaying ? (
-                  <PauseIcon className="w-5 h-5 text-white" />
-                ) : (
-                  <PlayIcon className="w-5 h-5 text-white" />
-                )}
-              </button>
+        <div className="flex items-center gap-1 flex-1">
+          {/* Play/Pause */}
+          <button
+            onClick={togglePlay}
+            className="w-8 h-8 flex items-center justify-center rounded hover:bg-white/10 transition-colors"
+            aria-label={isPlaying ? 'Pause' : 'Play'}
+          >
+            {isPlaying ? (
+              <PauseIcon className="w-5 h-5 text-white" />
+            ) : (
+              <PlayIcon className="w-5 h-5 text-white" />
+            )}
+          </button>
 
-              {/* Skip backward 5s - hidden on mobile */}
-              <div className="hidden sm:block">
-                <SkipButton direction="backward" onSkip={handleSkip} />
-              </div>
+          {/* Skip backward 5s - hidden on mobile */}
+          <div className="hidden sm:block">
+            <SkipButton direction="backward" onSkip={handleSkip} />
+          </div>
 
-              {/* Skip forward 5s - hidden on mobile */}
-              <div className="hidden sm:block">
-                <SkipButton direction="forward" onSkip={handleSkip} />
-              </div>
+          {/* Skip forward 5s - hidden on mobile */}
+          <div className="hidden sm:block">
+            <SkipButton direction="forward" onSkip={handleSkip} />
+          </div>
 
-              {/* Volume with slider */}
-              <VolumeSlider videoRef={videoRef} />
-            </div>
-          </LiquidGlass>
+          {/* Volume with slider */}
+          <VolumeSlider videoRef={videoRef} />
         </div>
 
         {/* Center - Time display */}
         <div className="flex-shrink-0">
-          <LiquidGlass tint="rgba(0,0,0,0.25)">
-            <span className="flex h-8 items-center px-3 text-xs text-white font-mono tabular-nums">
-              {formatDuration(Math.floor(currentTime))} / {formatDuration(duration)}
-            </span>
-          </LiquidGlass>
+          <span className="text-xs text-white font-mono tabular-nums">
+            {formatDuration(Math.floor(currentTime))} / {formatDuration(duration)}
+          </span>
         </div>
 
         {/* Right controls */}
-        <div className="flex flex-1 justify-end">
-          <LiquidGlass tint="rgba(0,0,0,0.25)">
-            <div className="flex items-center gap-1 px-1">
-              {/* Resolution selector */}
-              {qualityLevels.length > 0 && onQualityChange && (
-                <ResolutionSelector
-                  levels={qualityLevels}
-                  currentLevel={currentQuality}
-                  onLevelChange={onQualityChange}
-                />
-              )}
+        <div className="flex items-center gap-1 flex-1 justify-end">
+          {/* Resolution selector */}
+          {qualityLevels.length > 0 && onQualityChange && (
+            <ResolutionSelector
+              levels={qualityLevels}
+              currentLevel={currentQuality}
+              onLevelChange={onQualityChange}
+            />
+          )}
 
-              {/* Speed selector - hidden on mobile */}
-              <div className="hidden sm:block">
-                <SpeedSelector
-                  currentSpeed={playbackSpeed}
-                  onSpeedChange={handleSpeedChange}
-                />
-              </div>
+          {/* Speed selector - hidden on mobile */}
+          <div className="hidden sm:block">
+            <SpeedSelector
+              currentSpeed={playbackSpeed}
+              onSpeedChange={handleSpeedChange}
+            />
+          </div>
 
-              {/* Fullscreen */}
-              <FullscreenButton containerRef={containerRef} videoRef={videoRef} />
-            </div>
-          </LiquidGlass>
+          {/* Fullscreen */}
+          <FullscreenButton containerRef={containerRef} videoRef={videoRef} />
         </div>
       </div>
     </div>
