@@ -96,6 +96,9 @@ const PIECE_DWELL_END = 1.1
 // it as a backstop). The landing cards themselves stay hidden until the
 // pieces fade over them.
 const REVEAL_AT = 0.28
+// How far through the lead piece's flight (or the single-mode flight) the
+// hero starts its 50% -> 100% fade — when the movement has largely cleared it.
+const HERO_REVEAL_AT = 0.5
 // The rectangle's own entry: it eases in from 0.95× scale and 50% opacity
 // over the first ENTRY_MS of the cut instead of popping on.
 const ENTRY_MS = 350
@@ -141,7 +144,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
   // writes in split() (braces) — so no re-render or remount can ever bring
   // the big rectangle's last frame back as a ghost.
   const [splitFired, setSplitFired] = useState(false)
-  const { setIntroPhase, setIntroTargetCount, setIntroLandedCount, setIntroSplitFired, mediaReady } =
+  const { setIntroPhase, setIntroTargetCount, setIntroLandedCount, setIntroHeroReveal, mediaReady } =
     useIntroContext()
 
   const overlayRef = useRef<HTMLDivElement>(null)
@@ -273,7 +276,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       // skip the spectacle and reveal the page.
       startedRef.current = true
       setIntroTargetCount(0)
-      setIntroSplitFired(true)
+      setIntroHeroReveal(true)
       finish('supercut_fallback')
       return
     }
@@ -297,9 +300,6 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       targets.length === PIECE_COUNT &&
       targetRects.every((r) => r.width > 0 && r.top >= 0 && r.top + r.height * 0.6 <= vh)
     setIntroTargetCount(splitMode ? PIECE_COUNT : 1)
-    // Single mode starts uncovering the hero from the first frame of its
-    // flight, so the hero fade is armed immediately there.
-    if (!splitMode) setIntroSplitFired(true)
     setPhase('cut')
 
     // Start rect: centered, covering START_COVER of the viewport at 16:9.
@@ -357,6 +357,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     let entryShown = -1
     let frameShown = -1
     let splitDone = false
+    let heroRevealFired = false
     let landedFlag = false
     let landedAt = 0
     let lastRect: Rect = { left: 0, top: 0, width: 0, height: 0 }
@@ -467,7 +468,6 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       overlay.style.visibility = 'hidden'
       overlay.style.display = 'none'
       setSplitFired(true)
-      setIntroSplitFired(true) // the movement starts uncovering the hero now
       const shardSrc = frames[Math.max(0, frameShown)]
       const dealFrom = (Math.max(0, frameShown) + 1) % N
       for (let i = 0; i < PIECE_COUNT; i++) {
@@ -627,6 +627,12 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
 
         // Mid-flight overlap: reveal the page under the flying rectangle.
         if (tc >= duration * REVEAL_AT) reveal()
+        // Single mode: the rectangle uncovers the hero over its whole flight;
+        // fade the hero up from halfway through.
+        if (!splitMode && !heroRevealFired && p >= HERO_REVEAL_AT) {
+          heroRevealFired = true
+          setIntroHeroReveal(true)
+        }
 
         let e = entryShown < 0 ? 0 : entryShown
         while (e < entries.length - 1 && tc >= cum[e + 1]) e++
@@ -655,6 +661,12 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       // ── phase B: the pieces fly, still supercutting (split mode only) ──
       if (splitMode && tc < fallEnd) {
         if (!splitDone) split()
+        // The hero fades up once the falling pieces have largely cleared it —
+        // timed to when it actually becomes visible, not the split instant.
+        if (!heroRevealFired && clamp01((tc - splitTime) / FALL_MS) >= HERO_REVEAL_AT) {
+          heroRevealFired = true
+          setIntroHeroReveal(true)
+        }
         for (let i = 0; i < PIECE_COUNT; i++) {
           const u = clamp01((tc - splitTime - i * PIECE_STAGGER_MS) / FALL_MS)
           pieceTransform(i, u)
@@ -684,6 +696,10 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       if (!landedFlag) {
         landedFlag = true
         landedAt = tc
+        if (!heroRevealFired) {
+          heroRevealFired = true
+          setIntroHeroReveal(true)
+        }
         if (splitMode) {
           if (!splitDone) split() // clock-jump safety: never skip the handoff
           for (let i = 0; i < PIECE_COUNT; i++) {
@@ -717,7 +733,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       }
     }
     rafRef.current = requestAnimationFrame(tick)
-  }, [frames, setIntroPhase, setIntroTargetCount, setIntroLandedCount, setIntroSplitFired, cleanupUrls])
+  }, [frames, setIntroPhase, setIntroTargetCount, setIntroLandedCount, setIntroHeroReveal, cleanupUrls])
 
   // Start once: frames preloaded and tab visible.
   useEffect(() => {

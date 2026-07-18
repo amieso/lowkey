@@ -10,12 +10,12 @@ export function HeroSection() {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
-  // During the intro the hero sits half-dimmed under the supercut; the
-  // moment the pieces start uncovering it (the split — introSplitFired) it
-  // eases to full opacity, so it fades IN as it becomes visible instead of
+  // During the intro the hero sits half-dimmed under the supercut; once the
+  // falling pieces have largely cleared it (introHeroReveal, mid-fall) it
+  // eases to full opacity — it fades IN as it becomes visible instead of
   // just being uncovered at 100%.
-  const { shouldShowIntro, introSplitFired } = useIntroContext()
-  const dimmed = shouldShowIntro && !introSplitFired
+  const { shouldShowIntro, introHeroReveal } = useIntroContext()
+  const dimmed = shouldShowIntro && !introHeroReveal
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()

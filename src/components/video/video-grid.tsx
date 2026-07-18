@@ -30,11 +30,11 @@ export function VideoGrid({ videos, columns = 4, partnerCardAt }: VideoGridProps
   // fade). The intro decides at runtime how many cards it lands on
   // (introTargetCount: 4 when it splits, 1 on narrow layouts).
   const revealed = !shouldShowIntro || introPhase === 'settling' || introPhase === 'done'
-  // A target card reveals as soon as ITS piece has seated (introLandedCount)
-  // — the piece still covers the media box, so this is the meta text fading
-  // in right at touchdown. 'done' remains the catch-all.
-  const targetRevealed = (index: number) =>
-    !shouldShowIntro || introPhase === 'done' || index < introLandedCount
+  // Target cards' text reveals in ONE simultaneous fade the moment the last
+  // piece has seated (staggering it per-card read as cheap) — the pieces
+  // still cover the media boxes at that point. 'done' remains the catch-all.
+  const allPiecesSeated = introTargetCount > 0 && introLandedCount >= introTargetCount
+  const targetRevealed = !shouldShowIntro || introPhase === 'done' || allPiecesSeated
 
   // While a video is full-screen, keep its arrow-nav neighbours (n-1 / n+1)
   // mounted and pre-upscaled so switching to them is instant and already sharp.
@@ -91,7 +91,7 @@ export function VideoGrid({ videos, columns = 4, partnerCardAt }: VideoGridProps
           className="relative"
           initial={shouldShowIntro ? (isSupercutTarget ? { opacity: 0 } : { opacity: 0, y: 40, scale: 0.92 }) : false}
           animate={
-            (isSupercutTarget ? targetRevealed(index) : revealed)
+            (isSupercutTarget ? targetRevealed : revealed)
               ? { opacity: 1, y: 0, scale: 1 }
               : isSupercutTarget
                 ? { opacity: 0 }

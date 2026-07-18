@@ -23,11 +23,11 @@ interface IntroContextType {
    *  visually this is the meta text fading in right at touchdown). */
   introLandedCount: number
   setIntroLandedCount: (n: number) => void
-  /** True once the intro's movement starts uncovering the hero (the split
-   *  in split mode; the reveal in single mode). The hero fades 50% → 100%
-   *  off this instead of just being uncovered at full opacity. */
-  introSplitFired: boolean
-  setIntroSplitFired: (v: boolean) => void
+  /** True once the intro's pieces have largely cleared the hero area
+   *  (mid-fall). The hero fades 50% → 100% off this, timed to when it
+   *  actually becomes visible rather than the split instant. */
+  introHeroReveal: boolean
+  setIntroHeroReveal: (v: boolean) => void
   /** True once every registered above-the-fold preview has painted a frame. */
   mediaReady: boolean
   /** A preview declares it's loading and should gate the intro reveal. */
@@ -45,7 +45,7 @@ export function IntroProvider({ children }: { children: ReactNode }) {
   const [introPhase, setIntroPhase] = useState<IntroPhase>('tracing')
   const [introTargetCount, setIntroTargetCount] = useState(4)
   const [introLandedCount, setIntroLandedCount] = useState(0)
-  const [introSplitFired, setIntroSplitFired] = useState(false)
+  const [introHeroReveal, setIntroHeroReveal] = useState(false)
 
   const pendingMediaRef = useRef<Set<string>>(new Set())
   const loadedMediaRef = useRef<Set<string>>(new Set())
@@ -86,8 +86,8 @@ export function IntroProvider({ children }: { children: ReactNode }) {
         setIntroTargetCount,
         introLandedCount,
         setIntroLandedCount,
-        introSplitFired,
-        setIntroSplitFired,
+        introHeroReveal,
+        setIntroHeroReveal,
         mediaReady,
         registerMedia,
         markMediaLoaded,
@@ -115,8 +115,8 @@ export function useIntroContext() {
       setIntroTargetCount: () => {},
       introLandedCount: 0,
       setIntroLandedCount: () => {},
-      introSplitFired: true,
-      setIntroSplitFired: () => {},
+      introHeroReveal: true,
+      setIntroHeroReveal: () => {},
       mediaReady: true,
       registerMedia: () => {},
       markMediaLoaded: () => {},
