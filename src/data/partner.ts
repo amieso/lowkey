@@ -36,11 +36,4 @@ export const PARTNER_OPTIONS: PartnerOption[] = [
     description:
       'Made something great? Submit your launch video to be featured in the curated collection seen by thousands of builders.',
   },
-  {
-    id: 'data',
-    name: 'Data partnership',
-    tagline: 'Frame-level structured video data',
-    description:
-      "A curated library of the best launch videos, available as structured data — labeled frames, transcripts, and rich metadata. Whether you're training models, running evaluations, doing research, or building something we haven't thought of yet, we're open to shaping a partnership around your use case.",
-  },
 ]
