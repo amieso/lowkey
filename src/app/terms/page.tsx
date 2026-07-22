@@ -107,8 +107,8 @@ export default function TermsPage() {
             <h2 className="text-base font-medium text-foreground">10. Contact</h2>
             <p>
               For questions about these terms, please contact us at{" "}
-              <a href="mailto:hello@lowkey.so" className="text-foreground hover:underline">
-                hello@lowkey.so
+              <a href="mailto:dennis@amie.so" className="text-foreground hover:underline">
+                dennis@amie.so
               </a>.
             </p>
           </section>

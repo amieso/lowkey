@@ -53,8 +53,8 @@ export default function UnsubscribePage() {
             <h1 className="text-2xl font-semibold text-foreground mb-4">something went wrong</h1>
             <p className="text-sm text-muted leading-relaxed">
               we couldn't unsubscribe you. please try again or contact{" "}
-              <a href="mailto:hello@lowkey.so" className="text-foreground hover:underline">
-                hello@lowkey.so
+              <a href="mailto:dennis@amie.so" className="text-foreground hover:underline">
+                dennis@amie.so
               </a>
             </p>
           </>

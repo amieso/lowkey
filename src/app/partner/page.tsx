@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: 'Advertise, get launch support, or submit your launch video to Lowkey.',
 }
 
-const CONTACT_EMAIL = 'hello@lowkey.so'
+const CONTACT_EMAIL = 'dennis@amie.so'
 
 // Note: ad blockers strip elements whose id contains "advertise"/"ad-", so the
 // Advertise option keeps a neutral id ('reach') to survive cosmetic filtering.

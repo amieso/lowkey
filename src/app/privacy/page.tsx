@@ -95,8 +95,8 @@ export default function PrivacyPage() {
             </ul>
             <p>
               To request deletion of your data, contact us at{" "}
-              <a href="mailto:hello@lowkey.so" className="text-foreground hover:underline">
-                hello@lowkey.so
+              <a href="mailto:dennis@amie.so" className="text-foreground hover:underline">
+                dennis@amie.so
               </a>.
             </p>
           </section>
@@ -113,8 +113,8 @@ export default function PrivacyPage() {
             <h2 className="text-base font-medium text-foreground">10. Contact Us</h2>
             <p>
               If you have any questions about this privacy policy, please contact us at{" "}
-              <a href="mailto:hello@lowkey.so" className="text-foreground hover:underline">
-                hello@lowkey.so
+              <a href="mailto:dennis@amie.so" className="text-foreground hover:underline">
+                dennis@amie.so
               </a>.
             </p>
           </section>
