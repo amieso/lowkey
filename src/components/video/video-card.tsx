@@ -434,23 +434,42 @@ export const VideoCard = memo(function VideoCard({
     closeForVerticalGesture(touch.clientX - start.x, touch.clientY - start.y)
   }, [closeForVerticalGesture])
 
-  // After a scroll-to-close, hold the scroll lock until the trackpad momentum
-  // dies down. The page can't scroll while `body` stays `overflow: hidden`, so
-  // the leftover inertia is absorbed instead of leaking into the page. Runs
-  // independently of `isExpanded` so it survives the close it triggers.
+  // After a scroll-to-close, hold the scroll lock AND swallow the trackpad's
+  // momentum tail so it can't scroll the page once the lock releases. DOM
+  // wheel events carry no gesture-phase info, and the tail's delivered events
+  // can gap well past 100ms (coalescing, tiny deltas) — any quiet-window
+  // timer races those gaps and loses, letting leftovers scroll the
+  // just-unlocked page. So identify the tail by its shape instead: momentum
+  // deltas only decay, so swallow while they do and release the moment a
+  // rising delta or a direction flip shows up (that's a NEW gesture, which
+  // must scroll normally). Quiet timer and hard cap remain as backstops.
+  // Runs independently of `isExpanded` so it survives the close it triggers.
   const guardScrollMomentum = useCallback(() => {
     setMomentumGuard(true)
-    let idle = setTimeout(end, 200)
-    const bump = () => {
-      clearTimeout(idle)
-      idle = setTimeout(end, 120)
-    }
+    const started = performance.now()
+    let last = Infinity
+    let idle = setTimeout(end, 450)
     function end() {
       clearTimeout(idle)
-      window.removeEventListener('wheel', bump)
+      window.removeEventListener('wheel', swallow, true)
       setMomentumGuard(false)
     }
-    window.addEventListener('wheel', bump, { passive: true })
+    function swallow(event: WheelEvent) {
+      const mag = Math.abs(event.deltaY)
+      const freshGesture =
+        mag > last * 1.3 + 4 ||
+        Math.abs(event.deltaX) > mag ||
+        performance.now() - started > 2000
+      if (freshGesture) {
+        end()
+        return
+      }
+      last = mag
+      event.preventDefault()
+      clearTimeout(idle)
+      idle = setTimeout(end, 450)
+    }
+    window.addEventListener('wheel', swallow, { passive: false, capture: true })
   }, [])
 
   // Detect a vertical scroll-to-close gesture while expanded.
