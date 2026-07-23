@@ -12,6 +12,9 @@ videoDirectory
 /uploads
 /scripts/.ingest-state.json
 
+# Local launch-video working files (large media, never commit)
+/launch-video
+
 # Claude Code transient files
 .claude/scheduled_tasks.lock
 .env*
