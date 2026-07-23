@@ -6,6 +6,7 @@ import { VideoCard } from './video-card'
 import { PartnerCard } from './partner-card'
 import { VideoBackdrop } from './video-backdrop'
 import { useExpandedVideo } from './use-expanded-video'
+import { useExpandedPartner } from './use-expanded-partner'
 import { useIntroContext } from '@/context/intro-context'
 
 // Note: contentReady is not used here because VideoGrid only mounts
@@ -25,6 +26,7 @@ const NON_TARGET_LEAD_S = 0.1
 
 export function VideoGrid({ videos, columns = 4, partnerCardAt }: VideoGridProps) {
   const { expandedVideoId, instant, open, close } = useExpandedVideo(videos, { basePath: '/' })
+  const partner = useExpandedPartner()
   const { shouldShowIntro, introPhase, introTargetCount, introLandedCount } = useIntroContext()
 
   // The grid now mounts behind the intro overlay, so its entrance is driven by
@@ -79,7 +81,10 @@ export function VideoGrid({ videos, columns = 4, partnerCardAt }: VideoGridProps
 
   return (
     <>
-      <VideoBackdrop show={expandedVideoId !== null} onClose={close} />
+      <VideoBackdrop
+        show={expandedVideoId !== null || partner.expanded}
+        onClose={partner.expanded ? partner.close : close}
+      />
       <div
         className="no-focus-ring grid gap-x-4 gap-y-3 sm:gap-x-6 sm:gap-y-4 grid-cols-1 sm:grid-cols-2 lg:[grid-template-columns:repeat(var(--grid-cols),minmax(0,1fr))]"
         style={gridStyle}
@@ -127,10 +132,12 @@ export function VideoGrid({ videos, columns = 4, partnerCardAt }: VideoGridProps
               isExpanded={expandedVideoId === item.video.id}
               instant={instant}
               preload={neighborIds.has(item.video.id)}
-              backgrounded={expandedVideoId !== null && expandedVideoId !== item.video.id}
+              backgrounded={
+                (expandedVideoId !== null && expandedVideoId !== item.video.id) || partner.expanded
+              }
             />
           ) : (
-            <PartnerCard />
+            <PartnerCard isExpanded={partner.expanded} onSelect={partner.open} onClose={partner.close} />
           )}
         </motion.div>
         )

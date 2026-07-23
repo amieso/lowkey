@@ -29,6 +29,7 @@ export const GOALS = {
   arrowNavigation: 'arrow_navigation',
   introCompleted: 'intro_completed',
   partnerCtaClick: 'partner_cta_click',
+  partnerOpen: 'partner_open',
 } as const
 
 export type GoalName = (typeof GOALS)[keyof typeof GOALS]

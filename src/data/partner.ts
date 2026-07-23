@@ -1,3 +1,10 @@
+export const PARTNER_CONTACT_EMAIL = 'dennis@amie.so'
+
+/** Mailto CTA for a partner option, shared by /partner and the grid lightbox. */
+export function partnerMailto(option: PartnerOption): string {
+  return `mailto:${PARTNER_CONTACT_EMAIL}?subject=${encodeURIComponent(`${option.name} — Lowkey`)}`
+}
+
 export interface PartnerOption {
   id: string
   name: string

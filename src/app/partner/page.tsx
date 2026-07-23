@@ -1,14 +1,12 @@
 import type { Metadata } from 'next'
 import { Header } from '@/components/layout/header'
-import { PARTNER_OPTIONS } from '@/data/partner'
+import { PARTNER_OPTIONS, partnerMailto } from '@/data/partner'
 import { PartnerCtaLink } from '@/components/partner/partner-cta-link'
 
 export const metadata: Metadata = {
   title: 'Partner with Lowkey',
   description: 'Advertise, get launch support, or submit your launch video to Lowkey.',
 }
-
-const CONTACT_EMAIL = 'dennis@amie.so'
 
 // Note: ad blockers strip elements whose id contains "advertise"/"ad-", so the
 // Advertise option keeps a neutral id ('reach') to survive cosmetic filtering.
@@ -42,7 +40,7 @@ export default function PartnerPage() {
               <h2 className="text-lg font-medium text-foreground mb-3">{option.name}</h2>
               <p className="text-sm text-muted leading-relaxed mb-6 flex-1">{option.description}</p>
               <PartnerCtaLink
-                href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`${option.name} — Lowkey`)}`}
+                href={partnerMailto(option)}
                 optionId={option.id}
                 className="inline-flex h-9 w-fit items-center justify-center rounded-full bg-foreground px-4 text-sm font-medium text-background transition-opacity hover:opacity-80"
               >
@@ -58,7 +56,7 @@ export default function PartnerPage() {
             {SECONDARY_OPTIONS.map((option) => (
               <PartnerCtaLink
                 key={option.id}
-                href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`${option.name} — Lowkey`)}`}
+                href={partnerMailto(option)}
                 optionId={option.id}
                 id={option.id}
                 className="group flex items-center justify-between gap-4 scroll-mt-28 px-5 py-4 transition-colors hover:bg-surface"
