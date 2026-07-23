@@ -69,6 +69,17 @@ export function useExpandedVideo(
         source: 'grid',
       })
       if (syncingFromPopRef.current) return
+      // The scroll lock has already pinned <body> by now (handleSelect locks at
+      // tap time), which collapses window.scrollY to 0 — so the browser
+      // snapshots THIS entry's scroll offset as 0 right before we push. On
+      // close, history.back() would then "restore" that stale 0 and yank the
+      // page to the top, fighting unlockScroll's correct restore (under the
+      // wheel-close momentum guard the yank even lands up to ~1s late, after
+      // the modal is gone). unlockScroll owns the restore, so switch this
+      // entry to manual restoration; the popstate handler flips it back.
+      if ('scrollRestoration' in window.history) {
+        window.history.scrollRestoration = 'manual'
+      }
       writeUrl(videoPath(video), 'push')
       pushedEntryRef.current = true
     },
@@ -161,6 +172,13 @@ export function useExpandedVideo(
       }
       // Any modal now reflects the URL, not an entry we owe a pop to.
       pushedEntryRef.current = false
+      // Hand scroll restoration back to the browser once the grid is current
+      // again, so reloads and cross-page Back/Forward keep their native scroll
+      // restore. Only when closed: while a video entry is current the mode
+      // must stay manual (see open()).
+      if (!target && 'scrollRestoration' in window.history) {
+        window.history.scrollRestoration = 'auto'
+      }
       // Release the guard after the state updates have been queued.
       requestAnimationFrame(() => {
         syncingFromPopRef.current = false
