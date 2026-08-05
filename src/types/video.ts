@@ -1,7 +1,19 @@
+// Narrative beat a chapter plays in the launch-video arc. Drives category
+// filtering ("videos that skip the problem", "80% demo by runtime") while the
+// user-facing label stays topical. Optional so legacy entries don't break.
+export type ChapterBeat =
+  | 'hook' // cold open / attention grab
+  | 'problem' // the pain being addressed
+  | 'solution' // what the product is
+  | 'in-action' // live demo / product footage
+  | 'proof' // benchmarks, testimonials, funding, credibility
+  | 'cta' // call to action / outro
+
 export interface Chapter {
   id: string
-  title: string
+  title: string // topical, user-facing: "Dexterity Trials"
   startTime: number // in seconds
+  beat?: ChapterBeat // structural, for categorization
 }
 
 export interface Credit {
