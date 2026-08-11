@@ -467,6 +467,14 @@ const videoChapters: Record<string, Chapter[]> = {
     { id: 'c4', title: 'Meet Howie', startTime: 45, beat: 'in-action' },
     { id: 'c5', title: 'The People\'s Secretary', startTime: 52, beat: 'cta' },
   ],
+  '62': [ // xAI — Grok Bot (106s)
+    { id: 'c1', title: 'New Teammates', startTime: 0, beat: 'hook' },
+    { id: 'c2', title: 'Meet Grok Bot', startTime: 18, beat: 'solution' },
+    { id: 'c3', title: 'Works On Its Own', startTime: 38, beat: 'in-action' },
+    { id: 'c4', title: 'Across Your Apps', startTime: 62, beat: 'in-action' },
+    { id: 'c5', title: 'From Your Phone', startTime: 84, beat: 'in-action' },
+    { id: 'c6', title: 'Grok Bot', startTime: 103, beat: 'cta' },
+  ],
 }
 
 export function getChaptersForVideo(videoId: string): Chapter[] {

@@ -1312,6 +1312,28 @@ export const videos: Video[] = [
     featured: false,
     publishedDate: '2025-09-22',
   },
+  {
+    id: '62',
+    slug: 'grok-bot',
+    companySlug: 'xai',
+    title: 'Grok Bot',
+    company: 'xAI',
+    companyLogoUrl: 'https://img.logo.dev/x.ai?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
+    companyFounded: 2023,
+    description: 'Launch film for Grok Bot, xAI\'s early-beta AI teammates — agents with their own computer that sign into the tools you already use, work across apps and inboxes, and hand back finished work, learning your routines as they go.',
+    videoUrl: 'https://stream.mux.com/izbHnRqJElolLJsq8pQSFSRsOb2OKr9ZhDXtZj9fUrI.m3u8',
+    thumbnailUrl: 'https://image.mux.com/izbHnRqJElolLJsq8pQSFSRsOb2OKr9ZhDXtZj9fUrI/thumbnail.webp?time=5',
+    duration: 106,
+    aspectRatio: '16:9',
+    websiteUrl: 'https://x.ai/bot',
+    twitterUrl: 'https://x.com/bot',
+    sourceUrl: 'https://x.com/bot/status/2087224798078517251?s=20',
+    credits: [
+      { role: 'In-house', name: 'xAI', handle: 'xai', url: 'https://x.ai', bio: 'Elon Musk\'s AI company behind Grok — building AI to understand the universe, from frontier models to agentic AI teammates.', contactUrl: 'https://x.com/xai', imageUrl: 'https://img.logo.dev/x.ai?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark', twitterHandle: 'xai' }
+    ],
+    featured: false,
+    publishedDate: '2026-08-11',
+  },
   // INGEST_ANCHOR — scripts/ingest.mjs inserts new video drafts above this line. Keep it.
 ]
 
