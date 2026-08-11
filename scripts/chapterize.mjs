@@ -30,8 +30,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
 const VIDEOS_TS = path.join(ROOT, 'src/data/videos.ts')
 const CHAPTERS_TS = path.join(ROOT, 'src/data/chapters.ts')
-const OUT_ROOT = process.env.CHAPTERIZE_OUT
-  || '/private/tmp/claude-501/-Users-dennismueller-dev-lowkey/94ea41a2-d7df-4db3-bf18-f036b0296376/scratchpad/chapterize'
+const OUT_ROOT = process.env.CHAPTERIZE_OUT || path.join(ROOT, 'uploads', 'chapterize')
 const FONT = '/System/Library/Fonts/Supplemental/Arial.ttf'
 const FRAME_FPS = 10
 

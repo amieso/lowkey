@@ -15,9 +15,11 @@ End-to-end flow for turning a source URL into a live, deep-linkable video on the
 ## Prerequisites (verify once)
 
 ```bash
-which yt-dlp ffprobe          # both required; install: brew install yt-dlp ffmpeg
-grep -oE '^[A-Z_]+' .env      # expect MUX_TOKEN_ID, MUX_TOKEN_SECRET
+which yt-dlp ffprobe ffmpeg whisper   # ingest/publish need yt-dlp+ffprobe; chapters need ffmpeg+whisper
+grep -oE '^[A-Z_]+' .env               # expect MUX_TOKEN_ID, MUX_TOKEN_SECRET
 ```
+
+Install: `brew install yt-dlp ffmpeg` and `pipx install openai-whisper`.
 
 Scripts load `.env` and `.env.local` automatically. Mux creds come from https://dashboard.mux.com/settings/access-tokens (Mux Video: Read + Write). For login-gated x.com videos, set `TWITTER_COOKIES_FILE` in `.env.local`.
 
@@ -64,9 +66,39 @@ Then `Edit` the entry in `src/data/videos.ts`. Match the conventions of nearby e
 - **`publishedDate`** — keep the ingest-derived date (source upload date) unless told otherwise.
 - **`duration`**, **`aspectRatio`** — already correct from ffprobe; don't touch.
 
-Chapters are optional and live separately in `src/data/chapters.ts`, keyed by video `id`. Only add them if the user asks (segments like Hook / Problem / Solution / In Action / CTA with `startTime` in seconds).
+Chapters live separately in `src/data/chapters.ts` — Step 4 handles them.
 
-## Step 4 — Verify
+## Step 4 — Chapters (topical title + narrative beat)
+
+Every video gets chapters. A script extracts the raw material; you read it and write the chapters.
+
+The video must be published first (Step 2) — the script pulls frames and audio straight from the Mux `.m3u8`. Needs `whisper` and `ffmpeg` on PATH (`brew install ffmpeg`; `pipx install openai-whisper`).
+
+```bash
+npm run chapterize -- <id> --no-frames
+```
+
+Output lands in `uploads/chapterize/<id>/`:
+
+- `montage_000.jpg …` — timestamped contact sheets at 4fps. The yellow `M:SS` in each cell's top-left is that frame's real time in the video.
+- `transcript.txt` — Whisper transcript with `[M:SS]` timestamps. Missing or empty means a silent video; use the montages alone.
+- `meta.json` — carries `hasSpeech`.
+
+`Read` every `montage_*.jpg` in order, and the transcript. Then `Edit` a `Chapter[]` into `src/data/chapters.ts`, keyed by the video `id`. Match the shape of nearby entries.
+
+Rules (strict):
+
+- **Count scales with runtime** — about one chapter per 12–15s. A ~30s video gets 3, a ~45s video gets 3–4, only a 75s+ video approaches 6. Minimum 3, maximum 6.
+- **`title`** — 2–4 words, TOPICAL. Name what happens in THIS video (`Dexterity Trials`, `Beating the Benchmarks`). Never generic labels (`Introduction`, `Solution`, `Demo`, `Outro`).
+- **`beat`** — narrative role, one of `hook | problem | solution | in-action | proof | cta`.
+- **`startTime`** — integer seconds, snapped to a real cut you can see in a montage or hear in the transcript. The first chapter is `0`. Strictly increasing. None may be ≥ the video's `duration`.
+- **No chapter shorter than ~6s**, except the final CTA/outro. Fold a fleeting moment into its neighbour instead of giving it its own chapter.
+
+Delete the scratch afterward: `rm -rf uploads/chapterize/<id>` (it's gitignored either way).
+
+To backfill or re-do many videos at once, the same script takes `all` or `missing` and a space-separated id list; segmenting them in bulk is a job for a subagent-per-video workflow, not this inline flow.
+
+## Step 5 — Verify
 
 ```bash
 npm run build
@@ -74,12 +106,12 @@ npm run build
 
 The build runs `generateStaticParams` for `/[company]/[slug]` and the slug-uniqueness guard, so a clean build confirms the new route renders and there are no collisions. The video is now live at `/{companySlug}/{slug}`.
 
-## Step 5 — Commit (only if the user asks)
+## Step 6 — Commit (only if the user asks)
 
-The source file is moved to `uploads/processed/`. The committed change is just `src/data/videos.ts` (and `chapters.ts` if edited). `uploads/` and `scripts/.ingest-state.json` are gitignored.
+The source file is moved to `uploads/processed/`. The committed change is `src/data/videos.ts` plus `src/data/chapters.ts`. `uploads/` and `scripts/.ingest-state.json` are gitignored.
 
 ```bash
-git add src/data/videos.ts
+git add src/data/videos.ts src/data/chapters.ts
 git commit -m "Add {Company} {Title} video"
 ```
 

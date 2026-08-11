@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "ingest": "node scripts/ingest.mjs",
-    "publish": "node scripts/publish-videos.mjs"
+    "publish": "node scripts/publish-videos.mjs",
+    "chapterize": "node scripts/chapterize.mjs"
   },
   "dependencies": {
     "@react-email/components": "^1.0.4",

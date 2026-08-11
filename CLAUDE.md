@@ -34,9 +34,9 @@ End-to-end flow for turning a source URL (x.com / YouTube / local file) into a l
    - **`websiteUrl`**, **`twitterUrl`** — optional links.
    - **`credits`** — ≥1 entry. `role` is `'In-house'` (company made it), `'Agency'`, or `'Creator'`. Include `name`, `handle`, `url`, `bio`, `contactUrl`, `imageUrl`, `twitterHandle` — see nearby entries for shape.
    - **`featured`** — leave `false` unless it should hit the homepage hero. **`publishedDate`** — keep ingest-derived (source upload date). **`duration`** / **`aspectRatio`** — already correct from ffprobe; don't touch.
-   - Chapters are optional, live in `src/data/chapters.ts` keyed by video `id`; only add if asked.
-4. **Verify** — `npm run build` runs `generateStaticParams` for `/[company]/[slug]` plus the slug-uniqueness guard, so a clean build confirms the route renders. Video is live at `/{companySlug}/{slug}`.
-5. **Commit** — the source file moves to `uploads/processed/` (gitignored); the committed change is just `src/data/videos.ts` (+ `chapters.ts` if edited). Commit as `Add {Company} {Title} video` and push to `main`.
+4. **Chapters** — every video gets them. `npm run chapterize -- <id> --no-frames` pulls frames+audio from the Mux `.m3u8`, builds timestamped 4fps montage sheets, and transcribes via Whisper into `uploads/chapterize/<id>/` (needs `ffmpeg` + `whisper` on PATH; video must be published first). Read every `montage_*.jpg` in order plus `transcript.txt`, then write a `Chapter[]` into `src/data/chapters.ts` keyed by video `id`. Each chapter has a **topical** `title` (2–4 words, what happens in THIS video — never "Introduction"/"Solution"/"Outro"), a `beat` (`hook|problem|solution|in-action|proof|cta`), and an integer `startTime` (first is 0, strictly increasing, none ≥ `duration`). Count scales with runtime (~1 per 12–15s, min 3, max 6); no chapter under ~6s except the final CTA. `rm -rf uploads/chapterize/<id>` after. Bulk backfill/re-do: the script takes `all`/`missing`/id-list, segmented via a subagent-per-video workflow.
+5. **Verify** — `npm run build` runs `generateStaticParams` for `/[company]/[slug]` plus the slug-uniqueness guard, so a clean build confirms the route renders. Video is live at `/{companySlug}/{slug}`.
+6. **Commit** — the source file moves to `uploads/processed/` (gitignored); the committed change is `src/data/videos.ts` + `src/data/chapters.ts`. Commit as `Add {Company} {Title} video` and push to `main`.
 
 ## Architecture
 
