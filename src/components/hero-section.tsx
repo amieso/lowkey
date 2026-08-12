@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { ArrowIcon } from './ui/player-icons'
 import { EmojiConfetti } from './ui/emoji-confetti'
 import { trackGoal, GOALS } from '@/lib/analytics'
+import { markSubscribed } from '@/lib/subscription'
 import { useIntroContext } from '@/context/intro-context'
 
 export function HeroSection() {
@@ -39,6 +40,7 @@ export function HeroSection() {
 
       setStatus('success')
       setEmail('')
+      markSubscribed()
       trackGoal(GOALS.newsletterSignup, { location: 'hero' })
 
       // Reset to idle after 4 seconds

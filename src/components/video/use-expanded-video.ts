@@ -132,6 +132,10 @@ export function useExpandedVideo(
 
     const handleArrows = (event: KeyboardEvent) => {
       if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return
+      // Typing in a field (e.g. the player's email capture) moves the caret,
+      // not the video.
+      const target = event.target as HTMLElement | null
+      if (target?.closest('input, textarea, select')) return
       const index = playable.findIndex((video) => video.id === expandedVideoId)
       if (index === -1) return
       event.preventDefault()

@@ -17,6 +17,7 @@ import { usePageVisible } from '@/hooks/use-page-visible'
 import { useWatchTime } from '@/hooks/use-watch-time'
 import { useIsMobile } from '@/hooks/use-is-mobile'
 import { MobilePlayerPanel } from './modal/mobile-player-panel'
+import { PlayerEmailCapture } from './modal/player-email-capture'
 import { LiquidGlass } from '@/components/ui/liquid-glass'
 
 const SHARED_LAYOUT_TRANSITION = { duration: 0.3, ease: [0.22, 1, 0.36, 1] } as const
@@ -84,6 +85,12 @@ function expandedHeightExpr(aspectRatio: Video['aspectRatio'], mobile = false): 
 
 function aboveChromeTop(aspectRatio: Video['aspectRatio']): string {
   return `calc(50% - ${expandedHeightExpr(aspectRatio)} / 2 - 12px)`
+}
+
+// Mirror of aboveChromeTop: the letterbox strip below the frame, where the
+// email capture pill sits.
+function belowChromeTop(aspectRatio: Video['aspectRatio']): string {
+  return `calc(50% + ${expandedHeightExpr(aspectRatio)} / 2 + 12px)`
 }
 
 // Top edge of the stacked mobile chrome: directly under the pinned video box.
@@ -728,6 +735,12 @@ export const VideoCard = memo(function VideoCard({
               </div>
             </div>
           </motion.div>
+        )}
+
+        {/* Quiet email capture in the letterbox space below the frame.
+            Desktop only — the stacked mobile panel already fills that space. */}
+        {isExpanded && !stackedMobile && videoEl && (
+          <PlayerEmailCapture top={belowChromeTop(video.aspectRatio)} />
         )}
 
       </div>
