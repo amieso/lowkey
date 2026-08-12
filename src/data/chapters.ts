@@ -475,6 +475,14 @@ const videoChapters: Record<string, Chapter[]> = {
     { id: 'c5', title: 'From Your Phone', startTime: 84, beat: 'in-action' },
     { id: 'c6', title: 'Grok Bot', startTime: 103, beat: 'cta' },
   ],
+  '63': [ // CodeRabbit — CodeRabbit Series C (91s)
+    { id: 'c1', title: 'Portfolio Through the Roof', startTime: 0, beat: 'hook' },
+    { id: 'c2', title: 'A Rabbit Coding', startTime: 23, beat: 'problem' },
+    { id: 'c3', title: 'What CodeRabbit Does', startTime: 36, beat: 'solution' },
+    { id: 'c4', title: 'Fixes Before Merge', startTime: 58, beat: 'in-action' },
+    { id: 'c5', title: 'There\'s No Rabbit', startTime: 74, beat: 'proof' },
+    { id: 'c6', title: 'What the Money\'s For', startTime: 84, beat: 'cta' },
+  ],
 }
 
 export function getChaptersForVideo(videoId: string): Chapter[] {

@@ -1334,6 +1334,28 @@ export const videos: Video[] = [
     featured: false,
     publishedDate: '2026-08-11',
   },
+  {
+    id: '63',
+    slug: 'series-c',
+    companySlug: 'coderabbit',
+    title: 'CodeRabbit Series C',
+    company: 'CodeRabbit',
+    companyLogoUrl: 'https://img.logo.dev/coderabbit.ai?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
+    companyFounded: 2023,
+    description: 'CodeRabbit announces its $143M Series C at a $1.5B valuation — betting that as coding agents make code abundant, judgment becomes the bottleneck, and positioning its AI code review as the control layer for software change.',
+    videoUrl: 'https://stream.mux.com/P3STeoRZ7NyYDEeG9k006g9IuIravheCteLAAHk9lkK00.m3u8',
+    thumbnailUrl: 'https://image.mux.com/P3STeoRZ7NyYDEeG9k006g9IuIravheCteLAAHk9lkK00/thumbnail.webp?time=5',
+    duration: 91,
+    aspectRatio: '16:9',
+    websiteUrl: 'https://www.coderabbit.ai',
+    twitterUrl: 'https://x.com/coderabbitai',
+    sourceUrl: 'https://x.com/coderabbitai/status/2087525329132814524',
+    credits: [
+      { role: 'In-house', name: 'CodeRabbit', handle: 'coderabbitai', url: 'https://www.coderabbit.ai', bio: 'AI code review platform — reviews every pull request, from humans and coding agents alike, deciding what deserves to merge.', contactUrl: 'https://x.com/coderabbitai', imageUrl: 'https://img.logo.dev/coderabbit.ai?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark', twitterHandle: 'coderabbitai' }
+    ],
+    featured: false,
+    publishedDate: '2026-08-12',
+  },
   // INGEST_ANCHOR — scripts/ingest.mjs inserts new video drafts above this line. Keep it.
 ]
 
