@@ -483,6 +483,14 @@ const videoChapters: Record<string, Chapter[]> = {
     { id: 'c5', title: 'There\'s No Rabbit', startTime: 74, beat: 'proof' },
     { id: 'c6', title: 'What the Money\'s For', startTime: 84, beat: 'cta' },
   ],
+  '64': [ // Lovable — Lovable $400M Raise (109s)
+    { id: 'c1', title: 'Just a Toy?', startTime: 0, beat: 'hook' },
+    { id: 'c2', title: 'Obsessed With Building', startTime: 18, beat: 'problem' },
+    { id: 'c3', title: 'GPT Engineer Goes Viral', startTime: 31, beat: 'solution' },
+    { id: 'c4', title: 'Replacing Software', startTime: 56, beat: 'proof' },
+    { id: 'c5', title: '10x From Europe', startTime: 73, beat: 'in-action' },
+    { id: 'c6', title: 'Take the Leap', startTime: 97, beat: 'cta' },
+  ],
 }
 
 export function getChaptersForVideo(videoId: string): Chapter[] {

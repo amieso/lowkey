@@ -1356,6 +1356,28 @@ export const videos: Video[] = [
     featured: false,
     publishedDate: '2026-08-12',
   },
+  {
+    id: '64',
+    slug: '400m-raise',
+    companySlug: 'lovable',
+    title: 'Lovable $400M Raise',
+    company: 'Lovable',
+    companyLogoUrl: 'https://img.logo.dev/lovable.dev?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
+    companyFounded: 2023,
+    description: 'Lovable announces its $400M raise at a $13.3B valuation — framing the round not as a war chest but as a promise to help anyone build more than they thought they were capable of.',
+    videoUrl: 'https://stream.mux.com/a00VlEDIodhXUsS1I023YKVc7knDeg4i4aYMTOhUrjpWc.m3u8',
+    thumbnailUrl: 'https://image.mux.com/a00VlEDIodhXUsS1I023YKVc7knDeg4i4aYMTOhUrjpWc/thumbnail.webp?time=5',
+    duration: 109,
+    aspectRatio: '16:9',
+    websiteUrl: 'https://lovable.dev',
+    twitterUrl: 'https://x.com/Lovable',
+    sourceUrl: 'https://x.com/Lovable/status/2087479640952836349',
+    credits: [
+      { role: 'In-house', name: 'Lovable', handle: 'Lovable', url: 'https://lovable.dev', bio: 'The AI app builder that turns natural-language prompts into real, deployable web apps. Founded in 2023.', contactUrl: 'https://x.com/Lovable', imageUrl: 'https://img.logo.dev/lovable.dev?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark', twitterHandle: 'Lovable' }
+    ],
+    featured: false,
+    publishedDate: '2026-08-12',
+  },
   // INGEST_ANCHOR — scripts/ingest.mjs inserts new video drafts above this line. Keep it.
 ]
 
