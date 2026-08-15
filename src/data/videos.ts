@@ -1446,6 +1446,29 @@ export const videos: Video[] = [
     featured: false,
     publishedDate: '2026-08-13',
   },
+  {
+    id: '68',
+    slug: 'computer-history',
+    companySlug: 'openai',
+    title: 'Computer History',
+    company: 'OpenAI',
+    companyLogoUrl: 'https://img.logo.dev/openai.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
+    companyFounded: 2015,
+    description: 'OpenAI introduces Computer History, an opt-in feature in ChatGPT for macOS — it learns from what you do on your computer via interaction events (no screenshots), so ChatGPT can pick up unfinished tasks and suggest skills and automations.',
+    videoUrl: 'https://stream.mux.com/1yq00kdcwHpbODanTKCKtpl01GrPprwahk8DlLr00Q8302w.m3u8',
+    thumbnailUrl: 'https://image.mux.com/1yq00kdcwHpbODanTKCKtpl01GrPprwahk8DlLr00Q8302w/thumbnail.webp?time=5',
+    duration: 28,
+    aspectRatio: '16:9',
+    websiteUrl: 'https://openai.com',
+    twitterUrl: 'https://x.com/openai',
+    sourceUrl: 'https://x.com/AriX/status/2087996577227124775?s=20',
+    credits: [
+      { role: 'In-house', name: 'OpenAI', handle: 'openai', url: 'https://openai.com', bio: 'OpenAI in-house product and creative team, building ChatGPT across web, desktop, and the Atlas browser.', contactUrl: 'https://x.com/openai', imageUrl: 'https://img.logo.dev/openai.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark', twitterHandle: 'OpenAI' },
+      { role: 'Creator', name: 'Ari Weinstein', handle: 'AriX', bio: 'Creator of Workflow and Apple Shortcuts, co-founder of Software Applications Inc (Sky) — now leading personal automation at OpenAI.', contactUrl: 'https://x.com/AriX', imageUrl: 'https://unavatar.io/x/AriX', twitterHandle: 'AriX' }
+    ],
+    featured: false,
+    publishedDate: '2026-08-13',
+  },
   // INGEST_ANCHOR — scripts/ingest.mjs inserts new video drafts above this line. Keep it.
 ]
 

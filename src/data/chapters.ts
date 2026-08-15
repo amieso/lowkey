@@ -512,6 +512,11 @@ const videoChapters: Record<string, Chapter[]> = {
     { id: 'c5', title: 'Applying the Fix', startTime: 132, beat: 'solution' },
     { id: 'c6', title: 'Agents F*ck Up', startTime: 141, beat: 'cta' },
   ],
+  '68': [ // OpenAI — Computer History (28s)
+    { id: 'c1', title: 'Draft My Standup', startTime: 0, beat: 'hook' },
+    { id: 'c2', title: 'Yesterday, Remembered', startTime: 10, beat: 'in-action' },
+    { id: 'c3', title: 'Computer History', startTime: 22, beat: 'cta' },
+  ],
 }
 
 export function getChaptersForVideo(videoId: string): Chapter[] {
