@@ -497,6 +497,13 @@ const videoChapters: Record<string, Chapter[]> = {
     { id: 'c3', title: 'Localhost to Global', startTime: 19, beat: 'proof' },
     { id: 'c4', title: 'Shipping With Cloudflare', startTime: 36, beat: 'cta' },
   ],
+  '66': [ // Instagram — Instagram Brand System (62s)
+    { id: 'c1', title: 'Built for Creativity', startTime: 0, beat: 'hook' },
+    { id: 'c2', title: 'A New Wordmark', startTime: 9, beat: 'solution' },
+    { id: 'c3', title: 'Typefaces Set the Tone', startTime: 21, beat: 'in-action' },
+    { id: 'c4', title: 'An Iconic Gradient', startTime: 37, beat: 'in-action' },
+    { id: 'c5', title: 'Make It Anyway', startTime: 49, beat: 'cta' },
+  ],
 }
 
 export function getChaptersForVideo(videoId: string): Chapter[] {

@@ -1401,6 +1401,29 @@ export const videos: Video[] = [
     featured: false,
     publishedDate: '2025-10-10',
   },
+  {
+    id: '66',
+    slug: 'brand-system',
+    companySlug: 'instagram',
+    title: 'Instagram Brand System',
+    company: 'Instagram',
+    companyLogoUrl: 'https://img.logo.dev/instagram.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
+    companyFounded: 2010,
+    description: 'Film for Instagram\'s first brand refresh in a decade — a refined script wordmark, three custom typefaces, and the sunset gradient pulled back to a light leak, all designed in-house around everyday creativity.',
+    videoUrl: 'https://stream.mux.com/DvV9dsGqyQkL00uZN4hH6OOOrG4V00ehxcbb3atq0001JRg.m3u8',
+    thumbnailUrl: 'https://image.mux.com/DvV9dsGqyQkL00uZN4hH6OOOrG4V00ehxcbb3atq0001JRg/thumbnail.webp?time=5',
+    duration: 62,
+    aspectRatio: '16:9',
+    websiteUrl: 'https://www.instagram.com',
+    twitterUrl: 'https://twitter.com/instagram',
+    sourceUrl: 'https://x.com/avstorm/status/2087945405212282980?s=20',
+    credits: [
+      { role: 'In-house', name: 'Instagram', handle: 'instagram', url: 'https://www.instagram.com', bio: 'Meta\'s photo and video platform. The 2026 refresh — its first in ten years — was designed in-house under Christy Silva and Cynthia Pratomo.', contactUrl: 'https://x.com/instagram', imageUrl: 'https://img.logo.dev/instagram.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark', twitterHandle: 'instagram', instagramHandle: 'instagram' },
+      { role: 'Creator', name: 'Andreas Storm', handle: 'avstorm', bio: 'Designer known for surfacing the best of brand and app design. Shared the film for Instagram\'s 2026 brand system.', contactUrl: 'https://x.com/avstorm', imageUrl: 'https://unavatar.io/x/avstorm', twitterHandle: 'avstorm' }
+    ],
+    featured: false,
+    publishedDate: '2026-08-13',
+  },
   // INGEST_ANCHOR — scripts/ingest.mjs inserts new video drafts above this line. Keep it.
 ]
 
