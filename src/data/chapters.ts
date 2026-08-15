@@ -504,6 +504,14 @@ const videoChapters: Record<string, Chapter[]> = {
     { id: 'c4', title: 'An Iconic Gradient', startTime: 37, beat: 'in-action' },
     { id: 'c5', title: 'Make It Anyway', startTime: 49, beat: 'cta' },
   ],
+  '67': [ // Lemma — Introducing Lemma (155s)
+    { id: 'c1', title: 'Dinner With Nika', startTime: 0, beat: 'hook' },
+    { id: 'c2', title: 'Pulling the Traces', startTime: 19, beat: 'problem' },
+    { id: 'c3', title: 'Without Human Oversight', startTime: 52, beat: 'in-action' },
+    { id: 'c4', title: 'All 30,489 Emails', startTime: 87, beat: 'proof' },
+    { id: 'c5', title: 'Applying the Fix', startTime: 132, beat: 'solution' },
+    { id: 'c6', title: 'Agents F*ck Up', startTime: 141, beat: 'cta' },
+  ],
 }
 
 export function getChaptersForVideo(videoId: string): Chapter[] {

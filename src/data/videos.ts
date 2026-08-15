@@ -1424,6 +1424,28 @@ export const videos: Video[] = [
     featured: false,
     publishedDate: '2026-08-13',
   },
+  {
+    id: '67',
+    slug: 'launch',
+    companySlug: 'lemma',
+    title: 'Introducing Lemma',
+    company: 'Lemma',
+    companyLogoUrl: 'https://img.logo.dev/uselemma.ai?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
+    companyFounded: 2025,
+    description: 'Launch film for Lemma, the YC-backed reliability platform for AI agents — a cinematic restaurant scene where service looks flawless while orders quietly go wrong, mirroring how agents fail silently in production.',
+    videoUrl: 'https://stream.mux.com/HE4uIJ4SI6Oi6jujrwBNTnz0101W022J3F67yIWrEX3VNE.m3u8',
+    thumbnailUrl: 'https://image.mux.com/HE4uIJ4SI6Oi6jujrwBNTnz0101W022J3F67yIWrEX3VNE/thumbnail.webp?time=5',
+    duration: 155,
+    aspectRatio: '16:9',
+    websiteUrl: 'https://www.uselemma.ai',
+    twitterUrl: 'https://twitter.com/lemma_',
+    sourceUrl: 'https://x.com/SHOGOx8/status/2088683791858729226?s=20',
+    credits: [
+      { role: 'In-house', name: 'Lemma', handle: 'lemma_', url: 'https://www.uselemma.ai', bio: 'Production monitoring for AI agents (YC F25), founded by Jerry Zhang and Cole Gawin — catching agents that look like they worked but quietly got it wrong.', contactUrl: 'https://x.com/lemma_', imageUrl: 'https://img.logo.dev/uselemma.ai?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark', twitterHandle: 'lemma_' }
+    ],
+    featured: false,
+    publishedDate: '2026-08-13',
+  },
   // INGEST_ANCHOR — scripts/ingest.mjs inserts new video drafts above this line. Keep it.
 ]
 
