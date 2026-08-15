@@ -491,6 +491,12 @@ const videoChapters: Record<string, Chapter[]> = {
     { id: 'c5', title: '10x From Europe', startTime: 73, beat: 'in-action' },
     { id: 'c6', title: 'Take the Leap', startTime: 97, beat: 'cta' },
   ],
+  '65': [ // Cloudflare — The New Cloudflare (55s)
+    { id: 'c1', title: 'Drawing the Mark', startTime: 0, beat: 'hook' },
+    { id: 'c2', title: 'Canvas of Primitives', startTime: 11, beat: 'in-action' },
+    { id: 'c3', title: 'Localhost to Global', startTime: 19, beat: 'proof' },
+    { id: 'c4', title: 'Shipping With Cloudflare', startTime: 36, beat: 'cta' },
+  ],
 }
 
 export function getChaptersForVideo(videoId: string): Chapter[] {

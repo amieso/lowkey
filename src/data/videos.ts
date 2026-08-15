@@ -1378,6 +1378,29 @@ export const videos: Video[] = [
     featured: false,
     publishedDate: '2026-08-12',
   },
+  {
+    id: '65',
+    slug: 'rebrand',
+    companySlug: 'cloudflare',
+    title: 'The New Cloudflare',
+    company: 'Cloudflare',
+    companyLogoUrl: 'https://img.logo.dev/cloudflare.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
+    companyFounded: 2009,
+    description: 'Launch film for Cloudflare\'s 2025 rebrand — its first major identity refresh since 2016, giving the familiar orange cloud a bolder look for the company powering 20% of the internet.',
+    videoUrl: 'https://stream.mux.com/lgtJ89ylLJreZT18NPRrJOL7QFtuzyTcUCGw1Hja5sM.m3u8',
+    thumbnailUrl: 'https://image.mux.com/lgtJ89ylLJreZT18NPRrJOL7QFtuzyTcUCGw1Hja5sM/thumbnail.webp?time=5',
+    duration: 55,
+    aspectRatio: '16:9',
+    websiteUrl: 'https://www.cloudflare.com',
+    twitterUrl: 'https://twitter.com/Cloudflare',
+    sourceUrl: 'https://x.com/tjcages/status/1976657115633868884?s=20',
+    credits: [
+      { role: 'Creator', name: 'ty', handle: 'tjcages', bio: 'Designer and founder of Crypto: The Game (acquired by Uniswap). Shared the launch film for Cloudflare\'s 2025 rebrand.', contactUrl: 'https://x.com/tjcages', imageUrl: 'https://unavatar.io/x/tjcages', twitterHandle: 'tjcages' },
+      { role: 'In-house', name: 'Cloudflare', handle: 'Cloudflare', url: 'https://www.cloudflare.com', bio: 'The connectivity cloud — CDN, security, and a developer platform serving roughly 20% of the internet. The 2025 rebrand was designed in-house.', contactUrl: 'https://x.com/Cloudflare', imageUrl: 'https://img.logo.dev/cloudflare.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark', twitterHandle: 'Cloudflare' }
+    ],
+    featured: false,
+    publishedDate: '2025-10-10',
+  },
   // INGEST_ANCHOR — scripts/ingest.mjs inserts new video drafts above this line. Keep it.
 ]
 
