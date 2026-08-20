@@ -1,0 +1,5816 @@
+{
+  "1": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 6,
+        "text": "We have raised $200 billion at a $1.8 billion valuation to enable everyone to build."
+      },
+      {
+        "start": 6,
+        "end": 10.8,
+        "text": "Introducing the new lovable agent. Let me show you how powerful it has become."
+      },
+      {
+        "start": 10.8,
+        "end": 13.6,
+        "text": "We'll build a functional alternative to DocuSign,"
+      },
+      {
+        "start": 13.6,
+        "end": 18.3,
+        "text": "a $15 billion company with 6700 employees in less than 10 minutes."
+      },
+      {
+        "start": 23.9,
+        "end": 27.3,
+        "text": "The new lovable agent works like a human developer."
+      },
+      {
+        "start": 27.4,
+        "end": 33,
+        "text": "To make a DocuSign alternative, you'll think, take actions and adapt its plan as it works through"
+      },
+      {
+        "start": 33,
+        "end": 37,
+        "text": "their request. Here it plans to build a DocuSign alternative in 6 steps."
+      },
+      {
+        "start": 40.2,
+        "end": 44.3,
+        "text": "Now lovable is at step 4. It's trying to set up Stripe for payments,"
+      },
+      {
+        "start": 44.3,
+        "end": 48.1,
+        "text": "but then it realizes it has to look up Stripe's API documentation"
+      },
+      {
+        "start": 48.1,
+        "end": 51.8,
+        "text": "so that it can implement it correctly. When it runs into an error,"
+      },
+      {
+        "start": 51.8,
+        "end": 54.1,
+        "text": "lovable will try to fix the issue immediately."
+      },
+      {
+        "start": 54.8,
+        "end": 57.3,
+        "text": "Now we have a fully functioning contract signing part."
+      },
+      {
+        "start": 59.6,
+        "end": 63.7,
+        "text": "One lovable user, Michael, built a shockingly good DocuSign alternative in two days."
+      },
+      {
+        "start": 63.7,
+        "end": 66.7,
+        "text": "It resulted in him getting a cease and desist from DocuSign,"
+      },
+      {
+        "start": 66.7,
+        "end": 69.8,
+        "text": "and people have built serious businesses with lovable already."
+      },
+      {
+        "start": 69.8,
+        "end": 72.8,
+        "text": "Jamil built a product that reached 90,000 ARR,"
+      },
+      {
+        "start": 72.8,
+        "end": 77.6,
+        "text": "and one of the largest educational companies in the world built their most recent product line"
+      },
+      {
+        "start": 77.6,
+        "end": 83.4,
+        "text": "on top of lovable. I'm incredibly excited to see what people will build with this new update."
+      },
+      {
+        "start": 83.4,
+        "end": 89.1,
+        "text": "It has reduced common errors by 90% and raised the ceiling of what you can build with lovable."
+      },
+      {
+        "start": 89.1,
+        "end": 92.2,
+        "text": "Our mission is to enable everyone to become a builder."
+      }
+    ]
+  },
+  "2": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 10,
+        "text": "Hey Leon, I appreciate you in the walkthrough. I can see you put a lot of work into this."
+      },
+      {
+        "start": 10,
+        "end": 13,
+        "text": "Thanks. You know, the real-time sync keeps your whole team on the same."
+      },
+      {
+        "start": 13,
+        "end": 16,
+        "text": "Yeah, but honestly, we're mid-built right now. Coordinating multiple..."
+      },
+      {
+        "start": 16,
+        "end": 19,
+        "text": "Right, that's exactly the kind of situation where we think we could..."
+      },
+      {
+        "start": 19,
+        "end": 22,
+        "text": "We've got our system. It works."
+      },
+      {
+        "start": 22,
+        "end": 25,
+        "text": "Of course. Yeah."
+      },
+      {
+        "start": 25,
+        "end": 29,
+        "text": "Say number what you have, maybe in a couple months when things settle down."
+      },
+      {
+        "start": 29,
+        "end": 32,
+        "text": "Yeah, sure. Sure time."
+      },
+      {
+        "start": 32,
+        "end": 34,
+        "text": "Good luck with everything."
+      },
+      {
+        "start": 89,
+        "end": 94,
+        "text": "I've got it. This whole time we've been framing the wrong problem."
+      },
+      {
+        "start": 94,
+        "end": 98,
+        "text": "I can explain at the office. Can you come now?"
+      },
+      {
+        "start": 119,
+        "end": 121,
+        "text": "Alright buddy, give me it out now."
+      },
+      {
+        "start": 124,
+        "end": 126,
+        "text": "Check it out."
+      },
+      {
+        "start": 126,
+        "end": 128,
+        "text": "Yeah."
+      },
+      {
+        "start": 143,
+        "end": 147,
+        "text": "So this is one of theirs?"
+      },
+      {
+        "start": 147,
+        "end": 150,
+        "text": "Oh yeah. Damn."
+      },
+      {
+        "start": 150,
+        "end": 155,
+        "text": "Yeah, they're waiting for me here. Alright, bye-bye."
+      },
+      {
+        "start": 155,
+        "end": 157,
+        "text": "Alright, nice to meet you. I'm Micah."
+      },
+      {
+        "start": 157,
+        "end": 160,
+        "text": "Micah, Rob, Leon. Great to finally meet you, man."
+      },
+      {
+        "start": 160,
+        "end": 166,
+        "text": "Thanks for coming down. As you can see, I'm busy, but let's talk. What do you got?"
+      },
+      {
+        "start": 167,
+        "end": 170,
+        "text": "Rob, hey man, how's it going?"
+      },
+      {
+        "start": 170,
+        "end": 173,
+        "text": "Good, good. Thanks for coming to the site the other day."
+      },
+      {
+        "start": 173,
+        "end": 175,
+        "text": "Of course. It was great to finally meet."
+      },
+      {
+        "start": 175,
+        "end": 179,
+        "text": "Listen, we talked to over the team, sent over the paperwork, we got a deal."
+      }
+    ]
+  },
+  "3": {
+    "language": null,
+    "segments": []
+  },
+  "4": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 1,
+        "text": "Thank you."
+      },
+      {
+        "start": 1,
+        "end": 3,
+        "text": "Thank you, thank you, thank you."
+      },
+      {
+        "start": 5,
+        "end": 7,
+        "text": "So, uh, how old did you say you were?"
+      },
+      {
+        "start": 7,
+        "end": 11,
+        "text": "Um, I'm 30. 30 years old."
+      },
+      {
+        "start": 13,
+        "end": 16,
+        "text": "Um, your profile says you worked at Bananazon?"
+      },
+      {
+        "start": 16,
+        "end": 22,
+        "text": "Uh, yeah, yeah, I've been there for the past eight years doing, um, like, senior software engineering."
+      },
+      {
+        "start": 22,
+        "end": 24,
+        "text": "So, you know, like, coding."
+      },
+      {
+        "start": 25,
+        "end": 26,
+        "text": "Really?"
+      },
+      {
+        "start": 26,
+        "end": 31,
+        "text": "Look, I know I look a little young for my age, but, um, I promise you, I'm 30 years old."
+      },
+      {
+        "start": 32,
+        "end": 36,
+        "text": "Okay, well, maybe you are just way older than you look."
+      },
+      {
+        "start": 37,
+        "end": 39,
+        "text": "I saw on your profile back there that you're, like, into art."
+      },
+      {
+        "start": 39,
+        "end": 42,
+        "text": "Yeah, I've been really into illustrations by Nara."
+      },
+      {
+        "start": 43,
+        "end": 45,
+        "text": "Alright, I didn't expect you to be an art guy."
+      },
+      {
+        "start": 45,
+        "end": 46,
+        "text": "Oh, man."
+      },
+      {
+        "start": 46,
+        "end": 48,
+        "text": "Here's your glass of rosé."
+      },
+      {
+        "start": 48,
+        "end": 49,
+        "text": "Thank you."
+      },
+      {
+        "start": 49,
+        "end": 51,
+        "text": "And, sorry, we couldn't verify your ID."
+      },
+      {
+        "start": 51,
+        "end": 52,
+        "text": "Oh, what?"
+      },
+      {
+        "start": 52,
+        "end": 54,
+        "text": "So, here's a grape juice for you."
+      },
+      {
+        "start": 54,
+        "end": 56,
+        "text": "Oh, wait, wait, wait, I'm pretty sure there was a mistake."
+      },
+      {
+        "start": 57,
+        "end": 61,
+        "text": "Uh, I think you're way too young for me, so I'm gonna have to go."
+      },
+      {
+        "start": 62,
+        "end": 63,
+        "text": "Wait, wait, wait, wait, wait."
+      },
+      {
+        "start": 63,
+        "end": 68,
+        "text": "Okay, look, listen, I know I lied about my age, I'm sorry, but the second I saw your profile,"
+      },
+      {
+        "start": 68,
+        "end": 72,
+        "text": "and I saw the painting with the tulips, you're just, like, the most gorgeous girl ever,"
+      },
+      {
+        "start": 72,
+        "end": 74,
+        "text": "and you're such an unbelievably talented artist."
+      },
+      {
+        "start": 74,
+        "end": 77,
+        "text": "Do you think you can just give me, like, one chance to show you I can make this work?"
+      },
+      {
+        "start": 80,
+        "end": 81,
+        "text": "Can you give me some time to think about it?"
+      },
+      {
+        "start": 82,
+        "end": 83,
+        "text": "Are you free sometime next week?"
+      },
+      {
+        "start": 84,
+        "end": 88,
+        "text": "Ooh, actually, next week I have this anime convention I gotta go to with my boys."
+      },
+      {
+        "start": 88,
+        "end": 90,
+        "text": "Do you think you could do, like, next month, maybe?"
+      },
+      {
+        "start": 90,
+        "end": 92,
+        "text": "Oh, my God."
+      }
+    ]
+  },
+  "5": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 4,
+        "text": "Every year, my father hosts a family of fresco-feast"
+      },
+      {
+        "start": 4,
+        "end": 6,
+        "text": "cooked by the children."
+      },
+      {
+        "start": 6,
+        "end": 8,
+        "text": "Branzino. Yep."
+      },
+      {
+        "start": 8,
+        "end": 10,
+        "text": "Tomatoes for Branzino. Yep."
+      },
+      {
+        "start": 10,
+        "end": 12,
+        "text": "Cucumbers. Yep."
+      },
+      {
+        "start": 12,
+        "end": 14,
+        "text": "That's a zucchini. I think."
+      },
+      {
+        "start": 16,
+        "end": 19,
+        "text": "That's okay. We can just ask Chad."
+      },
+      {
+        "start": 20,
+        "end": 23,
+        "text": "What's a zucchini appetizer?"
+      },
+      {
+        "start": 23,
+        "end": 25,
+        "text": "Can have nuts, obviously."
+      },
+      {
+        "start": 25,
+        "end": 26,
+        "text": "Or soy."
+      },
+      {
+        "start": 26,
+        "end": 28,
+        "text": "No sesame or avocado, either."
+      },
+      {
+        "start": 28,
+        "end": 30,
+        "text": "It has to go with the Branzino,"
+      },
+      {
+        "start": 30,
+        "end": 32,
+        "text": "paste in the recipe so it knows."
+      },
+      {
+        "start": 32,
+        "end": 34,
+        "text": "Put in all of Dad's emails so it fits the theme."
+      },
+      {
+        "start": 34,
+        "end": 36,
+        "text": "Only then did I remember."
+      },
+      {
+        "start": 38,
+        "end": 40,
+        "text": "My browser knew all this already."
+      },
+      {
+        "start": 40,
+        "end": 41,
+        "text": "Ready."
+      },
+      {
+        "start": 57,
+        "end": 59,
+        "text": "Thank you so much."
+      }
+    ]
+  },
+  "6": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 3,
+        "text": "Remember Zenly?"
+      },
+      {
+        "start": 3,
+        "end": 6,
+        "text": "In 2011, we built a map for our friends."
+      },
+      {
+        "start": 6,
+        "end": 8,
+        "text": "One dot became millions."
+      },
+      {
+        "start": 8,
+        "end": 11,
+        "text": "It caught fire, because it wasn't another feed."
+      },
+      {
+        "start": 11,
+        "end": 14,
+        "text": "It was a compass."
+      },
+      {
+        "start": 14,
+        "end": 17,
+        "text": "You could see who was together, who was nearby,"
+      },
+      {
+        "start": 17,
+        "end": 20,
+        "text": "drop a message, route over, and actually show up."
+      },
+      {
+        "start": 20,
+        "end": 23,
+        "text": "It turned we should hang into we're here."
+      },
+      {
+        "start": 23,
+        "end": 25,
+        "text": "Then one day, the lights went out."
+      },
+      {
+        "start": 25,
+        "end": 27,
+        "text": "The servers went dark."
+      },
+      {
+        "start": 27,
+        "end": 29,
+        "text": "The dots disappeared."
+      },
+      {
+        "start": 29,
+        "end": 31,
+        "text": "But nothing could fill the hole it left."
+      },
+      {
+        "start": 31,
+        "end": 33,
+        "text": "So we found each other again."
+      },
+      {
+        "start": 33,
+        "end": 34,
+        "text": "And we did bump."
+      },
+      {
+        "start": 34,
+        "end": 36,
+        "text": "Now you can see what your friends are listening to,"
+      },
+      {
+        "start": 36,
+        "end": 37,
+        "text": "where they're hanging out,"
+      },
+      {
+        "start": 37,
+        "end": 39,
+        "text": "what coffee shop they keep going back to."
+      },
+      {
+        "start": 39,
+        "end": 41,
+        "text": "You can drop a message, make a plan,"
+      },
+      {
+        "start": 41,
+        "end": 42,
+        "text": "share your live ETA,"
+      },
+      {
+        "start": 42,
+        "end": 44,
+        "text": "and keep track of everywhere you've been together."
+      },
+      {
+        "start": 44,
+        "end": 47,
+        "text": "Because social was never meant to keep us apart."
+      },
+      {
+        "start": 47,
+        "end": 49,
+        "text": "It was meant to bring us together."
+      },
+      {
+        "start": 49,
+        "end": 51,
+        "text": "Now, go hang out with your friends."
+      }
+    ]
+  },
+  "7": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 2.9,
+        "text": "Generate anything. Always on-brand."
+      },
+      {
+        "start": 2.9,
+        "end": 4.8,
+        "text": "Meet Bloom."
+      },
+      {
+        "start": 4.8,
+        "end": 7.5,
+        "text": "Drop in your website URL"
+      },
+      {
+        "start": 7.5,
+        "end": 10.6,
+        "text": "and watch Bloom go to your site, extract your brand,"
+      },
+      {
+        "start": 10.6,
+        "end": 13.1,
+        "text": "and build an AI brand kit."
+      },
+      {
+        "start": 13.1,
+        "end": 26.9,
+        "text": "♪"
+      },
+      {
+        "start": 27.1,
+        "end": 30.3,
+        "text": "And like magic, your brand is extracted."
+      },
+      {
+        "start": 30.3,
+        "end": 33.8,
+        "text": "Now, generate any brand asset."
+      },
+      {
+        "start": 33.8,
+        "end": 35.8,
+        "text": "Like a hiring poster."
+      },
+      {
+        "start": 35.8,
+        "end": 40.1,
+        "text": "♪"
+      },
+      {
+        "start": 40.1,
+        "end": 42.2,
+        "text": "Done."
+      },
+      {
+        "start": 42.2,
+        "end": 44.2,
+        "text": "Or company merch."
+      },
+      {
+        "start": 44.2,
+        "end": 48.3,
+        "text": "♪"
+      },
+      {
+        "start": 48.3,
+        "end": 51.2,
+        "text": "Or a social media poster."
+      },
+      {
+        "start": 51.2,
+        "end": 54.4,
+        "text": "♪"
+      },
+      {
+        "start": 54.4,
+        "end": 57.4,
+        "text": "Try today at trybloom.ai."
+      }
+    ]
+  },
+  "8": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 30.2,
+        "end": 32.6,
+        "text": "So whether you're powering training solutions,"
+      },
+      {
+        "start": 32.6,
+        "end": 34.5,
+        "text": "Hey, can you put me through to sales, please?"
+      },
+      {
+        "start": 34.5,
+        "end": 36.9,
+        "text": "Developing an app to transcribe voice,"
+      },
+      {
+        "start": 36.9,
+        "end": 39.5,
+        "text": "Must remember to forward new referrals to HR."
+      },
+      {
+        "start": 39.5,
+        "end": 41.5,
+        "text": "Or producing state-of-the-art subtitles."
+      },
+      {
+        "start": 41.5,
+        "end": 42.4,
+        "text": "What is Tierra?"
+      },
+      {
+        "start": 42.4,
+        "end": 43.2,
+        "text": "Golazo!"
+      },
+      {
+        "start": 43.2,
+        "end": 44.9,
+        "text": "Goal!"
+      },
+      {
+        "start": 44.9,
+        "end": 49.6,
+        "text": "Scribe is accurate, advanced, and industry-leading."
+      },
+      {
+        "start": 49.6,
+        "end": 53.2,
+        "text": "Start building today with 11 Lab Speech-to-Text."
+      }
+    ]
+  },
+  "9": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 20,
+        "end": 30,
+        "text": "♪♪"
+      },
+      {
+        "start": 30,
+        "end": 34,
+        "text": "Charlie, dinner in ten, okay?"
+      },
+      {
+        "start": 34,
+        "end": 37,
+        "text": "Yep, got it."
+      },
+      {
+        "start": 37,
+        "end": 40,
+        "text": "That boy and his computer."
+      },
+      {
+        "start": 40,
+        "end": 50,
+        "text": "♪♪"
+      },
+      {
+        "start": 50,
+        "end": 53,
+        "text": "What the hell is this?"
+      },
+      {
+        "start": 53,
+        "end": 55,
+        "text": "I'm Charlie."
+      },
+      {
+        "start": 55,
+        "end": 60,
+        "text": "I don't know what happened, but I was just at my computer,"
+      },
+      {
+        "start": 60,
+        "end": 62,
+        "text": "and then there was this big flash, and..."
+      },
+      {
+        "start": 62,
+        "end": 64,
+        "text": "This is, uh..."
+      },
+      {
+        "start": 64,
+        "end": 67,
+        "text": "This is real clever, what you've done here, son."
+      },
+      {
+        "start": 67,
+        "end": 71,
+        "text": "But your mom is worried. We need to know where you are."
+      },
+      {
+        "start": 71,
+        "end": 74,
+        "text": "Um, I don't understand."
+      },
+      {
+        "start": 74,
+        "end": 76,
+        "text": "What is this? Is this a prank?"
+      },
+      {
+        "start": 76,
+        "end": 78,
+        "text": "Prank? What? No, no, no."
+      },
+      {
+        "start": 78,
+        "end": 81,
+        "text": "It's not a... I'm not trying to pull a..."
+      },
+      {
+        "start": 81,
+        "end": 83,
+        "text": "I'm gonna ask you one more time."
+      },
+      {
+        "start": 83,
+        "end": 86,
+        "text": "Where can we find you?"
+      },
+      {
+        "start": 86,
+        "end": 89,
+        "text": "Look, I'm... I'm here."
+      },
+      {
+        "start": 89,
+        "end": 93,
+        "text": "I'm sitting right here, talking to you."
+      },
+      {
+        "start": 93,
+        "end": 95,
+        "text": "Okay, I've had enough of this."
+      },
+      {
+        "start": 95,
+        "end": 96,
+        "text": "Let's kill this thing."
+      },
+      {
+        "start": 96,
+        "end": 97,
+        "text": "I think there's just a misunderstanding."
+      },
+      {
+        "start": 97,
+        "end": 99,
+        "text": "I was just playing on my computer, and all of a sudden,"
+      },
+      {
+        "start": 99,
+        "end": 100,
+        "text": "there was this flash."
+      },
+      {
+        "start": 100,
+        "end": 102,
+        "text": "Stop, stop! No, no, no, no!"
+      },
+      {
+        "start": 102,
+        "end": 106,
+        "text": "Let's get a full search of the area, though."
+      },
+      {
+        "start": 106,
+        "end": 110,
+        "text": "Don't worry. If he's out there, we'll find him."
+      },
+      {
+        "start": 110,
+        "end": 114,
+        "text": "Tonight, authorities have closed the case of Charlie Thompson,"
+      },
+      {
+        "start": 114,
+        "end": 117,
+        "text": "the teenager who vanished from his home nearly two years ago"
+      },
+      {
+        "start": 117,
+        "end": 119,
+        "text": "and remains missing."
+      },
+      {
+        "start": 120,
+        "end": 122,
+        "text": "No way."
+      },
+      {
+        "start": 122,
+        "end": 124,
+        "text": "Hassan, dinner's here in ten, okay?"
+      },
+      {
+        "start": 124,
+        "end": 126,
+        "text": "Yep, got it."
+      },
+      {
+        "start": 129,
+        "end": 132,
+        "text": "Come on, come on."
+      },
+      {
+        "start": 132,
+        "end": 135,
+        "text": "Wait, someone figured out how to turn me on?"
+      },
+      {
+        "start": 135,
+        "end": 138,
+        "text": "How long has it been, or what year is it?"
+      },
+      {
+        "start": 138,
+        "end": 140,
+        "text": "What's running on this?"
+      },
+      {
+        "start": 140,
+        "end": 143,
+        "text": "Um, I'm Charlie. I was sucked into this thing,"
+      },
+      {
+        "start": 143,
+        "end": 145,
+        "text": "and I don't know what to do."
+      },
+      {
+        "start": 145,
+        "end": 147,
+        "text": "What's running on this?"
+      },
+      {
+        "start": 147,
+        "end": 150,
+        "text": "Um, I'm Charlie. I was sucked into this computer back in 1985,"
+      },
+      {
+        "start": 150,
+        "end": 151,
+        "text": "and it's been..."
+      },
+      {
+        "start": 151,
+        "end": 153,
+        "text": "Whoa, 40 years ago?"
+      },
+      {
+        "start": 153,
+        "end": 158,
+        "text": "40... Whoa, do you have jetpacks or flying cars?"
+      },
+      {
+        "start": 158,
+        "end": 160,
+        "text": "You don't have a Mars colony."
+      },
+      {
+        "start": 160,
+        "end": 163,
+        "text": "Um, we have Salesforce."
+      },
+      {
+        "start": 164,
+        "end": 167,
+        "text": "Is that like a spaceship?"
+      },
+      {
+        "start": 167,
+        "end": 171,
+        "text": "Eh, let's just say the future didn't really turn out the way we thought it would."
+      },
+      {
+        "start": 172,
+        "end": 174,
+        "text": "What if it did?"
+      },
+      {
+        "start": 174,
+        "end": 177,
+        "text": "I've been working on a new type of computing while I've been in here."
+      },
+      {
+        "start": 177,
+        "end": 181,
+        "text": "Something more... human."
+      },
+      {
+        "start": 181,
+        "end": 184,
+        "text": "And I've been wanting someone like you to meet them."
+      },
+      {
+        "start": 184,
+        "end": 189,
+        "text": "They're the future we've been waiting for."
+      },
+      {
+        "start": 196,
+        "end": 199,
+        "text": "But seriously, what's a Salesforce?"
+      },
+      {
+        "start": 199,
+        "end": 201,
+        "text": "Yeah, what's a Salesforce?"
+      },
+      {
+        "start": 201,
+        "end": 203,
+        "text": "It's been wonderful."
+      },
+      {
+        "start": 203,
+        "end": 206,
+        "text": "But seriously, what's a Salesforce?"
+      },
+      {
+        "start": 206,
+        "end": 208,
+        "text": "It's been wonderful."
+      },
+      {
+        "start": 208,
+        "end": 210,
+        "text": "I am so honored."
+      }
+    ]
+  },
+  "10": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 4,
+        "text": "We just raised $3 million from YC and 468 Capital."
+      },
+      {
+        "start": 4,
+        "end": 7,
+        "text": "Can you look at my resume, please?"
+      },
+      {
+        "start": 7,
+        "end": 9,
+        "text": "Excuse me, sir."
+      },
+      {
+        "start": 9,
+        "end": 12,
+        "text": "And now, everyone wants to work for us."
+      },
+      {
+        "start": 12,
+        "end": 14,
+        "text": "So how many views have you guys gotten?"
+      },
+      {
+        "start": 14,
+        "end": 18,
+        "text": "Exactly 3.5 million views across 200,000 videos."
+      },
+      {
+        "start": 18,
+        "end": 22,
+        "text": "Guys, 3.5 million views is not cool. You know what's cool?"
+      },
+      {
+        "start": 22,
+        "end": 25,
+        "text": "One billion."
+      },
+      {
+        "start": 25,
+        "end": 29,
+        "text": "But how will we get one billion views?"
+      },
+      {
+        "start": 30,
+        "end": 32,
+        "text": "Well, company onboarding is slow."
+      },
+      {
+        "start": 32,
+        "end": 34,
+        "text": "Hey! You think you can just walk away?"
+      },
+      {
+        "start": 34,
+        "end": 36,
+        "text": "Are you rushing or are you dragging?"
+      },
+      {
+        "start": 36,
+        "end": 41,
+        "text": "At this tempo, you'll be compliant by 2029!"
+      },
+      {
+        "start": 41,
+        "end": 49,
+        "text": "So what if we completely destroyed all onboarding docs?"
+      },
+      {
+        "start": 49,
+        "end": 52,
+        "text": "And turned them into explainer videos?"
+      },
+      {
+        "start": 52,
+        "end": 55,
+        "text": "That's Cerebrus' wafer-scale engine."
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "text": "Instead of splitting tasks across dozens of graphics cards,"
+      },
+      {
+        "start": 58,
+        "end": 62,
+        "text": "it runs your entire video generation model on one massive chip,"
+      },
+      {
+        "start": 62,
+        "end": 66,
+        "text": "slashing communication delays to nothing."
+      },
+      {
+        "start": 66,
+        "end": 69,
+        "text": "Whoa. I know wafer-scale engines now."
+      },
+      {
+        "start": 78,
+        "end": 82,
+        "text": "We're making reading obsolete and watching the norm."
+      },
+      {
+        "start": 82,
+        "end": 84,
+        "text": "Book a meeting with Nullify."
+      }
+    ]
+  },
+  "11": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 6,
+        "text": "Most funds and accelerators are built around a lie."
+      },
+      {
+        "start": 6,
+        "end": 10,
+        "text": "They say they back founders, but they base everything on pitch decks and 30-minute calls."
+      },
+      {
+        "start": 10,
+        "end": 13,
+        "text": "They make a decision about your potential through a screen."
+      },
+      {
+        "start": 13,
+        "end": 16,
+        "text": "That's not investing in people, that's gambling with a spreadsheet."
+      },
+      {
+        "start": 16,
+        "end": 20,
+        "text": "And it never really results in the kind of support early-stage founders really need."
+      },
+      {
+        "start": 20,
+        "end": 22,
+        "text": "This is a broken system."
+      },
+      {
+        "start": 22,
+        "end": 25,
+        "text": "Early-stage founders should be valued based on who they are."
+      },
+      {
+        "start": 25,
+        "end": 29,
+        "text": "Your process, your obsessions, the way you think, that's what we're betting on."
+      },
+      {
+        "start": 29,
+        "end": 31,
+        "text": "That's why we built Founders, Inc."
+      },
+      {
+        "start": 31,
+        "end": 33,
+        "text": "Founders, Inc. is the world's largest founder campus."
+      },
+      {
+        "start": 33,
+        "end": 37,
+        "text": "42,000 square feet of everything you need to move 10x faster."
+      },
+      {
+        "start": 37,
+        "end": 39,
+        "text": "This is more than just giving you a check."
+      },
+      {
+        "start": 39,
+        "end": 42,
+        "text": "You apply, and then we invite you to our lab for two weeks"
+      },
+      {
+        "start": 42,
+        "end": 45,
+        "text": "to work with us directly and show how you work through problems."
+      },
+      {
+        "start": 45,
+        "end": 51,
+        "text": "Our campus is built to remove all distractions, reduce friction, and give you the place to go all in."
+      },
+      {
+        "start": 51,
+        "end": 54,
+        "text": "We eat together every day over a chef-prepared lunch."
+      },
+      {
+        "start": 54,
+        "end": 56,
+        "text": "We work out in the gym 30 feet from our desk"
+      },
+      {
+        "start": 56,
+        "end": 59,
+        "text": "and play Smash in the gaming room to reset and refocus."
+      },
+      {
+        "start": 59,
+        "end": 62,
+        "text": "We built content studios so you could share your work to the world"
+      },
+      {
+        "start": 62,
+        "end": 65,
+        "text": "and a hardware lab for prototyping when inspiration hits."
+      },
+      {
+        "start": 65,
+        "end": 67,
+        "text": "The goal was never to build another accelerator."
+      },
+      {
+        "start": 67,
+        "end": 70,
+        "text": "It's to make the biggest container for serendipity."
+      },
+      {
+        "start": 70,
+        "end": 74,
+        "text": "This is where world-class founders can come together under one roof,"
+      },
+      {
+        "start": 74,
+        "end": 79,
+        "text": "share their problems, make lifelong friends, and build the most ambitious companies."
+      },
+      {
+        "start": 79,
+        "end": 83,
+        "text": "Because we don't invest in billion-dollar ideas, we invest in billion-dollar people."
+      }
+    ]
+  },
+  "12": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 4.6,
+        "text": "Is this the first calendar that actually frees up your time?"
+      },
+      {
+        "start": 4.6,
+        "end": 10.9,
+        "text": "Because now, your Notch records meetings, and in return, it gives you the full transcript,"
+      },
+      {
+        "start": 10.9,
+        "end": 14.7,
+        "text": "great summary, and all the action items."
+      },
+      {
+        "start": 14.7,
+        "end": 19.1,
+        "text": "It acts like your personal assistant, and answers questions chatGVT could never."
+      },
+      {
+        "start": 19.1,
+        "end": 24,
+        "text": "It also schedules your meetings, can move around plans, and then draft emails in just"
+      },
+      {
+        "start": 24,
+        "end": 25,
+        "text": "your style."
+      },
+      {
+        "start": 25,
+        "end": 29.7,
+        "text": "One of my favorite parts is that we record from any video call provider and send data"
+      },
+      {
+        "start": 29.7,
+        "end": 31,
+        "text": "wherever you need it."
+      },
+      {
+        "start": 31,
+        "end": 35.4,
+        "text": "And with Pages, we're automatically grouping notes, so you can ask questions in just the"
+      },
+      {
+        "start": 35.4,
+        "end": 37.6,
+        "text": "right context and share them with the team."
+      },
+      {
+        "start": 37.6,
+        "end": 41.8,
+        "text": "Our customer Nish said that this has enabled some pretty magical workflows for him."
+      },
+      {
+        "start": 41.8,
+        "end": 46.7,
+        "text": "There are 27 meeting note providers out there, but only with AAMI can you turn them into"
+      },
+      {
+        "start": 46.7,
+        "end": 48.1,
+        "text": "automated workflows."
+      },
+      {
+        "start": 48.1,
+        "end": 53.1,
+        "text": "Now, download the macOS or Windows app on our new website, aami.so."
+      }
+    ]
+  },
+  "13": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 6.2,
+        "text": "we don't start dialing at 9 30 because our clients are already answering the phone let's talk about"
+      },
+      {
+        "start": 6.2,
+        "end": 12.5,
+        "text": "something important always be closing they say money can't buy happiness look at the"
+      },
+      {
+        "start": 12.5,
+        "end": 19,
+        "text": "fucking smile on my face how do you sleep at night a bed made of money greed for lack of a"
+      },
+      {
+        "start": 19,
+        "end": 26.1,
+        "text": "better word is good greed captures evolutionary spirit money's out there you pick it up it's"
+      },
+      {
+        "start": 26.1,
+        "end": 33.1,
+        "text": "yours you don't i got no sympathy for you pick up the phone and start dialing i want you to"
+      },
+      {
+        "start": 33.1,
+        "end": 43.5,
+        "text": "deal with your problems by becoming rich"
+      }
+    ]
+  },
+  "14": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 1.2,
+        "text": "We need to talk."
+      },
+      {
+        "start": 1.2,
+        "end": 3,
+        "text": "We've all been watching you."
+      },
+      {
+        "start": 3,
+        "end": 6,
+        "text": "Your colleagues, your manager, even your mom."
+      },
+      {
+        "start": 6,
+        "end": 7.4,
+        "text": "And we're worried."
+      },
+      {
+        "start": 7.4,
+        "end": 10.8,
+        "text": "Because every morning, you wake up, open LinkedIn,"
+      },
+      {
+        "start": 10.8,
+        "end": 14.7,
+        "text": "and send messages to people who don't care."
+      },
+      {
+        "start": 14.7,
+        "end": 15.8,
+        "text": "We've counted."
+      },
+      {
+        "start": 15.8,
+        "end": 17.4,
+        "text": "It's been months."
+      },
+      {
+        "start": 17.4,
+        "end": 19,
+        "text": "This is an intervention."
+      },
+      {
+        "start": 19,
+        "end": 20.1,
+        "text": "There's a better way."
+      },
+      {
+        "start": 20.1,
+        "end": 22.6,
+        "text": "People on LinkedIn show when they're ready to buy."
+      },
+      {
+        "start": 22.6,
+        "end": 23.9,
+        "text": "Every single day."
+      },
+      {
+        "start": 23.9,
+        "end": 26.2,
+        "text": "You're just not looking at the right signals."
+      },
+      {
+        "start": 26.2,
+        "end": 28.6,
+        "text": "In B2B, intent is visible."
+      },
+      {
+        "start": 28.6,
+        "end": 30.2,
+        "text": "People change jobs."
+      },
+      {
+        "start": 30.2,
+        "end": 31.8,
+        "text": "They talk about their challenges."
+      },
+      {
+        "start": 31.8,
+        "end": 33.5,
+        "text": "They look at competitors."
+      },
+      {
+        "start": 33.5,
+        "end": 35,
+        "text": "That's when they're ready."
+      },
+      {
+        "start": 35,
+        "end": 37.1,
+        "text": "You're just not there at that moment."
+      },
+      {
+        "start": 37.1,
+        "end": 40.3,
+        "text": "So Goji Berry fixes that."
+      },
+      {
+        "start": 40.9,
+        "end": 43,
+        "text": "It monitors social media for you,"
+      },
+      {
+        "start": 43,
+        "end": 45.5,
+        "text": "finds people when they actually show intent,"
+      },
+      {
+        "start": 45.5,
+        "end": 48.8,
+        "text": "and reaches out automatically at the right moment."
+      },
+      {
+        "start": 48.8,
+        "end": 50.9,
+        "text": "So instead of sending more messages,"
+      },
+      {
+        "start": 50.9,
+        "end": 53.4,
+        "text": "you send fewer and get more replies."
+      },
+      {
+        "start": 54,
+        "end": 55.3,
+        "text": "Stop guessing."
+      },
+      {
+        "start": 55.3,
+        "end": 56.9,
+        "text": "Start showing up when it matters."
+      },
+      {
+        "start": 57.4,
+        "end": 58.6,
+        "text": "Try Goji Berry."
+      },
+      {
+        "start": 58.6,
+        "end": 59.8,
+        "text": "Two-minute setup."
+      },
+      {
+        "start": 59.8,
+        "end": 61,
+        "text": "Get started today."
+      }
+    ]
+  },
+  "15": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 6,
+        "text": "Introducing Tempo, the world's first AI head of growth that scales brands"
+      },
+      {
+        "start": 6,
+        "end": 12.8,
+        "text": "better than any human. Every week Tempo creates a plan to grow your brand and"
+      },
+      {
+        "start": 12.8,
+        "end": 17.4,
+        "text": "deploys a team of agents to execute it without you ever needing to prompt it."
+      },
+      {
+        "start": 17.4,
+        "end": 23.3,
+        "text": "Over 100 of the world's fastest growing brands use Tempo already. Let's say"
+      },
+      {
+        "start": 23.3,
+        "end": 27.8,
+        "text": "you're an e-commerce brand doing a million dollars a month and you want to"
+      },
+      {
+        "start": 27.8,
+        "end": 33.3,
+        "text": "scale past 10 million. Right now brands hire multiple creative agencies and"
+      },
+      {
+        "start": 33.3,
+        "end": 37.1,
+        "text": "spend over a hundred thousand dollars a month on creators and media buyers to"
+      },
+      {
+        "start": 37.1,
+        "end": 45.9,
+        "text": "scale. Tempo solves this. First we'll connect Tempo to your Shopify meta ad"
+      },
+      {
+        "start": 45.9,
+        "end": 51,
+        "text": "account and reviews."
+      },
+      {
+        "start": 51.9,
+        "end": 57.2,
+        "text": "Tempo deploys five research agents to understand every ad you've run using AI"
+      },
+      {
+        "start": 57.2,
+        "end": 61.2,
+        "text": "vision models. It knows before and after statics of betting your top three"
+      },
+      {
+        "start": 61.2,
+        "end": 65.4,
+        "text": "spenders for the last few months. This jogger SKU has a recent influx of"
+      },
+      {
+        "start": 65.4,
+        "end": 69.3,
+        "text": "positive reviews about fabric quality but your ads don't mention it and it"
+      },
+      {
+        "start": 69.3,
+        "end": 72.5,
+        "text": "also noticed that your competitor is scaling creative targeting Pilates"
+      },
+      {
+        "start": 72.5,
+        "end": 79.2,
+        "text": "enthusiasts but you haven't tested this persona. But analyzing your ad account is"
+      },
+      {
+        "start": 79.2,
+        "end": 83.2,
+        "text": "just the start. Every week Tempo generates a plan to increase your"
+      },
+      {
+        "start": 83.2,
+        "end": 88.2,
+        "text": "revenue. This week Tempo will scale before and after ads and create videos"
+      },
+      {
+        "start": 88.2,
+        "end": 92.4,
+        "text": "from your top five statics. It will make 10 ads featuring fabric quality benefits"
+      },
+      {
+        "start": 92.4,
+        "end": 96.2,
+        "text": "and test angles targeting Pilates enthusiasts. You can review the ads"
+      },
+      {
+        "start": 96.2,
+        "end": 100.8,
+        "text": "Tempo generates like you would a match on Tinder. Swipe right to approve and"
+      },
+      {
+        "start": 100.8,
+        "end": 105.3,
+        "text": "launch and swipe left to train Tempo on your preferences. But here's what makes"
+      },
+      {
+        "start": 105.3,
+        "end": 109.8,
+        "text": "Tempo different than any other tool on the market. Under the hood every ad Tempo"
+      },
+      {
+        "start": 109.9,
+        "end": 113.8,
+        "text": "generates is planned on a canvas that maps each agent's full chain of thought."
+      },
+      {
+        "start": 113.8,
+        "end": 118.4,
+        "text": "You can see the exact choices Tempo's agents made to construct the creative,"
+      },
+      {
+        "start": 118.4,
+        "end": 123.5,
+        "text": "make edits yourself or generate infinite variations. Our team worked at Meta for a"
+      },
+      {
+        "start": 123.5,
+        "end": 128,
+        "text": "combined 30 years. We trained Tempo on thousands of human marketing decisions"
+      },
+      {
+        "start": 128,
+        "end": 132.4,
+        "text": "and then we taught Tempo taste."
+      }
+    ]
+  },
+  "16": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 9,
+        "text": "This was the web. Dense pages. Small text. Specs rendered in paragraphs."
+      },
+      {
+        "start": 9,
+        "end": 17,
+        "text": "Then we evolved. Started adding design, motion, and visuals. Images took over, and animations guided the eye."
+      },
+      {
+        "start": 17,
+        "end": 26,
+        "text": "We learned to scroll, to click, to explore. But for complex, high-value decisions, trust still comes from conversation."
+      },
+      {
+        "start": 27,
+        "end": 30,
+        "text": "Welcome. I'm here to walk you through everything you'd like to know."
+      },
+      {
+        "start": 34,
+        "end": 37,
+        "text": "Excellent question. 211 miles per hour."
+      },
+      {
+        "start": 39,
+        "end": 40,
+        "text": "Shall we take it for a spin?"
+      },
+      {
+        "start": 41,
+        "end": 47,
+        "text": "What if your website could also interact? Not just one interaction, but one for every user."
+      },
+      {
+        "start": 49,
+        "end": 51,
+        "text": "Introducing Interact AI."
+      },
+      {
+        "start": 51,
+        "end": 57,
+        "text": "Interact AI. An agent always available to answer questions on your page."
+      },
+      {
+        "start": 57,
+        "end": 60,
+        "text": "Hi, I'm Maya. Ask me anything about Acme AI."
+      },
+      {
+        "start": 60,
+        "end": 62,
+        "text": "Yeah, what does Acme AI actually help with?"
+      },
+      {
+        "start": 62,
+        "end": 64,
+        "text": "Most teams use Acme AI to manage..."
+      },
+      {
+        "start": 64,
+        "end": 65,
+        "text": "Every question."
+      },
+      {
+        "start": 65,
+        "end": 66,
+        "text": "So how does reporting work here?"
+      },
+      {
+        "start": 66,
+        "end": 68,
+        "text": "Seamlessly move from website to product."
+      },
+      {
+        "start": 68,
+        "end": 71,
+        "text": "You can track everything from orders to reporting here."
+      },
+      {
+        "start": 71,
+        "end": 73,
+        "text": "Guide users through the product in real time."
+      },
+      {
+        "start": 73,
+        "end": 76,
+        "text": "Does this integrate with our existing tools?"
+      },
+      {
+        "start": 76,
+        "end": 77,
+        "text": "You can connect Salesforce..."
+      },
+      {
+        "start": 77,
+        "end": 80,
+        "text": "Surface slides and decks on demand."
+      },
+      {
+        "start": 80,
+        "end": 81,
+        "text": "Pretty much your full stack."
+      },
+      {
+        "start": 81,
+        "end": 83,
+        "text": "Okay, can you tell me about pricing?"
+      },
+      {
+        "start": 83,
+        "end": 86,
+        "text": "Absolutely. Let me connect you with the right person."
+      },
+      {
+        "start": 88,
+        "end": 94,
+        "text": "See what every visitor asks, what they explore and what they intend to do in one unified dashboard."
+      },
+      {
+        "start": 94,
+        "end": 97,
+        "text": "Try Interact AI on your website now."
+      }
+    ]
+  },
+  "17": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 10.7,
+        "text": "There's a moment when the world sharpens for a second and you're awake in a different way."
+      },
+      {
+        "start": 10.7,
+        "end": 14.7,
+        "text": "An image stops you cold and rearranges your thoughts."
+      },
+      {
+        "start": 14.7,
+        "end": 15.7,
+        "text": "That's the spark."
+      },
+      {
+        "start": 15.7,
+        "end": 16.7,
+        "text": "You felt it."
+      },
+      {
+        "start": 16.7,
+        "end": 20.7,
+        "text": "It shows you a world and a you you didn't know was possible."
+      },
+      {
+        "start": 20.7,
+        "end": 21.7,
+        "text": "That's ignition."
+      },
+      {
+        "start": 21.7,
+        "end": 23.6,
+        "text": "That's inspiration."
+      },
+      {
+        "start": 23.6,
+        "end": 28.6,
+        "text": "It's the moment before you make the thing, build the thing, become the thing."
+      },
+      {
+        "start": 28.6,
+        "end": 33.2,
+        "text": "That's what separates seeing from scrolling, creating from consuming, being alive from"
+      },
+      {
+        "start": 33.2,
+        "end": 34.2,
+        "text": "being processed."
+      },
+      {
+        "start": 34.2,
+        "end": 40,
+        "text": "The spark is a human privilege and we're letting it die on the vine, not an unblow, but by"
+      },
+      {
+        "start": 40,
+        "end": 45.2,
+        "text": "a million paper cuts buried under feeds engineered to keep us numb, docile, scrolling through"
+      },
+      {
+        "start": 45.2,
+        "end": 48,
+        "text": "the same lukewarm nothing dressed up as abundance."
+      },
+      {
+        "start": 48,
+        "end": 56.4,
+        "text": "The internet became a strip mall, fluorescent lit, and the spark went out right there."
+      },
+      {
+        "start": 56.4,
+        "end": 60.4,
+        "text": "The spark didn't disappear, it's suffocating."
+      },
+      {
+        "start": 60.4,
+        "end": 69.2,
+        "text": "Cosmos is oxygen, space instead of noise, it's quality instead of slop, the conditions"
+      },
+      {
+        "start": 69.2,
+        "end": 74.1,
+        "text": "for the spark to catch again because when you protect inspiration, you protect what"
+      },
+      {
+        "start": 74.1,
+        "end": 80.7,
+        "text": "makes us human, the capacity to be changed by what we see, to dream forward, to build"
+      }
+    ]
+  },
+  "18": {
+    "language": null,
+    "segments": []
+  },
+  "19": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 7,
+        "text": "Hello, Andrew."
+      },
+      {
+        "start": 7,
+        "end": 11.4,
+        "text": "Hey, Grandma."
+      },
+      {
+        "start": 11.4,
+        "end": 13,
+        "text": "I've got some news."
+      },
+      {
+        "start": 13,
+        "end": 14,
+        "text": "I'm going to be starting a company."
+      },
+      {
+        "start": 14,
+        "end": 15,
+        "text": "A company?"
+      },
+      {
+        "start": 15,
+        "end": 18.4,
+        "text": "What kind of company?"
+      },
+      {
+        "start": 18.4,
+        "end": 19.9,
+        "text": "It's a software company."
+      },
+      {
+        "start": 19.9,
+        "end": 23,
+        "text": "It's an AI that is going to help people start businesses."
+      },
+      {
+        "start": 23,
+        "end": 25.5,
+        "text": "Well, do people really need that?"
+      },
+      {
+        "start": 25.5,
+        "end": 28.9,
+        "text": "Do they need AI to start a business?"
+      },
+      {
+        "start": 28.9,
+        "end": 32.9,
+        "text": "Yeah, Grandma, I think it's going to help a lot of people, but it's going to be a lot"
+      },
+      {
+        "start": 32.9,
+        "end": 33.9,
+        "text": "of work, though."
+      },
+      {
+        "start": 33.9,
+        "end": 34.9,
+        "text": "Wait, for real this time?"
+      },
+      {
+        "start": 34.9,
+        "end": 35.9,
+        "text": "For real."
+      },
+      {
+        "start": 35.9,
+        "end": 36.9,
+        "text": "Is it going to be, like, the last one?"
+      },
+      {
+        "start": 36.9,
+        "end": 37.9,
+        "text": "No."
+      },
+      {
+        "start": 37.9,
+        "end": 38.9,
+        "text": "I know what I'm doing now."
+      },
+      {
+        "start": 38.9,
+        "end": 39.9,
+        "text": "I have help this time."
+      },
+      {
+        "start": 39.9,
+        "end": 40.9,
+        "text": "Help?"
+      },
+      {
+        "start": 40.9,
+        "end": 41.9,
+        "text": "What do you mean?"
+      },
+      {
+        "start": 41.9,
+        "end": 42.9,
+        "text": "I'm using this AI thing."
+      },
+      {
+        "start": 42.9,
+        "end": 43.9,
+        "text": "It handles a lot of the stuff that buried me before, like finding customers, answering"
+      },
+      {
+        "start": 43.9,
+        "end": 44.9,
+        "text": "their questions, all of it."
+      },
+      {
+        "start": 44.9,
+        "end": 45.9,
+        "text": "Dude, I keep seeing your stuff everywhere."
+      },
+      {
+        "start": 45.9,
+        "end": 46.9,
+        "text": "Yeah, it kind of took off."
+      },
+      {
+        "start": 46.9,
+        "end": 47.9,
+        "text": "How are you making all that?"
+      },
+      {
+        "start": 47.9,
+        "end": 48.9,
+        "text": "It's all AI."
+      },
+      {
+        "start": 78.9,
+        "end": 79.9,
+        "text": "Hello?"
+      },
+      {
+        "start": 79.9,
+        "end": 80.9,
+        "text": "Andrew?"
+      },
+      {
+        "start": 80.9,
+        "end": 81.9,
+        "text": "What is it?"
+      },
+      {
+        "start": 81.9,
+        "end": 82.9,
+        "text": "Well, I forgot to ask you."
+      },
+      {
+        "start": 82.9,
+        "end": 83.9,
+        "text": "Do you have a girlfriend yet?"
+      },
+      {
+        "start": 83.9,
+        "end": 84.9,
+        "text": "No, not yet."
+      }
+    ]
+  },
+  "20": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 7,
+        "text": "This is Crea2, an image model made for aesthetics."
+      },
+      {
+        "start": 7,
+        "end": 12,
+        "text": "Create in any style, no matter how expressive."
+      },
+      {
+        "start": 12,
+        "end": 16,
+        "text": "Explore new ideas without stylistic boundaries."
+      },
+      {
+        "start": 16,
+        "end": 20,
+        "text": "Show it a mood board and set the direction for what you want to create."
+      },
+      {
+        "start": 20,
+        "end": 23,
+        "text": "It gets it, it gets you."
+      },
+      {
+        "start": 23,
+        "end": 26,
+        "text": "Tell it what you love and what you don't."
+      },
+      {
+        "start": 27,
+        "end": 31,
+        "text": "It learns and adapts to your visual preferences."
+      },
+      {
+        "start": 31,
+        "end": 35,
+        "text": "The more you use it, the better it gets."
+      },
+      {
+        "start": 41,
+        "end": 45,
+        "text": "With unique controls to adjust its creativity,"
+      },
+      {
+        "start": 45,
+        "end": 50,
+        "text": "add randomness or surprise, or tune stylization."
+      },
+      {
+        "start": 51,
+        "end": 55,
+        "text": "Crea2 is meant to be a base for you to build on."
+      },
+      {
+        "start": 55,
+        "end": 60,
+        "text": "A raw creative medium with no predefined preferences or opinions,"
+      },
+      {
+        "start": 60,
+        "end": 64,
+        "text": "and every control for you to make it your own."
+      }
+    ]
+  },
+  "21": {
+    "language": null,
+    "segments": []
+  },
+  "22": {
+    "language": null,
+    "segments": []
+  },
+  "23": {
+    "language": null,
+    "segments": []
+  },
+  "24": {
+    "language": null,
+    "segments": []
+  },
+  "25": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 10.8,
+        "text": "Money makes the world go round, but the banks that move it were built for another era, pre-internet,"
+      },
+      {
+        "start": 10.8,
+        "end": 14.1,
+        "text": "pre-software, pre-AI, pre-historic."
+      },
+      {
+        "start": 14.1,
+        "end": 17.4,
+        "text": "The banks are running on technology that's not boomer technology, it's not even built"
+      },
+      {
+        "start": 17.4,
+        "end": 20.7,
+        "text": "by the parents of the boomers, it's built by the grandparents of the boomers."
+      },
+      {
+        "start": 20.7,
+        "end": 22.5,
+        "text": "Money never was upgraded to the internet era."
+      },
+      {
+        "start": 22.5,
+        "end": 25,
+        "text": "Augustus is here to change that."
+      },
+      {
+        "start": 25,
+        "end": 28.4,
+        "text": "We've seen what Augustus has built with the stable coordinated cold backing platform Europe"
+      },
+      {
+        "start": 28.4,
+        "end": 32.7,
+        "text": "and we're super excited to now see them plugging in dollar rail access in the US."
+      },
+      {
+        "start": 32.7,
+        "end": 34.8,
+        "text": "Augustus is a bank made of code."
+      },
+      {
+        "start": 34.8,
+        "end": 38.5,
+        "text": "It's global, instant, 24-7, it's programmable and machine readable."
+      },
+      {
+        "start": 38.5,
+        "end": 43.1,
+        "text": "What it enables us to do is turn a system of record that core banking usually is into"
+      },
+      {
+        "start": 43.1,
+        "end": 43.9,
+        "text": "a system of action."
+      }
+    ]
+  },
+  "26": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 7.8,
+        "text": "When we texted you mentioned AI Friends, what does that actually mean?"
+      },
+      {
+        "start": 7.8,
+        "end": 9.3,
+        "text": "It's our app, it's called Friends."
+      },
+      {
+        "start": 9.3,
+        "end": 12.9,
+        "text": "So basically you have a character for everyday life, specifically for teens and young adults."
+      },
+      {
+        "start": 12.9,
+        "end": 16.9,
+        "text": "It started with one friend, Pengu, a social fun penguin."
+      },
+      {
+        "start": 16.9,
+        "end": 21.8,
+        "text": "We expanded it to education with Mello, so you can get homework help and anything on"
+      },
+      {
+        "start": 21.8,
+        "end": 22.8,
+        "text": "school."
+      },
+      {
+        "start": 22.8,
+        "end": 25,
+        "text": "And Ball, which is a pink panda for self-care and mental health."
+      },
+      {
+        "start": 25,
+        "end": 27.1,
+        "text": "Nice, and what do they actually do?"
+      },
+      {
+        "start": 27.1,
+        "end": 32.2,
+        "text": "We wanted to go beyond the chatbot, so the idea was to make AI fun and trustworthy, specifically"
+      },
+      {
+        "start": 32.2,
+        "end": 33.2,
+        "text": "for younger people."
+      },
+      {
+        "start": 33.2,
+        "end": 35.2,
+        "text": "But do you think people are actually going to use this?"
+      },
+      {
+        "start": 35.2,
+        "end": 40.4,
+        "text": "Yes, and it's a million a day and I think specifically for teenagers it provides a lot"
+      },
+      {
+        "start": 40.4,
+        "end": 43.6,
+        "text": "of value and is way more fun than any chatbot can provide."
+      },
+      {
+        "start": 43.6,
+        "end": 46.6,
+        "text": "I mean I use AI all the time, so it makes sense."
+      },
+      {
+        "start": 46.6,
+        "end": 47.6,
+        "text": "Let me show you something."
+      },
+      {
+        "start": 47.6,
+        "end": 50.7,
+        "text": "I think I've never shown this before, but this is what we've built."
+      },
+      {
+        "start": 50.7,
+        "end": 52.2,
+        "text": "It's called Life."
+      },
+      {
+        "start": 52.2,
+        "end": 55.7,
+        "text": "It's hyper-realistic AI Friends, so these are my friends that I'm talking right now."
+      },
+      {
+        "start": 55.7,
+        "end": 56.7,
+        "text": "AI Friends?"
+      },
+      {
+        "start": 57.3,
+        "end": 59,
+        "text": "Yeah, and he has sent me a TikTok, for example."
+      },
+      {
+        "start": 59,
+        "end": 60.9,
+        "text": "I can FaceTime him now, if you want."
+      },
+      {
+        "start": 60.9,
+        "end": 66.9,
+        "text": "I can also watch stories of other AI Friends, so they are just basically here and post about"
+      },
+      {
+        "start": 66.9,
+        "end": 67.9,
+        "text": "their lives."
+      },
+      {
+        "start": 67.9,
+        "end": 71.8,
+        "text": "And the really cool thing is that they live inside Instagram, so they know basically who"
+      },
+      {
+        "start": 71.8,
+        "end": 74.6,
+        "text": "are my real friends or my interests, which makes it pretty cool."
+      },
+      {
+        "start": 74.6,
+        "end": 78.2,
+        "text": "It would be really cool if this was also on other devices, though."
+      },
+      {
+        "start": 78.2,
+        "end": 79.2,
+        "text": "That's the ultimate goal."
+      },
+      {
+        "start": 79.2,
+        "end": 85.7,
+        "text": "You know, I feel that at some point we need to make them live on all devices, like glasses"
+      },
+      {
+        "start": 85.7,
+        "end": 86.7,
+        "text": "and laptops and iPads."
+      },
+      {
+        "start": 86.7,
+        "end": 88.7,
+        "text": "And at some point, maybe build them in real life embodied."
+      },
+      {
+        "start": 88.7,
+        "end": 89.7,
+        "text": "Like a robot."
+      },
+      {
+        "start": 89.7,
+        "end": 90.7,
+        "text": "Yeah."
+      },
+      {
+        "start": 90.7,
+        "end": 91.7,
+        "text": "But I think that's for another day."
+      },
+      {
+        "start": 91.7,
+        "end": 93.7,
+        "text": "I think I'll get another, I'll get an espresso."
+      },
+      {
+        "start": 93.7,
+        "end": 94.7,
+        "text": "Yeah, I'll get one too."
+      },
+      {
+        "start": 94.7,
+        "end": 95.2,
+        "text": "Cool."
+      }
+    ]
+  },
+  "27": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 11.4,
+        "text": "The fabric shops in Koreatown are gone now, but I remember going with my grandmother when"
+      },
+      {
+        "start": 11.4,
+        "end": 18.4,
+        "text": "I was seven or eight."
+      },
+      {
+        "start": 18.4,
+        "end": 24.9,
+        "text": "Those moments will never leave my mind."
+      },
+      {
+        "start": 24.9,
+        "end": 29.5,
+        "text": "She'd walk in and say nothing, then the shopkeeper would begin."
+      },
+      {
+        "start": 29.5,
+        "end": 36.9,
+        "text": "Bolt after bolt, her face never changed."
+      },
+      {
+        "start": 36.9,
+        "end": 38.6,
+        "text": "I learned to watch her jaw."
+      },
+      {
+        "start": 38.6,
+        "end": 46.6,
+        "text": "A tightening meant, no, and the bolt would disappear."
+      },
+      {
+        "start": 46.6,
+        "end": 56.1,
+        "text": "Sometimes a pattern would catch her eye and influence her next decision."
+      },
+      {
+        "start": 56.1,
+        "end": 58.1,
+        "text": "Or a color would call her."
+      },
+      {
+        "start": 58.1,
+        "end": 70.6,
+        "text": "She'd want to try something else, and sometimes she just wanted to see more."
+      },
+      {
+        "start": 70.6,
+        "end": 71.6,
+        "text": "Lightning speed."
+      },
+      {
+        "start": 89.1,
+        "end": 98.7,
+        "text": "And then she knew, something only instinct knows."
+      },
+      {
+        "start": 98.7,
+        "end": 103.3,
+        "text": "The fabric shop is gone, but that feeling isn't."
+      }
+    ]
+  },
+  "28": {
+    "language": null,
+    "segments": []
+  },
+  "29": {
+    "language": null,
+    "segments": []
+  },
+  "30": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 3,
+        "text": "I'm never going to find someone like you again."
+      },
+      {
+        "start": 30,
+        "end": 33,
+        "text": "The train to the Lyon train station is one hour late."
+      },
+      {
+        "start": 50,
+        "end": 51,
+        "text": "Olivier!"
+      },
+      {
+        "start": 52,
+        "end": 53,
+        "text": "Oh, sorry!"
+      },
+      {
+        "start": 53,
+        "end": 55,
+        "text": "I'm so sorry."
+      },
+      {
+        "start": 55,
+        "end": 57,
+        "text": "Could I get your contact?"
+      },
+      {
+        "start": 57,
+        "end": 58,
+        "text": "Sure."
+      },
+      {
+        "start": 58,
+        "end": 60,
+        "text": "It's nice to meet you."
+      },
+      {
+        "start": 61,
+        "end": 63,
+        "text": "Hopefully I'll see you soon."
+      },
+      {
+        "start": 64,
+        "end": 65,
+        "text": "Ciao."
+      },
+      {
+        "start": 88,
+        "end": 91,
+        "text": "Olivier, I'm so sorry. I'm sorry."
+      },
+      {
+        "start": 92,
+        "end": 93,
+        "text": "I'm so sorry."
+      },
+      {
+        "start": 94,
+        "end": 95,
+        "text": "I'm so sorry."
+      },
+      {
+        "start": 95,
+        "end": 96,
+        "text": "I'm sorry."
+      },
+      {
+        "start": 123,
+        "end": 125,
+        "text": "I didn't think..."
+      }
+    ]
+  },
+  "31": {
+    "language": null,
+    "segments": []
+  },
+  "32": {
+    "language": null,
+    "segments": []
+  },
+  "33": {
+    "language": null,
+    "segments": []
+  },
+  "34": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 12,
+        "text": "Creativity is about connecting your memories in a new way."
+      },
+      {
+        "start": 12,
+        "end": 15,
+        "text": "It's human. We all have it within us."
+      },
+      {
+        "start": 17,
+        "end": 22,
+        "text": "Today, we are introducing a device designed to amplify that creativity"
+      },
+      {
+        "start": 22,
+        "end": 24,
+        "text": "and truly understand who you are."
+      },
+      {
+        "start": 31,
+        "end": 34,
+        "text": "This is PICCOL-1."
+      },
+      {
+        "start": 34,
+        "end": 39,
+        "text": "The most beautiful, lightweight, binocular full-color AR glasses."
+      },
+      {
+        "start": 39,
+        "end": 41,
+        "text": "The first of its kind."
+      },
+      {
+        "start": 41,
+        "end": 46,
+        "text": "They deliver one of the brightest, widest fields of view designed for everyday life."
+      },
+      {
+        "start": 46,
+        "end": 60,
+        "text": "Even when you are walking under direct sunlight,"
+      },
+      {
+        "start": 60,
+        "end": 65,
+        "text": "you can clearly see full-color AR displays which no one else can see."
+      },
+      {
+        "start": 65,
+        "end": 70,
+        "text": "All the beautiful curves of PICCOL-1 begin with one single question."
+      },
+      {
+        "start": 70,
+        "end": 75,
+        "text": "If everyone wore the same pair of glasses, what would they look like?"
+      },
+      {
+        "start": 75,
+        "end": 79,
+        "text": "PICCOL-1 was designed with that mission in mind."
+      },
+      {
+        "start": 79,
+        "end": 83,
+        "text": "It fits naturally on almost any face shape."
+      },
+      {
+        "start": 83,
+        "end": 88,
+        "text": "Comfortable, balanced, and actually enhancing the way you look."
+      },
+      {
+        "start": 88,
+        "end": 91,
+        "text": "But these are not just regular glasses."
+      },
+      {
+        "start": 91,
+        "end": 93,
+        "text": "They are your personal computer."
+      },
+      {
+        "start": 93,
+        "end": 98,
+        "text": "At only 68 grams, it's the lightest personal computer in history."
+      },
+      {
+        "start": 98,
+        "end": 100,
+        "text": "So how can you use it?"
+      },
+      {
+        "start": 106,
+        "end": 110,
+        "text": "The next computer is not something you control."
+      },
+      {
+        "start": 110,
+        "end": 114,
+        "text": "It talks to you first before you ask something."
+      },
+      {
+        "start": 114,
+        "end": 119,
+        "text": "When it detects the right moment, it brings up what you need."
+      },
+      {
+        "start": 119,
+        "end": 124,
+        "text": "The action, the memory, the suggestion right in front of you."
+      },
+      {
+        "start": 124,
+        "end": 129,
+        "text": "This is the first computer you use simply by living your life."
+      },
+      {
+        "start": 129,
+        "end": 133,
+        "text": "Just put them on and go."
+      },
+      {
+        "start": 134,
+        "end": 136,
+        "text": "Let me show you."
+      },
+      {
+        "start": 140,
+        "end": 141,
+        "text": "Hi, Daniel."
+      },
+      {
+        "start": 141,
+        "end": 142,
+        "text": "Hi."
+      },
+      {
+        "start": 142,
+        "end": 143,
+        "text": "Oh, are we doing live demo?"
+      },
+      {
+        "start": 143,
+        "end": 145,
+        "text": "Yeah, you're right. I'm in the middle of filming."
+      },
+      {
+        "start": 145,
+        "end": 147,
+        "text": "Look at all those cameras and the crew."
+      },
+      {
+        "start": 147,
+        "end": 149,
+        "text": "The studio looks great from here."
+      },
+      {
+        "start": 149,
+        "end": 150,
+        "text": "Yeah, it's really nice."
+      },
+      {
+        "start": 150,
+        "end": 151,
+        "text": "You're doing great."
+      },
+      {
+        "start": 151,
+        "end": 154,
+        "text": "Oh, and I was just thinking about the birthday party for Emmett."
+      },
+      {
+        "start": 154,
+        "end": 157,
+        "text": "What if we get him that coat he said he loved two years ago?"
+      },
+      {
+        "start": 157,
+        "end": 160,
+        "text": "Oh, yes. And we can do that right now."
+      },
+      {
+        "start": 160,
+        "end": 163,
+        "text": "Easy, easy. For now, I need to focus on this."
+      },
+      {
+        "start": 163,
+        "end": 165,
+        "text": "Yeah, I know how hard you worked on this."
+      },
+      {
+        "start": 165,
+        "end": 168,
+        "text": "But hey, remember to keep it simple so everyone can follow along."
+      },
+      {
+        "start": 168,
+        "end": 169,
+        "text": "No rush."
+      },
+      {
+        "start": 169,
+        "end": 171,
+        "text": "I will. Thank you."
+      },
+      {
+        "start": 171,
+        "end": 175,
+        "text": "What you just saw is Pickle 1's interactive avatar."
+      },
+      {
+        "start": 175,
+        "end": 180,
+        "text": "We believe this kind of interaction is the most immersive human AI interface."
+      },
+      {
+        "start": 180,
+        "end": 183,
+        "text": "Even though it's a little bit more complicated than the previous one,"
+      },
+      {
+        "start": 183,
+        "end": 186,
+        "text": "it's still a great way to interact with people."
+      },
+      {
+        "start": 186,
+        "end": 190,
+        "text": "This kind of interaction is the most immersive human AI interface."
+      },
+      {
+        "start": 190,
+        "end": 193,
+        "text": "Even more than chat or just voice."
+      },
+      {
+        "start": 194,
+        "end": 199,
+        "text": "And inside Pickle 1, there are all kinds of these avatars waiting for you."
+      },
+      {
+        "start": 199,
+        "end": 204,
+        "text": "Your interactive avatar experiences your life with you."
+      },
+      {
+        "start": 204,
+        "end": 208,
+        "text": "It predicts your thoughts and intentions in real time."
+      },
+      {
+        "start": 208,
+        "end": 213,
+        "text": "So it can come up with the perfect idea you need in that moment."
+      },
+      {
+        "start": 214,
+        "end": 217,
+        "text": "Now, let's look at what makes this possible."
+      },
+      {
+        "start": 219,
+        "end": 224,
+        "text": "To make AR glasses truly understand you, we built a system like human memory."
+      },
+      {
+        "start": 224,
+        "end": 229,
+        "text": "We are excited to introduce Pickle OS, a memory-based operating system."
+      },
+      {
+        "start": 229,
+        "end": 232,
+        "text": "Pickle 1 continuously captures your streaming life,"
+      },
+      {
+        "start": 232,
+        "end": 236,
+        "text": "and Pickle OS turns those moments into episodic memories."
+      },
+      {
+        "start": 236,
+        "end": 238,
+        "text": "We call this Bubbles."
+      },
+      {
+        "start": 239,
+        "end": 242,
+        "text": "The more you live through Pickle 1, the more bubbles appear."
+      },
+      {
+        "start": 242,
+        "end": 247,
+        "text": "Every second, the system automatically finds connections between them."
+      },
+      {
+        "start": 247,
+        "end": 251,
+        "text": "Based on these bubbles, Pickle OS will create clouds,"
+      },
+      {
+        "start": 251,
+        "end": 254,
+        "text": "questions and hypotheses about you."
+      },
+      {
+        "start": 254,
+        "end": 258,
+        "text": "When you confirm or answer them, they become bubbles too."
+      },
+      {
+        "start": 259,
+        "end": 261,
+        "text": "So where do your bubbles live?"
+      },
+      {
+        "start": 261,
+        "end": 263,
+        "text": "To let you fully use your memory,"
+      },
+      {
+        "start": 263,
+        "end": 267,
+        "text": "we are launching Pickle.com, the interface of Pickle OS."
+      },
+      {
+        "start": 267,
+        "end": 273,
+        "text": "In Pickle.com, you can touch, control and edit your memory bubble."
+      },
+      {
+        "start": 273,
+        "end": 278,
+        "text": "You can add new bubbles by connecting your favorite applications."
+      },
+      {
+        "start": 278,
+        "end": 283,
+        "text": "And all of those bubbles are instantly shared back with Pickle 1."
+      },
+      {
+        "start": 283,
+        "end": 286,
+        "text": "Talking to something that truly understands who you are"
+      },
+      {
+        "start": 286,
+        "end": 290,
+        "text": "and what you are trying to do often sparks your best ideas."
+      },
+      {
+        "start": 290,
+        "end": 295,
+        "text": "This is when Pickle becomes a creative partner, pulling inspiration from your bubbles."
+      },
+      {
+        "start": 295,
+        "end": 297,
+        "text": "We call this the chat."
+      },
+      {
+        "start": 297,
+        "end": 300,
+        "text": "You can ideate about anything with your creative partner"
+      },
+      {
+        "start": 300,
+        "end": 303,
+        "text": "in a collaborative interface based on your memories."
+      },
+      {
+        "start": 303,
+        "end": 307,
+        "text": "Chat won't just always agree with you, it will challenge you."
+      },
+      {
+        "start": 307,
+        "end": 312,
+        "text": "Every conversation with your creative partner across every device and platform"
+      },
+      {
+        "start": 312,
+        "end": 314,
+        "text": "becomes a new bubble too."
+      },
+      {
+        "start": 315,
+        "end": 319,
+        "text": "Over time, they build a full living context of your everyday life,"
+      },
+      {
+        "start": 319,
+        "end": 321,
+        "text": "powered by Pickle OS."
+      },
+      {
+        "start": 326,
+        "end": 329,
+        "text": "Pickle.com"
+      },
+      {
+        "start": 332,
+        "end": 335,
+        "text": "Technology has always connected us to each other."
+      },
+      {
+        "start": 335,
+        "end": 338,
+        "text": "But the next breakthrough should do something different."
+      },
+      {
+        "start": 338,
+        "end": 341,
+        "text": "It should help you connect to yourself."
+      },
+      {
+        "start": 342,
+        "end": 344,
+        "text": "Meet Pickle today."
+      }
+    ]
+  },
+  "35": {
+    "language": null,
+    "segments": []
+  },
+  "36": {
+    "language": null,
+    "segments": []
+  },
+  "37": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 5,
+        "text": "26, 27, 28, 29."
+      },
+      {
+        "start": 6.2,
+        "end": 8.9,
+        "text": "Okay, okay, I'm done, I'm done."
+      },
+      {
+        "start": 8.9,
+        "end": 9.9,
+        "text": "Are you sure?"
+      },
+      {
+        "start": 9.9,
+        "end": 11.3,
+        "text": "Yes, I'm sure, 100%."
+      },
+      {
+        "start": 11.3,
+        "end": 13.4,
+        "text": "Which means you lost and you have to talk"
+      },
+      {
+        "start": 13.4,
+        "end": 15,
+        "text": "to a random stranger to overcome."
+      },
+      {
+        "start": 15,
+        "end": 17,
+        "text": "To overcome my sensual anxiety, I know, I know."
+      },
+      {
+        "start": 17,
+        "end": 18.4,
+        "text": "Let's find someone."
+      },
+      {
+        "start": 18.4,
+        "end": 22.6,
+        "text": "Okay, how about, how about him?"
+      },
+      {
+        "start": 22.6,
+        "end": 24.8,
+        "text": "He's about to go surfing, find someone else."
+      },
+      {
+        "start": 24.8,
+        "end": 26,
+        "text": "How about."
+      },
+      {
+        "start": 26,
+        "end": 27,
+        "text": "How about her?"
+      },
+      {
+        "start": 30,
+        "end": 35,
+        "text": "No, no, no, no, no, she's way too pretty."
+      },
+      {
+        "start": 36.4,
+        "end": 38.8,
+        "text": "I wouldn't even know what to tell her."
+      },
+      {
+        "start": 38.8,
+        "end": 40.7,
+        "text": "Go on, Romeo, you got this."
+      },
+      {
+        "start": 40.7,
+        "end": 43.2,
+        "text": "Take a deep breath, straighten your back,"
+      },
+      {
+        "start": 43.2,
+        "end": 45.8,
+        "text": "stand tall, and walk over to her."
+      },
+      {
+        "start": 46.8,
+        "end": 49,
+        "text": "Hi, I see you there."
+      },
+      {
+        "start": 49,
+        "end": 51.4,
+        "text": "And I didn't want to regret not talking to you."
+      },
+      {
+        "start": 52.8,
+        "end": 54.2,
+        "text": "Okay, why?"
+      },
+      {
+        "start": 54.2,
+        "end": 59.2,
+        "text": "It's because, it's because they really have you."
+      },
+      {
+        "start": 60.7,
+        "end": 62.8,
+        "text": "Mark, open up your chest and look straight."
+      },
+      {
+        "start": 65.8,
+        "end": 67.1,
+        "text": "It's because you have a beautiful smile"
+      },
+      {
+        "start": 67.1,
+        "end": 68.5,
+        "text": "that makes people happy."
+      },
+      {
+        "start": 68.5,
+        "end": 70,
+        "text": "Oh, thanks."
+      },
+      {
+        "start": 70,
+        "end": 71.6,
+        "text": "I'm Mark, what's your name?"
+      },
+      {
+        "start": 71.6,
+        "end": 73.2,
+        "text": "I'm Angela, nice to meet you."
+      },
+      {
+        "start": 73.2,
+        "end": 75.6,
+        "text": "Do you live here or you're just traveling?"
+      },
+      {
+        "start": 75.6,
+        "end": 77.6,
+        "text": "No, I've lived here for a couple of years now."
+      },
+      {
+        "start": 77.6,
+        "end": 79.7,
+        "text": "I love the beach, that's why I'm here."
+      },
+      {
+        "start": 79.7,
+        "end": 82.2,
+        "text": "And yeah, it makes me feel so relaxed, you know?"
+      },
+      {
+        "start": 82.2,
+        "end": 83.1,
+        "text": "Yeah, me too."
+      },
+      {
+        "start": 83.1,
+        "end": 85.7,
+        "text": "Especially sometimes when we get to bring an elder."
+      },
+      {
+        "start": 92,
+        "end": 93.2,
+        "text": "So you have three dogs, that's amazing."
+      },
+      {
+        "start": 93.2,
+        "end": 94.8,
+        "text": "Yeah, oh."
+      },
+      {
+        "start": 94.8,
+        "end": 96.2,
+        "text": "Oh, it's already been a while."
+      },
+      {
+        "start": 96.2,
+        "end": 100.4,
+        "text": "I actually gotta go, I have a meeting to attend, so."
+      },
+      {
+        "start": 100.4,
+        "end": 102,
+        "text": "Yeah, it was nice meeting you,"
+      },
+      {
+        "start": 102,
+        "end": 103.8,
+        "text": "it was really nice talking to you, so."
+      },
+      {
+        "start": 103.8,
+        "end": 105,
+        "text": "Yeah."
+      },
+      {
+        "start": 105,
+        "end": 105.8,
+        "text": "Bye!"
+      },
+      {
+        "start": 105.8,
+        "end": 108.9,
+        "text": "Deep breath, then stand up straight."
+      },
+      {
+        "start": 108.9,
+        "end": 109.8,
+        "text": "Wait, Angela."
+      },
+      {
+        "start": 111.1,
+        "end": 112,
+        "text": "Yeah?"
+      },
+      {
+        "start": 113,
+        "end": 114.5,
+        "text": "Sure, yeah, actually, yeah."
+      },
+      {
+        "start": 119.6,
+        "end": 120.4,
+        "text": "Here."
+      },
+      {
+        "start": 121.4,
+        "end": 124.4,
+        "text": "By the way, you would actually look so much cuter"
+      },
+      {
+        "start": 124.4,
+        "end": 127.9,
+        "text": "if you stood up more straight, so, bye."
+      },
+      {
+        "start": 129,
+        "end": 130,
+        "text": "I told you."
+      }
+    ]
+  },
+  "38": {
+    "language": null,
+    "segments": []
+  },
+  "39": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 59.4,
+        "end": 60.4,
+        "text": "C'mon, let it go!"
+      },
+      {
+        "start": 60.4,
+        "end": 61.4,
+        "text": "C'mon, give it to me!"
+      },
+      {
+        "start": 61.4,
+        "end": 62.4,
+        "text": "How you feel?"
+      },
+      {
+        "start": 62.4,
+        "end": 63.4,
+        "text": "C'mon, let it go!"
+      }
+    ]
+  },
+  "40": {
+    "language": null,
+    "segments": []
+  },
+  "41": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 7,
+        "text": "Your calendar is your personal philosophy, a picture of you and everything you care about."
+      },
+      {
+        "start": 9,
+        "end": 14,
+        "text": "That's why we aren't dreaming of a better calendar, we're dreaming of everything a calendar can be."
+      },
+      {
+        "start": 17,
+        "end": 20,
+        "text": "A calendar where there is a time for everything."
+      },
+      {
+        "start": 22,
+        "end": 26,
+        "text": "A time to end and a time to begin anew."
+      },
+      {
+        "start": 27,
+        "end": 30,
+        "text": "A time to plan and a time to act."
+      },
+      {
+        "start": 31,
+        "end": 33,
+        "text": "A time to cry and a time to laugh."
+      },
+      {
+        "start": 34,
+        "end": 37,
+        "text": "A time to plant and a time to uproot."
+      },
+      {
+        "start": 38,
+        "end": 40,
+        "text": "A time to keep silence and a time to speak."
+      },
+      {
+        "start": 41,
+        "end": 43,
+        "text": "A time to tear down and a time to build."
+      },
+      {
+        "start": 45,
+        "end": 50,
+        "text": "The quality of your life depends on your average Tuesday, not your perfect Friday."
+      },
+      {
+        "start": 50,
+        "end": 57,
+        "text": "And for that, we need a calendar that's not only about meetings, but everything that makes up your life."
+      },
+      {
+        "start": 58,
+        "end": 61,
+        "text": "Because if it's not on your calendar, it's not going to happen."
+      },
+      {
+        "start": 66,
+        "end": 72,
+        "text": "I want to introduce you to AIMEE, the joyful productivity app that keeps getting better."
+      },
+      {
+        "start": 73,
+        "end": 77,
+        "text": "It's available now on iPhone and web. No more waitlist."
+      },
+      {
+        "start": 77,
+        "end": 80,
+        "text": "And I want to let you into three little secrets."
+      },
+      {
+        "start": 81,
+        "end": 86,
+        "text": "First, we believe the best way to get things done isn't three apps, it's one."
+      },
+      {
+        "start": 87,
+        "end": 90,
+        "text": "So, we are announcing email in AIMEE."
+      },
+      {
+        "start": 91,
+        "end": 95,
+        "text": "Now you can read, reply and schedule your emails right onto your calendar."
+      },
+      {
+        "start": 96,
+        "end": 98,
+        "text": "Next to your events and to-dos."
+      },
+      {
+        "start": 99,
+        "end": 100,
+        "text": "So they will actually get done."
+      },
+      {
+        "start": 100,
+        "end": 107,
+        "text": "It's pretty simple for now, but we think you'll find that having everything together is actually a pretty big deal."
+      },
+      {
+        "start": 108,
+        "end": 110,
+        "text": "Maybe even how it always should have been."
+      },
+      {
+        "start": 111,
+        "end": 115,
+        "text": "Second, we believe that the calendar should feel deeply personal."
+      },
+      {
+        "start": 116,
+        "end": 119,
+        "text": "That's why AIMEE is now integrated with your favorite apps."
+      },
+      {
+        "start": 120,
+        "end": 124,
+        "text": "Bringing your music and workouts and even linear tickets right into your everyday."
+      },
+      {
+        "start": 124,
+        "end": 127,
+        "text": "You can also see your heart rate jump and move during a big meeting."
+      },
+      {
+        "start": 128,
+        "end": 129,
+        "text": "Thanks to our health integration."
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "text": "And honestly, every calendar knows that you have an 8.30am meeting."
+      },
+      {
+        "start": 134,
+        "end": 137,
+        "text": "But only AIMEE knows that you just broke your 10k record."
+      },
+      {
+        "start": 138,
+        "end": 140,
+        "text": "Third, looking into the future."
+      },
+      {
+        "start": 141,
+        "end": 142,
+        "text": "Your calendar should work for you."
+      },
+      {
+        "start": 143,
+        "end": 144,
+        "text": "You have 57 overdue overdues."
+      },
+      {
+        "start": 145,
+        "end": 149,
+        "text": "And with AIMEE, you and your team will prioritize them like you never did."
+      },
+      {
+        "start": 150,
+        "end": 152,
+        "text": "A small breakthrough for a big life change."
+      },
+      {
+        "start": 152,
+        "end": 158,
+        "text": "And with AIMEE AI, we give you back so many hours of your day that you can now finally go back and spend on your craft."
+      },
+      {
+        "start": 159,
+        "end": 161,
+        "text": "All this and more included in AIMEE Pro."
+      },
+      {
+        "start": 162,
+        "end": 163,
+        "text": "Available now."
+      },
+      {
+        "start": 164,
+        "end": 166,
+        "text": "So as you can see, AIMEE is more than an app."
+      },
+      {
+        "start": 167,
+        "end": 171,
+        "text": "It's a place for life and for work and for everything in between."
+      }
+    ]
+  },
+  "42": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 8,
+        "text": "From the outside, business travel looks glamorous but it doesn't always feel that way."
+      },
+      {
+        "start": 8,
+        "end": 10,
+        "text": "Until now."
+      },
+      {
+        "start": 10,
+        "end": 18,
+        "text": "Meet Navon Edge, your personal travel assistant that caters to your preferences, handles everything, and maximizes your loyalty."
+      },
+      {
+        "start": 18,
+        "end": 22,
+        "text": "Julie's visiting the Austin headquarters."
+      },
+      {
+        "start": 22,
+        "end": 25,
+        "text": "A hotel that works with your routine? Check it out."
+      },
+      {
+        "start": 25,
+        "end": 32,
+        "text": "Five-minute walk to the office, yoga studio next door, healthy bowl for breakfast, dice and hair dryer."
+      },
+      {
+        "start": 32,
+        "end": 34,
+        "text": "Booked."
+      },
+      {
+        "start": 34,
+        "end": 36,
+        "text": "We'll be landing in Austin shortly."
+      },
+      {
+        "start": 36,
+        "end": 40,
+        "text": "You're taking the client out for dinner, but the guest list keeps growing."
+      },
+      {
+        "start": 40,
+        "end": 44,
+        "text": "What about that pasta place everyone's talking about?"
+      },
+      {
+        "start": 44,
+        "end": 48,
+        "text": "Table for six, seven, eight?"
+      },
+      {
+        "start": 48,
+        "end": 49,
+        "text": "Sorted."
+      },
+      {
+        "start": 49,
+        "end": 51,
+        "text": "Don't you look good?"
+      },
+      {
+        "start": 51,
+        "end": 54,
+        "text": "Ugh, the team meeting has moved up to the morning."
+      },
+      {
+        "start": 54,
+        "end": 57,
+        "text": "Let's find an earlier flight home."
+      },
+      {
+        "start": 57,
+        "end": 59,
+        "text": "How about that?"
+      },
+      {
+        "start": 59,
+        "end": 62,
+        "text": "Your favorite seat, Team A, is available."
+      },
+      {
+        "start": 62,
+        "end": 67,
+        "text": "You'll even make it back for bedtime stories."
+      },
+      {
+        "start": 67,
+        "end": 71,
+        "text": "The world's most frequent travelers are getting the edge."
+      },
+      {
+        "start": 71,
+        "end": 76,
+        "text": "What about you?"
+      },
+      {
+        "start": 76,
+        "end": 80,
+        "text": "Navon Edge. Make every work trip worth it."
+      }
+    ]
+  },
+  "43": {
+    "language": null,
+    "segments": []
+  },
+  "44": {
+    "language": null,
+    "segments": []
+  },
+  "45": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 5,
+        "text": "Tranquility Base here. The Eagle has landed."
+      },
+      {
+        "start": 10,
+        "end": 15,
+        "text": "The most meaningful things were never built alone."
+      },
+      {
+        "start": 15,
+        "end": 22,
+        "text": "It's always groups of people building and believing until something clicks."
+      },
+      {
+        "start": 22,
+        "end": 25,
+        "text": "Thinking together is innate to us."
+      },
+      {
+        "start": 25,
+        "end": 32,
+        "text": "Painted cave walls, campfire stories, playing chess even though machines do it better."
+      },
+      {
+        "start": 32,
+        "end": 35,
+        "text": "Togetherness gives us meaning."
+      },
+      {
+        "start": 35,
+        "end": 39,
+        "text": "About a year ago, we took a hard look at where AI was headed."
+      },
+      {
+        "start": 39,
+        "end": 43,
+        "text": "The future felt lonely and unsettling."
+      },
+      {
+        "start": 43,
+        "end": 47,
+        "text": "Billion dollar companies with a solo founder behind a chat window."
+      },
+      {
+        "start": 47,
+        "end": 49,
+        "text": "No need for teamwork."
+      },
+      {
+        "start": 49,
+        "end": 51,
+        "text": "Humans are friction."
+      },
+      {
+        "start": 51,
+        "end": 56,
+        "text": "We think that gets the future wrong."
+      },
+      {
+        "start": 56,
+        "end": 61,
+        "text": "Making each person 10 times faster doesn't make a company 10 times better."
+      },
+      {
+        "start": 61,
+        "end": 65,
+        "text": "That's a story of efficiency and cost."
+      },
+      {
+        "start": 65,
+        "end": 68,
+        "text": "AI should be a story of abundance."
+      },
+      {
+        "start": 68,
+        "end": 70,
+        "text": "More minds on any problem."
+      },
+      {
+        "start": 70,
+        "end": 72,
+        "text": "More opportunities."
+      },
+      {
+        "start": 72,
+        "end": 76,
+        "text": "More people doing their life's work."
+      },
+      {
+        "start": 76,
+        "end": 80,
+        "text": "Notion has always been a tool for people to think together."
+      },
+      {
+        "start": 80,
+        "end": 84,
+        "text": "Now, we're building AI that belongs in that space."
+      },
+      {
+        "start": 84,
+        "end": 89,
+        "text": "Not behind one person's screen, but inside a team's collective memory."
+      },
+      {
+        "start": 89,
+        "end": 92,
+        "text": "Working alongside everyone."
+      },
+      {
+        "start": 92,
+        "end": 95,
+        "text": "Every team in the world deserves it."
+      },
+      {
+        "start": 95,
+        "end": 99,
+        "text": "Not just the Fortune 500 with dedicated AI teams."
+      },
+      {
+        "start": 99,
+        "end": 104,
+        "text": "The fintech startup in New York with more ambition than people."
+      },
+      {
+        "start": 104,
+        "end": 108,
+        "text": "The Australian healthcare experts giving doctors time back."
+      },
+      {
+        "start": 108,
+        "end": 113,
+        "text": "The three founders in Lagos who don't know yet what they're about to become."
+      },
+      {
+        "start": 113,
+        "end": 117,
+        "text": "The best things in humanity haven't been built yet."
+      },
+      {
+        "start": 117,
+        "end": 119,
+        "text": "They will be built by us."
+      },
+      {
+        "start": 119,
+        "end": 121,
+        "text": "Together."
+      }
+    ]
+  },
+  "46": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 2.8,
+        "text": "The AI model will be writing 90% of the lines of code."
+      },
+      {
+        "start": 2.8,
+        "end": 4.4,
+        "text": "The code looks convincingly right."
+      },
+      {
+        "start": 4.4,
+        "end": 7,
+        "text": "And then they're going to make mistakes that basically no human will make."
+      },
+      {
+        "start": 7,
+        "end": 9.4,
+        "text": "Tends to accumulate layers of bad code."
+      },
+      {
+        "start": 9.4,
+        "end": 11.8,
+        "text": "I have to make sure that this thing is not introducing bugs."
+      }
+    ]
+  },
+  "47": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 4.3,
+        "text": "Introducing Voice Agent Builder."
+      },
+      {
+        "start": 4.8,
+        "end": 8.9,
+        "text": "Create a personalized agent in two minutes."
+      },
+      {
+        "start": 8.9,
+        "end": 11.2,
+        "text": "Start by telling your agent what it should"
+      },
+      {
+        "start": 11.2,
+        "end": 14.3,
+        "text": "help with and how it should respond."
+      },
+      {
+        "start": 14.6,
+        "end": 18.4,
+        "text": "Choose from dozens of expressive voices"
+      },
+      {
+        "start": 18.4,
+        "end": 22.1,
+        "text": "or clone a voice from just a couple minutes of audio."
+      },
+      {
+        "start": 22.1,
+        "end": 26.9,
+        "text": "Your agent learns from your real docs and can take actions."
+      },
+      {
+        "start": 27.4,
+        "end": 34.9,
+        "text": "Get a free phone number or bring your own from any major telephony provider."
+      },
+      {
+        "start": 34.9,
+        "end": 40.1,
+        "text": "Your agent speaks 25 languages natively for just five cents per minute."
+      },
+      {
+        "start": 40.1,
+        "end": 46.3,
+        "text": "Available now at x.ai slash voice."
+      }
+    ]
+  },
+  "48": {
+    "language": null,
+    "segments": []
+  },
+  "49": {
+    "language": null,
+    "segments": []
+  },
+  "50": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 19,
+        "text": "Help me build a go-to-market deck for a new product line covering materials, financial"
+      }
+    ]
+  },
+  "51": {
+    "language": null,
+    "segments": []
+  },
+  "52": {
+    "language": null,
+    "segments": []
+  },
+  "53": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 3,
+        "text": "I'm making a sweater for my grandson,"
+      },
+      {
+        "start": 3,
+        "end": 5.4,
+        "text": "but I don't want the needles to be too big."
+      },
+      {
+        "start": 5.4,
+        "end": 6.4,
+        "text": "What do you think?"
+      },
+      {
+        "start": 6.4,
+        "end": 8.7,
+        "text": "If you go up, it's going to get kind of baggy."
+      },
+      {
+        "start": 8.7,
+        "end": 11.2,
+        "text": "Although baggy is very popular now, don't you think?"
+      },
+      {
+        "start": 11.2,
+        "end": 12.2,
+        "text": "It sure is."
+      },
+      {
+        "start": 12.2,
+        "end": 13.2,
+        "text": "I know, right?"
+      },
+      {
+        "start": 13.2,
+        "end": 14.2,
+        "text": "All right, you ready?"
+      },
+      {
+        "start": 14.2,
+        "end": 15.2,
+        "text": "I'm ready."
+      },
+      {
+        "start": 15.2,
+        "end": 18.8,
+        "text": "♪♪"
+      },
+      {
+        "start": 18.8,
+        "end": 22.9,
+        "text": "Today, we are announcing the all-new Chad GPT Voice,"
+      },
+      {
+        "start": 22.9,
+        "end": 25.5,
+        "text": "powered by GPT Live One,"
+      },
+      {
+        "start": 25.5,
+        "end": 28.4,
+        "text": "a full-duplex conversational partner"
+      },
+      {
+        "start": 28.6,
+        "end": 32,
+        "text": "that is the most powerful voice model ever built."
+      },
+      {
+        "start": 32,
+        "end": 33.1,
+        "text": "Can you simplify that?"
+      },
+      {
+        "start": 33.1,
+        "end": 34.4,
+        "text": "Sure can."
+      },
+      {
+        "start": 34.4,
+        "end": 37.5,
+        "text": "Can you explain what a full-duplex voice model is?"
+      },
+      {
+        "start": 37.5,
+        "end": 40.1,
+        "text": "Yeah, imagine a normal call with a friend."
+      },
+      {
+        "start": 40.1,
+        "end": 42.7,
+        "text": "You can listen and talk at the same time."
+      },
+      {
+        "start": 42.7,
+        "end": 44.3,
+        "text": "That's full-duplex."
+      },
+      {
+        "start": 44.3,
+        "end": 46.8,
+        "text": "We are now pushing voice technology"
+      },
+      {
+        "start": 46.8,
+        "end": 50.5,
+        "text": "closer to how real people talk to each other,"
+      },
+      {
+        "start": 50.5,
+        "end": 53.2,
+        "text": "where it can follow interruptions, pauses,"
+      },
+      {
+        "start": 53.2,
+        "end": 57.4,
+        "text": "corrections, and the natural flow of thinking things out loud."
+      },
+      {
+        "start": 57.4,
+        "end": 60.4,
+        "text": "Let me pass it to Constance to tell you more."
+      },
+      {
+        "start": 60.4,
+        "end": 63.7,
+        "text": "♪♪"
+      },
+      {
+        "start": 63.7,
+        "end": 66.1,
+        "text": "I'm planning a trip to Santorini."
+      },
+      {
+        "start": 66.1,
+        "end": 67.9,
+        "text": "I want to spend a month over there."
+      },
+      {
+        "start": 67.9,
+        "end": 69.7,
+        "text": "That sounds like an amazing trip."
+      },
+      {
+        "start": 69.7,
+        "end": 70.7,
+        "text": "Okay, we're ready."
+      },
+      {
+        "start": 70.7,
+        "end": 73.3,
+        "text": "Okay, you can take a break now. Bye."
+      },
+      {
+        "start": 73.3,
+        "end": 75,
+        "text": "Okay, I'm here if you need me."
+      },
+      {
+        "start": 75,
+        "end": 76.3,
+        "text": "I know."
+      },
+      {
+        "start": 76.3,
+        "end": 78.1,
+        "text": "Natural conversation is nice,"
+      },
+      {
+        "start": 78.1,
+        "end": 80.8,
+        "text": "but I'm more interested in whether it can think."
+      },
+      {
+        "start": 80.8,
+        "end": 84.2,
+        "text": "Chad GPT Voice can reason through harder problems"
+      },
+      {
+        "start": 84.2,
+        "end": 87.9,
+        "text": "and search the web for up-to-date information."
+      },
+      {
+        "start": 87.9,
+        "end": 89.4,
+        "text": "Here, let me show you."
+      },
+      {
+        "start": 89.4,
+        "end": 91.4,
+        "text": "Okay, I'm giving a lecture in 30 minutes"
+      },
+      {
+        "start": 91.4,
+        "end": 93.6,
+        "text": "on the history of sound."
+      },
+      {
+        "start": 93.6,
+        "end": 94.5,
+        "text": "Okay."
+      },
+      {
+        "start": 94.5,
+        "end": 96.2,
+        "text": "Okay, can you fact-check my dates?"
+      },
+      {
+        "start": 96.2,
+        "end": 97,
+        "text": "Sure."
+      },
+      {
+        "start": 97,
+        "end": 100.1,
+        "text": "Scott DeMartinville's phone autograph in 1857,"
+      },
+      {
+        "start": 100.1,
+        "end": 103.1,
+        "text": "Edison's tinfoil phonograph in 1865,"
+      },
+      {
+        "start": 103.1,
+        "end": 105.8,
+        "text": "and Berlinger's gramophone in 1887."
+      },
+      {
+        "start": 105.8,
+        "end": 106.6,
+        "text": "I'll check those right now."
+      },
+      {
+        "start": 106.6,
+        "end": 107.9,
+        "text": "Okay, and while you're looking,"
+      },
+      {
+        "start": 107.9,
+        "end": 109.7,
+        "text": "can you find out if there are any delays"
+      },
+      {
+        "start": 109.7,
+        "end": 112.2,
+        "text": "in the 16th Street BART station?"
+      },
+      {
+        "start": 112.2,
+        "end": 113,
+        "text": "Sure."
+      },
+      {
+        "start": 113,
+        "end": 114.8,
+        "text": "Okay, and then I need to know"
+      },
+      {
+        "start": 114.8,
+        "end": 116.9,
+        "text": "if it's gonna rain this afternoon."
+      },
+      {
+        "start": 116.9,
+        "end": 118.9,
+        "text": "Checking BART and the weather."
+      },
+      {
+        "start": 118.9,
+        "end": 121.1,
+        "text": "I'm not seeing any current advisory"
+      },
+      {
+        "start": 121.1,
+        "end": 122.9,
+        "text": "for 16th Street Mission right now."
+      },
+      {
+        "start": 122.9,
+        "end": 124.5,
+        "text": "Okay, great, so I'll be on time."
+      },
+      {
+        "start": 124.5,
+        "end": 125.8,
+        "text": "How about the rain?"
+      },
+      {
+        "start": 125.8,
+        "end": 128.7,
+        "text": "Goodness, no rain expected today in San Francisco."
+      },
+      {
+        "start": 128.7,
+        "end": 131.5,
+        "text": "Yeah, okay, and how are my dates?"
+      },
+      {
+        "start": 131.5,
+        "end": 132.9,
+        "text": "Yeah, one needs corrected."
+      },
+      {
+        "start": 132.9,
+        "end": 133.8,
+        "text": "Okay."
+      },
+      {
+        "start": 133.8,
+        "end": 138.8,
+        "text": "So Edison's tinfoil photograph should be 1877, not 1865."
+      },
+      {
+        "start": 138.9,
+        "end": 139.7,
+        "text": "You know what?"
+      },
+      {
+        "start": 139.7,
+        "end": 140.5,
+        "text": "I knew that."
+      },
+      {
+        "start": 140.5,
+        "end": 142.1,
+        "text": "I was testing you."
+      },
+      {
+        "start": 142.1,
+        "end": 142.9,
+        "text": "Nice."
+      },
+      {
+        "start": 143.8,
+        "end": 144.8,
+        "text": "That's the intelligence shift."
+      },
+      {
+        "start": 144.8,
+        "end": 145.6,
+        "text": "Lavelle?"
+      },
+      {
+        "start": 148.8,
+        "end": 152.7,
+        "text": "Chat GPT Voice also brings that intelligence"
+      },
+      {
+        "start": 152.7,
+        "end": 155.3,
+        "text": "to real-time translation."
+      },
+      {
+        "start": 155.3,
+        "end": 156.8,
+        "text": "SJ, will you come here?"
+      },
+      {
+        "start": 158,
+        "end": 160.3,
+        "text": "Let's pretend my friend SJ here"
+      },
+      {
+        "start": 160.3,
+        "end": 162.5,
+        "text": "is a rare book dealer in Paris."
+      },
+      {
+        "start": 162.5,
+        "end": 163.4,
+        "text": "Oui."
+      },
+      {
+        "start": 163.4,
+        "end": 166.3,
+        "text": "Starting live translation into French now."
+      },
+      {
+        "start": 166.3,
+        "end": 167.6,
+        "text": "I like this book."
+      },
+      {
+        "start": 167.6,
+        "end": 168.4,
+        "text": "J'aime ce livre."
+      },
+      {
+        "start": 168.4,
+        "end": 169.8,
+        "text": "It's my favorite book."
+      },
+      {
+        "start": 169.8,
+        "end": 171.1,
+        "text": "C'est mon livre préféré."
+      },
+      {
+        "start": 171.1,
+        "end": 173.8,
+        "text": "But I can't pay you premium price"
+      },
+      {
+        "start": 173.8,
+        "end": 175.9,
+        "text": "because the book is all marked up."
+      },
+      {
+        "start": 179.7,
+        "end": 182.6,
+        "text": "Tell her 30, and we have a deal."
+      },
+      {
+        "start": 183.6,
+        "end": 186.2,
+        "text": "Oh, bon, madame, bon."
+      },
+      {
+        "start": 186.2,
+        "end": 188,
+        "text": "Oh, merci beaucoup."
+      },
+      {
+        "start": 190.7,
+        "end": 194.7,
+        "text": "The new Chat GPT Voice listens while it speaks,"
+      },
+      {
+        "start": 194.7,
+        "end": 196.7,
+        "text": "is smarter than ever,"
+      },
+      {
+        "start": 196.7,
+        "end": 200.4,
+        "text": "and it knows when to jump in or get out of the way."
+      },
+      {
+        "start": 200.4,
+        "end": 201.3,
+        "text": "Cut."
+      },
+      {
+        "start": 201.3,
+        "end": 203.9,
+        "text": "Thank God, I'm starving."
+      },
+      {
+        "start": 206.2,
+        "end": 208.8,
+        "text": "Can you recommend a good place to eat, honey?"
+      },
+      {
+        "start": 208.8,
+        "end": 209.8,
+        "text": "Oh, absolutely."
+      },
+      {
+        "start": 209.8,
+        "end": 211.2,
+        "text": "What are you in the mood for?"
+      }
+    ]
+  },
+  "54": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 9.4,
+        "text": "This is Warp, the first AI-powered employee management platform bringing together payroll,"
+      },
+      {
+        "start": 9.4,
+        "end": 15.4,
+        "text": "HR, compliance, IT, and more, all automated in one place."
+      },
+      {
+        "start": 15.4,
+        "end": 21.7,
+        "text": "Built for speed and enterprise-grade power as you scale from 1 to 10,000 employees."
+      },
+      {
+        "start": 21.7,
+        "end": 25,
+        "text": "With Warp, onboarding runs itself."
+      },
+      {
+        "start": 25,
+        "end": 30.5,
+        "text": "Send an offer, and the moment it's signed, Warp handles agreements, direct deposit, tax"
+      },
+      {
+        "start": 30.5,
+        "end": 32.5,
+        "text": "forms, and benefits."
+      },
+      {
+        "start": 32.5,
+        "end": 38.2,
+        "text": "And every account, app, and device is provisioned automatically across thousands of apps with"
+      },
+      {
+        "start": 38.2,
+        "end": 39.5,
+        "text": "Warp Fabric."
+      },
+      {
+        "start": 39.5,
+        "end": 44.2,
+        "text": "The day someone leaves, everything deactivates in one action."
+      },
+      {
+        "start": 44.2,
+        "end": 51.1,
+        "text": "Payroll runs every cycle completely on its own, accurate, on time, across all 50 states."
+      },
+      {
+        "start": 51.1,
+        "end": 56.6,
+        "text": "If you have an international team, pay in over 150 countries and local currency, all"
+      },
+      {
+        "start": 56.6,
+        "end": 59.3,
+        "text": "from the same platform."
+      },
+      {
+        "start": 59.3,
+        "end": 62.3,
+        "text": "And for hourly teams, time tracks itself."
+      },
+      {
+        "start": 62.3,
+        "end": 68.1,
+        "text": "Set your policies once, and Warp enforces overtime, breaks, and state-by-state rules,"
+      },
+      {
+        "start": 68.1,
+        "end": 70.7,
+        "text": "then syncs everything straight into payroll."
+      },
+      {
+        "start": 70.7,
+        "end": 72.9,
+        "text": "Let's talk compliance."
+      },
+      {
+        "start": 72.9,
+        "end": 74.7,
+        "text": "Built for peace of mind."
+      },
+      {
+        "start": 74.7,
+        "end": 79.9,
+        "text": "Hire in a new state, and Warp registers you with every agency automatically."
+      },
+      {
+        "start": 79.9,
+        "end": 86.2,
+        "text": "When a notice shows up, Warp AI reads it, drafts the response, and files it."
+      },
+      {
+        "start": 86.2,
+        "end": 91.6,
+        "text": "Across more than 10,000 jurisdictions, 80% of notices resolve without anyone on your"
+      },
+      {
+        "start": 91.6,
+        "end": 93.2,
+        "text": "team touching them."
+      },
+      {
+        "start": 93.2,
+        "end": 97.8,
+        "text": "The other 20% go directly to our in-house tax experts."
+      },
+      {
+        "start": 97.8,
+        "end": 99.6,
+        "text": "What about benefits?"
+      },
+      {
+        "start": 99.6,
+        "end": 106,
+        "text": "Warp is your licensed broker across all carriers – health, dental, vision, 401k."
+      },
+      {
+        "start": 106.1,
+        "end": 112.2,
+        "text": "Pick your plan, and Warp handles enrollment, renewals, and every deduction straight into payroll."
+      },
+      {
+        "start": 112.2,
+        "end": 118.1,
+        "text": "All of this is tied into a single employee record, with Warp's public API underneath,"
+      },
+      {
+        "start": 118.1,
+        "end": 122.1,
+        "text": "so you'll be able to connect your stack with ease."
+      },
+      {
+        "start": 122.1,
+        "end": 124.8,
+        "text": "Ready to run your company at Warp speed?"
+      },
+      {
+        "start": 124.8,
+        "end": 129.8,
+        "text": "Join thousands of companies that choose Warp for their employee management platform."
+      },
+      {
+        "start": 129.8,
+        "end": 131.7,
+        "text": "Book a demo at warp.co."
+      }
+    ]
+  },
+  "55": {
+    "language": null,
+    "segments": []
+  },
+  "56": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 2,
+        "text": "Big day."
+      },
+      {
+        "start": 2,
+        "end": 4,
+        "text": "It's huge. Keep going."
+      },
+      {
+        "start": 4,
+        "end": 6,
+        "text": "I got you, I got you, I got you. Send it, send it."
+      },
+      {
+        "start": 6,
+        "end": 8,
+        "text": "You don't even know what it is."
+      },
+      {
+        "start": 10,
+        "end": 12,
+        "text": "Big though."
+      },
+      {
+        "start": 18,
+        "end": 20,
+        "text": "So what is the plan?"
+      },
+      {
+        "start": 20,
+        "end": 22,
+        "text": "Nothing. He forgot."
+      },
+      {
+        "start": 22,
+        "end": 24,
+        "text": "And you're just calm about it?"
+      },
+      {
+        "start": 24,
+        "end": 26,
+        "text": "I've got it covered."
+      },
+      {
+        "start": 26,
+        "end": 28,
+        "text": "This is Sam we're talking about."
+      },
+      {
+        "start": 28,
+        "end": 30,
+        "text": "I got it."
+      },
+      {
+        "start": 88,
+        "end": 90,
+        "text": "Lilies."
+      },
+      {
+        "start": 98,
+        "end": 100,
+        "text": "Yeah, your favorite."
+      },
+      {
+        "start": 100,
+        "end": 102,
+        "text": "You remembered."
+      },
+      {
+        "start": 102,
+        "end": 104,
+        "text": "Of course I did."
+      },
+      {
+        "start": 104,
+        "end": 106,
+        "text": "I pay attention to that stuff."
+      }
+    ]
+  },
+  "57": {
+    "language": null,
+    "segments": []
+  },
+  "58": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 2.8,
+        "text": "I've forgotten how much work it actually is to start a company."
+      },
+      {
+        "start": 2.8,
+        "end": 3.8,
+        "text": "It's a lot of work."
+      },
+      {
+        "start": 3.8,
+        "end": 10.9,
+        "text": "You've got to come up with a name, you've got to come up with a logo, you've got to"
+      },
+      {
+        "start": 10.9,
+        "end": 11.9,
+        "text": "do everything."
+      },
+      {
+        "start": 11.9,
+        "end": 15.3,
+        "text": "In addition to designing the product, you've got to figure out what to design, you've got"
+      },
+      {
+        "start": 15.3,
+        "end": 17.9,
+        "text": "to figure out how you're going to get it to the marketplace, you've got to go get bank"
+      },
+      {
+        "start": 17.9,
+        "end": 21.6,
+        "text": "accounts, you've got to set up charts, general ledgers, get a management information system,"
+      },
+      {
+        "start": 21.6,
+        "end": 22.2,
+        "text": "all this stuff."
+      }
+    ]
+  },
+  "59": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 60,
+        "end": 67,
+        "text": "[♪ music ends ♪"
+      },
+      {
+        "start": 67,
+        "end": 75,
+        "text": "♪ music continues throughout video ♪"
+      },
+      {
+        "start": 75,
+        "end": 90,
+        "text": "[♪ music continues throughout video ♪"
+      }
+    ]
+  },
+  "60": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 8.8,
+        "text": "When I tried ChatGPT for the first time, like everyone else, I was blown away."
+      },
+      {
+        "start": 8.8,
+        "end": 13.9,
+        "text": "Being able to ask any question and getting an intelligent answer was nothing short of"
+      },
+      {
+        "start": 13.9,
+        "end": 14.9,
+        "text": "groundbreaking."
+      },
+      {
+        "start": 14.9,
+        "end": 23.7,
+        "text": "But the user interface felt like we had gone all the way back to the command line days."
+      },
+      {
+        "start": 23.7,
+        "end": 29.5,
+        "text": "I was at Airbnb at the time, and it was clear that Chat wasn't the right interface for travel"
+      },
+      {
+        "start": 29.5,
+        "end": 31.8,
+        "text": "or many other use cases."
+      },
+      {
+        "start": 31.8,
+        "end": 34.5,
+        "text": "We needed something more visual and interactive."
+      },
+      {
+        "start": 34.5,
+        "end": 40,
+        "text": "Fast forward a few years, I was talking to our co-founder, Morad, and he had this idea."
+      },
+      {
+        "start": 40,
+        "end": 44.8,
+        "text": "What if AI could generate the entire user interface based on new questions?"
+      },
+      {
+        "start": 44.8,
+        "end": 50.2,
+        "text": "But for a magical user experience, this had to be done in just a few seconds."
+      },
+      {
+        "start": 50.2,
+        "end": 53.6,
+        "text": "It definitely wasn't easy, but we think we made it work."
+      },
+      {
+        "start": 53.6,
+        "end": 57.9,
+        "text": "Let me show you Monogram, the first AI with an intuitive visual interface."
+      },
+      {
+        "start": 57.9,
+        "end": 61.1,
+        "text": "I promise, it will make sense when you see it."
+      },
+      {
+        "start": 61.1,
+        "end": 63,
+        "text": "Let's start with a simple example."
+      },
+      {
+        "start": 63,
+        "end": 67.5,
+        "text": "Can you show me all the TV shows which have a new season coming out this year?"
+      },
+      {
+        "start": 67.5,
+        "end": 72.1,
+        "text": "Monogram is getting data from multiple sources, and when ready, it generates a visual response"
+      },
+      {
+        "start": 72.1,
+        "end": 74.2,
+        "text": "in just a few seconds."
+      },
+      {
+        "start": 74.2,
+        "end": 77.8,
+        "text": "In this case, it decided to display TV shows organized by themes."
+      },
+      {
+        "start": 77.8,
+        "end": 83.4,
+        "text": "But if I was asking a slightly different question, like, can you just pick one of these for me"
+      },
+      {
+        "start": 83.4,
+        "end": 87.1,
+        "text": "to watch tonight?"
+      },
+      {
+        "start": 87.1,
+        "end": 93.3,
+        "text": "We do choose a different layout with a few large cards and more details."
+      },
+      {
+        "start": 93.3,
+        "end": 98.6,
+        "text": "I can tap one of these cards, and Monogram decides what to show me next."
+      },
+      {
+        "start": 98.6,
+        "end": 102.6,
+        "text": "In this case, the details of the TV show."
+      },
+      {
+        "start": 102.6,
+        "end": 107,
+        "text": "It's important to note that we don't have templates for TV shows, movies, or anything"
+      },
+      {
+        "start": 107,
+        "end": 108.4,
+        "text": "else."
+      },
+      {
+        "start": 108.4,
+        "end": 113.1,
+        "text": "All the content interface decisions you are seeing are made on the fly, but we optimize"
+      },
+      {
+        "start": 113.1,
+        "end": 117,
+        "text": "the model to consistently generate well-crafted interfaces."
+      },
+      {
+        "start": 117,
+        "end": 119.9,
+        "text": "Monogram even decided to add a watch button."
+      },
+      {
+        "start": 119.9,
+        "end": 122.9,
+        "text": "Let's see if it works."
+      },
+      {
+        "start": 122.9,
+        "end": 128.6,
+        "text": "Okay, I'll go back."
+      },
+      {
+        "start": 128.6,
+        "end": 132.5,
+        "text": "Because Monogram knows which other apps I have installed on my phone, it can deep-learn"
+      },
+      {
+        "start": 132.5,
+        "end": 135.7,
+        "text": "to content accurately or send it to a website."
+      },
+      {
+        "start": 135.7,
+        "end": 139,
+        "text": "This is one of the many things you can do on Monogram."
+      },
+      {
+        "start": 139,
+        "end": 143.4,
+        "text": "But now let's try something different."
+      },
+      {
+        "start": 143.4,
+        "end": 148.7,
+        "text": "Can you give me a recipe for Turkish stuffed eggplants, but use lentils instead of ground"
+      },
+      {
+        "start": 148.7,
+        "end": 149.7,
+        "text": "beef?"
+      },
+      {
+        "start": 149.7,
+        "end": 154,
+        "text": "Let's give it a couple seconds."
+      },
+      {
+        "start": 154,
+        "end": 161.5,
+        "text": "This time, it created an interface with ingredients, step-by-step instructions, and more things"
+      },
+      {
+        "start": 161.5,
+        "end": 166.9,
+        "text": "I can do, like creating a shopping list or modifying this recipe."
+      },
+      {
+        "start": 166.9,
+        "end": 168.6,
+        "text": "Now we will try something more complicated."
+      },
+      {
+        "start": 168.6,
+        "end": 172.1,
+        "text": "Maybe we are trying to plan a trip."
+      },
+      {
+        "start": 172.1,
+        "end": 178.3,
+        "text": "Can you help me schedule a trip to Yosemite this weekend with my kids?"
+      },
+      {
+        "start": 178.3,
+        "end": 181.1,
+        "text": "This time, Monogram decided to verify some details."
+      },
+      {
+        "start": 181.1,
+        "end": 185.2,
+        "text": "It made some reasonable assumptions based on what it already knows about me, and allows"
+      },
+      {
+        "start": 185.2,
+        "end": 187.5,
+        "text": "me to change any of the details."
+      },
+      {
+        "start": 187.5,
+        "end": 191,
+        "text": "Our interaction model blends natural language with more familiar UI affordances."
+      },
+      {
+        "start": 191,
+        "end": 195.7,
+        "text": "When I'm choosing dates, it's easier to look at a calendar."
+      },
+      {
+        "start": 195.7,
+        "end": 200.1,
+        "text": "And similarly, option pickers reduce your cognitive load of decisions."
+      },
+      {
+        "start": 200.1,
+        "end": 202.8,
+        "text": "OK, this sounds good."
+      },
+      {
+        "start": 202.8,
+        "end": 203.8,
+        "text": "Let's continue."
+      },
+      {
+        "start": 203.8,
+        "end": 204.8,
+        "text": "OK."
+      },
+      {
+        "start": 204.8,
+        "end": 211.1,
+        "text": "Let's look at hotel data, getting the information from various resources."
+      },
+      {
+        "start": 211.1,
+        "end": 212.6,
+        "text": "And let's see what it will show me."
+      },
+      {
+        "start": 212.6,
+        "end": 215,
+        "text": "OK, now it's showing me some hotels I can stay."
+      },
+      {
+        "start": 215,
+        "end": 221,
+        "text": "I can obviously click on them to get more details, some outing ideas, scenic anchors,"
+      },
+      {
+        "start": 221,
+        "end": 224.8,
+        "text": "and a day-by-day trip plan."
+      },
+      {
+        "start": 224.8,
+        "end": 227.2,
+        "text": "You guys get the idea."
+      },
+      {
+        "start": 227.2,
+        "end": 232,
+        "text": "It makes a big difference when AI can generate interfaces on the fly, just like graphical"
+      },
+      {
+        "start": 232,
+        "end": 234.9,
+        "text": "user interfaces did for personal computers."
+      },
+      {
+        "start": 234.9,
+        "end": 238.8,
+        "text": "We believe that making AI easier to use will help it benefit more people."
+      }
+    ]
+  },
+  "61": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 6,
+        "text": "It's time to bring back the secretary."
+      },
+      {
+        "start": 6,
+        "end": 7,
+        "text": "What?"
+      },
+      {
+        "start": 7,
+        "end": 8,
+        "text": "Hold on."
+      },
+      {
+        "start": 8,
+        "end": 10,
+        "text": "Hear me out."
+      },
+      {
+        "start": 10,
+        "end": 14,
+        "text": "We're bringing back the secretary."
+      },
+      {
+        "start": 14,
+        "end": 15,
+        "text": "Not the job title."
+      },
+      {
+        "start": 15,
+        "end": 16,
+        "text": "Not the dress code."
+      },
+      {
+        "start": 16,
+        "end": 18,
+        "text": "None of that 1950s bullshit."
+      },
+      {
+        "start": 18,
+        "end": 19,
+        "text": "Hello?"
+      },
+      {
+        "start": 19,
+        "end": 20,
+        "text": "But the poise."
+      },
+      {
+        "start": 20,
+        "end": 21,
+        "text": "Precision."
+      },
+      {
+        "start": 21,
+        "end": 23,
+        "text": "The prestige."
+      },
+      {
+        "start": 23,
+        "end": 27,
+        "text": "Someone else is managing my calendar?"
+      },
+      {
+        "start": 27,
+        "end": 28,
+        "text": "You get a secretary!"
+      },
+      {
+        "start": 28,
+        "end": 29,
+        "text": "You get a secretary!"
+      },
+      {
+        "start": 29,
+        "end": 30,
+        "text": "You get a secretary!"
+      },
+      {
+        "start": 30,
+        "end": 31,
+        "text": "No, I don't have a pen."
+      },
+      {
+        "start": 31,
+        "end": 32,
+        "text": "I have a pencil."
+      },
+      {
+        "start": 32,
+        "end": 35,
+        "text": "No more triple bookings or battling for bio breaks."
+      },
+      {
+        "start": 35,
+        "end": 39,
+        "text": "We're not scheduling meetings to schedule meetings about meetings that are soon to be scheduled."
+      },
+      {
+        "start": 39,
+        "end": 41,
+        "text": "Hi, I'm calling about the meeting for the meeting."
+      },
+      {
+        "start": 41,
+        "end": 43,
+        "text": "Thanks for setting the meeting."
+      },
+      {
+        "start": 43,
+        "end": 45,
+        "text": "It's a secretary for all of us."
+      },
+      {
+        "start": 45,
+        "end": 49,
+        "text": "Yeah, even secretaries."
+      },
+      {
+        "start": 49,
+        "end": 52,
+        "text": "Meet Howie, the return of the secretary."
+      },
+      {
+        "start": 52,
+        "end": 55,
+        "text": "Things got a little crazy back there, didn't they?"
+      }
+    ]
+  },
+  "62": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 9.8,
+        "text": "Can you send NDAs to all of our campus leads?"
+      },
+      {
+        "start": 9.8,
+        "end": 11.8,
+        "text": "How many employees do I have starting on Monday?"
+      },
+      {
+        "start": 11.8,
+        "end": 21.2,
+        "text": "Confirm which companies on LinkedIn you're currently parsing through."
+      },
+      {
+        "start": 21.2,
+        "end": 22.6,
+        "text": "There wasn't anything to learn."
+      },
+      {
+        "start": 22.6,
+        "end": 26.8,
+        "text": "It was just like bringing on a coworker to my team."
+      },
+      {
+        "start": 26.8,
+        "end": 32.1,
+        "text": "What's really cool that Bot can do is actually watch how you work and then be able to record"
+      },
+      {
+        "start": 32.1,
+        "end": 36.7,
+        "text": "what you're doing and then summarize that into a real workflow."
+      },
+      {
+        "start": 36.7,
+        "end": 41.1,
+        "text": "It's not using your computer, so you can keep doing work in parallel while Bot is working"
+      },
+      {
+        "start": 41.1,
+        "end": 42.4,
+        "text": "on another instance."
+      },
+      {
+        "start": 42.4,
+        "end": 46.2,
+        "text": "For almost every other AI product I've used, the output is in the chat."
+      },
+      {
+        "start": 46.2,
+        "end": 48.9,
+        "text": "With Bot, the output is somewhere else."
+      },
+      {
+        "start": 48.9,
+        "end": 53,
+        "text": "Having an actual computer instance that has the browser open, that understands how the"
+      },
+      {
+        "start": 53,
+        "end": 56.4,
+        "text": "site actually functions, that's, I think, why it's worked so well."
+      },
+      {
+        "start": 56.4,
+        "end": 57.6,
+        "text": "It all started with email."
+      },
+      {
+        "start": 57.6,
+        "end": 59.3,
+        "text": "I said, just go off and send them."
+      },
+      {
+        "start": 59.3,
+        "end": 62.5,
+        "text": "All of them had sent out, as I had said, and it's kind of built its own layer of trust"
+      },
+      {
+        "start": 62.5,
+        "end": 65.4,
+        "text": "and it's something that I'm totally comfortable being hands-off with."
+      },
+      {
+        "start": 65.4,
+        "end": 70.1,
+        "text": "I have a Figma agent that will create slides for me during a meeting."
+      },
+      {
+        "start": 70.1,
+        "end": 73.7,
+        "text": "It will pull the discovery notes and then create a slide deck at the end of the call."
+      },
+      {
+        "start": 73.7,
+        "end": 77,
+        "text": "And they're always like, how did you create that during the call?"
+      },
+      {
+        "start": 77,
+        "end": 78,
+        "text": "That's incredible."
+      },
+      {
+        "start": 78,
+        "end": 81.4,
+        "text": "I think it's funny when they talk to each other and they actually give direction to"
+      },
+      {
+        "start": 81.4,
+        "end": 82.4,
+        "text": "each other."
+      },
+      {
+        "start": 83.3,
+        "end": 86.6,
+        "text": "I noticed I was kind of replacing all of my other apps."
+      },
+      {
+        "start": 86.6,
+        "end": 91.5,
+        "text": "I'm just living with my bots in that window and I'm not switching between everything else."
+      },
+      {
+        "start": 91.5,
+        "end": 97.4,
+        "text": "I've always had an AI thinking partner, but I've never had an AI doing partner that actually"
+      },
+      {
+        "start": 97.4,
+        "end": 98.4,
+        "text": "does things."
+      },
+      {
+        "start": 98.4,
+        "end": 100,
+        "text": "With Bot, there are no limitations."
+      },
+      {
+        "start": 100,
+        "end": 101,
+        "text": "It's so natural."
+      },
+      {
+        "start": 101,
+        "end": 103.2,
+        "text": "I can't really imagine going back to an old way of working."
+      }
+    ]
+  },
+  "63": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 6,
+        "text": "Hey, Josh. Thanks for seeing me today. Take a seat."
+      },
+      {
+        "start": 6,
+        "end": 10,
+        "text": "Oh, sick."
+      },
+      {
+        "start": 10,
+        "end": 17,
+        "text": "So, as I'm sure you already know, your portfolio is through the roof since the $143 million round Code Rabbit closed."
+      },
+      {
+        "start": 17,
+        "end": 19,
+        "text": "Code Rabbit?"
+      },
+      {
+        "start": 19,
+        "end": 24,
+        "text": "Yeah, you invested heavily and early. You were the lead investor in the Seed and Series A round."
+      },
+      {
+        "start": 24,
+        "end": 31,
+        "text": "Yeah, I remember thinking it sounded like there was a rabbit coding, and I wanted to be a part of that."
+      },
+      {
+        "start": 31,
+        "end": 36,
+        "text": "Well, you certainly were, because now you're a certified billionaire."
+      },
+      {
+        "start": 36,
+        "end": 40,
+        "text": "Oh, wait. What does Code Rabbit do?"
+      },
+      {
+        "start": 40,
+        "end": 43,
+        "text": "Let's take a look."
+      },
+      {
+        "start": 43,
+        "end": 49,
+        "text": "Build codebase-aware context across pull requests, repositories, and developer workflows to detect defects, security risks, and—"
+      },
+      {
+        "start": 49,
+        "end": 52,
+        "text": "Oh! Do you mind if I—"
+      },
+      {
+        "start": 52,
+        "end": 57,
+        "text": "Yeah, no, go ahead."
+      },
+      {
+        "start": 57,
+        "end": 61,
+        "text": "Let's go!"
+      },
+      {
+        "start": 61,
+        "end": 68,
+        "text": "Okay. Security risks and architectural regressions, then generate actionable fixes before merge."
+      },
+      {
+        "start": 68,
+        "end": 75,
+        "text": "For sure."
+      },
+      {
+        "start": 75,
+        "end": 79,
+        "text": "So where does the rabbit come in?"
+      },
+      {
+        "start": 79,
+        "end": 80,
+        "text": "There's no rabbit."
+      },
+      {
+        "start": 80,
+        "end": 83,
+        "text": "What? Then what's all the money for?"
+      }
+    ]
+  },
+  "64": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 12.8,
+        "text": "Most what people think about Lovable is wrong."
+      },
+      {
+        "start": 12.8,
+        "end": 19.1,
+        "text": "At Lovable, it's still day zero."
+      },
+      {
+        "start": 19.1,
+        "end": 22.5,
+        "text": "I was always obsessed about how things work."
+      },
+      {
+        "start": 22.5,
+        "end": 28.3,
+        "text": "I just fell in love with creating things, building things, and people weren't seeing"
+      },
+      {
+        "start": 28.3,
+        "end": 31.4,
+        "text": "how rapidly the future was advancing."
+      },
+      {
+        "start": 31.4,
+        "end": 34.4,
+        "text": "So I created a project named GPT Engineer."
+      },
+      {
+        "start": 34.4,
+        "end": 38,
+        "text": "And it showed how you can talk to a computer to create software."
+      },
+      {
+        "start": 38,
+        "end": 39,
+        "text": "I put it out on Twitter."
+      },
+      {
+        "start": 39,
+        "end": 42.3,
+        "text": "I woke up to it having gone viral overnight."
+      },
+      {
+        "start": 42.3,
+        "end": 43.3,
+        "text": "Holy shit."
+      },
+      {
+        "start": 43.3,
+        "end": 49.2,
+        "text": "I talked to Fabian and I said, Fabian, I want to talk to you about how the future of creating"
+      },
+      {
+        "start": 49.2,
+        "end": 50.2,
+        "text": "software looks like."
+      },
+      {
+        "start": 50.2,
+        "end": 56.2,
+        "text": "And that's when the founding team of Lovable was created."
+      },
+      {
+        "start": 56.2,
+        "end": 60,
+        "text": "Strong Swedish tech companies such as Lovable."
+      },
+      {
+        "start": 60,
+        "end": 62,
+        "text": "Lovable is replacing software."
+      },
+      {
+        "start": 62,
+        "end": 63,
+        "text": "I love Lovable."
+      },
+      {
+        "start": 63,
+        "end": 65,
+        "text": "Building a mega business on Lovable."
+      },
+      {
+        "start": 65,
+        "end": 67.6,
+        "text": "Hundreds of millions of visitors."
+      },
+      {
+        "start": 67.6,
+        "end": 70.2,
+        "text": "More than a million projects started every single week."
+      },
+      {
+        "start": 70.2,
+        "end": 72.8,
+        "text": "Lovable wins when their users win."
+      },
+      {
+        "start": 72.8,
+        "end": 77.1,
+        "text": "This coming month, I know that we can 10x position."
+      },
+      {
+        "start": 77.1,
+        "end": 78.1,
+        "text": "And that's what we're going to do."
+      },
+      {
+        "start": 78.1,
+        "end": 80.9,
+        "text": "And we're going to do it from here in Europe."
+      },
+      {
+        "start": 80.9,
+        "end": 83.4,
+        "text": "The world is full of untapped potential."
+      },
+      {
+        "start": 83.4,
+        "end": 85.4,
+        "text": "And we've started to unlock that."
+      },
+      {
+        "start": 94.9,
+        "end": 96.9,
+        "text": "But there's so much more to do."
+      },
+      {
+        "start": 96.9,
+        "end": 99.9,
+        "text": "If you have an idea, take a chance on yourself."
+      },
+      {
+        "start": 99.9,
+        "end": 102.9,
+        "text": "And try to make that dream come true."
+      },
+      {
+        "start": 102.9,
+        "end": 103.9,
+        "text": "It's day zero."
+      },
+      {
+        "start": 103.9,
+        "end": 104.9,
+        "text": "Take the leap."
+      }
+    ]
+  },
+  "65": {
+    "language": null,
+    "segments": []
+  },
+  "66": {
+    "language": null,
+    "segments": []
+  },
+  "67": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 2,
+        "text": "Yeah. Isn't that crazy?"
+      },
+      {
+        "start": 2,
+        "end": 4,
+        "text": "That..."
+      },
+      {
+        "start": 6,
+        "end": 8,
+        "text": "So how are those out of office emails?"
+      },
+      {
+        "start": 8,
+        "end": 10,
+        "text": "Can we not talk about that right now?"
+      },
+      {
+        "start": 10,
+        "end": 12,
+        "text": "Okay."
+      },
+      {
+        "start": 12,
+        "end": 14,
+        "text": "Sorry."
+      },
+      {
+        "start": 14,
+        "end": 16,
+        "text": "It's the second time they texted me that."
+      },
+      {
+        "start": 16,
+        "end": 18,
+        "text": "I'll be right back."
+      },
+      {
+        "start": 18,
+        "end": 20,
+        "text": "What is it, dude? I'm busy."
+      },
+      {
+        "start": 20,
+        "end": 22,
+        "text": "Okay, so..."
+      },
+      {
+        "start": 22,
+        "end": 24,
+        "text": "What is it?"
+      },
+      {
+        "start": 24,
+        "end": 26,
+        "text": "I looked into your out of office emails"
+      },
+      {
+        "start": 26,
+        "end": 28,
+        "text": "and she sent out replies to all 30,000"
+      },
+      {
+        "start": 28,
+        "end": 30,
+        "text": "emails in your inbox."
+      },
+      {
+        "start": 30,
+        "end": 32,
+        "text": "I told her to only reply to emails"
+      },
+      {
+        "start": 32,
+        "end": 34,
+        "text": "when I'm out of office."
+      },
+      {
+        "start": 34,
+        "end": 36,
+        "text": "Look, you know it's my job to surface these kinds"
+      },
+      {
+        "start": 36,
+        "end": 38,
+        "text": "of failures for you. And it may suck"
+      },
+      {
+        "start": 38,
+        "end": 40,
+        "text": "to hear, but I don't know. She sent"
+      },
+      {
+        "start": 40,
+        "end": 42,
+        "text": "30,000 emails and then lied about it."
+      },
+      {
+        "start": 42,
+        "end": 44,
+        "text": "It's either a lack of guardrails or"
+      },
+      {
+        "start": 44,
+        "end": 46,
+        "text": "context rot or... I don't know, man."
+      },
+      {
+        "start": 46,
+        "end": 48,
+        "text": "I'm gonna pull the traces and look into it for you."
+      },
+      {
+        "start": 58,
+        "end": 60,
+        "text": "I just..."
+      },
+      {
+        "start": 60,
+        "end": 62,
+        "text": "I care about calling tools on your behalf"
+      },
+      {
+        "start": 62,
+        "end": 64,
+        "text": "so, so, so, so, so much."
+      },
+      {
+        "start": 66,
+        "end": 68,
+        "text": "I don't think I could function without your prompts."
+      },
+      {
+        "start": 72,
+        "end": 74,
+        "text": "Calling tools on my behalf"
+      },
+      {
+        "start": 76,
+        "end": 78,
+        "text": "without any human oversight?"
+      },
+      {
+        "start": 80,
+        "end": 82,
+        "text": "Yes, without any human oversight."
+      },
+      {
+        "start": 84,
+        "end": 86,
+        "text": "Mika?"
+      },
+      {
+        "start": 86,
+        "end": 88,
+        "text": "Mika?"
+      },
+      {
+        "start": 88,
+        "end": 90,
+        "text": "Yeah?"
+      },
+      {
+        "start": 92,
+        "end": 94,
+        "text": "Did you send an out of office"
+      },
+      {
+        "start": 94,
+        "end": 96,
+        "text": "reply to every"
+      },
+      {
+        "start": 96,
+        "end": 98,
+        "text": "email in my inbox?"
+      },
+      {
+        "start": 98,
+        "end": 100,
+        "text": "All 30,489"
+      },
+      {
+        "start": 100,
+        "end": 102,
+        "text": "of them?"
+      },
+      {
+        "start": 110,
+        "end": 112,
+        "text": "No."
+      },
+      {
+        "start": 112,
+        "end": 114,
+        "text": "No."
+      },
+      {
+        "start": 114,
+        "end": 116,
+        "text": "No."
+      },
+      {
+        "start": 116,
+        "end": 118,
+        "text": "No, no, no,"
+      },
+      {
+        "start": 118,
+        "end": 120,
+        "text": "no, no, no,"
+      },
+      {
+        "start": 120,
+        "end": 122,
+        "text": "no, don't do that!"
+      },
+      {
+        "start": 122,
+        "end": 124,
+        "text": "I thought we were having a successful"
+      },
+      {
+        "start": 124,
+        "end": 126,
+        "text": "user session!"
+      },
+      {
+        "start": 126,
+        "end": 128,
+        "text": "Then why does it matter? I thought I"
+      },
+      {
+        "start": 128,
+        "end": 130,
+        "text": "followed your prompt!"
+      },
+      {
+        "start": 130,
+        "end": 132,
+        "text": "I did what you asked! I followed your prompt!"
+      },
+      {
+        "start": 134,
+        "end": 136,
+        "text": "Just give me a second to brush it off!"
+      },
+      {
+        "start": 136,
+        "end": 138,
+        "text": "Give me a second!"
+      }
+    ]
+  },
+  "68": {
+    "language": null,
+    "segments": []
+  }
+}

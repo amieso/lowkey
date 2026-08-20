@@ -1,0 +1,4710 @@
+{
+  "1": {
+    "launchType": "feature-release",
+    "styleTags": [
+      "talking-head",
+      "screen-recording",
+      "motion-graphics"
+    ],
+    "visualSummary": "Founder Anton Osika speaks to camera from a studio couch, intercut with long real-UI captures of the Lovable agent planning and building a DocuSign clone, plus gradient title cards, a tweet screenshot, and simple animated bar charts. Calm pacing with few cuts; dark UI segments contrast with warm live-action framing.",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "We have raised $200M at a valuation of $1.8B"
+      },
+      {
+        "time": 6,
+        "text": "Introducing Agent"
+      },
+      {
+        "time": 11,
+        "text": "Anton Osika — Co-founder & CEO, Lovable"
+      },
+      {
+        "time": 14,
+        "text": "docusign"
+      },
+      {
+        "time": 16,
+        "text": "$15B company — 6,700 employees"
+      },
+      {
+        "time": 20,
+        "text": "Build me a document signing app like DocuSign"
+      },
+      {
+        "time": 56,
+        "text": "Sign Documents Securely Online"
+      },
+      {
+        "time": 60,
+        "text": "I got a cease and desist from DocuSign for my free SaaS."
+      },
+      {
+        "time": 70,
+        "text": "QuickTables — The System for Restaurant Growth"
+      },
+      {
+        "time": 84,
+        "text": "Common Errors"
+      },
+      {
+        "time": 86,
+        "text": "Capability"
+      }
+    ],
+    "pacing": {
+      "cuts": 12,
+      "cutsPerMinute": 7.8,
+      "avgShotSeconds": 7.1
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.87,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#f9f9f9",
+      "#1b1a1c",
+      "#201f21",
+      "#7f6666",
+      "#15171c"
+    ],
+    "lightDark": "dark"
+  },
+  "2": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "cinematic",
+      "live-action",
+      "product-ui"
+    ],
+    "visualSummary": "A short narrative film: a founder loses a deal, has a late-night realization, and wins the customer, told in moody low-light interiors, phone calls, and a sunset rooftop ending. Full-screen Lightfield UI shots — pipeline board, AI question box, call summaries — are cut into the story as inserts, with a fast 3.5s average shot length and a graded, filmic look throughout.",
+    "onScreenText": [
+      {
+        "time": 2,
+        "text": "Lightfield presents"
+      },
+      {
+        "time": 6,
+        "text": "\"Zero to one\""
+      },
+      {
+        "time": 59,
+        "text": "Thinking..."
+      },
+      {
+        "time": 74,
+        "text": "how have general contractors described their challenges to us?"
+      },
+      {
+        "time": 116,
+        "text": "@micah check out this call"
+      },
+      {
+        "time": 136,
+        "text": "POC for Apex Development"
+      },
+      {
+        "time": 184,
+        "text": "Lightfield"
+      }
+    ],
+    "pacing": {
+      "cuts": 53,
+      "cutsPerMinute": 17,
+      "avgShotSeconds": 3.5
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.45,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#070b0d",
+      "#151314",
+      "#2c2b2b",
+      "#4c4e49",
+      "#a8aaa5"
+    ],
+    "lightDark": "dark"
+  },
+  "3": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "product-ui",
+      "kinetic-typography",
+      "motion-graphics"
+    ],
+    "visualSummary": "A wordless, music-driven demo film in OpenAI's clean white style: bold typographic benefit cards alternate with polished browser-window captures floating on soft blue gradients, showing Atlas answering questions in the sidebar, drafting an email, and agent-mode shopping. Slow, deliberate pacing (about 16s per shot) ending on the app icon and a download URL.",
+    "onScreenText": [
+      {
+        "time": 4,
+        "text": "Meet ChatGPT Atlas"
+      },
+      {
+        "time": 18,
+        "text": "Unlock the web with ChatGPT by your side"
+      },
+      {
+        "time": 43,
+        "text": "Assists when you need it"
+      },
+      {
+        "time": 50,
+        "text": "Picks up where you left off"
+      },
+      {
+        "time": 62,
+        "text": "Takes action for you"
+      },
+      {
+        "time": 81,
+        "text": "Finalizing and reviewing shopping cart"
+      },
+      {
+        "time": 86,
+        "text": "Go to checkout"
+      },
+      {
+        "time": 88,
+        "text": "A smarter way to explore the web"
+      },
+      {
+        "time": 88,
+        "text": "ChatGPT Atlas"
+      },
+      {
+        "time": 96,
+        "text": "download now — chatgpt.com/atlas"
+      }
+    ],
+    "pacing": {
+      "cuts": 5,
+      "cutsPerMinute": 3.1,
+      "avgShotSeconds": 16.3
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#ffffff",
+      "#f4f9f9",
+      "#fafefd",
+      "#a9bbc5",
+      "#fffffd"
+    ],
+    "lightDark": "light"
+  },
+  "4": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "live-action",
+      "cinematic",
+      "product-ui"
+    ],
+    "visualSummary": "A scripted comedy sketch: a first date in a warm, candle-lit restaurant where a glowing HUD overlay — Cluely's mocked interface — floats over the scene, listening and feeding the guy lines, escalating into red error alerts when the date goes wrong. Shot like a short film with shallow depth of field and long takes, closing on a black title card cycling the tagline.",
+    "onScreenText": [
+      {
+        "time": 2,
+        "text": "Cluely"
+      },
+      {
+        "time": 9,
+        "text": "Suggestion: 30 years old"
+      },
+      {
+        "time": 19,
+        "text": "Senior software engineer at Bananazon for 8 years"
+      },
+      {
+        "time": 32,
+        "text": "Restate you are 30 years old"
+      },
+      {
+        "time": 33,
+        "text": "Continue conversation"
+      },
+      {
+        "time": 54,
+        "text": "Critical Error — Escalation Likely — Need to recover"
+      },
+      {
+        "time": 57,
+        "text": "Recovering situation"
+      },
+      {
+        "time": 66,
+        "text": "Reference her art"
+      },
+      {
+        "time": 69,
+        "text": "Compliment her"
+      },
+      {
+        "time": 94,
+        "text": "Cluely — Invisible AI to Cheat on Everything"
+      }
+    ],
+    "pacing": {
+      "cuts": 5,
+      "cutsPerMinute": 3,
+      "avgShotSeconds": 16.5
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.78,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#0c0906",
+      "#20100b",
+      "#2f1f18",
+      "#49372e",
+      "#7a6856"
+    ],
+    "lightDark": "dark"
+  },
+  "5": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "cinematic",
+      "live-action",
+      "product-ui"
+    ],
+    "visualSummary": "A warm, film-graded family-dinner story: siblings scramble to cook a feast, fumbling through a generic AI chatbot in filmed macro screen close-ups before Dia's tab-aware prompt solves it in one shot. Very fast cutting (2s average) between kitchen live-action, screen inserts, and black typographic cards, ending on the Dia wordmark and URL over the al fresco dinner.",
+    "onScreenText": [
+      {
+        "time": 20,
+        "text": "What's a zucchini appetizer"
+      },
+      {
+        "time": 25,
+        "text": "AI Chat"
+      },
+      {
+        "time": 44,
+        "text": "If it's in your tabs"
+      },
+      {
+        "time": 48,
+        "text": "Dia already knows"
+      },
+      {
+        "time": 50,
+        "text": "quick zucchini appetizer for family feast"
+      },
+      {
+        "time": 54,
+        "text": "Zucchini Involtini with Ricotta"
+      },
+      {
+        "time": 58,
+        "text": "The AI browser that's always up to speed"
+      },
+      {
+        "time": 61,
+        "text": "Never explain yourself again"
+      },
+      {
+        "time": 72,
+        "text": "Dia"
+      },
+      {
+        "time": 76,
+        "text": "diabrowser.com"
+      }
+    ],
+    "pacing": {
+      "cuts": 39,
+      "cutsPerMinute": 30,
+      "avgShotSeconds": 2
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.49,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#080808",
+      "#3f271f",
+      "#6e6f57",
+      "#abab89",
+      "#bcd1b2"
+    ],
+    "lightDark": "dark"
+  },
+  "6": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "mixed-media",
+      "product-ui",
+      "motion-graphics",
+      "live-action"
+    ],
+    "visualSummary": "A frenetic 4:5 montage (about 42 cuts per minute) that opens on archival Zenly press clippings and 3D globe renders, then races through stylized map UI, sticker-collage motion graphics, and warm film-look live-action of friends on their phones. Voiceover narration carries the whole arc, and full-frame kinetic type stamps the key beats before the BUMP logo end card.",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "Zenly"
+      },
+      {
+        "time": 10,
+        "text": "FEED"
+      },
+      {
+        "time": 20,
+        "text": "We should hang."
+      },
+      {
+        "time": 22,
+        "text": "BUMP!"
+      },
+      {
+        "time": 32,
+        "text": "SO WE FOUND EACH OTHER AGAIN"
+      },
+      {
+        "time": 34,
+        "text": "BUMP"
+      },
+      {
+        "time": 38,
+        "text": "Snack Addicts"
+      },
+      {
+        "time": 39,
+        "text": "IT'S 9AM SARAH!"
+      },
+      {
+        "time": 40,
+        "text": "YES! LET'S GO"
+      },
+      {
+        "time": 42,
+        "text": "The Roastery — Been 12 times"
+      },
+      {
+        "time": 48,
+        "text": "NOW"
+      },
+      {
+        "time": 49,
+        "text": "HANG"
+      },
+      {
+        "time": 50,
+        "text": "FRIENDS"
+      }
+    ],
+    "pacing": {
+      "cuts": 36,
+      "cutsPerMinute": 42.4,
+      "avgShotSeconds": 1.4
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 1,
+      "language": "en",
+      "hasMusic": false
+    },
+    "palette": [
+      "#eae7de",
+      "#12052a",
+      "#93c2c8",
+      "#28405f",
+      "#866565"
+    ],
+    "lightDark": "mixed"
+  },
+  "7": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "product-ui",
+      "motion-graphics",
+      "kinetic-typography"
+    ],
+    "visualSummary": "A soft, light lavender-and-white demo built from long held shots (about 15s average): serif title cards animate in word by word between designed UI vignettes — a domain input, extracting styles, a brand kit assembling, then generated assets like a hiring poster, merch, and a hype poster — all floating over dreamy floral backdrops. Voiceover narration drives the flow with gentle musical interludes.",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "Generate anything"
+      },
+      {
+        "time": 2,
+        "text": "Always on-brand."
+      },
+      {
+        "time": 3,
+        "text": "Meet Bloom"
+      },
+      {
+        "time": 5,
+        "text": "Enter Domain"
+      },
+      {
+        "time": 9,
+        "text": "Going to 'Gumroad.com'"
+      },
+      {
+        "time": 11,
+        "text": "Extracting Styles"
+      },
+      {
+        "time": 12,
+        "text": "Building Brand Kit"
+      },
+      {
+        "time": 26,
+        "text": "Brand kit created successfully"
+      },
+      {
+        "time": 28,
+        "text": "and like magic"
+      },
+      {
+        "time": 29,
+        "text": "your brand is extracted"
+      },
+      {
+        "time": 32,
+        "text": "Generate any brand asset"
+      },
+      {
+        "time": 34,
+        "text": "What would you like to create?"
+      },
+      {
+        "time": 40,
+        "text": "WE'RE HIRING. Help Creators Go from 0 to $1."
+      },
+      {
+        "time": 52,
+        "text": "THE ASCENSION OF THE REPEAT FOUNDER."
+      },
+      {
+        "time": 54,
+        "text": "Try today at trybloom.ai"
+      }
+    ],
+    "pacing": {
+      "cuts": 3,
+      "cutsPerMinute": 3.1,
+      "avgShotSeconds": 14.8
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.97,
+      "language": "en",
+      "hasMusic": false
+    },
+    "palette": [
+      "#fefefe",
+      "#f4f2f6",
+      "#b5a5c4",
+      "#fbfefd",
+      "#fefefc"
+    ],
+    "lightDark": "light"
+  },
+  "8": {
+    "launchType": "model-release",
+    "styleTags": [
+      "motion-graphics",
+      "kinetic-typography",
+      "product-ui"
+    ],
+    "visualSummary": "One continuous dark motion-graphics flow (no hard cuts) on a black stage: a glowing iridescent orb morphs between animated benchmark bars, waveform scrubbers, and floating UI mockups — a transcript editor, diarized chat bubbles, a phone note-taking app — with a brief inset soccer broadcast demoing live subtitles. Glowing type sets each claim, ending on the ElevenLabs wordmark.",
+    "onScreenText": [
+      {
+        "time": 2,
+        "text": "Introducing ElevenLabs Scribe"
+      },
+      {
+        "time": 4,
+        "text": "the most advanced AI transcription model ever created"
+      },
+      {
+        "time": 10,
+        "text": "Google Gemini 2.0 Flash 79.5%"
+      },
+      {
+        "time": 10,
+        "text": "OpenAI Whisper Large v3 48.2%"
+      },
+      {
+        "time": 12,
+        "text": "ElevenLabs Scribe v1 85.1%"
+      },
+      {
+        "time": 14,
+        "text": "Multilingual support — 99 languages."
+      },
+      {
+        "time": 21,
+        "text": "HIPAA COMPLIANT"
+      },
+      {
+        "time": 22,
+        "text": "Detecting Voices"
+      },
+      {
+        "time": 46,
+        "text": "Accurate"
+      },
+      {
+        "time": 46,
+        "text": "Advanced"
+      },
+      {
+        "time": 48,
+        "text": "Industry leading"
+      },
+      {
+        "time": 52,
+        "text": "ElevenLabs"
+      }
+    ],
+    "pacing": {
+      "cuts": 0,
+      "cutsPerMinute": 0,
+      "avgShotSeconds": 58
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.4,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#000000",
+      "#09080a",
+      "#86928a",
+      "#020001",
+      "#000002"
+    ],
+    "lightDark": "dark"
+  },
+  "9": {
+    "launchType": "funding",
+    "styleTags": [
+      "cinematic",
+      "live-action"
+    ],
+    "visualSummary": "A three-and-a-half-minute narrative short film with a moody teal-and-amber period grade: a boy vanishes into his computer in a 1985 bedroom, detectives review grainy CRT interrogation tapes, then a present-day engineer buys the old machine at a yard sale and talks with the boy still living on its screen. Slow, filmic cuts (about 8s average shots) build to serif title cards and the Tavus logo — no product UI anywhere.",
+    "onScreenText": [
+      {
+        "time": 6,
+        "text": "Tavus presents"
+      },
+      {
+        "time": 11,
+        "text": "The kid & the machine"
+      },
+      {
+        "time": 21,
+        "text": "November 14, 1985 — 7:42 PM"
+      },
+      {
+        "time": 122,
+        "text": "Present Day"
+      },
+      {
+        "time": 192,
+        "text": "Meet Charlie and his PALs at tavus.io"
+      },
+      {
+        "time": 196,
+        "text": "You've never met a computer like them before"
+      },
+      {
+        "time": 202,
+        "text": "TAVUS"
+      },
+      {
+        "time": 203,
+        "text": "The human computing company"
+      }
+    ],
+    "pacing": {
+      "cuts": 24,
+      "cutsPerMinute": 6.8,
+      "avgShotSeconds": 8.4
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.84,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#141311",
+      "#070909",
+      "#343326",
+      "#7f7056",
+      "#d5c5b4"
+    ],
+    "lightDark": "dark"
+  },
+  "10": {
+    "launchType": "funding",
+    "styleTags": [
+      "cinematic",
+      "live-action",
+      "motion-graphics"
+    ],
+    "visualSummary": "A tongue-in-cheek funding film assembled from movie-pastiche set pieces — a Wolf of Wall Street trading floor, a Social Network-style deposition, Gatsby fireworks toasts, a Whiplash-style drill sergeant, an office explosion, then a Matrix white void with a retro beige computer. Bold title cards punch in the key claims, a short animated wafer-chip diagram explains the tech, and it closes on green terminal type.",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "KNOWLIFY"
+      },
+      {
+        "time": 1,
+        "text": "$3 MILLION"
+      },
+      {
+        "time": 2,
+        "text": "YC"
+      },
+      {
+        "time": 3,
+        "text": "468 CAPITAL"
+      },
+      {
+        "time": 22,
+        "text": "1 BILLION VIEWS"
+      },
+      {
+        "time": 26,
+        "text": "But how will we get one billion views"
+      },
+      {
+        "time": 32,
+        "text": "COMPANY ONBOARDING IS SLOW"
+      },
+      {
+        "time": 42,
+        "text": "DESTROY ALL ONBOARDING"
+      },
+      {
+        "time": 50,
+        "text": "INTO EXPLAINER VIDEOS"
+      },
+      {
+        "time": 79,
+        "text": "We're making reading obsolete and watching the norm. Transform your enterprise communication — knowlify.com"
+      },
+      {
+        "time": 82,
+        "text": "powered by Knowlify"
+      }
+    ],
+    "pacing": {
+      "cuts": 16,
+      "cutsPerMinute": 11.3,
+      "avgShotSeconds": 5
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.87,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#000000",
+      "#d0d2ca",
+      "#46433b",
+      "#0b0a09",
+      "#000304"
+    ],
+    "lightDark": "dark"
+  },
+  "11": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "live-action",
+      "kinetic-typography",
+      "talking-head",
+      "mixed-media"
+    ],
+    "visualSummary": "A rapid-fire manifesto film (roughly one cut per second) that alternates the founder speaking at his desk with handheld documentary footage of the campus — desks, gym, gaming room, hardware lab, communal lunches — plus archival clips of Jobs, Zuckerberg and Bezos. Nearly every spoken line is echoed as large white serif type layered over the footage, and it closes on polaroid photos stamped with the application URL.",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "Founders, Inc."
+      },
+      {
+        "time": 1,
+        "text": "i need a check / a place / & ppl"
+      },
+      {
+        "time": 4,
+        "text": "most funds & accelerators are built around a lie"
+      },
+      {
+        "time": 6,
+        "text": "they say they back founders."
+      },
+      {
+        "time": 13,
+        "text": "that's not investing in"
+      },
+      {
+        "time": 14,
+        "text": "that's gambling with a spreadsheet."
+      },
+      {
+        "time": 20,
+        "text": "this is a broken system."
+      },
+      {
+        "time": 23,
+        "text": "valued based on who they are."
+      },
+      {
+        "time": 28,
+        "text": "that's what we're betting on."
+      },
+      {
+        "time": 30,
+        "text": "that's why we built founders, inc."
+      },
+      {
+        "time": 36,
+        "text": "to move 10x faster."
+      },
+      {
+        "time": 40,
+        "text": "Start your application"
+      },
+      {
+        "time": 77,
+        "text": "42,000 sq ft for the wildly ambitious."
+      },
+      {
+        "time": 81,
+        "text": "we don't invest in billion $ ideas."
+      },
+      {
+        "time": 84,
+        "text": "f.inc/hello"
+      }
+    ],
+    "pacing": {
+      "cuts": 79,
+      "cutsPerMinute": 52.7,
+      "avgShotSeconds": 1.1
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.92,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#081013",
+      "#443833",
+      "#7f817e",
+      "#9dc0bb",
+      "#d7dbd2"
+    ],
+    "lightDark": "dark"
+  },
+  "12": {
+    "launchType": "feature-release",
+    "styleTags": [
+      "product-ui",
+      "motion-graphics",
+      "talking-head"
+    ],
+    "visualSummary": "One continuous motion-designed sequence with no hard cuts: the founder pitches from a video-call window inside a rendered laptop, and the camera glides between mocked Amie UI vignettes on a white ground — typed natural-language commands, meeting-notes and email flows, an icon diagram of integrations converging on the Amie logo, and a highlighted customer quote — before returning to him for the closing CTA.",
+    "onScreenText": [
+      {
+        "time": 5,
+        "text": "Your Notch records all meetings."
+      },
+      {
+        "time": 15,
+        "text": "What are the top 3 feature requests from Perspect"
+      },
+      {
+        "time": 19,
+        "text": "Meet with Peter 1h after my bank appointment."
+      },
+      {
+        "time": 20,
+        "text": "I'm sick, move every meeting to Thursday."
+      },
+      {
+        "time": 23,
+        "text": "Send follow-up mail to Phil with action items."
+      },
+      {
+        "time": 34,
+        "text": "What's missing to close this customer?"
+      },
+      {
+        "time": 40,
+        "text": "pretty magical workflows"
+      }
+    ],
+    "pacing": {
+      "cuts": 0,
+      "cutsPerMinute": 0,
+      "avgShotSeconds": 54
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.98,
+      "language": "en",
+      "hasMusic": false
+    },
+    "palette": [
+      "#f7fafb",
+      "#fcfcfc",
+      "#3e3a35",
+      "#e2e2e1",
+      "#f8f8f7"
+    ],
+    "lightDark": "light"
+  },
+  "13": {
+    "launchType": "funding",
+    "styleTags": [
+      "live-action",
+      "mixed-media",
+      "kinetic-typography",
+      "product-ui"
+    ],
+    "visualSummary": "A sub-second supercut of archival film and pop-culture clips — Wolf of Wall Street, Glengarry Glen Ross, trading floors, boxing, horse racing, burning money — cut to a mashup of famous sales-and-greed audio quotes. In the final third, brief flashes of Monaco's dark CRM interface interleave with single-word serif title cards that spell out the closing line before resolving to the Monaco wordmark on black.",
+    "onScreenText": [
+      {
+        "time": 36,
+        "text": "the future of sales is"
+      },
+      {
+        "time": 42,
+        "text": "MONACO"
+      }
+    ],
+    "pacing": {
+      "cuts": 61,
+      "cutsPerMinute": 83.2,
+      "avgShotSeconds": 0.7
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.99,
+      "language": "en",
+      "hasMusic": false
+    },
+    "palette": [
+      "#493a37",
+      "#131617",
+      "#656f60",
+      "#8b9284",
+      "#bebeb6"
+    ],
+    "lightDark": "dark"
+  },
+  "14": {
+    "launchType": "other",
+    "styleTags": [
+      "motion-graphics",
+      "kinetic-typography",
+      "product-ui"
+    ],
+    "visualSummary": "A pure motion-graphics ad in two acts: a moody dark-slate opening where the voiceover's intervention speech lands word by word as centered type among floating chat and profile cards, then a flip to a warm peach palette where mocked Gojiberry UI panels (lead lists, automated outreach cards) tilt through 3D space. It closes with speed-line typography and the logo over a Start for Free button.",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "We need to talk"
+      },
+      {
+        "time": 2,
+        "text": "We've all been watching you"
+      },
+      {
+        "time": 6,
+        "text": "And we're worried"
+      },
+      {
+        "time": 16,
+        "text": "We've counted. It's been months"
+      },
+      {
+        "time": 18,
+        "text": "intervention"
+      },
+      {
+        "time": 20,
+        "text": "People on LinkedIn show when they're ready to buy"
+      },
+      {
+        "time": 26,
+        "text": "You're just not looking at the right signals"
+      },
+      {
+        "time": 28,
+        "text": "In B2B, intent is visible"
+      },
+      {
+        "time": 32,
+        "text": "People change jobs / They talk their challenges / They look at competitors"
+      },
+      {
+        "time": 39,
+        "text": "gojiberry"
+      },
+      {
+        "time": 42,
+        "text": "It monitors social media for you"
+      },
+      {
+        "time": 44,
+        "text": "Finds people when they actually show intent"
+      },
+      {
+        "time": 46,
+        "text": "And reaches out automatically"
+      },
+      {
+        "time": 54,
+        "text": "Stop guessing"
+      },
+      {
+        "time": 56,
+        "text": "Start showing up when it matters"
+      },
+      {
+        "time": 61,
+        "text": "Start for Free"
+      }
+    ],
+    "pacing": {
+      "cuts": 2,
+      "cutsPerMinute": 1.9,
+      "avgShotSeconds": 21.3
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.93,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#f1bfb2",
+      "#121a1e",
+      "#f8e9de",
+      "#11181c",
+      "#493636"
+    ],
+    "lightDark": "mixed"
+  },
+  "15": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "product-ui",
+      "motion-graphics",
+      "talking-head"
+    ],
+    "visualSummary": "Bookended by the founder speaking to camera in a loft living room, the body is a long motion-designed product tour: mocked Tempo dashboards, connect-your-Shopify onboarding flows, cascading walls of ad creatives and brand logos, and an agent canvas where orange 'Research Agent' and 'Ad Agent' tags annotate creative work in 3D space. Persistent lower-third captions carry the narration, and it resolves to a serif title card and an orange Tempo logo end-card.",
+    "onScreenText": [
+      {
+        "time": 1,
+        "text": "tempo"
+      },
+      {
+        "time": 10,
+        "text": "Heaven is Losing 83% of Checkout Volume to a $12 Price Gap"
+      },
+      {
+        "time": 17,
+        "text": "30 ads created for Heaven"
+      },
+      {
+        "time": 41,
+        "text": "You're minutes away from great ads"
+      },
+      {
+        "time": 42,
+        "text": "Connect to Shopify"
+      },
+      {
+        "time": 76,
+        "text": "Our Target Audience"
+      },
+      {
+        "time": 80,
+        "text": "Let's get to work"
+      },
+      {
+        "time": 84,
+        "text": "Week (20 - 26 April)"
+      },
+      {
+        "time": 96,
+        "text": "Move Soft."
+      },
+      {
+        "time": 100,
+        "text": "Soft Power Blazer"
+      },
+      {
+        "time": 130,
+        "text": "We taught Tempo taste"
+      },
+      {
+        "time": 131,
+        "text": "Visit withtempo.ai"
+      }
+    ],
+    "pacing": {
+      "cuts": 21,
+      "cutsPerMinute": 9.5,
+      "avgShotSeconds": 6
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.99,
+      "language": "en",
+      "hasMusic": false
+    },
+    "palette": [
+      "#291614",
+      "#e8e8e4",
+      "#fcfcfb",
+      "#a8887a",
+      "#f7f4eb"
+    ],
+    "lightDark": "mixed"
+  },
+  "16": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "live-action",
+      "product-ui",
+      "cinematic",
+      "talking-head"
+    ],
+    "visualSummary": "A cinematic two-act film: the first half is a graded live-action history of the web — a vintage CRT rendering green wireframe car specs, a slick Ferrari configurator, then a man speaking to camera beside a red Ferrari intercut with driving footage — that erupts into a wall of AI talking-head tiles. After the title card, the second half is a slow floating tour of the dark product UI: the Maya agent avatar on a landing page, dashboards, an inline demo-booking modal, and a visitor-intent analytics view, closing on the logo.",
+    "onScreenText": [
+      {
+        "time": 50,
+        "text": "Introducing InteractAI — Conversation is the next interface"
+      },
+      {
+        "time": 54,
+        "text": "Manage operations, reporting, and workflows in one place"
+      },
+      {
+        "time": 55,
+        "text": "Hi, I'm Maya. How can I help you today?"
+      },
+      {
+        "time": 55,
+        "text": "Talk to our agent Maya"
+      },
+      {
+        "time": 78,
+        "text": "Connect the tools your team already uses"
+      },
+      {
+        "time": 84,
+        "text": "Book a Demo"
+      },
+      {
+        "time": 94,
+        "text": "Interact AI"
+      }
+    ],
+    "pacing": {
+      "cuts": 30,
+      "cutsPerMinute": 18.6,
+      "avgShotSeconds": 3.1
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.88,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#192c33",
+      "#0a151b",
+      "#030d11",
+      "#5b796f",
+      "#24171c"
+    ],
+    "lightDark": "dark"
+  },
+  "17": {
+    "launchType": "rebrand",
+    "styleTags": [
+      "live-action",
+      "cinematic"
+    ],
+    "visualSummary": "A fast-cut, film-grade brand manifesto with no product UI: a woman studies herself in a green-tiled bathroom mirror (a loading spinner hiding her face), pins images across bedroom walls, and burns glowing holes through surfaces, intercut with a car burnout, pressed botanical specimens, grids of cuts on skin, and sterile office workers slumped at CRT computers with Search/Like/\"I'm not a robot\" buttons standing in for the numbing internet. It resolves warm — she laughs on a floral bed as objects float around her — and ends on the COSMOS wordmark.",
+    "onScreenText": [
+      {
+        "time": 48,
+        "text": "Search"
+      },
+      {
+        "time": 49,
+        "text": "Like"
+      },
+      {
+        "time": 50,
+        "text": "3.7K"
+      },
+      {
+        "time": 50,
+        "text": "I'm not a robot"
+      },
+      {
+        "time": 89,
+        "text": "COSMOS"
+      }
+    ],
+    "pacing": {
+      "cuts": 55,
+      "cutsPerMinute": 35.9,
+      "avgShotSeconds": 1.6
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.88,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#483c2d",
+      "#1b231f",
+      "#6e694f",
+      "#9e8c72",
+      "#b0c1ad"
+    ],
+    "lightDark": "dark"
+  },
+  "18": {
+    "launchType": "feature-release",
+    "styleTags": [
+      "product-ui",
+      "motion-graphics"
+    ],
+    "visualSummary": "A single uninterrupted camera glide (zero cuts) over a dark, glossy, 3D-tilted rendering of Linear's new Reviews surface: the sidebar reveals the Reviews item, then the shot drifts across red/green diff code, the Activity/Guide/Diff tabs on an issue, a Submit review button, and an AI rename prompt with its agent response and Approve action. No narration — music only — ending on \"Experience the diff\" and the Linear wordmark on black.",
+    "onScreenText": [
+      {
+        "time": 4,
+        "text": "Reviews"
+      },
+      {
+        "time": 13,
+        "text": "DRIVE-882 — Activity · Guide · Diff"
+      },
+      {
+        "time": 26,
+        "text": "Submit review"
+      },
+      {
+        "time": 32,
+        "text": "Rename reportFailure to reportParseFailure and update its call sites"
+      },
+      {
+        "time": 38,
+        "text": "Renamed the helper to better reflect its purpose and updated 3 call sites."
+      },
+      {
+        "time": 41,
+        "text": "Approve"
+      },
+      {
+        "time": 44,
+        "text": "Experience the diff"
+      },
+      {
+        "time": 48,
+        "text": "Linear"
+      }
+    ],
+    "pacing": {
+      "cuts": 0,
+      "cutsPerMinute": 0,
+      "avgShotSeconds": 52
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#010101",
+      "#101317",
+      "#08080b",
+      "#1b2024",
+      "#2f3d3c"
+    ],
+    "lightDark": "dark"
+  },
+  "19": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "live-action",
+      "product-ui",
+      "cinematic"
+    ],
+    "visualSummary": "A pastoral, long-take live-action piece: a founder lies in a flowering meadow, then works a laptop on a bare wooden desk in the field while taking phone calls from his grandma, a friend, and his dad — the dialogue rendered as burned-in captions. Between the wide, sky-filled shots, the laptop screen shows the Cofounder product: an agent org-chart canvas, CRM-style tables, generated marketing creative, and chat-with-agent panels. It closes with the serif \"Cofounder\" wordmark and tagline over the meadow.",
+    "onScreenText": [
+      {
+        "time": 1,
+        "text": "Cofounder"
+      },
+      {
+        "time": 102,
+        "text": "Run a company with agents"
+      }
+    ],
+    "pacing": {
+      "cuts": 8,
+      "cutsPerMinute": 4.5,
+      "avgShotSeconds": 11.8
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.52,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#253421",
+      "#b5c8bd",
+      "#748c6d",
+      "#dcdecb",
+      "#ecf1e4"
+    ],
+    "lightDark": "light"
+  },
+  "20": {
+    "launchType": "model-release",
+    "styleTags": [
+      "motion-graphics",
+      "kinetic-typography",
+      "product-ui"
+    ],
+    "visualSummary": "A bright white-canvas motion-graphics piece: clusters of generated images fly in and scatter around bold black typewriter-style headlines, a prompt types \"A horse\" and morphs through wildly different art styles, a moodboard upload scatters reference images, and mocked slider controls (creativity, randomness, style strength) restyle a dalmatian in real time. It ends with hundreds of thumbnails imploding into the Krea logo mark and the krea.ai/k2 URL.",
+    "onScreenText": [
+      {
+        "time": 2,
+        "text": "This is Krea 2"
+      },
+      {
+        "time": 4,
+        "text": "An image model"
+      },
+      {
+        "time": 6,
+        "text": "made for aesthetics"
+      },
+      {
+        "time": 8,
+        "text": "Create in any style"
+      },
+      {
+        "time": 10,
+        "text": "A horse"
+      },
+      {
+        "time": 16,
+        "text": "Show it a moodboard"
+      },
+      {
+        "time": 21,
+        "text": "It gets it"
+      },
+      {
+        "time": 22,
+        "text": "It gets you"
+      },
+      {
+        "time": 31,
+        "text": "The more you use it"
+      },
+      {
+        "time": 33,
+        "text": "The better it gets"
+      },
+      {
+        "time": 42,
+        "text": "With unique controls"
+      },
+      {
+        "time": 65,
+        "text": "krea.ai/k2"
+      }
+    ],
+    "pacing": {
+      "cuts": 15,
+      "cutsPerMinute": 13.4,
+      "avgShotSeconds": 4.2
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.84,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#ffffff",
+      "#605a60",
+      "#fefffe",
+      "#dfe0e0",
+      "#fffffd"
+    ],
+    "lightDark": "light"
+  },
+  "21": {
+    "launchType": "feature-release",
+    "styleTags": [
+      "product-ui",
+      "motion-graphics"
+    ],
+    "visualSummary": "An all-white, mocked iOS Messages walkthrough: a stylized iPhone and floating chat bubbles act out a full conversation with Poke — planning dinner, picking a restaurant, sharing location, setting a reminder — with smooth camera pushes between beats. It closes with animated capability cards, a cascading wall of third-party app icons, and a plain Poke.com endcard, all set to music with no voiceover.",
+    "onScreenText": [
+      {
+        "time": 2,
+        "text": "Poke"
+      },
+      {
+        "time": 5,
+        "text": "sarah wants to grab dinner tmrw"
+      },
+      {
+        "time": 6,
+        "text": "Dinner with Sarah"
+      },
+      {
+        "time": 9,
+        "text": "locked friday"
+      },
+      {
+        "time": 10,
+        "text": "what r u in the mood for?"
+      },
+      {
+        "time": 12,
+        "text": "want me to find a spot?"
+      },
+      {
+        "time": 14,
+        "text": "where are you rn?"
+      },
+      {
+        "time": 18,
+        "text": "found a few solid spots near you"
+      },
+      {
+        "time": 20,
+        "text": "Anything catching your eye?"
+      },
+      {
+        "time": 26,
+        "text": "only 0.16 mi away from you"
+      },
+      {
+        "time": 29,
+        "text": "sure, i'll remind you on time"
+      },
+      {
+        "time": 31,
+        "text": "Email — Send, reply, and forward messages"
+      },
+      {
+        "time": 34,
+        "text": "Image Search & Generation"
+      },
+      {
+        "time": 37,
+        "text": "connect all your favorite tools"
+      },
+      {
+        "time": 40,
+        "text": "Poke.com"
+      }
+    ],
+    "pacing": {
+      "cuts": 1,
+      "cutsPerMinute": 1.4,
+      "avgShotSeconds": 21.5
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#ffffff",
+      "#d3d5d6",
+      "#fefefe",
+      "#fffffd",
+      "#fffeff"
+    ],
+    "lightDark": "light"
+  },
+  "22": {
+    "launchType": "feature-release",
+    "styleTags": [
+      "motion-graphics",
+      "product-ui",
+      "3d-render"
+    ],
+    "visualSummary": "A near-black, neon-blue tour of the redesigned Framer editor: glowing UI fragments (sidebar, branches, a hero Publish button, agent prompt bars) emerge from darkness, then a stylized site build for a fictional studio plays out across breakpoints, followed by community and dashboard grids. It resolves into prismatic glass 3D typography for the pillar lines and a Framer 3.0 logo sting, music-only with no voiceover.",
+    "onScreenText": [
+      {
+        "time": 9,
+        "text": "Publish"
+      },
+      {
+        "time": 20,
+        "text": "Use these new text styles and layout settings and update the rest of the page to match"
+      },
+      {
+        "time": 31,
+        "text": "Build a Framer code component that displays uploaded images in a draggable rotating ring that speeds up on scroll"
+      },
+      {
+        "time": 38,
+        "text": "Works everywhere in Framer"
+      },
+      {
+        "time": 50,
+        "text": "Welcome to a whole new Framer"
+      },
+      {
+        "time": 54,
+        "text": "Design with agents"
+      },
+      {
+        "time": 56,
+        "text": "Refine on the canvas"
+      },
+      {
+        "time": 58,
+        "text": "Ship with your team"
+      },
+      {
+        "time": 62,
+        "text": "Framer 3.0"
+      }
+    ],
+    "pacing": {
+      "cuts": 4,
+      "cutsPerMinute": 3.2,
+      "avgShotSeconds": 15
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#000000",
+      "#050b21",
+      "#1d406d",
+      "#000018",
+      "#010000"
+    ],
+    "lightDark": "dark"
+  },
+  "23": {
+    "launchType": "feature-release",
+    "styleTags": [
+      "kinetic-typography",
+      "motion-graphics",
+      "product-ui"
+    ],
+    "visualSummary": "A rapid-fire (about 50 cuts per minute) industrial-print title sequence: black, white, and orange frames strobe between vintage machinery diagrams, glitching type, halftone pinwheel marks, and single-word SDLC stage cards, before settling on a dark analytics dashboard of the 'software factory' and a Factory logo endcard. Music-driven, no speech, aggressive punk-zine energy throughout.",
+    "onScreenText": [
+      {
+        "time": 3,
+        "text": "BUILD YOUR SOFTWARE FACTORY"
+      },
+      {
+        "time": 6,
+        "text": "SIGNAL IN"
+      },
+      {
+        "time": 7,
+        "text": "TRIAGE"
+      },
+      {
+        "time": 8,
+        "text": "PLAN"
+      },
+      {
+        "time": 8,
+        "text": "TEST"
+      },
+      {
+        "time": 8,
+        "text": "SHIP"
+      },
+      {
+        "time": 9,
+        "text": "MONITOR"
+      },
+      {
+        "time": 10,
+        "text": "VISUALIZE YOUR SOFTWARE FACTORY ACROSS THE ENTIRE SDLC"
+      },
+      {
+        "time": 27,
+        "text": "FACTORY"
+      }
+    ],
+    "pacing": {
+      "cuts": 25,
+      "cutsPerMinute": 50,
+      "avgShotSeconds": 1.2
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#0f0e0a",
+      "#030302",
+      "#9b9a99",
+      "#fbfbfb",
+      "#574d47"
+    ],
+    "lightDark": "dark"
+  },
+  "24": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "product-ui",
+      "motion-graphics"
+    ],
+    "visualSummary": "A calm, cream-and-terracotta mocked walkthrough in Anthropic's brand style: a cursor toggles from Chat to Cowork, types a meeting-summary request, and the video follows Claude's task list, clarifying questions, a Google Calendar check, and a finished standup deck as floating cards on a warm canvas. Gentle zooms and typewriter text carry the whole piece to a serif Claude endcard, music-only with no voiceover.",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "Now available as a research preview"
+      },
+      {
+        "time": 3,
+        "text": "Chat / Cowork"
+      },
+      {
+        "time": 8,
+        "text": "Let's knock something off your list"
+      },
+      {
+        "time": 13,
+        "text": "Summarize my meetings from this week and find action items. Where do you think I can be more efficient?"
+      },
+      {
+        "time": 18,
+        "text": "Let's go"
+      },
+      {
+        "time": 22,
+        "text": "I'll take a look through these now. One quick question—"
+      },
+      {
+        "time": 25,
+        "text": "How detailed do you want this?"
+      },
+      {
+        "time": 28,
+        "text": "Building plan..."
+      },
+      {
+        "time": 37,
+        "text": "actually one more thing"
+      },
+      {
+        "time": 39,
+        "text": "can you check my calendar for what's urgent tomorrow?"
+      },
+      {
+        "time": 40,
+        "text": "oh and prep the deck for tmrw's team standup"
+      },
+      {
+        "time": 44,
+        "text": "Find action items / Check Google Calendar / Build standup deck"
+      },
+      {
+        "time": 54,
+        "text": "Product Team Standup"
+      },
+      {
+        "time": 61,
+        "text": "claude... you cooked"
+      },
+      {
+        "time": 62,
+        "text": "What will you try next?"
+      }
+    ],
+    "pacing": {
+      "cuts": 2,
+      "cutsPerMinute": 1.7,
+      "avgShotSeconds": 23
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#f9f8f3",
+      "#d5d2cd",
+      "#fbfbf7",
+      "#f9f8f2",
+      "#f7f9f4"
+    ],
+    "lightDark": "light"
+  },
+  "25": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "talking-head",
+      "kinetic-typography",
+      "live-action",
+      "mixed-media"
+    ],
+    "visualSummary": "Opens as a fast-cut black-and-white archival montage — coins, dollar bills, vintage computers, tech and political figures — with bold kinetic captions hammering the voiceover, then shifts to filmed interview segments with the founders and backers in offices and by windows. Word-by-word type cards (global, instant, 24/7, programmable) and an engraved coin seal carry it to a stark AUGUSTUS.COM endcard.",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "MONEY MAKES THE WORLD GO ROUND"
+      },
+      {
+        "time": 6,
+        "text": "THE BANKS THAT MOVE IT"
+      },
+      {
+        "time": 8,
+        "text": "WERE BUILT FOR ANOTHER ERA"
+      },
+      {
+        "time": 10,
+        "text": "PRE INTERNET."
+      },
+      {
+        "time": 10,
+        "text": "PRE SOFTWARE."
+      },
+      {
+        "time": 12,
+        "text": "PRE AI."
+      },
+      {
+        "time": 13,
+        "text": "PREHISTORIC."
+      },
+      {
+        "time": 34,
+        "text": "GLOBAL INSTANT 24/7"
+      },
+      {
+        "time": 36,
+        "text": "PROGRAMMABLE MACHINE-READABLE"
+      },
+      {
+        "time": 46,
+        "text": "AUGUSTUS"
+      },
+      {
+        "time": 48,
+        "text": "AUGUSTUS.COM"
+      }
+    ],
+    "pacing": {
+      "cuts": 29,
+      "cutsPerMinute": 34.8,
+      "avgShotSeconds": 1.7
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.88,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#181716",
+      "#b1b4a6",
+      "#5a514c",
+      "#0a0a0e",
+      "#27160e"
+    ],
+    "lightDark": "dark"
+  },
+  "26": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "live-action",
+      "cinematic",
+      "talking-head",
+      "screen-recording"
+    ],
+    "visualSummary": "A warmly lit, film-graded dinner-date conversation in a restaurant: the founder answers his date's questions about the product in long, relaxed shots, intercut with overhead close-ups of a phone laid on the tablecloth showing the Friends app and chat UI. Slow pacing (~9s shots), shallow depth of field, and a candlelit teal-and-amber palette make it feel like a short film rather than a demo.",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "born"
+      },
+      {
+        "time": 0,
+        "text": "With Fabian Kamberi, Co-Founder & CEO"
+      },
+      {
+        "time": 97,
+        "text": "Learn more at born.com"
+      }
+    ],
+    "pacing": {
+      "cuts": 10,
+      "cutsPerMinute": 6.1,
+      "avgShotSeconds": 9
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.96,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#2e251d",
+      "#101514",
+      "#0a1111",
+      "#7a6049",
+      "#1c1612"
+    ],
+    "lightDark": "dark"
+  },
+  "27": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "cinematic",
+      "live-action",
+      "product-ui"
+    ],
+    "visualSummary": "A narrative short film: warm, film-graded footage of a Koreatown fabric shop and a grandmother choosing fabric, told in voiceover, intercut with tilted screen shots of the Variant product — a typed prompt, a scrolling grid of generated page designs, palette remixes, and export menus. Fast cutting (~3s shots) weaves memory footage and UI together, closing on a title card and a dedication.",
+    "onScreenText": [
+      {
+        "time": 24,
+        "text": "Design a page for my grandmother's story and work"
+      },
+      {
+        "time": 35,
+        "text": "Where Tradition Meets Contemporary Korean Style"
+      },
+      {
+        "time": 42,
+        "text": "Edit design / New chat from design / Copy code / Download as React"
+      },
+      {
+        "time": 51,
+        "text": "Explore wide / Explore narrow / Change style / Remix colors / Shuffle layout"
+      },
+      {
+        "time": 53,
+        "text": "HALMONI — The Archive of Soon-Ja"
+      },
+      {
+        "time": 60,
+        "text": "Remixing 16 palettes"
+      },
+      {
+        "time": 104,
+        "text": "Variant"
+      },
+      {
+        "time": 106,
+        "text": "In Remembrance of Soon Ja Lee (1939–2026)"
+      }
+    ],
+    "pacing": {
+      "cuts": 33,
+      "cutsPerMinute": 18.2,
+      "avgShotSeconds": 3.2
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.79,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#493c30",
+      "#211914",
+      "#090909",
+      "#9d998b",
+      "#461a19"
+    ],
+    "lightDark": "dark"
+  },
+  "28": {
+    "launchType": "feature-release",
+    "styleTags": [
+      "cinematic",
+      "product-ui",
+      "motion-graphics"
+    ],
+    "visualSummary": "An entirely AI-generated 30-second spot styled like a holiday-dinner commercial: a man hunched over his laptop at a candlelit family gathering gets a barrage of work messages, delegates them to Gumloop via floating notification bubbles, watches an agent workflow run on screen, then closes the laptop and rejoins the family. Warm, filmic AI footage with overlaid chat UI, ending on a Gumloop Agents title card.",
+    "onScreenText": [
+      {
+        "time": 8,
+        "text": "Boss: need those social reports now, it's urgent"
+      },
+      {
+        "time": 12,
+        "text": "Max: @Gumloop handle this"
+      },
+      {
+        "time": 14,
+        "text": "Gumloop: on it!"
+      },
+      {
+        "time": 25,
+        "text": "Gumloop Agents"
+      },
+      {
+        "time": 25,
+        "text": "gumloop.com/agents"
+      }
+    ],
+    "pacing": {
+      "cuts": 2,
+      "cutsPerMinute": 4,
+      "avgShotSeconds": 10
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#524532",
+      "#18130b",
+      "#877b6b",
+      "#3f2f1e",
+      "#302618"
+    ],
+    "lightDark": "dark"
+  },
+  "29": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "live-action",
+      "cinematic",
+      "product-ui"
+    ],
+    "visualSummary": "A wordless, music-driven brand film built from quick vignettes (~2.7s shots): teens in a video store remix a yearbook photo, a musician conjures a gig poster of herself, a mechanic repaints a vintage car, a woman relights her dining room — each transformation driven by a prompt bar rendered on retro monitors, phones, or clean white interstitials. Nostalgic, film-graded settings contrast with minimal black-and-white UI cards, closing on 'Reimagine reality' and reve.com.",
+    "onScreenText": [
+      {
+        "time": 6,
+        "text": "Reve"
+      },
+      {
+        "time": 8,
+        "text": "See your ideas — Describe it, or let's brainstorm"
+      },
+      {
+        "time": 13,
+        "text": "now give him a bleached buzzcut"
+      },
+      {
+        "time": 27,
+        "text": "OCTOBER 28"
+      },
+      {
+        "time": 30,
+        "text": "A poster of me as a rockstar"
+      },
+      {
+        "time": 42,
+        "text": "Give my car a new paint job"
+      },
+      {
+        "time": 63,
+        "text": "Find me lights for this room"
+      },
+      {
+        "time": 64,
+        "text": "Searching"
+      },
+      {
+        "time": 68,
+        "text": "Let me search for something sculptural — a pendant lamp"
+      },
+      {
+        "time": 76,
+        "text": "Reimagine reality"
+      },
+      {
+        "time": 78,
+        "text": "reve.com"
+      }
+    ],
+    "pacing": {
+      "cuts": 29,
+      "cutsPerMinute": 21.5,
+      "avgShotSeconds": 2.7
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#65655c",
+      "#0f0f0f",
+      "#ced2cc",
+      "#3e2f25",
+      "#222220"
+    ],
+    "lightDark": "dark"
+  },
+  "30": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "cinematic",
+      "live-action",
+      "product-ui"
+    ],
+    "visualSummary": "A cinematic short film that tells a study-abroad love story almost entirely through a phone held in frame: Poke notifications and iMessage threads drive the plot — choosing Paris, a delayed flight, a meet-cute over spilled coffee, excuses to a professor, and finally Poke talking its user out of flying home. Filmic Paris footage (fireworks, train stations, parks) stays soft in the background while crisp phone UI carries the narrative, closing on a Poke.com end card.",
+    "onScreenText": [
+      {
+        "time": 6,
+        "text": "Poke: stanford just sent an email asking where you wanna study abroad"
+      },
+      {
+        "time": 8,
+        "text": "Parisian Love (2025)"
+      },
+      {
+        "time": 16,
+        "text": "uhhh — where should i go"
+      },
+      {
+        "time": 17,
+        "text": "i mean your father is half-french — so... how about paris?"
+      },
+      {
+        "time": 92,
+        "text": "professor tegmark just asked via email why you're not at the seminar?"
+      },
+      {
+        "time": 93,
+        "text": "picnic is going well i guess"
+      },
+      {
+        "time": 95,
+        "text": "can u just make up an excuse"
+      },
+      {
+        "time": 96,
+        "text": "i'll tell him u got sick"
+      },
+      {
+        "time": 128,
+        "text": "can you please check me into my flight home?"
+      },
+      {
+        "time": 134,
+        "text": "wait no — why would you wanna go back man"
+      },
+      {
+        "time": 140,
+        "text": "stay in paris."
+      },
+      {
+        "time": 142,
+        "text": "you're never gonna find someone like her again"
+      },
+      {
+        "time": 150,
+        "text": "Poke.com"
+      },
+      {
+        "time": 153,
+        "text": "The Interaction Company of California"
+      }
+    ],
+    "pacing": {
+      "cuts": 16,
+      "cutsPerMinute": 6.1,
+      "avgShotSeconds": 9.2
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.17,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#929892",
+      "#0d0d0e",
+      "#504a41",
+      "#1d1a1a",
+      "#32211f"
+    ],
+    "lightDark": "dark"
+  },
+  "31": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "motion-graphics",
+      "product-ui"
+    ],
+    "visualSummary": "A glowing purple cursor journeys through a dark void, tracing node graphs before landing on an infinite design canvas where mobile app screens are prompted, generated, and styled in fast animated sequences. The palette shifts from black to soft white-and-pink gradients, ending on a typographic sign-off and the Wonder logo.",
+    "onScreenText": [
+      {
+        "time": 10,
+        "text": "ANNUAL RUN"
+      },
+      {
+        "time": 12,
+        "text": "@Wonder Explore new sc"
+      },
+      {
+        "time": 14,
+        "text": "Wondering..."
+      },
+      {
+        "time": 29,
+        "text": "Home Screen v4 — What would you like to design?"
+      },
+      {
+        "time": 31,
+        "text": "@Wonder build components from this design"
+      },
+      {
+        "time": 40,
+        "text": "It's time to wonder."
+      },
+      {
+        "time": 44,
+        "text": "Wonder"
+      }
+    ],
+    "pacing": {
+      "cuts": 4,
+      "cutsPerMinute": 5.6,
+      "avgShotSeconds": 8.6
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#f7f6f9",
+      "#fffeff",
+      "#31313e",
+      "#070709",
+      "#c6c6d7"
+    ],
+    "lightDark": "mixed"
+  },
+  "32": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "3d-render",
+      "cinematic",
+      "product-ui"
+    ],
+    "visualSummary": "A slow, dark macro tour of the Luce cockpit rendered in near-black CGI: raking light reveals the Ferrari badge, gear selector, physical dials, and steering wheel one detail at a time, intercut with live digital gauge clusters ramping through speeds and a launch-control sequence. Long, patient shots with no narration, closing on the Ferrari Luce wordmark and prancing horse.",
+    "onScreenText": [
+      {
+        "time": 24,
+        "text": "Ferrari"
+      },
+      {
+        "time": 32,
+        "text": "DRY"
+      },
+      {
+        "time": 33,
+        "text": "SPORT"
+      },
+      {
+        "time": 80,
+        "text": "Luce"
+      },
+      {
+        "time": 104,
+        "text": "LAUNCH — DISTANCE: 0 M / TIME: 0.00"
+      },
+      {
+        "time": 106,
+        "text": "HOLD BRAKE / HOLD ACCELERATOR — BOOST READY"
+      },
+      {
+        "time": 110,
+        "text": "RELEASE BRAKE"
+      },
+      {
+        "time": 114,
+        "text": "Ferrari Luce"
+      },
+      {
+        "time": 116,
+        "text": "COPYRIGHT 2026 - ALL RIGHTS RESERVED"
+      },
+      {
+        "time": 120,
+        "text": "IMAGES FOR ILLUSTRATIVE PURPOSES ONLY"
+      }
+    ],
+    "pacing": {
+      "cuts": 3,
+      "cutsPerMinute": 1.5,
+      "avgShotSeconds": 31
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": false
+    },
+    "palette": [
+      "#000000",
+      "#0a0708",
+      "#1a1919",
+      "#363232",
+      "#7d7a70"
+    ],
+    "lightDark": "dark"
+  },
+  "33": {
+    "launchType": "other",
+    "styleTags": [
+      "live-action",
+      "kinetic-typography",
+      "screen-recording"
+    ],
+    "visualSummary": "A fast-cut documentary-style stunt film: gritty night footage of Toronto streets and a rented billboard, time-lapse crowd shots stamped with running people counts, computer-vision tracking overlays and terminal output, and screen captures of the Content Rewards campaign being funded. White typographic stat cards on black carry the narrative, building to a side-by-side numbers comparison and the logo.",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "Toronto, Ontario"
+      },
+      {
+        "time": 5,
+        "text": "We spent $5000 on the most popular billboard in Canada"
+      },
+      {
+        "time": 10,
+        "text": "We setup cameras to record everyone who walked by"
+      },
+      {
+        "time": 16,
+        "text": "We then used AI to count every single person."
+      },
+      {
+        "time": 26,
+        "text": "TOTAL PEOPLE TRACKED 1,528"
+      },
+      {
+        "time": 28,
+        "text": "11,760 People — 2:37 pm"
+      },
+      {
+        "time": 37,
+        "text": "24,311 people saw the billboard"
+      },
+      {
+        "time": 40,
+        "text": "62 scanned the qr code"
+      },
+      {
+        "time": 44,
+        "text": "We also spent $5000 on Content Rewards"
+      },
+      {
+        "time": 49,
+        "text": "Fund & Activate ($5000.00)"
+      },
+      {
+        "time": 59,
+        "text": "In 24 hours 64 Million people saw our logo"
+      },
+      {
+        "time": 62,
+        "text": "11k clicked our link"
+      },
+      {
+        "time": 65,
+        "text": "Thats 2,500 times better than the billboard."
+      },
+      {
+        "time": 68,
+        "text": "Billboard 24,311 — Content Rewards 64,582,883"
+      },
+      {
+        "time": 70,
+        "text": "Content Rewards"
+      }
+    ],
+    "pacing": {
+      "cuts": 38,
+      "cutsPerMinute": 31.2,
+      "avgShotSeconds": 1.9
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#000000",
+      "#181819",
+      "#080908",
+      "#3a342e",
+      "#757b6f"
+    ],
+    "lightDark": "dark"
+  },
+  "34": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "live-action",
+      "talking-head",
+      "3d-render",
+      "product-ui"
+    ],
+    "visualSummary": "Apple-keynote-style launch film: founder Daniel Park presents direct-to-camera across minimal white studio sets, intercut with dark macro 3D renders of the AR glasses, lifestyle vignettes where AR overlays are composited into POV lens shots (cookie baking, guitar tabs, rideshare prompts), and a behind-the-scenes bit where a cartoon avatar floats over the live film set. Slow, polished pacing on a light neutral palette, closing on a product end card.",
+    "onScreenText": [
+      {
+        "time": 10,
+        "text": "Daniel Park — Co-Founder and CEO, Pickle"
+      },
+      {
+        "time": 91,
+        "text": "Powered by Snapdragon"
+      },
+      {
+        "time": 94,
+        "text": "Aluminium — 68g"
+      },
+      {
+        "time": 225,
+        "text": "PickleOS — The First Memory-Based Operating System"
+      },
+      {
+        "time": 230,
+        "text": "Built-In PickleOS"
+      },
+      {
+        "time": 263,
+        "text": "pickle.com"
+      },
+      {
+        "time": 293,
+        "text": "Chat — Talk with Your Memory"
+      },
+      {
+        "time": 344,
+        "text": "Pickle 1 — www.pickle.com"
+      }
+    ],
+    "pacing": {
+      "cuts": 54,
+      "cutsPerMinute": 9.3,
+      "avgShotSeconds": 6.3
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.89,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#b7bab7",
+      "#92908a",
+      "#292724",
+      "#d3d8d8",
+      "#f4f4f6"
+    ],
+    "lightDark": "light"
+  },
+  "35": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "3d-render",
+      "product-ui",
+      "motion-graphics"
+    ],
+    "visualSummary": "A rendered phone floats and tilts through black space while a glowing flower-shaped logo pulses and mocked Genie screens play out on it: an AI prompt generating music playlists, shared friend queues, a chat where the assistant checks tour dates and surfaces concert tickets. Dreamy extreme-perspective camera moves and heavy glow, closing on the tagline 'Social Intelligence is here.'",
+    "onScreenText": [
+      {
+        "time": 8,
+        "text": "Hi Sasha, let's create your Music Playlists — Generate"
+      },
+      {
+        "time": 40,
+        "text": "Okay yeah, I'm into this already"
+      },
+      {
+        "time": 41,
+        "text": "I'm wondering if they'll be in town soon"
+      },
+      {
+        "time": 42,
+        "text": "Oh wait, let me check that"
+      },
+      {
+        "time": 52,
+        "text": "Blood Culture Concert Tickets"
+      },
+      {
+        "time": 57,
+        "text": "Social Intelligence is here."
+      }
+    ],
+    "pacing": {
+      "cuts": 3,
+      "cutsPerMinute": 3,
+      "avgShotSeconds": 15
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#000000",
+      "#dfddde",
+      "#1d1719",
+      "#000003",
+      "#020000"
+    ],
+    "lightDark": "dark"
+  },
+  "36": {
+    "launchType": "feature-release",
+    "styleTags": [
+      "kinetic-typography",
+      "product-ui",
+      "motion-graphics"
+    ],
+    "visualSummary": "Upbeat kinetic typography over cream and hot-pink gradient backdrops alternates with polished product demos: a prompt typed into the Lovable bar, generated websites appearing on laptops, then collaboration invites, visual edit mode, dev mode code, and one-click publishing. Fast word-by-word text beats carry the narrative between each feature vignette, closing on the heart logo and URL.",
+    "onScreenText": [
+      {
+        "time": 2,
+        "text": "Less than 1% of the world"
+      },
+      {
+        "time": 4,
+        "text": "knows how to code"
+      },
+      {
+        "time": 6,
+        "text": "but that's about to change"
+      },
+      {
+        "time": 8,
+        "text": "Meet Lovable"
+      },
+      {
+        "time": 10,
+        "text": "Faster than ever before"
+      },
+      {
+        "time": 13,
+        "text": "Join other builders creating"
+      },
+      {
+        "time": 16,
+        "text": "52,978 new apps every day"
+      },
+      {
+        "time": 25,
+        "text": "Create a social shopping marketplace"
+      },
+      {
+        "time": 34,
+        "text": "Now with collaboration"
+      },
+      {
+        "time": 54,
+        "text": "Instantly share what you've built with your own domains"
+      },
+      {
+        "time": 64,
+        "text": "Introducing /dev mode"
+      },
+      {
+        "time": 70,
+        "text": "Edit code right on the spot or in Github"
+      },
+      {
+        "time": 73,
+        "text": "Now it's your turn"
+      },
+      {
+        "time": 74,
+        "text": "What are you building?"
+      },
+      {
+        "time": 78,
+        "text": "lovable.dev"
+      }
+    ],
+    "pacing": {
+      "cuts": 13,
+      "cutsPerMinute": 9.8,
+      "avgShotSeconds": 5.7
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#f7efe8",
+      "#be7391",
+      "#401127",
+      "#f1e8e3",
+      "#fcfbf8"
+    ],
+    "lightDark": "mixed"
+  },
+  "37": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "live-action",
+      "motion-graphics"
+    ],
+    "visualSummary": "A filmed comedy sketch on a Bali beach: Marc Lou loses a bet and must approach a stranger while an AI coach in his earbud feeds him lines. Handheld documentary-style footage with fast cuts, speed-ramped ghosting transitions, and HUD-style posture-tracking overlays (skeleton lines plus a confidence percentage) composited onto his body. Ends on plain white-on-black title cards for the product.",
+    "onScreenText": [
+      {
+        "time": 40,
+        "text": "32% (posture-tracking score overlay, climbing to 98%)"
+      },
+      {
+        "time": 137,
+        "text": "Fix your posture"
+      },
+      {
+        "time": 138,
+        "text": "SuperShrimp.io"
+      }
+    ],
+    "pacing": {
+      "cuts": 40,
+      "cutsPerMinute": 16.6,
+      "avgShotSeconds": 3.5
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.7,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#726f6f",
+      "#262321",
+      "#989aa2",
+      "#b5bac4",
+      "#cfd4dc"
+    ],
+    "lightDark": "mixed"
+  },
+  "38": {
+    "launchType": "feature-release",
+    "styleTags": [
+      "live-action",
+      "screen-recording"
+    ],
+    "visualSummary": "Handheld macro footage of a phone in someone's hands as they type playful prompts into Spielwerk's Create Game composer, intercut with extreme close-ups of the prompt text where inline cheat widgets (steppers, rotation dials, color pickers) get dragged and tweaked. Quick casual locations shift behind the phone (street, cafe), and it resolves to stark white title cards: 'Cheats.' / 'Now on Spielwerk.'",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "make [orc] bigger and spawn 4 of them each round. also make it look [console] like its 2004 or something"
+      },
+      {
+        "time": 4,
+        "text": "change the bg to [color] and also rotate the map by like 32° degrees every ten seconds"
+      },
+      {
+        "time": 10,
+        "text": "use Chubby and make it look like SMOOTH and also can you make it squeeze on impact with Bouncy"
+      },
+      {
+        "time": 14,
+        "text": "okay almost done, now just add ASCII filter so it really slaps visually you know what I mean?"
+      },
+      {
+        "time": 16,
+        "text": "CRT TV"
+      },
+      {
+        "time": 19,
+        "text": "uuugh its brokeeeeeeen"
+      },
+      {
+        "time": 22,
+        "text": "honestly I don't love the colors what about [alien] for the background"
+      },
+      {
+        "time": 28,
+        "text": "aaaactually let's try making it a 3D GAME and all objects are three dimensional like minecraft"
+      },
+      {
+        "time": 34,
+        "text": "Cheats."
+      },
+      {
+        "time": 36,
+        "text": "Now on Spielwerk."
+      }
+    ],
+    "pacing": {
+      "cuts": 14,
+      "cutsPerMinute": 21.5,
+      "avgShotSeconds": 2.6
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#786057",
+      "#bbb4aa",
+      "#2d2d31",
+      "#15191e",
+      "#533735"
+    ],
+    "lightDark": "dark"
+  },
+  "39": {
+    "launchType": "feature-release",
+    "styleTags": [
+      "product-ui",
+      "3d-render",
+      "motion-graphics",
+      "live-action"
+    ],
+    "visualSummary": "A bright, white-backdrop sizzle reel that swoops from a 3D miniature Miami into polished phone mockups, stepping through listing Q&A, travel map, itinerary, and hotel features with playful 3D props (grocery bag, tiki hut, globe, toy car) flying between screens. Short live-action beats (soccer pros, Empire State Building, a toast with locals) punctuate the UI tour before it lands on the Airbnb logo.",
+    "onScreenText": [
+      {
+        "time": 4,
+        "text": "Bayfront villa with pool and hot tub"
+      },
+      {
+        "time": 6,
+        "text": "4.99 Guest favorite"
+      },
+      {
+        "time": 6,
+        "text": "Ask about this home"
+      },
+      {
+        "time": 8,
+        "text": "How far is south beach?"
+      },
+      {
+        "time": 11,
+        "text": "Is the pool heated?"
+      },
+      {
+        "time": 20,
+        "text": "Play a match with soccer pros in Miami Stadium"
+      },
+      {
+        "time": 28,
+        "text": "Rent a car for your trip"
+      },
+      {
+        "time": 28,
+        "text": "Store bags before check-in"
+      },
+      {
+        "time": 28,
+        "text": "Order groceries for your trip"
+      },
+      {
+        "time": 28,
+        "text": "Book a private car service"
+      },
+      {
+        "time": 36,
+        "text": "Guests love this home's balcony view of the beach"
+      },
+      {
+        "time": 40,
+        "text": "Travel map"
+      },
+      {
+        "time": 46,
+        "text": "Summer destinations for you"
+      },
+      {
+        "time": 57,
+        "text": "Experience something iconic"
+      },
+      {
+        "time": 60,
+        "text": "Experience something historic"
+      },
+      {
+        "time": 61,
+        "text": "Experience something local"
+      }
+    ],
+    "pacing": {
+      "cuts": 7,
+      "cutsPerMinute": 6.1,
+      "avgShotSeconds": 8.6
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.06,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#ffffff",
+      "#797870",
+      "#dfe5e3",
+      "#fdfefd",
+      "#fffefe"
+    ],
+    "lightDark": "light"
+  },
+  "40": {
+    "launchType": "model-release",
+    "styleTags": [
+      "mixed-media",
+      "motion-graphics"
+    ],
+    "visualSummary": "A rapid-fire archival collage cutting roughly twice a second through vintage ephemera — butterfly plates, old maps, botanical prints, sheet music, engravings, cyanotypes — with the numeral 5 formed again and again from stamps, coins, clovers, mushrooms, petri-dish colonies, and moths. The frenetic scrapbook montage resolves onto calm paper-textured title cards reading Fable 5 and Claude.",
+    "onScreenText": [
+      {
+        "time": 16,
+        "text": "Fable 5"
+      },
+      {
+        "time": 18,
+        "text": "Claude"
+      }
+    ],
+    "pacing": {
+      "cuts": 40,
+      "cutsPerMinute": 120,
+      "avgShotSeconds": 0.5
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": false
+    },
+    "palette": [
+      "#655c4e",
+      "#d3c8af",
+      "#afa180",
+      "#e5dac7",
+      "#eae6c6"
+    ],
+    "lightDark": "light"
+  },
+  "41": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "talking-head",
+      "live-action",
+      "cinematic",
+      "product-ui"
+    ],
+    "visualSummary": "A founder delivers a manifesto to camera on a dark soundstage where an L-shaped projection screen cycles through skies, intercut with graded cinematic vignettes of a woman's week — laptop grind, video calls, poolside meditation, a dusk surf. Floating calendar cards, a heart-rate readout, and a ticking overdue badge appear as sparse UI overlays before the film fades to the Amie mark on black.",
+    "onScreenText": [
+      {
+        "time": 43,
+        "text": "Design conference"
+      },
+      {
+        "time": 45,
+        "text": "Trip with Katie"
+      },
+      {
+        "time": 128,
+        "text": "emilia x dennis — 80-93 BPM"
+      },
+      {
+        "time": 137,
+        "text": "Outdoor Run 44:27"
+      },
+      {
+        "time": 144,
+        "text": "57 (overdue badge counting up)"
+      }
+    ],
+    "pacing": {
+      "cuts": 58,
+      "cutsPerMinute": 19.8,
+      "avgShotSeconds": 3
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.73,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#4e657b",
+      "#081117",
+      "#2c3e56",
+      "#727f83",
+      "#8ba9a1"
+    ],
+    "lightDark": "dark"
+  },
+  "42": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "3d-render",
+      "product-ui",
+      "cinematic"
+    ],
+    "visualSummary": "A voiceover-led narrative spot built from warm, heavily graded 3D renders — airplane cabins, a corkboard of travel chaos that dissolves away, hotel lobbies, a chrome hand pulling fresh pasta — interleaved with floating assistant chat bubbles, a loyalty wallet screen, and notification cards that track one traveler's trip. Captions mirror the voiceover throughout, and it closes on the navan edge lockup with the tagline on a blush background.",
+    "onScreenText": [
+      {
+        "time": 10,
+        "text": "navan edge"
+      },
+      {
+        "time": 12,
+        "text": "your personal travel assistant"
+      },
+      {
+        "time": 17,
+        "text": "Your loyalty wallet"
+      },
+      {
+        "time": 21,
+        "text": "I'm looking for a hotel in Austin, Texas"
+      },
+      {
+        "time": 27,
+        "text": "Here's a good fit: Skyline Executive. Five minutes from the Austin office"
+      },
+      {
+        "time": 32,
+        "text": "One Bedroom Suite — 2 Nights / $1,102 total"
+      },
+      {
+        "time": 32,
+        "text": "Booked!"
+      },
+      {
+        "time": 34,
+        "text": "+18,840 — You've reached Platinum Elite!"
+      },
+      {
+        "time": 38,
+        "text": "Dinner with Zonen Capital Partners"
+      },
+      {
+        "time": 48,
+        "text": "Pasta 54 · 8 People · 7:30pm"
+      },
+      {
+        "time": 50,
+        "text": "Meeting has been rescheduled!"
+      },
+      {
+        "time": 57,
+        "text": "Austin to New York"
+      },
+      {
+        "time": 60,
+        "text": "4 2A 2:05pm"
+      },
+      {
+        "time": 78,
+        "text": "Make every work trip worth it."
+      }
+    ],
+    "pacing": {
+      "cuts": 24,
+      "cutsPerMinute": 18,
+      "avgShotSeconds": 3.2
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 1,
+      "language": "en",
+      "hasMusic": false
+    },
+    "palette": [
+      "#ddd4cc",
+      "#2c1713",
+      "#a79e96",
+      "#825e4d",
+      "#4e4849"
+    ],
+    "lightDark": "mixed"
+  },
+  "43": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "product-ui",
+      "3d-render",
+      "motion-graphics"
+    ],
+    "visualSummary": "Mocked macOS app windows float over a glossy black liquid-silk 3D backdrop: a prompt box types a request, an AI chat window builds the app, and finished apps (media library, drum machine, sticker toys) appear in a dock, a publish dialog, and a community store. One continuous camera drift rather than hard cuts, ending on the Glaze wordmark and URL over the dark background, set to music with no voiceover.",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "What would you like to build?"
+      },
+      {
+        "time": 2,
+        "text": "Describe your application..."
+      },
+      {
+        "time": 4,
+        "text": "Okay, let's start building your app."
+      },
+      {
+        "time": 6,
+        "text": "My Library"
+      },
+      {
+        "time": 36,
+        "text": "Publish Peel?"
+      },
+      {
+        "time": 50,
+        "text": "Desktop apps, reimagined by you."
+      },
+      {
+        "time": 52,
+        "text": "glaze — By Raycast"
+      },
+      {
+        "time": 54,
+        "text": "glazeapp.com"
+      }
+    ],
+    "pacing": {
+      "cuts": 1,
+      "cutsPerMinute": 1.1,
+      "avgShotSeconds": 28
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#131212",
+      "#000000",
+      "#060505",
+      "#323231",
+      "#000201"
+    ],
+    "lightDark": "dark"
+  },
+  "44": {
+    "launchType": "feature-release",
+    "styleTags": [
+      "live-action",
+      "product-ui",
+      "cinematic"
+    ],
+    "visualSummary": "A filmed comedy spot in 4:5: a woman opens her laptop under the title \"Mornings with Chrome\" and screams, cutting through a rapid montage of other screaming faces, then resets to a calm \"Mornings with Dia\" where the laptop opens onto a painterly Monday Brief page. Fast-cut, warm-graded live action bookended by typeset title cards, closing on the tagline and diabrowser.com over a soft close-up.",
+    "onScreenText": [
+      {
+        "time": 1,
+        "text": "Mornings with Chrome."
+      },
+      {
+        "time": 13,
+        "text": "Mornings with Dia."
+      },
+      {
+        "time": 20,
+        "text": "The Monday Brief"
+      },
+      {
+        "time": 24,
+        "text": "You have a busy day today!"
+      },
+      {
+        "time": 26,
+        "text": "Prep for this ->"
+      },
+      {
+        "time": 26,
+        "text": "A better way to start your work day."
+      },
+      {
+        "time": 26,
+        "text": "diabrowser.com"
+      }
+    ],
+    "pacing": {
+      "cuts": 11,
+      "cutsPerMinute": 22,
+      "avgShotSeconds": 2.5
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#110f10",
+      "#71664f",
+      "#8e8772",
+      "#463929",
+      "#bcb7a2"
+    ],
+    "lightDark": "dark"
+  },
+  "45": {
+    "launchType": "other",
+    "styleTags": [
+      "mixed-media",
+      "live-action",
+      "kinetic-typography"
+    ],
+    "visualSummary": "A manifesto brand film cut as a rapid archival montage on black: moon landing, early Disney and Muppets, Wright Flyer, factory workers, Chaplin-style slapstick, and real newspaper headlines about AI, interleaved with modern clips of teams at work and single-word white-on-black type cards that punch out the voiceover. Very fast cutting (~2s shots), dark and nostalgic, resolving to the Notion logo and the closing line.",
+    "onScreenText": [
+      {
+        "time": 11,
+        "text": "meaningful things never built alone"
+      },
+      {
+        "time": 37,
+        "text": "'Stop hiring humans' viral AI billboard campaign sparks outrage in NYC"
+      },
+      {
+        "time": 37,
+        "text": "Did A.I. Take Your Job? Or Was Your Employer 'A.I.-Washing'?"
+      },
+      {
+        "time": 39,
+        "text": "The People vs. AI"
+      },
+      {
+        "time": 40,
+        "text": "AI, Loneliness, and the Value of Human Connection"
+      },
+      {
+        "time": 41,
+        "text": "AI is Destroying the University and Learning Itself"
+      },
+      {
+        "time": 52,
+        "text": "think that the future wrong"
+      },
+      {
+        "time": 66,
+        "text": "AI a story of abundance"
+      },
+      {
+        "time": 70,
+        "text": "more opportunities"
+      },
+      {
+        "time": 118,
+        "text": "They be by us together"
+      },
+      {
+        "time": 121,
+        "text": "Think together"
+      }
+    ],
+    "pacing": {
+      "cuts": 64,
+      "cutsPerMinute": 30.7,
+      "avgShotSeconds": 1.9
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.93,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#000000",
+      "#b3aea8",
+      "#473f38",
+      "#0c0909",
+      "#000101"
+    ],
+    "lightDark": "dark"
+  },
+  "46": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "motion-graphics",
+      "product-ui",
+      "screen-recording"
+    ],
+    "visualSummary": "Opens as a frantic dark-mode collage — code editors, terminals, error dashboards, Downdetector graphs, panicked Slack messages — cut to soundbites from AI figures warning about AI-written code. It then snaps to a serene pastel-sky world where the Interfere product UI floats as softly rendered 3D panels, gliding through an investigation timeline (root cause, code diff, resolved status) before closing on plain-text tagline cards and a serif wordmark.",
+    "onScreenText": [
+      {
+        "time": 12,
+        "text": "Found a broken reset endpoint"
+      },
+      {
+        "time": 31,
+        "text": "Ship software that never breaks."
+      },
+      {
+        "time": 33,
+        "text": "Get early access today at interfere.com"
+      },
+      {
+        "time": 36,
+        "text": "Interfere"
+      }
+    ],
+    "pacing": {
+      "cuts": 14,
+      "cutsPerMinute": 22.1,
+      "avgShotSeconds": 2.5
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.31,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#f5f6f7",
+      "#17171b",
+      "#ffffff",
+      "#fdfcfd",
+      "#a4cab3"
+    ],
+    "lightDark": "light"
+  },
+  "47": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "product-ui",
+      "motion-graphics",
+      "kinetic-typography"
+    ],
+    "visualSummary": "A single continuous, voiceover-led product tour built entirely from designed UI: white minimal screens alternate with deep-black space-like scenes where glowing voice orbs (Ara, Eve, Leo) orbit, while forms, chat bubbles, waveforms, and phone numbers animate in step with the narration. Calm pacing with essentially no hard cuts, ending on pricing and the x.ai/voice URL.",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "Introducing"
+      },
+      {
+        "time": 2,
+        "text": "Voice Agent Builder"
+      },
+      {
+        "time": 6,
+        "text": "Create Agent +"
+      },
+      {
+        "time": 16,
+        "text": "Ara — Warm & friendly"
+      },
+      {
+        "time": 17,
+        "text": "Eve — Energetic & upbeat"
+      },
+      {
+        "time": 18,
+        "text": "Leo — Authoritative & strong"
+      },
+      {
+        "time": 21,
+        "text": "80+ Voices with voice cloning — Multilingual voices with natural intonation. Preview any voice instantly."
+      },
+      {
+        "time": 22,
+        "text": "Knowledge base — Drop docs to teach your agent"
+      },
+      {
+        "time": 35,
+        "text": "Expressive speech · HIPAA eligible · Multi-tool workflows · Sub-second latency · 25+ languages · GDPR compliant · Voice cloning · SOC 2 · Custom voice"
+      },
+      {
+        "time": 39,
+        "text": "$0.05 / min"
+      },
+      {
+        "time": 40,
+        "text": "x.ai/voice"
+      }
+    ],
+    "pacing": {
+      "cuts": 1,
+      "cutsPerMinute": 1.3,
+      "avgShotSeconds": 23
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.98,
+      "language": "en",
+      "hasMusic": false
+    },
+    "palette": [
+      "#f7f7f7",
+      "#000000",
+      "#fdfdfd",
+      "#f9f9f9",
+      "#736357"
+    ],
+    "lightDark": "light"
+  },
+  "48": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "motion-graphics",
+      "product-ui",
+      "3d-render"
+    ],
+    "visualSummary": "A dreamy pastel-gradient piece: a jetpack figure streaks across a painted sky, a warm wood-paneled desk vignette follows, then abstract floating cards and stacked planes stand in for the product's timeline and journal views. Tagline cards fade in and out over soft cloud backgrounds at a calm, single-flow pace, closing on an orange staircase and a download CTA.",
+    "onScreenText": [
+      {
+        "time": 2,
+        "text": "Dayflow is the first automatic work journal."
+      },
+      {
+        "time": 6,
+        "text": "With Dayflow, your work documents itself automatically."
+      },
+      {
+        "time": 12,
+        "text": "Your day — Into a timeline"
+      },
+      {
+        "time": 17,
+        "text": "Your week — Into a story"
+      },
+      {
+        "time": 21,
+        "text": "Your year — Accelerated"
+      },
+      {
+        "time": 26,
+        "text": "Stay focused on what matters, and leave the rest to Dayflow."
+      },
+      {
+        "time": 29,
+        "text": "Local AI for secure enterprise and personal use."
+      },
+      {
+        "time": 32,
+        "text": "Dayflow is open source."
+      },
+      {
+        "time": 32,
+        "text": "The code belongs to you. Read it. Remix it."
+      },
+      {
+        "time": 36,
+        "text": "Your work shouldn't be invisible."
+      },
+      {
+        "time": 39,
+        "text": "Download Today — dayflow.so"
+      }
+    ],
+    "pacing": {
+      "cuts": 0,
+      "cutsPerMinute": 0,
+      "avgShotSeconds": 42
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#e5e4e6",
+      "#f7f7f2",
+      "#f8f1eb",
+      "#eceeee",
+      "#aea7b0"
+    ],
+    "lightDark": "light"
+  },
+  "49": {
+    "launchType": "feature-release",
+    "styleTags": [
+      "live-action",
+      "cinematic"
+    ],
+    "visualSummary": "A single-location, filmed dexterity showcase: NEO's cream-colored tendon-driven hands perform a slow series of manipulation tasks — spinning a wine glass, gripping a lightbulb, pinching a screw, sorting grapes, hefting a kettlebell, shaking a human hand, stacking blocks, working a game controller, squeezing a spray bottle and a tomato, opening a chip bag. Shot against a moody olive-green backdrop with warm, filmic grading and long static takes, set to music with no narration, ending on a black 1X logo card.",
+    "onScreenText": [
+      {
+        "time": 102,
+        "text": "1X"
+      }
+    ],
+    "pacing": {
+      "cuts": 6,
+      "cutsPerMinute": 3.4,
+      "avgShotSeconds": 15.3
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#342a0a",
+      "#22210c",
+      "#4c3c15",
+      "#a8a57b",
+      "#7a6f48"
+    ],
+    "lightDark": "dark"
+  },
+  "50": {
+    "launchType": "feature-release",
+    "styleTags": [
+      "product-ui",
+      "kinetic-typography",
+      "motion-graphics"
+    ],
+    "visualSummary": "A clean OpenAI-house-style demo: white typographic title cards with letter-by-letter reveals alternate with polished product-UI sequences — a prompt bar and voice waveform, agent progress states with Gmail/Slack/Excel/Notion icons, the desktop app floating on a starfield, generated lamp imagery, a slide deck being built, then a mobile-app follow-up. Measured pacing, mostly silent UI motion over music, bookended by the OpenAI logo.",
+    "onScreenText": [
+      {
+        "time": 5,
+        "text": "Introducing ChatGPT Work"
+      },
+      {
+        "time": 8,
+        "text": "Built to take on your most ambitious ideas"
+      },
+      {
+        "time": 13,
+        "text": "5.6 Sol Extra High"
+      },
+      {
+        "time": 24,
+        "text": "Connect to the apps you already use"
+      },
+      {
+        "time": 26,
+        "text": "Searching for suppliers"
+      },
+      {
+        "time": 28,
+        "text": "Analyzing supplier history"
+      },
+      {
+        "time": 29,
+        "text": "Reviewing scorecards"
+      },
+      {
+        "time": 30,
+        "text": "Reading project notes"
+      },
+      {
+        "time": 40,
+        "text": "Turn rough ideas into finished work"
+      },
+      {
+        "time": 74,
+        "text": "Get tasks done, even when you're away"
+      },
+      {
+        "time": 92,
+        "text": "Put ChatGPT to work on your biggest ideas"
+      },
+      {
+        "time": 96,
+        "text": "ChatGPT Work"
+      }
+    ],
+    "pacing": {
+      "cuts": 11,
+      "cutsPerMinute": 6.6,
+      "avgShotSeconds": 8.3
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.19,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#ffffff",
+      "#3f4649",
+      "#f3f4f4",
+      "#fefffe",
+      "#fffffe"
+    ],
+    "lightDark": "light"
+  },
+  "51": {
+    "launchType": "feature-release",
+    "styleTags": [
+      "screen-recording",
+      "motion-graphics",
+      "product-ui"
+    ],
+    "visualSummary": "A rapid-fire montage (roughly a cut a second) of Figma's new timeline in action: zoomed UI captures of keyframes, easing curves, spring panels and motion tokens intercut with the demo projects they animate — a plant-shop site, an unlocking phone screen, an isometric map, a glitchy type treatment, layered image collages, and a neon-green finance app with CSS export. Bold flat color throughout, cursors flying, set to music, closing on 'Set your ideas in motion' and the Figma logo.",
+    "onScreenText": [
+      {
+        "time": 8,
+        "text": "Figma Motion"
+      },
+      {
+        "time": 30,
+        "text": "Create a glitchy type animation, staggering the shapes."
+      },
+      {
+        "time": 64,
+        "text": "Set your ideas in motion"
+      }
+    ],
+    "pacing": {
+      "cuts": 55,
+      "cutsPerMinute": 48.5,
+      "avgShotSeconds": 1.2
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#2f1955",
+      "#75766a",
+      "#bac1cd",
+      "#faffef",
+      "#e5e8da"
+    ],
+    "lightDark": "light"
+  },
+  "52": {
+    "launchType": "feature-release",
+    "styleTags": [
+      "kinetic-typography",
+      "motion-graphics",
+      "product-ui"
+    ],
+    "visualSummary": "A stark black-and-white typographic piece: after a brief glimpse of the Attio dashboard where 'How do I win this deal' is typed into an ask bar, the video becomes pure kinetic type — data-source names (emails, calls, notes, Stripe payments, Posthog events) ticking past on minimal white and inverted black cards, building to the 'Universal Context' claim and a rhythmic run of 'Ask Attio to…' use cases before the logo endcard.",
+    "onScreenText": [
+      {
+        "time": 3,
+        "text": "How do I win this deal"
+      },
+      {
+        "time": 8,
+        "text": "Everything creates signal"
+      },
+      {
+        "time": 10,
+        "text": "Every email"
+      },
+      {
+        "time": 12,
+        "text": "Every call"
+      },
+      {
+        "time": 15,
+        "text": "Every note"
+      },
+      {
+        "time": 20,
+        "text": "Every web search"
+      },
+      {
+        "time": 24,
+        "text": "and every User record"
+      },
+      {
+        "time": 26,
+        "text": "Stripe payment"
+      },
+      {
+        "time": 26,
+        "text": "Posthog event"
+      },
+      {
+        "time": 26,
+        "text": "Company record"
+      },
+      {
+        "time": 28,
+        "text": "Everything is context"
+      },
+      {
+        "time": 30,
+        "text": "Universal Context"
+      },
+      {
+        "time": 34,
+        "text": "Ask Attio to brief my day."
+      },
+      {
+        "time": 40,
+        "text": "Ask more from CRM."
+      },
+      {
+        "time": 45,
+        "text": "attio — attio.com/ask"
+      }
+    ],
+    "pacing": {
+      "cuts": 3,
+      "cutsPerMinute": 3.8,
+      "avgShotSeconds": 11.8
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#fcfcfc",
+      "#636566",
+      "#fcfcfb",
+      "#fefefe",
+      "#fbfdfb"
+    ],
+    "lightDark": "light"
+  },
+  "53": {
+    "launchType": "model-release",
+    "styleTags": [
+      "live-action",
+      "talking-head",
+      "cinematic"
+    ],
+    "visualSummary": "A comedic live-action spot set in a bright pastel living-room set, where a rotating cast of elderly women demo ChatGPT Voice on their phones — knitting advice, fact-checking, live French translation — mixing direct-to-camera address with close-ups of the pulsing voice orb on screen. Quick cutting, warm grade, a clapperboard gag, and a retro script-font title card bookend the sketch before it resolves to the ChatGPT wordmark and OpenAI logo on white.",
+    "onScreenText": [
+      {
+        "time": 20,
+        "text": "THE ALL-NEW ChatGPT Voice"
+      },
+      {
+        "time": 211,
+        "text": "ChatGPT"
+      }
+    ],
+    "pacing": {
+      "cuts": 65,
+      "cutsPerMinute": 18.2,
+      "avgShotSeconds": 3.2
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.91,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#867468",
+      "#583d33",
+      "#9c9792",
+      "#c6c0b9",
+      "#b9a193"
+    ],
+    "lightDark": "mixed"
+  },
+  "54": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "product-ui",
+      "motion-graphics",
+      "kinetic-typography"
+    ],
+    "visualSummary": "A voiceover-driven product tour built almost entirely from designed UI cards and laptop mockups floating on white, walking through onboarding, payroll, compliance, and benefits flows. Punchy full-bleed kinetic-type interludes (repeating \"speed\", \"power\", \"peace\") in orange, black, and cyan and the spinning Warp pinwheel logo break up the demo, closing on the warp.co wordmark.",
+    "onScreenText": [
+      {
+        "time": 4,
+        "text": "The first AI-powered employee management platform"
+      },
+      {
+        "time": 15,
+        "text": "Built for speed"
+      },
+      {
+        "time": 17,
+        "text": "and enterprise-grade power"
+      },
+      {
+        "time": 18,
+        "text": "as you scale from 1 to 10,000 employees"
+      },
+      {
+        "time": 23,
+        "text": "Onboarding runs itself."
+      },
+      {
+        "time": 36,
+        "text": "across thousands of apps"
+      },
+      {
+        "time": 40,
+        "text": "The day someone leaves?"
+      },
+      {
+        "time": 51,
+        "text": "Have an international team?"
+      },
+      {
+        "time": 56,
+        "text": "In local currency"
+      },
+      {
+        "time": 61,
+        "text": "And for hourly teams, time tracks itself."
+      },
+      {
+        "time": 71,
+        "text": "Let's talk compliance"
+      },
+      {
+        "time": 72,
+        "text": "peace of mind."
+      },
+      {
+        "time": 94,
+        "text": "Go directly to our in-house tax-experts."
+      },
+      {
+        "time": 122,
+        "text": "Ready to run your company at Warp speed?"
+      },
+      {
+        "time": 131,
+        "text": "warp.co"
+      }
+    ],
+    "pacing": {
+      "cuts": 16,
+      "cutsPerMinute": 7.2,
+      "avgShotSeconds": 7.9
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.98,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#ffffff",
+      "#f9faf9",
+      "#5d5d5c",
+      "#fdfffe",
+      "#fffffd"
+    ],
+    "lightDark": "light"
+  },
+  "55": {
+    "launchType": "model-release",
+    "styleTags": [
+      "mixed-media",
+      "motion-graphics",
+      "3d-render"
+    ],
+    "visualSummary": "A fast-cut paper-craft collage: a live-action hand sketches a horseman on a desk of clippings, a prompt card asks K3 to turn the draft into a playable game, and the drawing morphs through code and asset passes into a rendered 3D world. It then deals out a labeled montage of generated demos — game emulator, physics toys, FPS, dashboards, interactive visualizations — before closing on multilingual K3 cards and the KIMI wordmark, all set to music with no narration.",
+    "onScreenText": [
+      {
+        "time": 5,
+        "text": "Create new character from my draft as the hero prototype. Turn my restored forest into a playable fantasy world around them."
+      },
+      {
+        "time": 14,
+        "text": "meet kimi k3"
+      },
+      {
+        "time": 18,
+        "text": "Add real-time reflections"
+      },
+      {
+        "time": 18,
+        "text": "Add a reactive weather system"
+      },
+      {
+        "time": 19,
+        "text": "Add a dynamic day-night cycle"
+      },
+      {
+        "time": 21,
+        "text": "Kimi is debugging..."
+      },
+      {
+        "time": 23,
+        "text": "Kimi debugged it."
+      },
+      {
+        "time": 26,
+        "text": "3D Game Emulator"
+      },
+      {
+        "time": 28,
+        "text": "Swing Physics"
+      },
+      {
+        "time": 31,
+        "text": "Browser-based RPG"
+      },
+      {
+        "time": 32,
+        "text": "FPS Gameplay"
+      },
+      {
+        "time": 34,
+        "text": "Multiplayer Racing"
+      },
+      {
+        "time": 34,
+        "text": "Voxel Game"
+      },
+      {
+        "time": 40,
+        "text": "Research with Interactive Visualization"
+      },
+      {
+        "time": 54,
+        "text": "K3 is the future, already is KIMI"
+      }
+    ],
+    "pacing": {
+      "cuts": 16,
+      "cutsPerMinute": 16.8,
+      "avgShotSeconds": 3.4
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#cad2c8",
+      "#393131",
+      "#a7a39c",
+      "#cfd0c6",
+      "#e7eae5"
+    ],
+    "lightDark": "light"
+  },
+  "56": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "live-action",
+      "cinematic",
+      "motion-graphics"
+    ],
+    "visualSummary": "A narrative short film, not a demo: a boyfriend forgets his anniversary and Orchid quietly rescues him over iMessage — booking the restaurant, vetoing roses for lilies, staging the flowers at the table. Warm, filmic handheld footage with long takes and burned-in dialogue, the product existing only as chat bubbles floating over the scenes, ending on a serif Orchid end card whose tagline cycles through the assistant's roles.",
+    "onScreenText": [
+      {
+        "time": 11,
+        "text": "Orchid"
+      },
+      {
+        "time": 13,
+        "text": "so he forgot"
+      },
+      {
+        "time": 16,
+        "text": "can you fix it"
+      },
+      {
+        "time": 17,
+        "text": "wayyyyyy ahead of you"
+      },
+      {
+        "time": 18,
+        "text": "if this works he owes me dinner too"
+      },
+      {
+        "time": 34,
+        "text": "you keep checking like food spawns in there"
+      },
+      {
+        "time": 38,
+        "text": "also that expired tuesday. let it go"
+      },
+      {
+        "time": 44,
+        "text": "how's the cereal — because it's your anniversary"
+      },
+      {
+        "time": 50,
+        "text": "orchid. this is bad. i need your help."
+      },
+      {
+        "time": 52,
+        "text": "your table's booked. lupa, 8pm."
+      },
+      {
+        "time": 56,
+        "text": "not roses. she says roses are what guilty men buy"
+      },
+      {
+        "time": 59,
+        "text": "lilies. her favourite."
+      },
+      {
+        "time": 82,
+        "text": "flowers are at the table. just walk in like you planned it"
+      },
+      {
+        "time": 87,
+        "text": "ur carrying this relationship rn"
+      },
+      {
+        "time": 106,
+        "text": "Orchid — your everyday assistant on iMessage"
+      }
+    ],
+    "pacing": {
+      "cuts": 8,
+      "cutsPerMinute": 4.3,
+      "avgShotSeconds": 12.3
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.29,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#121716",
+      "#473122",
+      "#696553",
+      "#83988d",
+      "#c1b899"
+    ],
+    "lightDark": "dark"
+  },
+  "57": {
+    "launchType": "feature-release",
+    "styleTags": [
+      "mixed-media",
+      "motion-graphics",
+      "product-ui",
+      "cinematic"
+    ],
+    "visualSummary": "One continuous cut-free camera move through a Renaissance-painting dreamworld — a canvas on an easel, marble statues holding tablets, a swan and a prowling cheetah — that keeps dissolving into the product: designed UI cards for a fictional 'Chromatica Art Gallery' project spread across a canvas, template browsing, brand application, and a phone-to-desktop launch. Painterly, music-only, and mood-driven, with taglines typeset over the scenery until the Replit logo closes it out.",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "Introducing Replit Design"
+      },
+      {
+        "time": 4,
+        "text": "Now anyone can be a designer"
+      },
+      {
+        "time": 6,
+        "text": "Your creative partner"
+      },
+      {
+        "time": 8,
+        "text": "that guides you"
+      },
+      {
+        "time": 9,
+        "text": "to stunning designs"
+      },
+      {
+        "time": 10,
+        "text": "faster than any other AI design tool"
+      },
+      {
+        "time": 13,
+        "text": "with Ambient Intelligence at every step"
+      },
+      {
+        "time": 32,
+        "text": "Browse hundreds of templates so you never start from scratch"
+      },
+      {
+        "time": 40,
+        "text": "On brand everywhere in a single click"
+      },
+      {
+        "time": 46,
+        "text": "Visualize it. Design it. Ship it. Grow it."
+      },
+      {
+        "time": 64,
+        "text": "Turn your vision into reality"
+      },
+      {
+        "time": 66,
+        "text": "Powered by the best models for design"
+      },
+      {
+        "time": 68,
+        "text": "You choose how you create"
+      },
+      {
+        "time": 70,
+        "text": "Replit — replit.com/design"
+      }
+    ],
+    "pacing": {
+      "cuts": 0,
+      "cutsPerMinute": 0,
+      "avgShotSeconds": 71
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#edece8",
+      "#443927",
+      "#a1907e",
+      "#e7ded9",
+      "#f7f5f1"
+    ],
+    "lightDark": "light"
+  },
+  "58": {
+    "launchType": "other",
+    "styleTags": [
+      "mixed-media",
+      "kinetic-typography",
+      "product-ui",
+      "live-action"
+    ],
+    "visualSummary": "A 30-second hype montage cut at ~150 cuts per minute: archival Steve Jobs interview footage with typographic captions gives way to rapid flashes of oversized display type, Whop product UI fragments (payouts, balances, spend charts, member lists), code snippets, and lo-fi live-action clips of young founders at work, resolving onto the Whop wordmark.",
+    "onScreenText": [
+      {
+        "time": 4,
+        "text": "It's never been easy,"
+      },
+      {
+        "time": 6,
+        "text": "but it's never been easier."
+      },
+      {
+        "time": 8,
+        "text": "Create a business."
+      },
+      {
+        "time": 8,
+        "text": "Peel"
+      },
+      {
+        "time": 9,
+        "text": "Dip"
+      },
+      {
+        "time": 16,
+        "text": "350K"
+      },
+      {
+        "time": 26,
+        "text": "Build cool sh*t"
+      },
+      {
+        "time": 27,
+        "text": "Build cool sh*t with your friends."
+      },
+      {
+        "time": 28,
+        "text": "Whop"
+      }
+    ],
+    "pacing": {
+      "cuts": 75,
+      "cutsPerMinute": 150,
+      "avgShotSeconds": 0.4
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.74,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#100f0f",
+      "#e1e2df",
+      "#969588",
+      "#271d1a",
+      "#030404"
+    ],
+    "lightDark": "dark"
+  },
+  "59": {
+    "launchType": "rebrand",
+    "styleTags": [
+      "kinetic-typography",
+      "motion-graphics",
+      "mixed-media"
+    ],
+    "visualSummary": "A brand-identity sizzle locked to Coca-Cola red and white: one-word serif titles punch in and out between pack shots, Dynamic Ribbon animations, photography grids, and real-world applications — billboards, trucks, merch, vending — before closing on the logo lockup. Music-driven, no voiceover, cut at roughly 70 cuts per minute.",
+    "onScreenText": [
+      {
+        "time": 1,
+        "text": "The world's most recognized brand"
+      },
+      {
+        "time": 6,
+        "text": "enters a new chapter."
+      },
+      {
+        "time": 8,
+        "text": "Not just iconic."
+      },
+      {
+        "time": 10,
+        "text": "More iconic than ever."
+      },
+      {
+        "time": 16,
+        "text": "Unmissable."
+      },
+      {
+        "time": 22,
+        "text": "Uplifting."
+      },
+      {
+        "time": 32,
+        "text": "Distinctive."
+      },
+      {
+        "time": 37,
+        "text": "Authentic."
+      },
+      {
+        "time": 38,
+        "text": "Enjoy ice cold."
+      },
+      {
+        "time": 45,
+        "text": "A typeface in Regular Medium Compressed"
+      },
+      {
+        "time": 48,
+        "text": "Unified"
+      },
+      {
+        "time": 54,
+        "text": "timeless."
+      },
+      {
+        "time": 62,
+        "text": "More timely."
+      },
+      {
+        "time": 70,
+        "text": "It's Coca-Cola made even more Coca-Cola"
+      },
+      {
+        "time": 75,
+        "text": "Iconic everywhere."
+      }
+    ],
+    "pacing": {
+      "cuts": 108,
+      "cutsPerMinute": 71.2,
+      "avgShotSeconds": 0.8
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.33,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#de030d",
+      "#ffffff",
+      "#6b171a",
+      "#c3acb3",
+      "#fcfdfc"
+    ],
+    "lightDark": "mixed"
+  },
+  "60": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "talking-head",
+      "live-action",
+      "screen-recording"
+    ],
+    "visualSummary": "A slow-paced founder film (average shot ~14s): Eren Bali speaks to camera on a purple studio backdrop and co-founder Edouard Tabet in a daylight office, then most of the runtime is a split-screen of hands on an iPhone beside a mirrored capture of Monogram generating live interfaces — TV-show grids, a recipe card, a Yosemite trip planner — before ending on a monogram.ai card.",
+    "onScreenText": [
+      {
+        "time": 4,
+        "text": "Eren Bali — Cofounder / CEO, Monogram"
+      },
+      {
+        "time": 26,
+        "text": "Edouard Tabet — Cofounder / CPO, Monogram"
+      },
+      {
+        "time": 240,
+        "text": "monogram.ai"
+      }
+    ],
+    "pacing": {
+      "cuts": 17,
+      "cutsPerMinute": 4.1,
+      "avgShotSeconds": 13.8
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.96,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#08090b",
+      "#453a75",
+      "#5c518d",
+      "#261e3b",
+      "#a2a3a7"
+    ],
+    "lightDark": "dark"
+  },
+  "61": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "live-action",
+      "cinematic",
+      "talking-head"
+    ],
+    "visualSummary": "A single-location comedy sketch on a 1970s office set: warm-graded, wide-angle film look with a bespectacled secretary delivering a deadpan monologue to camera through whip pans, prop gags, and clock inserts. The product only appears in the final ten seconds as a phone held up showing a Howie email thread, then the retro end card and URL.",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "Bring back the secretary"
+      },
+      {
+        "time": 49,
+        "text": "meet howie"
+      },
+      {
+        "time": 52,
+        "text": "howie — The people's secretary."
+      },
+      {
+        "time": 54,
+        "text": "howie.com"
+      }
+    ],
+    "pacing": {
+      "cuts": 29,
+      "cutsPerMinute": 30.5,
+      "avgShotSeconds": 1.9
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.96,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#644921",
+      "#36210d",
+      "#836f42",
+      "#9a9468",
+      "#b9c19a"
+    ],
+    "lightDark": "dark"
+  },
+  "62": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "live-action",
+      "cinematic",
+      "screen-recording"
+    ],
+    "visualSummary": "A documentary-style testimonial film: shallow-DOF, moody footage of real users at desks and on couches, intercut with angled close-ups of laptop and phone screens where Grok Bot triages inboxes, learns workflows from demonstration, and drafts emails. An opening counter gag ('we recently hired 2,836 new teammates') and lower-third captions naming each user's bot structure the piece, which closes on a Grok Bot logo card on white.",
+    "onScreenText": [
+      {
+        "time": 1,
+        "text": "We recently hired a new teammate"
+      },
+      {
+        "time": 5,
+        "text": "We recently hired 2,836 new teammates"
+      },
+      {
+        "time": 16,
+        "text": "Meet Heather"
+      },
+      {
+        "time": 16,
+        "text": "Meet Yodo"
+      },
+      {
+        "time": 17,
+        "text": "Meet Ms. Detective"
+      },
+      {
+        "time": 18,
+        "text": "Meet EmailDrafts"
+      },
+      {
+        "time": 18,
+        "text": "Meet HanSolo"
+      },
+      {
+        "time": 19,
+        "text": "Meet Grok Bot"
+      },
+      {
+        "time": 22,
+        "text": "Fiona's Bot: Yodo — Triages thousands of emails per day"
+      },
+      {
+        "time": 28,
+        "text": "Vincent's Bot: Louie — Learns and replicates tricky workflows"
+      },
+      {
+        "time": 38,
+        "text": "Caro's Bot: Bobby — Works in the cloud on its own"
+      },
+      {
+        "time": 54,
+        "text": "Simon's Bot: Cartman — Researches like you would"
+      },
+      {
+        "time": 66,
+        "text": "Krista's Bot: Olive — Contextually generates customer materials"
+      },
+      {
+        "time": 84,
+        "text": "Emma's Bot: Cat — Does real work from your phone"
+      },
+      {
+        "time": 104,
+        "text": "Grok Bot"
+      }
+    ],
+    "pacing": {
+      "cuts": 63,
+      "cutsPerMinute": 35.7,
+      "avgShotSeconds": 1.7
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.97,
+      "language": "en",
+      "hasMusic": false
+    },
+    "palette": [
+      "#0e171a",
+      "#3d2f2d",
+      "#9ac1ad",
+      "#7c8b7e",
+      "#c2d8be"
+    ],
+    "lightDark": "dark"
+  },
+  "63": {
+    "launchType": "funding",
+    "styleTags": [
+      "live-action",
+      "cinematic"
+    ],
+    "visualSummary": "A single-scene comedy sketch shot like prestige TV: a wealth manager tells a clueless investor he is now a billionaire from CodeRabbit's round, staged as slow shot/reverse-shot coverage in a warm, wood-paneled office with soft window light. The joke plays out entirely in performance and pauses (including a long Newton's-cradle insert), then hard-cuts to minimal white-on-black title cards and the CodeRabbit logo.",
+    "onScreenText": [
+      {
+        "time": 84,
+        "text": "CodeRabbit raised $143M to fix your code."
+      },
+      {
+        "time": 86,
+        "text": "That's what the money's for."
+      },
+      {
+        "time": 88,
+        "text": "CodeRabbit"
+      }
+    ],
+    "pacing": {
+      "cuts": 24,
+      "cutsPerMinute": 15.8,
+      "avgShotSeconds": 3.6
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.91,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#b3afa2",
+      "#7a6b5d",
+      "#302019",
+      "#5e4232",
+      "#3f392f"
+    ],
+    "lightDark": "dark"
+  },
+  "64": {
+    "launchType": "funding",
+    "styleTags": [
+      "mixed-media",
+      "kinetic-typography",
+      "motion-graphics"
+    ],
+    "visualSummary": "A rapid-fire founder-story montage (cuts under 2 seconds) that opens on skeptic tweets, then syncs kinetic type on white to Anton Osika's voiceover while collaging childhood photos, retro terminal screens, viral tweet metrics, news and podcast clips, crowd footage, and Lovable product UI. The pace never lets up until it resolves to the plain Lovable wordmark on white.",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "Hot take: Lovable is just a toy"
+      },
+      {
+        "time": 2,
+        "text": "It's for prototyping"
+      },
+      {
+        "time": 5,
+        "text": "Incoming call — Anton Osika"
+      },
+      {
+        "time": 8,
+        "text": "Most of what people think about Lovable is wrong."
+      },
+      {
+        "time": 14,
+        "text": "At Lovable, it's still day zero."
+      },
+      {
+        "time": 34,
+        "text": "So I created a project named GPT Engineer"
+      },
+      {
+        "time": 68,
+        "text": "more than a million projects started every single week"
+      },
+      {
+        "time": 86,
+        "text": "DESIGN PARTNER"
+      },
+      {
+        "time": 89,
+        "text": "Auto optimize"
+      },
+      {
+        "time": 92,
+        "text": "Server-Side Rendering for new apps"
+      },
+      {
+        "time": 98,
+        "text": "Take a chance on yourself"
+      },
+      {
+        "time": 103,
+        "text": "it's day zero. take the leap."
+      },
+      {
+        "time": 106,
+        "text": "Lovable"
+      }
+    ],
+    "pacing": {
+      "cuts": 60,
+      "cutsPerMinute": 33,
+      "avgShotSeconds": 1.8
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.88,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#ffffff",
+      "#121419",
+      "#7f8085",
+      "#fefffe",
+      "#fffffd"
+    ],
+    "lightDark": "mixed"
+  },
+  "65": {
+    "launchType": "rebrand",
+    "styleTags": [
+      "motion-graphics",
+      "kinetic-typography",
+      "product-ui"
+    ],
+    "visualSummary": "A music-driven motion-graphics brand film built on Cloudflare's new orange: the cloud mark is constructed on a blueprint grid, then long dissolving scenes alternate typographic claims on textured orange or cream fields with illustrated product vignettes — a node-based workflow canvas, a wireframe globe, traffic-spike graphs, and terminal-style cards. Slow (about 11s per shot), warm, and pixel/halftone-textured throughout, closing on the Workers Platform URL.",
+    "onScreenText": [
+      {
+        "time": 6,
+        "text": "Everything we learned from powering 20% of the Internet."
+      },
+      {
+        "time": 9,
+        "text": "Start building"
+      },
+      {
+        "time": 14,
+        "text": "Workflow"
+      },
+      {
+        "time": 14,
+        "text": "Compute"
+      },
+      {
+        "time": 20,
+        "text": "Trusted by the teams you trust"
+      },
+      {
+        "time": 25,
+        "text": "Go from localhost → global in minutes"
+      },
+      {
+        "time": 28,
+        "text": "Region: Earth"
+      },
+      {
+        "time": 34,
+        "text": "Let it spike"
+      },
+      {
+        "time": 36,
+        "text": "Fighting infra with \"cloud\""
+      },
+      {
+        "time": 38,
+        "text": "Shipping with Cloudflare"
+      },
+      {
+        "time": 41,
+        "text": "Pushed 34 new updates today"
+      },
+      {
+        "time": 42,
+        "text": "Build without boundaries."
+      },
+      {
+        "time": 48,
+        "text": "Workers Platform"
+      },
+      {
+        "time": 50,
+        "text": "workers.cloudflare.com"
+      }
+    ],
+    "pacing": {
+      "cuts": 4,
+      "cutsPerMinute": 4.4,
+      "avgShotSeconds": 11
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#ed4011",
+      "#fffdf8",
+      "#fefaf2",
+      "#faf7f0",
+      "#ee7d54"
+    ],
+    "lightDark": "mixed"
+  },
+  "66": {
+    "launchType": "rebrand",
+    "styleTags": [
+      "kinetic-typography",
+      "mixed-media",
+      "motion-graphics",
+      "live-action"
+    ],
+    "visualSummary": "A fast-cut (under 2s per shot) brand-system reveal set to music with no voiceover: the new script wordmark morphs letter by letter, glyphs are shown as vector-point construction drawings, and typographic claim cards on black or cream alternate with lo-fi camcorder-style clips of DJs, skaters, and friends. Poster lockups, UI glyph rows, gradient swatches, and handwritten annotations tie it together before it resolves to the Instagram logo on black.",
+    "onScreenText": [
+      {
+        "time": 2,
+        "text": "Instagram is built for"
+      },
+      {
+        "time": 4,
+        "text": "creativity"
+      },
+      {
+        "time": 9,
+        "text": "a new wordmark"
+      },
+      {
+        "time": 10,
+        "text": "and brand system"
+      },
+      {
+        "time": 11,
+        "text": "built for everyday expression"
+      },
+      {
+        "time": 14,
+        "text": "from the roll"
+      },
+      {
+        "time": 21,
+        "text": "Typefaces that set the tone"
+      },
+      {
+        "time": 26,
+        "text": "with utility and personality"
+      },
+      {
+        "time": 32,
+        "text": "a canvas to make your own"
+      },
+      {
+        "time": 34,
+        "text": "The only filter that matters is yours"
+      },
+      {
+        "time": 37,
+        "text": "and a new take on an iconic gradient"
+      },
+      {
+        "time": 46,
+        "text": "Images that reflect the moment without pressure"
+      },
+      {
+        "time": 52,
+        "text": "post it anyway / Share it anyway / make it anyway"
+      },
+      {
+        "time": 54,
+        "text": "Who says you can't? Make it anyway"
+      },
+      {
+        "time": 58,
+        "text": "It's yours for the making"
+      }
+    ],
+    "pacing": {
+      "cuts": 32,
+      "cutsPerMinute": 31,
+      "avgShotSeconds": 1.9
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#000000",
+      "#c9c2b8",
+      "#1b1612",
+      "#000002",
+      "#0b0002"
+    ],
+    "lightDark": "dark"
+  },
+  "67": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "live-action",
+      "cinematic",
+      "screen-recording"
+    ],
+    "visualSummary": "A moody, long-take short film staged as a breakup-dinner allegory: a young man's AI assistant (personified as his date) has silently sent 30,000 out-of-office emails, and the fallout plays out in dim, warm restaurant light with burned-in dialogue subtitles and slow 13-second shots. Near the end it cuts to a green-tinted bathroom where he opens the Lemma dashboard on a laptop — flagged agent-failure issues in red — before white end cards and the Lemma logo close it out.",
+    "onScreenText": [
+      {
+        "time": 142,
+        "text": "agents f*ck up"
+      },
+      {
+        "time": 145,
+        "text": "don't wait until it's too late"
+      },
+      {
+        "time": 150,
+        "text": "Lemma"
+      }
+    ],
+    "pacing": {
+      "cuts": 11,
+      "cutsPerMinute": 4.3,
+      "avgShotSeconds": 12.9
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.66,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#100f10",
+      "#03050b",
+      "#28201b",
+      "#544132",
+      "#867a63"
+    ],
+    "lightDark": "dark"
+  },
+  "68": {
+    "launchType": "feature-release",
+    "styleTags": [
+      "screen-recording",
+      "motion-graphics"
+    ],
+    "visualSummary": "A ChatGPT desktop demo staged on a starfield wallpaper: a prompt bar types a standup request, the screen accelerates through a warp-speed star tunnel while dock icons fly past, then settles into captured UI of the Computer History timeline and the drafted update landing in Slack. Ends on a plain white card that types out the feature name and closes on the OpenAI logo, music only, no voiceover.",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "What should we work on?"
+      },
+      {
+        "time": 2,
+        "text": "Computer History"
+      },
+      {
+        "time": 4,
+        "text": "Draft a standup update for me based on what I did yesterday"
+      },
+      {
+        "time": 10,
+        "text": "Cleared morning Slack and email triage"
+      },
+      {
+        "time": 12,
+        "text": "Shared the seasonal bundle launch checklist"
+      },
+      {
+        "time": 13,
+        "text": "Reviewed sales tracker exceptions"
+      },
+      {
+        "time": 14,
+        "text": "Mapped the day's bundle launch priorities"
+      },
+      {
+        "time": 22,
+        "text": "Computer History in ChatGPT"
+      }
+    ],
+    "pacing": {
+      "cuts": 6,
+      "cutsPerMinute": 12.9,
+      "avgShotSeconds": 4
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#010101",
+      "#ffffff",
+      "#f5f6f4",
+      "#3d5958",
+      "#fffefe"
+    ],
+    "lightDark": "mixed"
+  }
+}

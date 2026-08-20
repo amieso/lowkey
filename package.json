@@ -10,7 +10,9 @@
     "lint": "next lint",
     "ingest": "node scripts/ingest.mjs",
     "publish": "node scripts/publish-videos.mjs",
-    "chapterize": "node scripts/chapterize.mjs"
+    "chapterize": "node scripts/chapterize.mjs",
+    "enrich": "node scripts/enrich.mjs",
+    "enrich:merge": "node scripts/enrich-merge.mjs"
   },
   "dependencies": {
     "@react-email/components": "^1.0.4",
