@@ -137,23 +137,6 @@ export function listCompanies() {
     .sort((a, b) => b.videoCount - a.videoCount || a.company.localeCompare(b.company))
 }
 
-export function listCreators(role?: string) {
-  const byKey = new Map<string, { name: string; roles: Set<string>; handle?: string; url?: string; videos: { title: string; company: string; path: string }[] }>()
-  for (const v of liveVideos()) {
-    for (const c of v.credits) {
-      if (role && !c.role.toLowerCase().includes(role.toLowerCase())) continue
-      const key = c.handle ?? c.name
-      const entry = byKey.get(key) ?? { name: c.name, roles: new Set(), handle: c.handle, url: c.url, videos: [] }
-      entry.roles.add(c.role)
-      entry.videos.push({ title: v.title, company: v.company, path: pathOf(v) })
-      byKey.set(key, entry)
-    }
-  }
-  return [...byKey.values()]
-    .map((c) => ({ ...c, roles: [...c.roles] }))
-    .sort((a, b) => b.videos.length - a.videos.length || a.name.localeCompare(b.name))
-}
-
 export function searchTranscripts(query: string, limit = 10) {
   const q = query.toLowerCase()
   const hits = []

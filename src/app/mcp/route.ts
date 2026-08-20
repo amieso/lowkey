@@ -4,7 +4,7 @@
 
 import { createMcpHandler } from 'mcp-handler'
 import { z } from 'zod'
-import { getVideoDetail, listCompanies, listCreators, searchTranscripts, searchVideos } from '@/lib/catalog'
+import { getVideoDetail, listCompanies, searchTranscripts, searchVideos } from '@/lib/catalog'
 
 const LAUNCH_TYPES = ['product-launch', 'feature-release', 'model-release', 'funding', 'rebrand', 'other'] as const
 const STYLE_TAGS = [
@@ -63,18 +63,6 @@ const handler = createMcpHandler(
         inputSchema: z.object({}),
       },
       async () => json(listCompanies()),
-    )
-
-    server.registerTool(
-      'list_creators',
-      {
-        title: 'List creators',
-        description: 'People and agencies credited on the videos, with their filmographies. Optional role filter (e.g. "founder", "agency", "creator").',
-        inputSchema: z.object({
-          role: z.string().optional().describe('Case-insensitive substring match on the credit role'),
-        }),
-      },
-      async ({ role }) => json(listCreators(role)),
     )
 
     server.registerTool(
