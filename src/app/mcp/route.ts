@@ -1,6 +1,6 @@
 // Lowkey MCP server — exposes the launch-video catalog to MCP clients
 // (claude.ai custom connectors, Claude Code, the Claude API MCP connector).
-// Streamable HTTP at /api/mcp. Public read-only data, no auth.
+// Streamable HTTP at /mcp. Public read-only data, no auth.
 
 import { createMcpHandler } from 'mcp-handler'
 import { z } from 'zod'
