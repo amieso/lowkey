@@ -4706,5 +4706,275 @@
       "#fffefe"
     ],
     "lightDark": "mixed"
+  },
+  "69": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "screen-recording",
+      "kinetic-typography",
+      "motion-graphics"
+    ],
+    "visualSummary": "Fast-cut screen demos of the Shotbase Mac app — the capture panel, blur/annotation tools, a motion editor with a static/motion toggle, and a share flow — set against blue-to-cyan gradient backgrounds with white UI cards. Bold kinetic-typography captions punch in sync with an off-screen voiceover narrating each feature; no talking head and no visible music beat. It closes on a black card with the glowing Shotbase mark and tagline.",
+    "onScreenText": [
+      {
+        "time": 2,
+        "text": "You"
+      },
+      {
+        "time": 4,
+        "text": "You record your screen"
+      },
+      {
+        "time": 6,
+        "text": "or you just paste"
+      },
+      {
+        "time": 10,
+        "text": "no digging through folders"
+      },
+      {
+        "time": 16,
+        "text": "Drop in a background"
+      },
+      {
+        "time": 22,
+        "text": "Static"
+      },
+      {
+        "time": 23,
+        "text": "Motion"
+      },
+      {
+        "time": 26,
+        "text": "The AI writing assistant that works everywhere."
+      },
+      {
+        "time": 41,
+        "text": "When you're done"
+      },
+      {
+        "time": 44,
+        "text": "How to stack icons on Desktop"
+      },
+      {
+        "time": 47,
+        "text": "Every screenshot"
+      },
+      {
+        "time": 50,
+        "text": "it all lives together"
+      },
+      {
+        "time": 52,
+        "text": "one place"
+      },
+      {
+        "time": 53,
+        "text": "Shotbase"
+      },
+      {
+        "time": 56,
+        "text": "Capture beautifully. Share instantly."
+      }
+    ],
+    "pacing": {
+      "cuts": 7,
+      "cutsPerMinute": 7.2,
+      "avgShotSeconds": 7.3
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.8,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#fbf9fa",
+      "#2d3958",
+      "#fcfcfc",
+      "#9cbdd4",
+      "#f5faf7"
+    ],
+    "lightDark": "light"
+  },
+  "70": {
+    "launchType": "feature-release",
+    "styleTags": [
+      "3d-render",
+      "animation",
+      "motion-graphics"
+    ],
+    "visualSummary": "A CG Mac mini sprouts arms and legs and cycles through playful vignettes on a plain grey studio backdrop — flexing as a bodybuilder, driving an RC monster truck, sprouting octopus-like arms juggling piano keys, pie charts, and a camera, then strapping on a rocket pack and blasting through clouds — before a clean product shot and closing wordmark card. Bright, even white-grey lighting, brisk cuts synced to an upbeat voiceover, no on-screen speaker.",
+    "onScreenText": [
+      {
+        "time": 4,
+        "text": "M6"
+      },
+      {
+        "time": 34,
+        "text": "The Mighty Mac mini with M6"
+      }
+    ],
+    "pacing": {
+      "cuts": 0,
+      "cutsPerMinute": 0,
+      "avgShotSeconds": 38
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.96,
+      "language": "en",
+      "hasMusic": false
+    },
+    "palette": [
+      "#bec4c7",
+      "#aeb2b6",
+      "#666465",
+      "#c4c9cc",
+      "#cbcfd2"
+    ],
+    "lightDark": "light"
+  },
+  "71": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "talking-head",
+      "screen-recording",
+      "motion-graphics",
+      "kinetic-typography"
+    ],
+    "visualSummary": "Founder Sam Blond delivers a voiceover monologue to camera in a dark, moody studio, shot in shallow depth of field with alternating front and profile close-ups, intercut with dark-mode screen recordings of the Monaco CRM (pipeline boards, opportunity cards, a video call snippet, drafted follow-up emails) and quick motion-graphics inserts of tool icons, a rising line chart, and a rapidly incrementing revenue counter. Cuts are slow during the talking-head segments and speed up through the product-demo and counter sequence, closing on a word-by-word kinetic-type line and a fade-up Monaco logo.",
+    "onScreenText": [
+      {
+        "time": 6,
+        "text": "The Future of Sales"
+      },
+      {
+        "time": 20,
+        "text": "Technology"
+      },
+      {
+        "time": 22,
+        "text": "doing the work"
+      },
+      {
+        "time": 23,
+        "text": "for you"
+      },
+      {
+        "time": 50,
+        "text": "Your priorities today"
+      },
+      {
+        "time": 52,
+        "text": "Follow up email"
+      },
+      {
+        "time": 55,
+        "text": "Judgment Labs"
+      },
+      {
+        "time": 59,
+        "text": "Closed Won — $22,402,004"
+      },
+      {
+        "time": 70,
+        "text": "$196,942,738.45 — Revenue closed by customers in 3 months"
+      },
+      {
+        "time": 73,
+        "text": "The future of sales is"
+      },
+      {
+        "time": 78,
+        "text": "MONACO"
+      }
+    ],
+    "pacing": {
+      "cuts": 19,
+      "cutsPerMinute": 14.6,
+      "avgShotSeconds": 3.9
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.8,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#181815",
+      "#0f0f11",
+      "#040505",
+      "#514f4c",
+      "#111110"
+    ],
+    "lightDark": "dark"
+  },
+  "72": {
+    "launchType": "funding",
+    "styleTags": [
+      "live-action",
+      "talking-head",
+      "product-ui",
+      "cinematic"
+    ],
+    "visualSummary": "A warm-graded, shallow-DOF live-action narrative ad follows a schoolkid, a teen, and a dad each using the card-sized Pocket recorder across a classroom, a customer-service call, and a kitchen dispute, intercut with product close-ups of the laser-engraved device and phone-screen UI shots of AI summary templates. Moderately quick cuts carry voiceover narration and in-scene dialogue through to a pool-side outdoor close with the tagline.",
+    "onScreenText": [
+      {
+        "time": 3,
+        "text": "Pocket"
+      },
+      {
+        "time": 17,
+        "text": "100+ Templates"
+      },
+      {
+        "time": 18,
+        "text": "Doctors"
+      },
+      {
+        "time": 19,
+        "text": "SOAP Note: Suspected Stable Angina"
+      },
+      {
+        "time": 20,
+        "text": "Lawyers"
+      },
+      {
+        "time": 22,
+        "text": "Legal Summary: Wrongful Termination Claim"
+      },
+      {
+        "time": 48,
+        "text": "We will process your refund within five to seven business days."
+      },
+      {
+        "time": 88,
+        "text": "Get yours at heypocket.com"
+      }
+    ],
+    "pacing": {
+      "cuts": 34,
+      "cutsPerMinute": 22.7,
+      "avgShotSeconds": 2.6
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.86,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#292a36",
+      "#664d41",
+      "#847765",
+      "#a49b98",
+      "#d1d1d4"
+    ],
+    "lightDark": "dark"
   }
 }

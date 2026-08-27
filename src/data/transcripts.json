@@ -5812,5 +5812,350 @@
   "68": {
     "language": null,
     "segments": []
+  },
+  "69": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 7.7,
+        "text": "You screenshot, you record your screen, or you just paste in a link, and it's already"
+      },
+      {
+        "start": 7.7,
+        "end": 8.7,
+        "text": "organized."
+      },
+      {
+        "start": 8.7,
+        "end": 11.3,
+        "text": "No digging through folders."
+      },
+      {
+        "start": 11.3,
+        "end": 14,
+        "text": "Mark it up exactly how you want."
+      },
+      {
+        "start": 14,
+        "end": 21.6,
+        "text": "Blur what needs hiding, drop in a background, style it, done in seconds."
+      },
+      {
+        "start": 21.6,
+        "end": 25.8,
+        "text": "Switch it to motion, and every edit carries right over."
+      },
+      {
+        "start": 26.1,
+        "end": 28.3,
+        "text": "Add some text, and it just works."
+      },
+      {
+        "start": 32.2,
+        "end": 32.8,
+        "text": "Hit record."
+      },
+      {
+        "start": 36.8,
+        "end": 39.6,
+        "text": "Zoom in, move around, make it pop."
+      },
+      {
+        "start": 40.2,
+        "end": 42.2,
+        "text": "When you're done, share it with a link."
+      },
+      {
+        "start": 43.8,
+        "end": 45.3,
+        "text": "That's really all it takes."
+      },
+      {
+        "start": 46.4,
+        "end": 51.5,
+        "text": "Every screenshot, every recording, it all lives together in one place."
+      },
+      {
+        "start": 51.5,
+        "end": 58.1,
+        "text": "ShotBase, capture beautifully, share instantly."
+      }
+    ]
+  },
+  "70": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 8.7,
+        "text": "Say hello to the new Mac Mini and its all-new M6 chip with up to 40% faster"
+      },
+      {
+        "start": 8.7,
+        "end": 15.2,
+        "text": "CPU and two times faster graphics. It's pretty beefy, pretty beefed up. Toss in"
+      },
+      {
+        "start": 15.2,
+        "end": 20.7,
+        "text": "dual neural engines, you'll make light work out of any workload. Hello. Oh and with up to"
+      },
+      {
+        "start": 20.7,
+        "end": 24.6,
+        "text": "four times faster AI performance and two times faster storage, it can handle"
+      },
+      {
+        "start": 24.6,
+        "end": 32.8,
+        "text": "whatever you throw at it. Sending your productivity into the stratosphere, but"
+      },
+      {
+        "start": 32.8,
+        "end": 36.6,
+        "text": "still, you know, mini."
+      }
+    ]
+  },
+  "71": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 5,
+        "text": "I'm Sam Blond. Welcome to the future of sales."
+      },
+      {
+        "start": 7.3,
+        "end": 11.9,
+        "text": "Sales technology has progressed over time by giving humans tools to perform"
+      },
+      {
+        "start": 11.9,
+        "end": 16.4,
+        "text": "their work. Email, the database, CRM, data vendors, call recorders,"
+      },
+      {
+        "start": 16.4,
+        "end": 20.6,
+        "text": "spam cannons. The future of sales is not more sales tools."
+      },
+      {
+        "start": 20.8,
+        "end": 23.5,
+        "text": "It's technology doing the work for you."
+      },
+      {
+        "start": 24.2,
+        "end": 29,
+        "text": "Monaco is now better than any human at completing complex sales workflows."
+      },
+      {
+        "start": 29.4,
+        "end": 30.5,
+        "text": "Here's how it works."
+      },
+      {
+        "start": 31.6,
+        "end": 34.6,
+        "text": "Agents find every company and buyer you should sell to."
+      },
+      {
+        "start": 35.5,
+        "end": 39.1,
+        "text": "They use real-time buying signals to reach the right buyer with the right"
+      },
+      {
+        "start": 39.1,
+        "end": 40.6,
+        "text": "message at the right time."
+      },
+      {
+        "start": 41.7,
+        "end": 46.3,
+        "text": "The result is countless new opportunities created automatically with no human"
+      },
+      {
+        "start": 46.3,
+        "end": 49.8,
+        "text": "involvement. Monaco records every customer interaction."
+      },
+      {
+        "start": 50.4,
+        "end": 53.1,
+        "text": "Agents run your pipeline by sending reminders,"
+      },
+      {
+        "start": 53.2,
+        "end": 56.3,
+        "text": "drafting emails and updating records for you."
+      },
+      {
+        "start": 57.3,
+        "end": 60.7,
+        "text": "The result is higher conversion rates and faster revenue growth."
+      },
+      {
+        "start": 62.2,
+        "end": 66.4,
+        "text": "Monaco customers have closed hundreds of millions of dollars in revenue in the"
+      },
+      {
+        "start": 66.4,
+        "end": 68.9,
+        "text": "first three months of releasing the product."
+      },
+      {
+        "start": 69.6,
+        "end": 72.9,
+        "text": "The fastest growing startups in the world are running on Monaco."
+      }
+    ]
+  },
+  "72": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 5.7,
+        "text": "This is Pocket. It's small, has one button. You just press it, and now it's recording."
+      },
+      {
+        "start": 5.7,
+        "end": 10.7,
+        "text": "That's it. Phone call, your meeting, your class, whatever the thing is."
+      },
+      {
+        "start": 10.7,
+        "end": 15.2,
+        "text": "And when you're done, you get a summary. Not just a wall of text, a real summary."
+      },
+      {
+        "start": 15.2,
+        "end": 17.1,
+        "text": "The stuff that matters. Organized."
+      },
+      {
+        "start": 17.1,
+        "end": 21.5,
+        "text": "There's hundreds of templates. Doctor gets a doctor summary. Lawyer gets a lawyer summary."
+      },
+      {
+        "start": 21.5,
+        "end": 24.1,
+        "text": "And student, which is me, gets study notes."
+      },
+      {
+        "start": 24.1,
+        "end": 26.4,
+        "text": "Evan, are you paying attention?"
+      },
+      {
+        "start": 26.4,
+        "end": 28.4,
+        "text": "More than everyone else writing, Mrs. Smith."
+      },
+      {
+        "start": 28.9,
+        "end": 33.5,
+        "text": "They write for an hour, I read for five minutes. Same information, zero hand cramps."
+      },
+      {
+        "start": 33.5,
+        "end": 36,
+        "text": "And the rest of the time, I'm outside."
+      },
+      {
+        "start": 36,
+        "end": 39.3,
+        "text": "Okay, that's fine. I'm just trying to get my money back."
+      },
+      {
+        "start": 39.3,
+        "end": 41.3,
+        "text": "Sir, we never agreed to a refund."
+      },
+      {
+        "start": 41.3,
+        "end": 43.3,
+        "text": "Three minutes, 42 seconds in."
+      },
+      {
+        "start": 43.3,
+        "end": 47.3,
+        "text": "She said, word forward, we will process your refund within five to seven business days."
+      },
+      {
+        "start": 48.7,
+        "end": 50.7,
+        "text": "Let me get my supervisor."
+      },
+      {
+        "start": 53.7,
+        "end": 56.7,
+        "text": "So it opens up your to-do list and writes a follow-up email automatically."
+      },
+      {
+        "start": 56.9,
+        "end": 59.9,
+        "text": "I'm 10. Do you think I write follow-up emails? Come on."
+      },
+      {
+        "start": 59.9,
+        "end": 61.9,
+        "text": "But my dad does. And he's not great at it."
+      },
+      {
+        "start": 61.9,
+        "end": 64.9,
+        "text": "I need to send a follow-up, but I don't remember what we agreed to."
+      },
+      {
+        "start": 64.9,
+        "end": 66.9,
+        "text": "Check your phone."
+      },
+      {
+        "start": 69.7,
+        "end": 70.2,
+        "text": "When did you..."
+      },
+      {
+        "start": 70.2,
+        "end": 72.2,
+        "text": "Just hit send."
+      },
+      {
+        "start": 74.2,
+        "end": 76.2,
+        "text": "Let me see that."
+      },
+      {
+        "start": 76.2,
+        "end": 78.2,
+        "text": "Oh, that is cool."
+      },
+      {
+        "start": 78.2,
+        "end": 80.2,
+        "text": "Give me that."
+      },
+      {
+        "start": 80.2,
+        "end": 83.2,
+        "text": "Pocket. Helps experienced people stay on top of things."
+      },
+      {
+        "start": 83.2,
+        "end": 85.2,
+        "text": "And allows me to spend more time doing what I love."
+      },
+      {
+        "start": 85.2,
+        "end": 87.2,
+        "text": "Get yours at HeyPocket.com."
+      }
+    ]
   }
 }

@@ -517,6 +517,35 @@ const videoChapters: Record<string, Chapter[]> = {
     { id: 'c2', title: 'Yesterday, Remembered', startTime: 10, beat: 'in-action' },
     { id: 'c3', title: 'Computer History', startTime: 22, beat: 'cta' },
   ],
+  '69': [ // Shotbase — Shotbase (58s)
+    { id: 'c1', title: 'Screenshot, Record, Paste', startTime: 0, beat: 'hook' },
+    { id: 'c2', title: 'Blur This, Style That', startTime: 9, beat: 'in-action' },
+    { id: 'c3', title: 'Switch It to Motion', startTime: 22, beat: 'in-action' },
+    { id: 'c4', title: 'Share With a Link', startTime: 40, beat: 'solution' },
+    { id: 'c5', title: 'All in One Place', startTime: 50, beat: 'cta' },
+  ],
+  '70': [ // Apple — Mac mini with M6 (38s)
+    { id: 'c1', title: 'Dropping in the M6', startTime: 0, beat: 'hook' },
+    { id: 'c2', title: 'Muscles and Monster Trucks', startTime: 7, beat: 'in-action' },
+    { id: 'c3', title: 'Neural Engine Octopus', startTime: 20, beat: 'in-action' },
+    { id: 'c4', title: 'The Mighty Mac mini', startTime: 33, beat: 'cta' },
+  ],
+  '71': [ // Monaco — Monaco General Availability (78s)
+    { id: 'c1', title: 'The Future of Sales', startTime: 0, beat: 'hook' },
+    { id: 'c2', title: 'Tools Aren\'t the Answer', startTime: 7, beat: 'problem' },
+    { id: 'c3', title: 'Technology Doing the Work', startTime: 21, beat: 'solution' },
+    { id: 'c4', title: 'Agents Run the Pipeline', startTime: 31, beat: 'in-action' },
+    { id: 'c5', title: '$196M Closed in 3 Months', startTime: 57, beat: 'proof' },
+    { id: 'c6', title: 'Running on Monaco', startTime: 72, beat: 'cta' },
+  ],
+  '72': [ // Pocket — Pocket $100M ARR (90s)
+    { id: 'c1', title: 'Press It, It\'s Recording', startTime: 0, beat: 'hook' },
+    { id: 'c2', title: 'A Summary for Everyone', startTime: 17, beat: 'solution' },
+    { id: 'c3', title: 'The Refund Call', startTime: 36, beat: 'in-action' },
+    { id: 'c4', title: 'Dad\'s Follow-up Email', startTime: 53, beat: 'in-action' },
+    { id: 'c5', title: 'Give Me That', startTime: 72, beat: 'proof' },
+    { id: 'c6', title: 'Get Yours at heypocket.com', startTime: 80, beat: 'cta' },
+  ],
 }
 
 export function getChaptersForVideo(videoId: string): Chapter[] {
