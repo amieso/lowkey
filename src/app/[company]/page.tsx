@@ -34,7 +34,7 @@ export async function generateMetadata({
     : undefined
 
   return {
-    title: `${name} — Lowkey`,
+    title: name,
     description,
     alternates: { canonical: url },
     openGraph: {

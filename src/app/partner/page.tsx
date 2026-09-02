@@ -3,9 +3,14 @@ import { Header } from '@/components/layout/header'
 import { PARTNER_OPTIONS, partnerMailto } from '@/data/partner'
 import { PartnerCtaLink } from '@/components/partner/partner-cta-link'
 
+const PARTNER_TITLE = 'Partner with Lowkey'
+const PARTNER_DESCRIPTION = 'Advertise, get launch support, or submit your launch video to Lowkey.'
+
 export const metadata: Metadata = {
-  title: 'Partner with Lowkey',
-  description: 'Advertise, get launch support, or submit your launch video to Lowkey.',
+  title: { absolute: PARTNER_TITLE },
+  description: PARTNER_DESCRIPTION,
+  openGraph: { title: PARTNER_TITLE, description: PARTNER_DESCRIPTION, url: '/partner' },
+  twitter: { title: PARTNER_TITLE, description: PARTNER_DESCRIPTION },
 }
 
 // Note: ad blockers strip elements whose id contains "advertise"/"ad-", so the

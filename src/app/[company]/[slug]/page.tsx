@@ -32,7 +32,7 @@ export async function generateMetadata({
     : undefined
 
   return {
-    title: `${title} — Lowkey`,
+    title,
     description: video.description,
     alternates: { canonical: url },
     openGraph: {

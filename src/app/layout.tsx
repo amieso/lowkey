@@ -32,13 +32,19 @@ export const viewport = {
   colorScheme: 'dark',
 }
 
+const TAGLINE = 'The rumors are true. These are the best product launch videos.'
+const DESCRIPTION = `${TAGLINE} Subscribe to get the latest launches delivered to your inbox.`
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: 'Lowkey - Curated Product Launch Videos',
-  description: 'The best product launch videos, curated.',
+  title: {
+    default: 'Lowkey — The best product launch videos',
+    template: '%s — Lowkey',
+  },
+  description: DESCRIPTION,
   openGraph: {
-    title: 'Lowkey',
-    description: 'The best product launch videos, curated.',
+    title: 'Lowkey — The best product launch videos',
+    description: DESCRIPTION,
     url: SITE_URL,
     siteName: 'Lowkey',
     type: 'website',
@@ -47,14 +53,14 @@ export const metadata: Metadata = {
         url: '/animated-og.gif',
         width: 1200,
         height: 630,
-        alt: 'Lowkey - The best product launch videos, curated.',
+        alt: `Lowkey — ${TAGLINE}`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Lowkey',
-    description: 'The best product launch videos, curated.',
+    title: 'Lowkey — The best product launch videos',
+    description: DESCRIPTION,
     images: ['/animated-og.gif'],
   },
 }
