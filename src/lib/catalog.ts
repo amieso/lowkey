@@ -7,9 +7,8 @@ import { beatStats } from '@/lib/beats'
 import { getEnrichment, getTranscript, transcriptText } from '@/lib/enrichment'
 import { engagementRates, getMetrics } from '@/lib/metrics'
 import { LaunchType, StyleTag } from '@/types/enrichment'
+import { SITE_URL as SITE } from '@/lib/site'
 import { Video } from '@/types/video'
-
-const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://lowkey.so'
 
 /** Published videos only — drafts have an empty videoUrl. */
 export function liveVideos(): Video[] {

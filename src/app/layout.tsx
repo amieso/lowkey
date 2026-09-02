@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Kanit, JetBrains_Mono } from 'next/font/google'
 import Script from 'next/script'
 import '@/styles/globals.css'
+import { SITE_URL } from '@/lib/site'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -32,13 +33,13 @@ export const viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://lowkey.so'),
+  metadataBase: new URL(SITE_URL),
   title: 'Lowkey - Curated Product Launch Videos',
   description: 'The best product launch videos, curated.',
   openGraph: {
     title: 'Lowkey',
     description: 'The best product launch videos, curated.',
-    url: 'https://lowkey.so',
+    url: SITE_URL,
     siteName: 'Lowkey',
     type: 'website',
     images: [

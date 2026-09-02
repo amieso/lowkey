@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { videos, findVideo, findCompanyVideos } from '@/data/videos'
 import { CompanyView } from '@/components/company/company-view'
+import { socialImageFor } from '@/lib/site'
 
 // Pre-render every playable video's deep link. With dynamicParams off, any
 // (company, slug) pair not in this set is a true routing-layer 404 — a real
@@ -24,13 +25,29 @@ export async function generateMetadata({
   const video = findVideo(company, slug)
   if (!video) return {}
 
+  const title = `${video.title} — ${video.company}`
+  const url = `/${video.companySlug}/${video.slug}`
+  const image = video.thumbnailUrl
+    ? { url: socialImageFor(video.thumbnailUrl, video.aspectRatio), width: 1200, height: 630, alt: title }
+    : undefined
+
   return {
-    title: `${video.title} — ${video.company} — Lowkey`,
+    title: `${title} — Lowkey`,
     description: video.description,
+    alternates: { canonical: url },
     openGraph: {
-      title: `${video.title} — ${video.company}`,
+      title,
       description: video.description,
-      images: video.thumbnailUrl ? [video.thumbnailUrl] : undefined,
+      url,
+      siteName: 'Lowkey',
+      type: 'video.other',
+      images: image ? [image] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: video.description,
+      images: image ? [image] : undefined,
     },
   }
 }

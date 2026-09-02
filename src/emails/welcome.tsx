@@ -10,8 +10,8 @@ import {
   Text,
 } from '@react-email/components'
 
-// Site URL from environment
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://lowkxy.vercel.app'
+import { SITE_URL } from '@/lib/site'
+
 const LOGO_URL = `${SITE_URL}/logo-black.png`
 
 interface WelcomeEmailProps {
