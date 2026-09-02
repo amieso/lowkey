@@ -25,7 +25,7 @@ export async function generateMetadata({
   const video = findVideo(company, slug)
   if (!video) return {}
 
-  const title = `${video.title} — ${video.company}`
+  const title = `${video.title} - ${video.company}`
   const url = `/${video.companySlug}/${video.slug}`
   const image = video.thumbnailUrl
     ? { url: socialImageFor(video.thumbnailUrl, video.aspectRatio), width: 1200, height: 630, alt: title }

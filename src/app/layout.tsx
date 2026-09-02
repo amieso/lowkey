@@ -38,12 +38,12 @@ const DESCRIPTION = `${TAGLINE} Subscribe to get the latest launches delivered t
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Lowkey — The best product launch videos',
-    template: '%s — Lowkey',
+    default: 'Lowkey - The best product launch videos',
+    template: '%s - Lowkey',
   },
   description: DESCRIPTION,
   openGraph: {
-    title: 'Lowkey — The best product launch videos',
+    title: 'Lowkey - The best product launch videos',
     description: DESCRIPTION,
     url: SITE_URL,
     siteName: 'Lowkey',
@@ -53,13 +53,13 @@ export const metadata: Metadata = {
         url: '/animated-og.gif',
         width: 1200,
         height: 630,
-        alt: `Lowkey — ${TAGLINE}`,
+        alt: `Lowkey - ${TAGLINE}`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Lowkey — The best product launch videos',
+    title: 'Lowkey - The best product launch videos',
     description: DESCRIPTION,
     images: ['/animated-og.gif'],
   },
