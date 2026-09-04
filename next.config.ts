@@ -10,6 +10,13 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'static.amo.co' },
     ],
   },
+  async redirects() {
+    // The Claude company page was folded into Anthropic.
+    return [
+      { source: '/claude', destination: '/anthropic', permanent: true },
+      { source: '/claude/:slug', destination: '/anthropic/:slug', permanent: true },
+    ]
+  },
   async headers() {
     return [
       {

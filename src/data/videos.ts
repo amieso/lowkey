@@ -491,18 +491,18 @@ export const videos: Video[] = [
   {
     id: '24',
     slug: 'cowork',
-    companySlug: 'claude',
+    companySlug: 'anthropic',
     title: 'Introducing Cowork',
-    company: 'Claude',
-    companyLogoUrl: 'https://img.logo.dev/claude.ai?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
+    company: 'Anthropic',
+    companyLogoUrl: 'https://img.logo.dev/anthropic.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
     companyFounded: 2021,
     description: 'Cowork is Claude Code for the rest of your work—delegate non-technical, multi-step tasks like research, writing, and planning to Claude the way developers hand off coding, and watch it work autonomously alongside you.',
     videoUrl: 'https://stream.mux.com/llZ0001e02rEFHRrP601W7msUnuqhJzjSOZ02G495y3SfWUo.m3u8',
     thumbnailUrl: 'https://image.mux.com/llZ0001e02rEFHRrP601W7msUnuqhJzjSOZ02G495y3SfWUo/thumbnail.webp?time=5',
     duration: 69,
     aspectRatio: '16:9',
-    websiteUrl: 'https://claude.ai',
-    twitterUrl: 'https://twitter.com/claudeai',
+    websiteUrl: 'https://claude.com',
+    twitterUrl: 'https://x.com/claudeai',
     sourceUrl: 'https://x.com/claudeai/status/2010805682434666759',
     credits: [
       { role: 'In-house', name: 'Anthropic', handle: 'claudeai', url: 'https://claude.ai', bio: 'AI safety company and maker of Claude. Founded in 2021; builds Claude, Claude Code, and now Cowork.', contactUrl: 'https://x.com/claudeai', imageUrl: 'https://img.logo.dev/claude.ai?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark', twitterHandle: 'claudeai' }
