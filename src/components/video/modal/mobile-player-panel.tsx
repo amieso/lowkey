@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Video, Chapter } from '@/types/video'
 import { formatDuration, platformName } from '@/lib/utils'
-import { PlayIcon, PauseIcon } from '@/components/ui/player-icons'
+import { PlayIcon, PauseIcon, CloseIcon } from '@/components/ui/player-icons'
 import { VideoMetrics } from '@/components/video/video-metrics'
 import { trackGoal, GOALS, type GoalName } from '@/lib/analytics'
 import { MobileScrubBar } from './mobile-scrub-bar'
@@ -116,10 +116,10 @@ export function MobilePlayerPanel({
               event.stopPropagation()
               onClose?.()
             }}
-            className="-mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-lg leading-none text-white active:bg-white/20"
+            className="-mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-white active:bg-white/20"
             aria-label="Close video"
           >
-            ×
+            <CloseIcon className="h-4 w-4" />
           </button>
         </div>
 

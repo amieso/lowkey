@@ -7,7 +7,7 @@ import { getChaptersForVideo } from '@/data/chapters'
 import { sizedThumbnail, platformName } from '@/lib/utils'
 import { lockScroll, unlockScroll } from '@/lib/scroll-lock'
 import { CompanyLink } from '@/components/ui/company-link'
-import { PlayIcon, PauseIcon } from '@/components/ui/player-icons'
+import { PlayIcon, PauseIcon, CloseIcon } from '@/components/ui/player-icons'
 import { VideoPlayer, VideoPlayerHandle, QualityLevel } from './modal/video-player'
 import { PlayerControls } from './modal/player-controls'
 import { VideoMetrics } from './video-metrics'
@@ -726,10 +726,10 @@ export const VideoCard = memo(function VideoCard({
                       event.stopPropagation()
                       onClose?.()
                     }}
-                    className="w-7 h-7 rounded-full text-white bg-white/0 hover:bg-white/[0.12] inline-flex items-center justify-center text-base leading-none transition-colors"
+                    className="w-7 h-7 rounded-full text-white bg-white/0 hover:bg-white/[0.12] inline-flex items-center justify-center transition-colors"
                     aria-label="Close video"
                   >
-                    ×
+                    <CloseIcon className="h-3.5 w-3.5" />
                   </button>
                 </LiquidGlass>
               </div>
