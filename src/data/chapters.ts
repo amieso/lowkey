@@ -546,6 +546,27 @@ const videoChapters: Record<string, Chapter[]> = {
     { id: 'c5', title: 'Give Me That', startTime: 72, beat: 'proof' },
     { id: 'c6', title: 'Get Yours at heypocket.com', startTime: 80, beat: 'cta' },
   ],
+  '73': [ // OpenAI — GPT-6 Astra (163s)
+    { id: 'c1', title: 'A Yellow Circle, 1979', startTime: 0, beat: 'hook' },
+    { id: 'c2', title: 'Introducing Astra', startTime: 40, beat: 'solution' },
+    { id: 'c3', title: 'eBay, Asteroids, Beef and Rice', startTime: 64, beat: 'in-action' },
+    { id: 'c4', title: 'Contracts and Tennis Courts', startTime: 80, beat: 'in-action' },
+    { id: 'c5', title: 'Everything Lands', startTime: 120, beat: 'proof' },
+    { id: 'c6', title: 'The Rocket, Printed', startTime: 145, beat: 'cta' },
+  ],
+  '74': [ // Anthropic — Claude Fable 5.1 (27s)
+    { id: 'c1', title: 'Through the Lens', startTime: 0, beat: 'hook' },
+    { id: 'c2', title: 'Maps, Circuits, Moon', startTime: 8, beat: 'in-action' },
+    { id: 'c3', title: 'Fable 5.1', startTime: 18, beat: 'cta' },
+  ],
+  '75': [ // World Labs — Atlas (86s)
+    { id: 'c1', title: 'Model, Move, Simulate', startTime: 0, beat: 'hook' },
+    { id: 'c2', title: 'A Next-Generation World Model', startTime: 9, beat: 'solution' },
+    { id: 'c3', title: 'Camera-Controlled Generation', startTime: 20, beat: 'in-action' },
+    { id: 'c4', title: 'Sparse Reconstruction', startTime: 49, beat: 'in-action' },
+    { id: 'c5', title: 'Robotics Simulation', startTime: 60, beat: 'in-action' },
+    { id: 'c6', title: 'Build with Atlas', startTime: 70, beat: 'cta' },
+  ],
 }
 
 export function getChaptersForVideo(videoId: string): Chapter[] {

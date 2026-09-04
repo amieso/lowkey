@@ -4976,5 +4976,175 @@
       "#d1d1d4"
     ],
     "lightDark": "dark"
+  },
+  "73": {
+    "launchType": "model-release",
+    "styleTags": [
+      "live-action",
+      "cinematic",
+      "product-ui",
+      "motion-graphics",
+      "3d-render"
+    ],
+    "visualSummary": "A warm, filmic vignette anthology: it opens on a 1979 kid in a chair asking a screen for a yellow circle, then cuts between adults in moody, lamp-lit rooms talking to Astra while giant projected screens behind them fill with real UI — a rocket sketch, Blender wireframes, a Google Slides rainwear deck, an eBay listing, a contract draft, an asteroid game — and it closes on a 3D-printed rocket next to the OpenAI logo.",
+    "onScreenText": [
+      {
+        "time": 3,
+        "text": "1979"
+      },
+      {
+        "time": 40,
+        "text": "INTRODUCING GPT-6"
+      },
+      {
+        "time": 42,
+        "text": "ASTRA"
+      },
+      {
+        "time": 156,
+        "text": "OpenAI"
+      },
+      {
+        "time": 159,
+        "text": "FOR THE FULL ASTRA EXPERIENCE, DOWNLOAD THE CHATGPT DESKTOP APP"
+      }
+    ],
+    "pacing": {
+      "cuts": 34,
+      "cutsPerMinute": 12.5,
+      "avgShotSeconds": 4.7
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.79,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#32221e",
+      "#130e0d",
+      "#6b5049",
+      "#c4cac7",
+      "#8e9090"
+    ],
+    "lightDark": "dark"
+  },
+  "74": {
+    "launchType": "model-release",
+    "styleTags": [
+      "mixed-media",
+      "motion-graphics",
+      "live-action",
+      "cinematic"
+    ],
+    "visualSummary": "A square, wordless montage framed as a look through a circular lens: a great tit on a bare branch at dusk gives way to a rapid flicker of archival plates — bird illustrations, botanical drawings, geological maps, circuit boards, microscopy, a snowflake, star charts, the moon — before opening back out to a blue sky with the Fable 5.1 title, the Claude wordmark over pink clouds, and the bird landing on the branch again.",
+    "onScreenText": [
+      {
+        "time": 18,
+        "text": "Fable 5.1"
+      },
+      {
+        "time": 22,
+        "text": "Claude"
+      }
+    ],
+    "pacing": {
+      "cuts": 30,
+      "cutsPerMinute": 66.7,
+      "avgShotSeconds": 0.9
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#86929d",
+      "#191614",
+      "#cbcab5",
+      "#b1b2b1",
+      "#efe7d5"
+    ],
+    "lightDark": "light"
+  },
+  "75": {
+    "launchType": "model-release",
+    "styleTags": [
+      "3d-render",
+      "motion-graphics",
+      "kinetic-typography",
+      "product-ui",
+      "live-action"
+    ],
+    "visualSummary": "Sizzle reel of generated worlds: aerial Golden Gate footage, a pier, and a basketball court carry the three-line manifesto, then a particle-built medieval town reveals the ATLAS title; section cards on black introduce camera-controlled generation (an input image, camera path, and output cathedral in a light UI), fly-throughs of a loft, a warehouse robot arm, a felt-craft octopus village, a garden, a copper robot, and a castle diorama, then sparse reconstruction of a mid-century living room from a single photo, robotics point-cloud scenes with a quadruped and humanoid, a mosaic of sample worlds, and the World Labs logo.",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "Model the world."
+      },
+      {
+        "time": 3,
+        "text": "Move the camera."
+      },
+      {
+        "time": 6,
+        "text": "Simulate space & time."
+      },
+      {
+        "time": 12,
+        "text": "ATLAS"
+      },
+      {
+        "time": 13,
+        "text": "A next-generation world model"
+      },
+      {
+        "time": 20,
+        "text": "Camera Controlled Generation"
+      },
+      {
+        "time": 42,
+        "text": "Pixel-Perfect Camera Control"
+      },
+      {
+        "time": 49,
+        "text": "Sparse Reconstruction"
+      },
+      {
+        "time": 61,
+        "text": "Robotics Simulation"
+      },
+      {
+        "time": 70,
+        "text": "Build with Atlas"
+      },
+      {
+        "time": 80,
+        "text": "World Labs — worldlabs.ai/blog/atlas"
+      }
+    ],
+    "pacing": {
+      "cuts": 38,
+      "cutsPerMinute": 26.5,
+      "avgShotSeconds": 2.2
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#5b615b",
+      "#b4bcb7",
+      "#0d0d0d",
+      "#030608",
+      "#2e2824"
+    ],
+    "lightDark": "dark"
   }
 }

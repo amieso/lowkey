@@ -6157,5 +6157,248 @@
         "text": "Get yours at HeyPocket.com."
       }
     ]
+  },
+  "73": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 6.4,
+        "text": "Create a yellow circle there."
+      },
+      {
+        "start": 6.4,
+        "end": 17.3,
+        "text": "Can you draw me a small yellow circle?"
+      },
+      {
+        "start": 17.3,
+        "end": 19.3,
+        "text": "Done."
+      },
+      {
+        "start": 19.3,
+        "end": 20.1,
+        "text": "Okay."
+      },
+      {
+        "start": 20.1,
+        "end": 22.1,
+        "text": "Take this and make it the window of a rocket ship."
+      },
+      {
+        "start": 22.1,
+        "end": 29.8,
+        "text": "I like this, but can you make it a lot more detailed?"
+      },
+      {
+        "start": 29.8,
+        "end": 32.6,
+        "text": "Your yellow circle is now the window on a rocket."
+      },
+      {
+        "start": 32.6,
+        "end": 33.7,
+        "text": "Okay, this is awesome."
+      },
+      {
+        "start": 33.7,
+        "end": 35.9,
+        "text": "Now make it a 3D model in Blender."
+      },
+      {
+        "start": 35.9,
+        "end": 36.8,
+        "text": "Opening Blender."
+      },
+      {
+        "start": 43.8,
+        "end": 49.2,
+        "text": "Let's build a presentation for next season's rainwear for retailers."
+      },
+      {
+        "start": 49.2,
+        "end": 53.8,
+        "text": "Make sure that it feels really high-end and that it's colorful."
+      },
+      {
+        "start": 53.8,
+        "end": 54.9,
+        "text": "Make it fun."
+      },
+      {
+        "start": 54.9,
+        "end": 56.1,
+        "text": "Right, I can help with that."
+      },
+      {
+        "start": 56.9,
+        "end": 61.4,
+        "text": "Can you go to eBay and make this listing of this table I bought a few years ago at a flea market?"
+      },
+      {
+        "start": 61.4,
+        "end": 64.3,
+        "text": "It's this wild orange table."
+      },
+      {
+        "start": 64.3,
+        "end": 64.8,
+        "text": "Sure."
+      },
+      {
+        "start": 66.1,
+        "end": 67.3,
+        "text": "Okay, yeah, this is awesome."
+      },
+      {
+        "start": 67.3,
+        "end": 70.6,
+        "text": "I want you to make a 3D game where I'm ducking asteroids,"
+      },
+      {
+        "start": 70.6,
+        "end": 73.7,
+        "text": "using the arrow keys to move around, and I'm using space to boost."
+      },
+      {
+        "start": 73.7,
+        "end": 75.3,
+        "text": "Yep, I'm building the game."
+      },
+      {
+        "start": 75.3,
+        "end": 76.2,
+        "text": "Also, I'm a little hungry."
+      },
+      {
+        "start": 76.2,
+        "end": 79.2,
+        "text": "Can you get me some beef and rice from that spot I ordered from last week?"
+      },
+      {
+        "start": 79.2,
+        "end": 80.7,
+        "text": "Looking into ordering food."
+      },
+      {
+        "start": 80.7,
+        "end": 83.8,
+        "text": "So my law firm needs a licensing agreement template."
+      },
+      {
+        "start": 83.8,
+        "end": 88,
+        "text": "Can you generate a draft template for the lawyers at my firm to have a look at?"
+      },
+      {
+        "start": 88,
+        "end": 88.6,
+        "text": "Sure thing."
+      },
+      {
+        "start": 90.3,
+        "end": 92.8,
+        "text": "While you're doing that, I want to play tennis this afternoon."
+      },
+      {
+        "start": 92.8,
+        "end": 95.4,
+        "text": "So can you look for a court for me in the lower heat?"
+      },
+      {
+        "start": 96,
+        "end": 96.9,
+        "text": "Checking now."
+      },
+      {
+        "start": 96.9,
+        "end": 98.5,
+        "text": "I'll see what I can find."
+      },
+      {
+        "start": 98.5,
+        "end": 101.7,
+        "text": "Can you include the photo that I have of it in my downloads folder?"
+      },
+      {
+        "start": 103.5,
+        "end": 105.3,
+        "text": "There's like a slight dent in it."
+      },
+      {
+        "start": 105.3,
+        "end": 107.9,
+        "text": "It's also saved in my downloads folder."
+      },
+      {
+        "start": 107.9,
+        "end": 110.5,
+        "text": "Can you put in the description that it's just slightly damaged?"
+      },
+      {
+        "start": 111.4,
+        "end": 114.9,
+        "text": "Can you just take the limitation of liability provision,"
+      },
+      {
+        "start": 114.9,
+        "end": 117.4,
+        "text": "make it a little more favorable to the licensor?"
+      },
+      {
+        "start": 120.2,
+        "end": 125,
+        "text": "Okay, I've tightened it so the licensor's liability is more narrowly capped."
+      },
+      {
+        "start": 125,
+        "end": 126.4,
+        "text": "That looks pretty good. Thanks."
+      },
+      {
+        "start": 130.9,
+        "end": 134.6,
+        "text": "Can you change the background color to complement the rain jackets?"
+      },
+      {
+        "start": 135.5,
+        "end": 136.3,
+        "text": "Oh, I love it."
+      },
+      {
+        "start": 137,
+        "end": 141.8,
+        "text": "And what's going on with my reservation?"
+      },
+      {
+        "start": 141.8,
+        "end": 144,
+        "text": "I found an open court at 5 p.m."
+      },
+      {
+        "start": 144,
+        "end": 145,
+        "text": "Yeah, book it."
+      },
+      {
+        "start": 145,
+        "end": 148.3,
+        "text": "Now I want you to make a file I can send to my 3D printer."
+      },
+      {
+        "start": 148.3,
+        "end": 152.2,
+        "text": "I'll get working on creating an STL file of this rocket."
+      }
+    ]
+  },
+  "74": {
+    "language": null,
+    "segments": []
+  },
+  "75": {
+    "language": null,
+    "segments": []
   }
 }
