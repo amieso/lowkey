@@ -28,6 +28,7 @@ export const GOALS = {
   companyPageView: 'company_page_view',
   arrowNavigation: 'arrow_navigation',
   introCompleted: 'intro_completed',
+  introWatchdog: 'intro_watchdog',
   partnerCtaClick: 'partner_cta_click',
   partnerOpen: 'partner_open',
 } as const

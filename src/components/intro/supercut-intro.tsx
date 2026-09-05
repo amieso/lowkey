@@ -56,8 +56,9 @@ import { trackGoal, GOALS } from '@/lib/analytics'
  *     (screen-fixed); each piece is laid out on its card's rect —
  *     re-measured every tick so a scroll mid-fall can't make a piece land
  *     beside its card.
- *   - The intro waits for the tab to be visible before starting — RAF is
- *     paused in hidden tabs and the one-shot intro shouldn't burn there.
+ *   - The intro starts on an animation frame, so a hidden tab waits (RAF
+ *     is paused there) without any dependence on visibilityState — and a
+ *     watchdog (WATCHDOG_MS) lifts the overlay if 'done' never comes.
  *   - No audio: browsers keep AudioContext suspended until a user gesture,
  *     so an auto-playing intro can never sound on a first visit. (The
  *     projector-sound experiment lives on in the /supercut sandbox.)
@@ -66,6 +67,10 @@ import { trackGoal, GOALS } from '@/lib/analytics'
 interface SupercutIntroProps {
   onComplete?: () => void
   onContentReady?: () => void
+  /** Photosensitivity-safe treatment (see SAFE_* below): `true` is the
+   *  levels clamp (mode 1). `?safe=0|1|2` on the URL overrides this either
+   *  way, so the cuts can be A/B'd in place. */
+  safe?: boolean
 }
 
 // ── timing ───────────────────────────────────────────────────────────────────
@@ -131,7 +136,81 @@ const ENTRY_OPACITY = 0.75
 // over the near-black cover, so a slow ramp leaves the first frames sitting
 // dim. The scale keeps the longer ENTRY_MS ease.
 const ENTRY_OPACITY_MS = 140
-const PRELOAD_DEADLINE_MS = 20000
+// Frame preload cap. Was 20s: on a slow link that was 20s of opaque black
+// with nothing painted — the cut tolerates a short frame list, so it's far
+// better to start with whatever has arrived.
+const PRELOAD_DEADLINE_MS = 4000
+// Hard ceiling on the whole intro, measured from mount. A healthy run is
+// preload (<PRELOAD_DEADLINE_MS) + cut (~3s); if 'done' hasn't arrived by
+// then — whatever the reason: a WebView that never reports itself visible, a
+// stalled RAF, a preload that hangs, an exception in the timeline — the
+// overlay lifts and the page reveals as-is. The visitor never sits on a
+// black screen with no way out. Reported as GOALS.introWatchdog so the wild
+// tells us which gate it was.
+const WATCHDOG_MS = 9000
+
+// ── photosensitivity-safe mode ───────────────────────────────────────────────
+// Off by default. The live cut is a strobe of full-range stills, so the safe
+// variant applies the standard post treatment for flashing content — as one
+// filter on the rectangle / piece CONTAINERS (the adjustment-layer over all
+// clips: frames, the near-black backing and the halftone all pass through it,
+// so nothing can dip to black underneath), plus short crossfades on every
+// swap so luminance steps become ramps.
+//   1. Levels clamp: output black 70, output white 145 (8-bit) — the flash
+//      never leaves the ~27%..57% band, keeping every frame-to-frame delta
+//      well under the 10% harmful-flash threshold at any cut rate.
+//   2. Dark frames: covered by (1) — the filter sits on the container.
+//   3. Desaturate 25% globally (CSS has no per-hue saturation; this keeps
+//      saturated reds under the separate red-flash rule).
+//   4. 1–2 tick crossfades on every swap (never longer than the dwell, so
+//      the frame underneath is always fully covered before it's dropped).
+// The clamp ramps off as each piece resolves onto its card (same beat as
+// the halftone dissolve), so the handoff to the live, unclamped card is a
+// ramp too, never a step.
+const SAFE_OUT_BLACK = 70 / 255
+const SAFE_OUT_WHITE = 145 / 255
+// CSS filters compose as brightness(contrast(x)) = k·(c·(x − ½) + ½), so the
+// levels map out = lo + (hi − lo)·x solves to k = lo + hi, c = (hi − lo) / k.
+const SAFE_GAIN = SAFE_OUT_BLACK + SAFE_OUT_WHITE
+const SAFE_CONTRAST = (SAFE_OUT_WHITE - SAFE_OUT_BLACK) / SAFE_GAIN
+const SAFE_SATURATION = 0.75
+const SAFE_FILTER = `contrast(${SAFE_CONTRAST.toFixed(4)}) brightness(${SAFE_GAIN.toFixed(4)}) saturate(${SAFE_SATURATION})`
+const SAFE_FILTER_OFF = 'contrast(1) brightness(1) saturate(1)'
+const SAFE_XFADE_TICKS = 2
+const SAFE_UNCLAMP_MS = 300
+// Mode 2 — the SORTED cut: same strobe, same crossfades, no clamp. The
+// frames are reordered by mean luminance (darkest → brightest, or the
+// reverse, whichever ends nearer the landing frame's brightness) so each
+// swap is a ~2% luminance step — under the flash threshold — while every
+// frame keeps its full contrast and colour. The oldest→newest order is the
+// only casualty (unreadable at this cadence anyway). Piece streams then
+// PING-PONG through the sorted order instead of wrapping, so no piece ever
+// jumps from the bright end back to the dark one.
+const SAFE_LUMA_SAMPLE = 32 // px — the thumbnail is downsampled to this width to average
+
+// Mean luminance of an image blob (Rec.709 weights on sRGB values — close
+// enough to order frames by), via a tiny canvas. Blob URLs are same-origin,
+// so the canvas isn't tainted. Falls back to mid-grey on any failure.
+const measureLuma = async (blob: Blob): Promise<number> => {
+  try {
+    const bmp = await createImageBitmap(blob)
+    const w = SAFE_LUMA_SAMPLE
+    const h = Math.max(1, Math.round((w * bmp.height) / bmp.width))
+    const c = document.createElement('canvas')
+    c.width = w
+    c.height = h
+    const ctx = c.getContext('2d', { willReadFrequently: true })
+    if (!ctx) return 0.5
+    ctx.drawImage(bmp, 0, 0, w, h)
+    bmp.close()
+    const d = ctx.getImageData(0, 0, w, h).data
+    let sum = 0
+    for (let i = 0; i < d.length; i += 4) sum += 0.2126 * d[i] + 0.7152 * d[i + 1] + 0.0722 * d[i + 2]
+    return sum / (255 * (d.length / 4))
+  } catch {
+    return 0.5
+  }
+}
 
 const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
 const clamp01 = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v)
@@ -160,7 +239,7 @@ type Phase = 'waiting' | 'cut' | 'landed' | 'done' | 'gone'
 type Rect = { left: number; top: number; width: number; height: number }
 
 
-export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps) {
+export function SupercutIntro({ onComplete, onContentReady, safe }: SupercutIntroProps) {
   const [frames, setFrames] = useState<string[] | null>(null)
   const [phase, setPhase] = useState<Phase>('waiting')
   // True once the mid-flight reveal has fired — drives the backdrop fade
@@ -171,7 +250,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
   // writes in split() (braces) — so no re-render or remount can ever bring
   // the big rectangle's last frame back as a ghost.
   const [splitFired, setSplitFired] = useState(false)
-  const { setIntroPhase, setIntroTargetCount, setIntroLandedCount, setIntroHeroReveal, mediaReady } =
+  const { introPhase, setIntroPhase, setIntroTargetCount, setIntroLandedCount, setIntroHeroReveal, mediaReady } =
     useIntroContext()
 
   const overlayRef = useRef<HTMLDivElement>(null)
@@ -181,6 +260,9 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
   const pieceShardRefs = useRef<(HTMLImageElement | null)[]>([])
   const pieceFlashARefs = useRef<(HTMLImageElement | null)[]>([])
   const pieceFlashBRefs = useRef<(HTMLImageElement | null)[]>([])
+  // Third flash buffer per piece — only used in safe mode, where the
+  // previous frame has to stay under the crossfade while the next decodes.
+  const pieceFlashCRefs = useRef<(HTMLImageElement | null)[]>([])
   const pieceCanvasRefs = useRef<(HTMLCanvasElement | null)[]>([])
   const pieceHalftoneRefs = useRef<(HTMLDivElement | null)[]>([])
   const objectUrlsRef = useRef<string[]>([])
@@ -197,6 +279,37 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
   onContentReadyRef.current = onContentReady
   const mediaReadyRef = useRef(mediaReady)
   mediaReadyRef.current = mediaReady
+  // Set the moment the intro completes (normally or via the watchdog), so
+  // the two paths can't both fire completion side effects.
+  const doneRef = useRef(false)
+  const phaseRef = useRef<Phase>('waiting')
+  phaseRef.current = phase
+  const framesRef = useRef<string[] | null>(null)
+  framesRef.current = frames
+  // ── ?introdebug=1 readout ──────────────────────────────────────────────
+  // A fixed on-screen text HUD (no console needed) for the field: phase,
+  // context phase, frame count, tick count, worst RAF gap, clock. Enough to
+  // tell a preload stall from a RAF stall from a WebView that never fires
+  // anything — from a screenshot.
+  const [debugOn, setDebugOn] = useState(false)
+  const debugRef = useRef({ mountedAt: 0, framesAt: 0, playAt: 0, ticks: 0, maxGap: 0, lastTick: 0 })
+  const [debugTick, setDebugTick] = useState(0)
+  useEffect(() => {
+    debugRef.current.mountedAt = performance.now()
+    if (!new URLSearchParams(window.location.search).has('introdebug')) return
+    setDebugOn(true)
+    const id = window.setInterval(() => setDebugTick((t) => t + 1), 250)
+    return () => window.clearInterval(id)
+  }, [])
+  // Safe mode resolves once at mount (prop, overridden by ?safe=0/1) —
+  // play() reads the ref, so the URL never has to reach the render path.
+  const safeRef = useRef(0)
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get('safe')
+    safeRef.current = q !== null ? (q === '2' ? 2 : q === '0' ? 0 : 1) : safe ? 1 : 0
+  }, [safe])
+  // blob URL → mean luminance (0..1), measured at preload for the sorted cut.
+  const lumaByUrlRef = useRef<Map<string, number>>(new Map())
 
   // ── preload every frame ────────────────────────────────────────────────────
   useEffect(() => {
@@ -212,6 +325,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
         const url = URL.createObjectURL(blob)
         objectUrlsRef.current.push(url)
         blobBySrcRef.current.set(src, url)
+        if (safeRef.current === 2) lumaByUrlRef.current.set(url, await measureLuma(blob))
         return url
       } catch {
         return null
@@ -229,6 +343,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       // URL) — without it the rectangle would land showing the wrong video.
       const landing = results[landingIdx] ?? FLASH_SRCS[landingIdx]
       const ok = results.slice(0, landingIdx).filter((u): u is string => u !== null)
+      debugRef.current.framesAt = performance.now()
       setFrames([...ok, landing])
     })
     return () => {
@@ -284,6 +399,8 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       timersRef.current.push(
         window.setTimeout(() => {
           settled = true
+          if (doneRef.current) return // the watchdog got here first
+          doneRef.current = true
           setPhase('done')
           setIntroPhase('done')
           trackGoal(GOALS.introCompleted, {
@@ -319,6 +436,36 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       return
     }
     startedRef.current = true
+    debugRef.current.playAt = performance.now()
+
+    const mode = safeRef.current
+    const safe = mode > 0 // crossfades + triple-buffered pieces
+    const clamp = mode === 1 // levels clamp on the containers
+    const sorted = mode === 2 // luminance-ordered cut
+    const xfadeFor = (dwellMs: number) => Math.min(SAFE_XFADE_TICKS * TICK_MS, dwellMs)
+    // Crossfade a layer in over the one beneath it (Web Animations, so the
+    // React-owned inline transitions can never cut it short).
+    const fadeIn = (el: HTMLElement, ms: number) => {
+      el.getAnimations().forEach((a) => a.cancel())
+      el.style.visibility = 'visible'
+      el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: ms, easing: 'linear', fill: 'forwards' })
+    }
+    // Ramp the levels clamp off a container — the handoff to the unclamped
+    // card underneath becomes a 300ms ramp instead of a luminance step.
+    const unclamp = (el: HTMLElement) => {
+      if (!clamp) return
+      el.animate([{ filter: SAFE_FILTER }, { filter: SAFE_FILTER_OFF }], {
+        duration: SAFE_UNCLAMP_MS,
+        easing: 'ease-out',
+        fill: 'forwards',
+      })
+    }
+    if (clamp) {
+      overlay.style.filter = SAFE_FILTER
+      pieceRefs.current.forEach((n) => {
+        if (n) n.style.filter = SAFE_FILTER
+      })
+    }
 
     const vw = window.innerWidth
     const vh = window.innerHeight
@@ -406,6 +553,27 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     // RAMP_START_TICKS to RAMP_END_TICKS as the cumulative time approaches
     // HOLD_MS, so the acceleration lands fully within the visible hold.
     const N = frames.length
+    // The cut order: cut[f] is the frame shown at cut position f, cutIdx[f]
+    // its index in `frames` (= the stacked <img> it lives in). Identity
+    // normally; the sorted mode reorders everything but the landing frame.
+    let cutIdx = frames.map((_, i) => i)
+    if (sorted && N > 2) {
+      const luma = (i: number) => lumaByUrlRef.current.get(frames[i]) ?? 0.5
+      const asc = cutIdx.slice(0, N - 1).sort((a, b) => luma(a) - luma(b))
+      const L = luma(N - 1)
+      if (Math.abs(luma(asc[asc.length - 1]) - L) > Math.abs(luma(asc[0]) - L)) asc.reverse()
+      cutIdx = [...asc, N - 1]
+    }
+    const cut = cutIdx.map((i) => frames[i])
+    // Position in the piece streams: wraps normally; ping-pongs over the
+    // sorted body (positions 0..N-2) so a stream never jumps bright → dark.
+    const streamPos = (p: number) => {
+      if (!sorted) return p % N
+      const len = N - 1
+      if (len < 2) return 0
+      const m = p % (2 * (len - 1))
+      return m < len ? m : 2 * (len - 1) - m
+    }
     const entries: { frame: number; dur: number }[] = []
     let cumMs = 0
     for (let i = 0; i < N; i++) {
@@ -461,10 +629,45 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       setIntroHeroReveal(true)
     }
 
-    const showFrame = (f: number) => {
+    // Frames still painted in safe mode (the crossfade trail), as cut
+    // positions; and a rising z so a fading-in frame is always on top even
+    // when the cut order differs from the DOM order (sorted mode).
+    let visibleFrames: number[] = []
+    let frameZ = 10
+    const showFrame = (f: number, dwellMs = TICK_MS) => {
       const els = frameEls.current
-      if (frameShown >= 0 && els[frameShown]) els[frameShown]!.style.visibility = 'hidden'
-      if (f >= 0 && els[f]) els[f]!.style.visibility = 'visible'
+      const el = (pos: number) => (pos >= 0 ? els[cutIdx[pos]] : null)
+      if (!safe) {
+        if (frameShown >= 0 && el(frameShown)) el(frameShown)!.style.visibility = 'hidden'
+        if (f >= 0 && el(f)) el(f)!.style.visibility = 'visible'
+        frameShown = f
+        return
+      }
+      // Safe: the new frame fades in ON TOP of the previous one (frames are
+      // stacked in cut order, so a later index is always above). Older
+      // frames are dropped only once they're fully covered — the fade never
+      // outlasts a dwell, so two frames back is already invisible.
+      if (f < 0) {
+        visibleFrames.forEach((k) => {
+          if (el(k)) el(k)!.style.visibility = 'hidden'
+        })
+        visibleFrames = []
+        frameShown = -1
+        return
+      }
+      const node = el(f)
+      if (node) {
+        node.style.zIndex = String(frameZ++)
+        fadeIn(node, xfadeFor(dwellMs))
+      }
+      visibleFrames = visibleFrames.filter((k) => {
+        if (k < f - 2 && el(k)) {
+          el(k)!.style.visibility = 'hidden'
+          return false
+        }
+        return true
+      })
+      visibleFrames.push(f)
       frameShown = f
     }
 
@@ -552,8 +755,8 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       overlay.style.visibility = 'hidden'
       overlay.style.display = 'none'
       setSplitFired(true)
-      const shardSrc = frames[Math.max(0, frameShown)]
-      const dealFrom = (Math.max(0, frameShown) + 1) % N
+      const shardSrc = cut[Math.max(0, frameShown)]
+      const dealFrom = Math.max(0, frameShown) + 1
       for (let i = 0; i < PIECE_COUNT; i++) {
         const node = pieceRefs.current[i]
         if (!node || !mosaic) continue
@@ -569,7 +772,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
         // Deal this piece its continuation of the cut, and pre-set the
         // first frame on the hidden flip img so the first flash is instant.
         const stream: string[] = []
-        for (let k = 0; k < 16; k++) stream.push(frames[(dealFrom + i + k * PIECE_COUNT) % N])
+        for (let k = 0; k < 16; k++) stream.push(cut[streamPos(dealFrom + i + k * PIECE_COUNT)])
         pieceStream[i] = stream
         const prep = pieceFlashARefs.current[i]
         if (prep) prep.src = stream[0]
@@ -578,23 +781,52 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
       }
     }
 
+    // A piece's flash buffers as a ring: pieceFlip[i] indexes the img
+    // prepared last time (shown next), the one after it is prepared now.
+    // Two buffers live; safe mode adds a third so the previous frame stays
+    // painted under the crossfade while the next one decodes.
+    const pieceRing = (i: number): HTMLImageElement[] | null => {
+      const a = pieceFlashARefs.current[i]
+      const b = pieceFlashBRefs.current[i]
+      const c = pieceFlashCRefs.current[i]
+      if (!a || !b) return null
+      return safe && c ? [a, b, c] : [a, b]
+    }
+
     // One flash inside a piece: show the img prepared last time, prepare the
     // next frame on the now-hidden one. Double-buffering means a swap never
     // waits on image decode.
     const pieceFlash = (i: number, u: number, tc: number) => {
-      const a = pieceFlashARefs.current[i]
-      const b = pieceFlashBRefs.current[i]
-      if (!a || !b) return
-      const showEl = pieceFlip[i] === 0 ? a : b
-      const prepEl = pieceFlip[i] === 0 ? b : a
-      showEl.style.visibility = 'visible'
-      prepEl.style.visibility = 'hidden'
+      const ring = pieceRing(i)
+      if (!ring) return
+      const L = ring.length
+      const showEl = ring[pieceFlip[i] % L]
+      const prepEl = ring[(pieceFlip[i] + 1) % L]
+      const dwell = lerp(PIECE_DWELL_START, PIECE_DWELL_END, u) * TICK_MS
       const shard = pieceShardRefs.current[i]
-      if (shard) shard.style.visibility = 'hidden'
-      pieceFlip[i] = 1 - pieceFlip[i]
+      if (safe) {
+        // Stack: new frame fading in (z4) over the previous one (z3); the
+        // buffer two flashes back is fully covered by now and gets reused.
+        const prevEl = ring[(pieceFlip[i] + 2) % L]
+        prevEl.style.zIndex = '3'
+        showEl.style.zIndex = '4'
+        prepEl.style.zIndex = '1'
+        fadeIn(showEl, xfadeFor(dwell))
+        if (shard && shard.style.visibility !== 'hidden') {
+          // The shard is what this first flash fades in over — drop it once
+          // it's covered (the timer's slack is harmless: z3/z4 cover it).
+          const s = shard
+          timersRef.current.push(window.setTimeout(() => void (s.style.visibility = 'hidden'), SAFE_XFADE_TICKS * TICK_MS * 2))
+        }
+      } else {
+        showEl.style.visibility = 'visible'
+        if (shard) shard.style.visibility = 'hidden'
+      }
+      prepEl.style.visibility = 'hidden'
+      pieceFlip[i] = (pieceFlip[i] + 1) % L
       pieceStep[i]++
       prepEl.src = pieceStream[i][pieceStep[i] % pieceStream[i].length]
-      pieceNextFlashAt[i] = tc + lerp(PIECE_DWELL_START, PIECE_DWELL_END, u) * TICK_MS
+      pieceNextFlashAt[i] = tc + dwell
     }
 
     // A piece's resolve: the flashing stops on its destination video, and
@@ -606,15 +838,35 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     const pieceResolve = (i: number) => {
       const remote = sizedThumbnail(ITEMS[i].thumbnailUrl!, 640)
       const dest = blobBySrcRef.current.get(remote) ?? remote
-      const showEl = pieceFlip[i] === 0 ? pieceFlashARefs.current[i] : pieceFlashBRefs.current[i]
-      const otherEl = pieceFlip[i] === 0 ? pieceFlashBRefs.current[i] : pieceFlashARefs.current[i]
+      const ring = pieceRing(i)
+      const showEl = ring ? ring[pieceFlip[i] % ring.length] : null
+      const others = ring ? ring.filter((el) => el !== showEl) : []
+      const shard = pieceShardRefs.current[i]
       if (showEl) {
         showEl.src = dest
-        showEl.style.visibility = 'visible'
+        if (safe) {
+          // The destination fades in over the last flash frame, then the
+          // rest of the ring drops away underneath it — and the levels clamp
+          // ramps off with the halftone, so the piece meets its card's real
+          // luminance as a ramp, not a step.
+          showEl.style.zIndex = '4'
+          fadeIn(showEl, SAFE_XFADE_TICKS * TICK_MS)
+          timersRef.current.push(
+            window.setTimeout(() => {
+              others.forEach((el) => void (el.style.visibility = 'hidden'))
+              if (shard) shard.style.visibility = 'hidden'
+            }, SAFE_XFADE_TICKS * TICK_MS * 2),
+          )
+          const node = pieceRefs.current[i]
+          if (node) unclamp(node)
+        } else {
+          showEl.style.visibility = 'visible'
+        }
       }
-      if (otherEl) otherEl.style.visibility = 'hidden'
-      const shard = pieceShardRefs.current[i]
-      if (shard) shard.style.visibility = 'hidden'
+      if (!safe) {
+        others.forEach((el) => void (el.style.visibility = 'hidden'))
+        if (shard) shard.style.visibility = 'hidden'
+      }
       startMirrorOn(i, pieceCanvasRefs.current[i], targets[i])
       const ht = pieceHalftoneRefs.current[i]
       if (ht) {
@@ -678,6 +930,10 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     })
 
     const tick = (now: number) => {
+      const dbg = debugRef.current
+      dbg.ticks++
+      if (dbg.lastTick) dbg.maxGap = Math.max(dbg.maxGap, now - dbg.lastTick)
+      dbg.lastTick = now
       // RAF pauses in hidden tabs — shift the clock over big gaps so the cut
       // resumes where it paused instead of skipping straight to the landing.
       if (now - lastTick > 500) start += now - lastTick
@@ -743,8 +999,10 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
           ) {
             showFrame(-1)
             frameShown = N - 1 // the canvas stands in for the landing still
+            unclamp(overlay)
           } else {
-            showFrame(f)
+            showFrame(f, entries[e].dur)
+            if (!splitMode && f === N - 1) unclamp(overlay)
           }
         }
         drawAllMirrors()
@@ -810,12 +1068,15 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
         } else {
           // Clock jumps can skip schedule entries — force the landing frame
           // so the card never resolves showing the wrong one.
-          if (frameShown !== N - 1) showFrame(N - 1)
+          if (frameShown !== N - 1) {
+            showFrame(N - 1)
+            unclamp(overlay)
+          }
           setIntroLandedCount(1) // single mode: reveal card one at touchdown
           layoutSingle(1) // seat exactly on the card's media box
           overlay.style.transform = 'none'
         }
-        finish(splitMode ? 'supercut_split' : 'supercut')
+        finish((splitMode ? 'supercut_split' : 'supercut') + (mode ? `_safe${mode}` : ''))
       }
 
       // Keep the mirrors live through the hold and fade-out — the pieces
@@ -841,20 +1102,80 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
     }
   }, [phase])
 
-  // Start once: frames preloaded and tab visible.
+  // Start once the frames are in, on the next animation frame. RAF is the
+  // visibility gate: browsers only run it while the page is actually being
+  // painted, so a hidden tab still waits — but unlike the old
+  // `document.visibilityState` check, an embedded WebView that misreports
+  // itself as hidden (and never fires visibilitychange) can't hold the
+  // intro on a black screen forever. The clock-shift in tick() covers the
+  // case where the tab goes hidden mid-cut.
   useEffect(() => {
     if (!frames || startedRef.current) return
-    const startWhenVisible = () => {
-      if (startedRef.current || document.visibilityState !== 'visible') return
-      document.removeEventListener('visibilitychange', startWhenVisible)
-      play()
-    }
-    startWhenVisible()
-    document.addEventListener('visibilitychange', startWhenVisible)
-    return () => document.removeEventListener('visibilitychange', startWhenVisible)
+    const id = requestAnimationFrame(() => play())
+    return () => cancelAnimationFrame(id)
   }, [frames, play])
 
-  if (phase === 'gone') return null
+  // Emergency exit: reveal the page as-is, skipping whatever is left of the
+  // intro. Safe from any state — before play() (no frames yet), mid-cut, or
+  // after a stalled tick — and idempotent against the normal finish.
+  const skipIntro = useCallback(
+    (reason: string) => {
+      if (doneRef.current) return
+      doneRef.current = true
+      startedRef.current = true // play() must not start a cut over the reveal
+      cancelAnimationFrame(rafRef.current)
+      timersRef.current.forEach((t) => window.clearTimeout(t))
+      timersRef.current = []
+      if (overlayRef.current) overlayRef.current.style.visibility = 'hidden'
+      pieceRefs.current.forEach((n) => {
+        if (n) n.style.visibility = 'hidden'
+      })
+      trackGoal(GOALS.introWatchdog, {
+        reason,
+        phase: phaseRef.current,
+        visibility: document.visibilityState,
+        frames: framesRef.current ? String(framesRef.current.length) : 'none',
+      })
+      setRevealedEarly(true)
+      setIntroTargetCount(0) // no piece will seat: release every card
+      setIntroHeroReveal(true)
+      setPhase('done')
+      setIntroPhase('done')
+      onContentReadyRef.current?.()
+      onCompleteRef.current?.()
+      window.setTimeout(() => {
+        setPhase('gone')
+        cleanupUrls()
+      }, 400)
+    },
+    [setIntroPhase, setIntroTargetCount, setIntroHeroReveal, cleanupUrls],
+  )
+
+  // The watchdog — see WATCHDOG_MS. Timers keep running in hidden WebViews
+  // (throttled), so this fires even where RAF never does.
+  useEffect(() => {
+    const id = window.setTimeout(() => skipIntro('watchdog'), WATCHDOG_MS)
+    return () => window.clearTimeout(id)
+  }, [skipIntro])
+
+  const hud = debugOn ? (
+    <pre
+      className="fixed left-2 top-2 z-[200] rounded bg-black/80 px-3 py-2 text-[13px] leading-snug text-white"
+      style={{ pointerEvents: 'none', fontFamily: 'ui-monospace, monospace' }}
+    >
+      {[
+        `t     ${Math.round(performance.now() - debugRef.current.mountedAt)}ms since mount (tick ${debugTick})`,
+        `phase ${phase} / ctx ${introPhase}`,
+        `frames ${frames ? frames.length : 'loading'}${debugRef.current.framesAt ? ` @${Math.round(debugRef.current.framesAt - debugRef.current.mountedAt)}ms` : ''}`,
+        `play  ${debugRef.current.playAt ? `@${Math.round(debugRef.current.playAt - debugRef.current.mountedAt)}ms` : 'not started'}`,
+        `ticks ${debugRef.current.ticks}  maxGap ${Math.round(debugRef.current.maxGap)}ms`,
+        `vis   ${typeof document !== 'undefined' ? document.visibilityState : '?'}  ${typeof window !== 'undefined' ? `${window.innerWidth}x${window.innerHeight}@${window.devicePixelRatio}` : ''}`,
+        `done  ${doneRef.current}`,
+      ].join('\n')}
+    </pre>
+  ) : null
+
+  if (phase === 'gone') return hud
 
   const shown = phase === 'cut' || phase === 'landed'
   const fadeStyle = {
@@ -870,6 +1191,7 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
 
   return (
     <div className="fixed inset-0 z-[100] pointer-events-none">
+      {hud}
       {/* Opaque cover — the page loads behind it; fades at the mid-flight
           reveal so the grid staggers in under the still-flying rectangle. */}
       <div
@@ -912,10 +1234,11 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
         <canvas
           ref={mirrorRef}
           className="absolute inset-0 h-full w-full object-cover"
-          style={{ visibility: 'hidden', zIndex: 1 }}
+          style={{ visibility: 'hidden', zIndex: 1000 }}
         />
-        {/* Halftone screen — dot texture riding the flashes */}
-        <div className="absolute inset-0" style={{ ...halftoneStyle, zIndex: 2 }} />
+        {/* Halftone screen — dot texture riding the flashes (z above the
+            rising per-frame z of the safe modes' crossfade stack) */}
+        <div className="absolute inset-0" style={{ ...halftoneStyle, zIndex: 1001 }} />
       </div>
 
       {/* The four pieces — born at the split as the rectangle's quadrants
@@ -956,6 +1279,16 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
             className="absolute inset-0 h-full w-full object-cover"
             style={{ visibility: 'hidden', zIndex: 1 }}
           />
+          {/* Third buffer — safe mode only (crossfade trail). */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            ref={(el) => {
+              pieceFlashCRefs.current[i] = el
+            }}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ visibility: 'hidden', zIndex: 1 }}
+          />
           {/* The shard: the split-instant frame at 200%, offset per quadrant
               in split(), so the four pieces initially reproduce the big
               rectangle pixel-for-pixel. */}
@@ -973,14 +1306,14 @@ export function SupercutIntro({ onComplete, onContentReady }: SupercutIntroProps
               pieceCanvasRefs.current[i] = el
             }}
             className="absolute inset-0 h-full w-full object-cover"
-            style={{ visibility: 'hidden', zIndex: 3 }}
+            style={{ visibility: 'hidden', zIndex: 5 }}
           />
           <div
             ref={(el) => {
               pieceHalftoneRefs.current[i] = el
             }}
             className="absolute inset-0"
-            style={{ ...halftoneStyle, zIndex: 4 }}
+            style={{ ...halftoneStyle, zIndex: 6 }}
           />
         </div>
       ))}
