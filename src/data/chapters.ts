@@ -567,6 +567,12 @@ const videoChapters: Record<string, Chapter[]> = {
     { id: 'c5', title: 'Robotics Simulation', startTime: 60, beat: 'in-action' },
     { id: 'c6', title: 'Build with Atlas', startTime: 70, beat: 'cta' },
   ],
+  '76': [ // LINEAR Magazine — LINEAR MCP (30s)
+    { id: 'c1', title: 'Plan My Trip to Kyoto', startTime: 0, beat: 'hook' },
+    { id: 'c2', title: 'Searching the Archive', startTime: 6, beat: 'in-action' },
+    { id: 'c3', title: 'Explore, Plan, Book', startTime: 14, beat: 'proof' },
+    { id: 'c4', title: 'Booked via Concierge', startTime: 24, beat: 'cta' },
+  ],
 }
 
 export function getChaptersForVideo(videoId: string): Chapter[] {

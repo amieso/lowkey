@@ -1621,6 +1621,27 @@ export const videos: Video[] = [
     featured: false,
     publishedDate: '2026-09-01',
   },
+  {
+    id: '76',
+    slug: 'mcp',
+    companySlug: 'linear-magazine',
+    title: 'LINEAR MCP',
+    company: 'LINEAR Magazine',
+    companyLogoUrl: 'https://img.logo.dev/linear-magazine.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
+    description: 'LINEAR Magazine opens its editorial archive to AI agents with the LINEAR MCP — more than 1,000 hand-picked hotels, restaurants, cafés, and spaces, queryable from ChatGPT or Claude. Ask where LINEAR would send you for a glass of wine in New York, or have Claude find a hotel in Puerto Escondido and book it through LINEAR Concierge.',
+    videoUrl: 'https://stream.mux.com/3Pyl2v3Q005mTm9Gs0000Fw5fJ3jwwukVc7GebMt02VKWzY.m3u8',
+    thumbnailUrl: 'https://image.mux.com/3Pyl2v3Q005mTm9Gs0000Fw5fJ3jwwukVc7GebMt02VKWzY/thumbnail.webp?time=5',
+    duration: 30,
+    aspectRatio: '16:9',
+    websiteUrl: 'https://linear-magazine.com',
+    twitterUrl: 'https://x.com/linear_magazine',
+    sourceUrl: 'https://x.com/linear_magazine/status/2097689732826214434',
+    credits: [
+      { role: 'In-house', name: 'LINEAR Magazine', handle: 'linear_magazine', url: 'https://linear-magazine.com', bio: 'Independent design magazine for the architecturally curious. Publishes essays, city guides, and curated collections on how spaces shape the way we live — and now serves that archive to agents via MCP.', contactUrl: 'https://x.com/linear_magazine', imageUrl: 'https://img.logo.dev/linear-magazine.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark', twitterHandle: 'linear_magazine' }
+    ],
+    featured: false,
+    publishedDate: '2026-09-09',
+  },
   // INGEST_ANCHOR — scripts/ingest.mjs inserts new video drafts above this line. Keep it.
 ]
 

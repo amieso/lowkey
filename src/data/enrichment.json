@@ -5146,5 +5146,112 @@
       "#2e2824"
     ],
     "lightDark": "dark"
+  },
+  "76": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "product-ui",
+      "motion-graphics",
+      "kinetic-typography"
+    ],
+    "visualSummary": "Clean white-on-black product walkthrough: a ChatGPT phone mockup and iMessage-style chat bubbles show a Kyoto trip request, cut to raw JSON tool output and a 'Searched Linear Magazine' card recommending Sowaka in Gion, then a fast collage of interior photos under bold 'OVER A THOUSAND CURATED STAYS / CAFES / SHOPS / BARS / HOTELS' type, an animated EXPLORE → PLAN → BOOK sequence, and a LINEAR Concierge booking card before the linear-magazine.com end slate.",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "LINEAR"
+      },
+      {
+        "time": 3,
+        "text": "Help me plan my trip to Kyoto"
+      },
+      {
+        "time": 4,
+        "text": "Kyoto's a great call. When are you thinking, and what's the trip for?"
+      },
+      {
+        "time": 5,
+        "text": "Next month, flexible. Open to recs."
+      },
+      {
+        "time": 6,
+        "text": "Combobulating"
+      },
+      {
+        "time": 10,
+        "text": "Searched Linear Magazine"
+      },
+      {
+        "time": 10,
+        "text": "LINEAR's Kyoto archive is strongest in stays and architecture-led cafés."
+      },
+      {
+        "time": 12,
+        "text": "My first-choice stay is Sowaka in Gion. LINEAR highlights it as a 23-room adaptation of a roughly 100-year-old sukiya-style ryotei by Shigenori Uoya."
+      },
+      {
+        "time": 14,
+        "text": "OVER A THOUSAND CURATED STAYS"
+      },
+      {
+        "time": 16,
+        "text": "OVER A THOUSAND CURATED CAFES"
+      },
+      {
+        "time": 16,
+        "text": "OVER A THOUSAND CURATED SHOPS"
+      },
+      {
+        "time": 16,
+        "text": "OVER A THOUSAND CURATED BARS"
+      },
+      {
+        "time": 16,
+        "text": "OVER A THOUSAND CURATED HOTELS"
+      },
+      {
+        "time": 18,
+        "text": "EXPLORE"
+      },
+      {
+        "time": 20,
+        "text": "PLAN"
+      },
+      {
+        "time": 22,
+        "text": "AND BOOK"
+      },
+      {
+        "time": 25,
+        "text": "Good choice. Concierge can get that booked for you."
+      },
+      {
+        "time": 26,
+        "text": "Confirm your stay at Sowaka — LINEAR Concierge"
+      },
+      {
+        "time": 28,
+        "text": "LINEAR-MAGAZINE.COM"
+      }
+    ],
+    "pacing": {
+      "cuts": 2,
+      "cutsPerMinute": 4,
+      "avgShotSeconds": 10
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#ffffff",
+      "#3d3026",
+      "#c9cccb",
+      "#fffffc",
+      "#fefffe"
+    ],
+    "lightDark": "light"
   }
 }
