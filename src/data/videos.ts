@@ -1642,6 +1642,50 @@ export const videos: Video[] = [
     featured: false,
     publishedDate: '2026-09-09',
   },
+  {
+    id: '77',
+    slug: 'sherpa',
+    companySlug: 'pocket-fm',
+    title: 'Sherpa',
+    company: 'Pocket FM',
+    companyLogoUrl: 'https://img.logo.dev/pocketfm.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
+    companyFounded: 2018,
+    description: 'Pocket FM launches Sherpa, a fiction-writing AI, through a comedy sketch — a coked-up caricature of a Silicon Valley investor crashes a board meeting while CEO Rohan Nayak (playing himself) walks him through the product. Sherpa ideates, plans, and writes long-form serialized fiction, trained on 5B minutes of listener retention data, and it lifted content output 12x and helped double ARR to $500M.',
+    videoUrl: 'https://stream.mux.com/KzfmGR4jCIZxNsFJChOEHBEPqXEXnUxZVGzo3lZ7TVY.m3u8',
+    thumbnailUrl: 'https://image.mux.com/KzfmGR4jCIZxNsFJChOEHBEPqXEXnUxZVGzo3lZ7TVY/thumbnail.webp?time=5',
+    duration: 207,
+    aspectRatio: '16:9',
+    websiteUrl: 'https://pocketfm.com',
+    twitterUrl: 'https://x.com/PocketFM_App',
+    sourceUrl: 'https://x.com/RohanNayak2/status/2101019876269973593',
+    credits: [
+      { role: 'In-house', name: 'Pocket FM', handle: 'PocketFM_App', url: 'https://pocketfm.com', bio: 'Serialized audio and video entertainment platform founded in Bengaluru in 2018 by Rohan Nayak, Nishanth KS, and Prateek Dixit. Pairs 550K+ creators with AI tooling to produce long-form fiction at scale.', contactUrl: 'https://x.com/RohanNayak2', imageUrl: 'https://img.logo.dev/pocketfm.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark', twitterHandle: 'PocketFM_App' }
+    ],
+    featured: false,
+    publishedDate: '2026-09-18',
+  },
+  {
+    id: '78',
+    slug: 'reception',
+    companySlug: 'elevenlabs',
+    title: 'Reception',
+    company: 'ElevenLabs',
+    companyLogoUrl: 'https://img.logo.dev/elevenlabs.io?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
+    companyFounded: 2022,
+    description: 'ElevenLabs packages its voice agents into Reception, an AI receptionist for small businesses built on ElevenAgents. It picks up every call, answers questions about the business, books the job into the calendar, and texts a confirmation — set up in minutes by pasting a website URL.',
+    videoUrl: 'https://stream.mux.com/Eu00WYtIVbOt6LTgRzw01BIfUP02kjngx1u3001KBsXao9U.m3u8',
+    thumbnailUrl: 'https://image.mux.com/Eu00WYtIVbOt6LTgRzw01BIfUP02kjngx1u3001KBsXao9U/thumbnail.webp?time=5',
+    duration: 33,
+    aspectRatio: '16:9',
+    websiteUrl: 'https://elevenlabs.io/reception',
+    twitterUrl: 'https://x.com/elevenlabsio',
+    sourceUrl: 'https://x.com/ElevenLabs/status/2100262886916358361',
+    credits: [
+      { role: 'In-house', name: 'ElevenLabs', handle: 'elevenlabsio', url: 'https://elevenlabs.io', bio: 'AI audio research and deployment company. Building voice synthesis, dubbing, Scribe for speech-to-text, and ElevenAgents for conversational voice agents.', contactUrl: 'https://x.com/elevenlabsio', imageUrl: 'https://img.logo.dev/elevenlabs.io?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark', twitterHandle: 'elevenlabsio' }
+    ],
+    featured: false,
+    publishedDate: '2026-09-16',
+  },
   // INGEST_ANCHOR — scripts/ingest.mjs inserts new video drafts above this line. Keep it.
 ]
 

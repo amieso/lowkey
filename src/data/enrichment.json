@@ -5253,5 +5253,220 @@
       "#fefffe"
     ],
     "lightDark": "light"
+  },
+  "77": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "live-action",
+      "product-ui",
+      "screen-recording"
+    ],
+    "visualSummary": "Live-action comedy sketch shot in a glass-walled office and a boardroom with a magenta 'Pocket FM' logo on the wall TV and 'BIG STUDIOS ARE DEAD' scrawled on the whiteboard: a bearded investor rants on the phone, hugs CEO Rohan Nayak, then grabs a laptop while Sherpa screen captures are composited beside his face — a story prompt typed into a dark UI, a 'Your storyboard is ready' modal, a 'The Richest Alien' story brief with character cards, voice-selection and 'Finalizing your episode' / 'Episode published' confetti, and a 'The Martian Tycoon' series page — before the CEO gets his face grabbed and the investor walks off on the phone again, with no end slate.",
+    "onScreenText": [
+      {
+        "time": 13,
+        "text": "Pocket FM"
+      },
+      {
+        "time": 136,
+        "text": "A mysterious signal from a distant planet"
+      },
+      {
+        "time": 136,
+        "text": "COSMIC WARRIOR"
+      },
+      {
+        "time": 155,
+        "text": "Your storyboard is ready"
+      },
+      {
+        "time": 156,
+        "text": "The Richest Alien"
+      },
+      {
+        "time": 156,
+        "text": "Start writing"
+      },
+      {
+        "time": 156,
+        "text": "Story trailer"
+      },
+      {
+        "time": 156,
+        "text": "Summary"
+      },
+      {
+        "time": 156,
+        "text": "Themes"
+      },
+      {
+        "time": 157,
+        "text": "World & Setting"
+      },
+      {
+        "time": 157,
+        "text": "Tone & Style"
+      },
+      {
+        "time": 158,
+        "text": "Marcus Neylan"
+      },
+      {
+        "time": 158,
+        "text": "Elena Park"
+      },
+      {
+        "time": 158,
+        "text": "Ava Sinclair"
+      },
+      {
+        "time": 158,
+        "text": "Lyra Neylan"
+      },
+      {
+        "time": 158,
+        "text": "Victor Crane"
+      },
+      {
+        "time": 158,
+        "text": "Director Helena Voss"
+      },
+      {
+        "time": 172,
+        "text": "Add voice to your series"
+      },
+      {
+        "time": 172,
+        "text": "Select a voice for your story"
+      },
+      {
+        "time": 174,
+        "text": "Confirm the voice?"
+      },
+      {
+        "time": 175,
+        "text": "Finalizing your episode"
+      },
+      {
+        "time": 176,
+        "text": "Episode published"
+      },
+      {
+        "time": 176,
+        "text": "The Martian Tycoon"
+      }
+    ],
+    "pacing": {
+      "cuts": 72,
+      "cutsPerMinute": 20.9,
+      "avgShotSeconds": 2.8
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.93,
+      "language": "en",
+      "hasMusic": false
+    },
+    "palette": [
+      "#0b0e0c",
+      "#4a2c32",
+      "#8b8580",
+      "#706660",
+      "#b4afab"
+    ],
+    "lightDark": "dark"
+  },
+  "78": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "kinetic-typography",
+      "motion-graphics",
+      "3d-render",
+      "product-ui"
+    ],
+    "visualSummary": "Word-by-word kinetic type on an off-white grid with floating 3D props (hair dryer, hard hat, traffic cone, mug, keyboard) alternates with pixel-block wipes to halftone-blue renders of desk phones and a smartphone wearing 'INCOMING CALL' chips; a red 'Until now.' beat gives way to a glowing orb on black, a blurred green-gold gradient behind glassy chat bubbles where the agent books an appointment, then black end cards with three small agent tiles and the Reception.ai / ElevenAgents lockup.",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "Someone's calling"
+      },
+      {
+        "time": 2,
+        "text": "Someone's calling to make an appointment."
+      },
+      {
+        "time": 3,
+        "text": "INCOMING CALL"
+      },
+      {
+        "time": 4,
+        "text": "To book a job."
+      },
+      {
+        "time": 6,
+        "text": "INCOMING CALL"
+      },
+      {
+        "time": 8,
+        "text": "To schedule a meeting."
+      },
+      {
+        "time": 9,
+        "text": "INCOMING CALL"
+      },
+      {
+        "time": 10,
+        "text": "But nobody's around to pickup."
+      },
+      {
+        "time": 14,
+        "text": "Until now."
+      },
+      {
+        "time": 18,
+        "text": "Hi there, how can I help you today?"
+      },
+      {
+        "time": 19,
+        "text": "Hey, I'm looking to book an appointment for next week, please?"
+      },
+      {
+        "time": 22,
+        "text": "Sure! When would be a good time for you?"
+      },
+      {
+        "time": 23,
+        "text": "Stop missing calls and opportunities"
+      },
+      {
+        "time": 30,
+        "text": "Reception.ai"
+      },
+      {
+        "time": 30,
+        "text": "ElevenAgents"
+      }
+    ],
+    "pacing": {
+      "cuts": 11,
+      "cutsPerMinute": 20,
+      "avgShotSeconds": 2.8
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.64,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#f1f0eb",
+      "#5f7564",
+      "#321a13",
+      "#aec4be",
+      "#f5f5dc"
+    ],
+    "lightDark": "mixed"
   }
 }

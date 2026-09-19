@@ -573,6 +573,19 @@ const videoChapters: Record<string, Chapter[]> = {
     { id: 'c3', title: 'Explore, Plan, Book', startTime: 14, beat: 'proof' },
     { id: 'c4', title: 'Booked via Concierge', startTime: 24, beat: 'cta' },
   ],
+  '77': [ // Pocket FM — Sherpa (207s)
+    { id: 'c1', title: 'Beard of a Trillionaire', startTime: 0, beat: 'hook' },
+    { id: 'c2', title: '12X Content, 2X Revenue', startTime: 57, beat: 'proof' },
+    { id: 'c3', title: 'Launching Sherpa', startTime: 109, beat: 'solution' },
+    { id: 'c4', title: 'An Alien Crash-Lands', startTime: 135, beat: 'in-action' },
+    { id: 'c5', title: 'Live in 10 Languages', startTime: 170, beat: 'proof' },
+    { id: 'c6', title: 'Can I Buy a Country?', startTime: 198, beat: 'cta' },
+  ],
+  '78': [ // ElevenLabs — Reception (33s)
+    { id: 'c1', title: 'Nobody Around to Pick Up', startTime: 0, beat: 'hook' },
+    { id: 'c2', title: 'Booking Next Week', startTime: 14, beat: 'in-action' },
+    { id: 'c3', title: 'Stop Missing Calls', startTime: 23, beat: 'cta' },
+  ],
 }
 
 export function getChaptersForVideo(videoId: string): Chapter[] {
