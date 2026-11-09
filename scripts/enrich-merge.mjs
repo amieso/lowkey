@@ -37,6 +37,8 @@ const JUNK_RE = /transcribed by|translated by|subtitles? by|sous-titres|amara\.o
 // filters (verified against the frames by the analysis pass).
 const FORCED_NO_SPEECH = new Set([
   '38', // Spielwerk — repeated Japanese filler over music
+  '84', // OpenAI Dots — music-only, hallucinated lyrics
+  '85', // Prelinger B-Roll — music-only, hallucinated song title
 ])
 
 function sanitizeSegments(segments, id) {

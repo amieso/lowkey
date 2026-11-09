@@ -6669,5 +6669,544 @@
         "text": "Stop missing calls and stop losing clients"
       }
     ]
+  },
+  "79": {
+    "language": null,
+    "segments": []
+  },
+  "80": {
+    "language": null,
+    "segments": []
+  },
+  "81": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 3.6,
+        "text": "Typing was too slow, so we started talking to our computers."
+      },
+      {
+        "start": 3.6,
+        "end": 6,
+        "text": "But talking out loud isn't always an option."
+      },
+      {
+        "start": 11.6,
+        "end": 14.2,
+        "text": "Voice dictation is incredibly fast and productive,"
+      },
+      {
+        "start": 14.2,
+        "end": 15.8,
+        "text": "but nobody wants to speak to their computer"
+      },
+      {
+        "start": 15.8,
+        "end": 18.3,
+        "text": "when they're in public or around other people."
+      },
+      {
+        "start": 18.3,
+        "end": 20.4,
+        "text": "So we built a way to keep the speed of speaking"
+      },
+      {
+        "start": 20.4,
+        "end": 22.1,
+        "text": "without making a sound."
+      },
+      {
+        "start": 22.1,
+        "end": 24.6,
+        "text": "Savolko detects subtle movements in your speech muscles"
+      },
+      {
+        "start": 24.6,
+        "end": 27.9,
+        "text": "and turns them into text at over 200 words per minute."
+      },
+      {
+        "start": 28.3,
+        "end": 31,
+        "text": "Our glasses send radar signals through your face."
+      },
+      {
+        "start": 31,
+        "end": 32.3,
+        "text": "As you silently form words,"
+      },
+      {
+        "start": 32.3,
+        "end": 34.2,
+        "text": "tiny movements in your speech muscles"
+      },
+      {
+        "start": 34.2,
+        "end": 36.3,
+        "text": "change how those signals bounce back."
+      },
+      {
+        "start": 36.3,
+        "end": 39.7,
+        "text": "Our AI learns from these signals and turns them into text."
+      },
+      {
+        "start": 39.7,
+        "end": 41.4,
+        "text": "So now you can control your computer"
+      },
+      {
+        "start": 41.4,
+        "end": 44.3,
+        "text": "without typing or speaking out loud."
+      },
+      {
+        "start": 44.3,
+        "end": 45.7,
+        "text": "Ask your AI anything."
+      },
+      {
+        "start": 45.7,
+        "end": 47.2,
+        "text": "Write messages or get things done"
+      },
+      {
+        "start": 47.2,
+        "end": 49.4,
+        "text": "without anyone around you noticing."
+      },
+      {
+        "start": 49.4,
+        "end": 51.4,
+        "text": "And it's not just for talking to computers."
+      },
+      {
+        "start": 51.4,
+        "end": 53.2,
+        "text": "You can even have a private conversation"
+      },
+      {
+        "start": 53.2,
+        "end": 55.5,
+        "text": "with someone else wearing Savolko."
+      },
+      {
+        "start": 55.5,
+        "end": 57.2,
+        "text": "Even from across a crowded room"
+      },
+      {
+        "start": 57.2,
+        "end": 59.2,
+        "text": "without anyone hearing a word."
+      },
+      {
+        "start": 59.2,
+        "end": 61.4,
+        "text": "We believe the future of interactive computers"
+      },
+      {
+        "start": 61.4,
+        "end": 63.6,
+        "text": "and AI agents will be silent, seamless,"
+      },
+      {
+        "start": 63.6,
+        "end": 65.8,
+        "text": "and far faster than what exists today."
+      },
+      {
+        "start": 65.8,
+        "end": 67.4,
+        "text": "And we're building that future."
+      }
+    ]
+  },
+  "82": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 5.5,
+        "text": "This quest is called Woodland Wonders. Let's explore."
+      },
+      {
+        "start": 24,
+        "end": 26,
+        "text": "Nice find. That's a red-eared slider."
+      },
+      {
+        "start": 26,
+        "end": 33,
+        "text": "Want to know how old our solar system is? Or how many species of birds exist?"
+      },
+      {
+        "start": 33,
+        "end": 37,
+        "text": "You've come to the right place, young chap. Ask away."
+      },
+      {
+        "start": 43,
+        "end": 45,
+        "text": "Oh wow, look at that flower."
+      },
+      {
+        "start": 47,
+        "end": 49,
+        "text": "Let's go down by the water."
+      },
+      {
+        "start": 49,
+        "end": 51,
+        "text": "Just don't go in the water."
+      },
+      {
+        "start": 51,
+        "end": 53,
+        "text": "Mom says time for dinner."
+      },
+      {
+        "start": 54,
+        "end": 56,
+        "text": "Do you want to climb a tree with me?"
+      },
+      {
+        "start": 56,
+        "end": 60,
+        "text": "Uh, not really. I don't really want to be climbing a tree right now."
+      }
+    ]
+  },
+  "83": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 3.7,
+        "text": "I'm going to tell you how the whole industry works."
+      },
+      {
+        "start": 3.7,
+        "end": 6.4,
+        "text": "Video model providers like Historyfield API,"
+      },
+      {
+        "start": 6.4,
+        "end": 15.2,
+        "text": "Fall, and Runway mark up the models by 50% and even up to 414% by just routing the models."
+      },
+      {
+        "start": 15.2,
+        "end": 18.8,
+        "text": "As a builder in the AI video space, I was so terrified."
+      },
+      {
+        "start": 18.8,
+        "end": 23.9,
+        "text": "So today, we're launching something really big that will be hated by the industry."
+      },
+      {
+        "start": 24.9,
+        "end": 32.7,
+        "text": "Introducing Zoom API, the world's first-ever zero-markup router API for image and video generation models."
+      },
+      {
+        "start": 32.7,
+        "end": 40,
+        "text": "With Zoom, you can use any models with the original cost exactly what the foundation model companies charge."
+      },
+      {
+        "start": 40,
+        "end": 48.2,
+        "text": "For example, if you're using CDANCE, Zoom is about 29% cheaper than Historyfield API even with its biggest discount."
+      },
+      {
+        "start": 48.2,
+        "end": 52.8,
+        "text": "50% cheaper than Fall, and about 80% cheaper than Runway."
+      },
+      {
+        "start": 52.9,
+        "end": 57.9,
+        "text": "We believe that the most should never be in the model routing infrastructure layer."
+      },
+      {
+        "start": 57.9,
+        "end": 64.9,
+        "text": "Check the pricing at zoom.com and see how the whole broken industry is saved."
+      }
+    ]
+  },
+  "84": {
+    "language": null,
+    "segments": []
+  },
+  "85": {
+    "language": null,
+    "segments": []
+  },
+  "86": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 3.8,
+        "text": "Every company runs on knowledge no system fully captures."
+      },
+      {
+        "start": 3.8,
+        "end": 8.9,
+        "text": "The work people do, how they do it, the decisions they make, the people they ask."
+      },
+      {
+        "start": 9.8,
+        "end": 13.7,
+        "text": "Then someone leaves, and that knowledge goes with them."
+      },
+      {
+        "start": 13.7,
+        "end": 18.6,
+        "text": "Cue the handovers, SOPs, and weeks spent reconstructing how work gets done."
+      },
+      {
+        "start": 18.6,
+        "end": 20.6,
+        "text": "AI agents face the same problem."
+      },
+      {
+        "start": 20.6,
+        "end": 22.7,
+        "text": "They know the internet, but not your company."
+      },
+      {
+        "start": 24,
+        "end": 25.4,
+        "text": "God Hands changes that."
+      },
+      {
+        "start": 25.4,
+        "end": 31.4,
+        "text": "It learns how your team works by observing real tasks across desktop apps."
+      },
+      {
+        "start": 32.2,
+        "end": 37.3,
+        "text": "Capturing context, decisions, and edge cases."
+      },
+      {
+        "start": 38.6,
+        "end": 41.3,
+        "text": "It turns that experience into a living knowledge base."
+      },
+      {
+        "start": 42,
+        "end": 46.9,
+        "text": "Repeatable playbooks, and a self-learning harness that can do the work."
+      },
+      {
+        "start": 50,
+        "end": 53,
+        "text": "No integrations, no endless interviews."
+      },
+      {
+        "start": 53,
+        "end": 55.2,
+        "text": "Knowledge stays when people leave."
+      },
+      {
+        "start": 55.3,
+        "end": 57,
+        "text": "New hires get up to speed faster."
+      },
+      {
+        "start": 58.6,
+        "end": 59.9,
+        "text": "Agents work smarter."
+      },
+      {
+        "start": 62.5,
+        "end": 64.9,
+        "text": "And businesses can reduce operational costs."
+      },
+      {
+        "start": 68.2,
+        "end": 71.4,
+        "text": "God Hands, the operational brain for your company."
+      }
+    ]
+  },
+  "87": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 5.3,
+        "text": "Design teams are turning ideas into coded prototypes faster than ever,"
+      },
+      {
+        "start": 5.3,
+        "end": 7.6,
+        "text": "but feedback hasn't kept up."
+      },
+      {
+        "start": 7.6,
+        "end": 10.8,
+        "text": "I mean, teams are struggling to make decisions with"
+      },
+      {
+        "start": 10.8,
+        "end": 14.6,
+        "text": "comments and context scattered across every tool."
+      },
+      {
+        "start": 14.6,
+        "end": 19.1,
+        "text": "But InFlight turns every prototype into its own design review."
+      },
+      {
+        "start": 19.1,
+        "end": 23.8,
+        "text": "All I have to do is tell my agent to add the InFlight toolkit to my prototype."
+      },
+      {
+        "start": 23.8,
+        "end": 28.3,
+        "text": "There, I can record a video walkthrough and ask specific questions like,"
+      },
+      {
+        "start": 28.3,
+        "end": 30.7,
+        "text": "What do you think of this new onboarding flow?"
+      },
+      {
+        "start": 30.7,
+        "end": 34.8,
+        "text": "When I open the prototype, I can see all of the context and questions he wants my take on."
+      },
+      {
+        "start": 34.8,
+        "end": 38.1,
+        "text": "I can leave a comment or record a short video to say,"
+      },
+      {
+        "start": 38.1,
+        "end": 40.7,
+        "text": "Should there be a progress bar on a two-step flow?"
+      },
+      {
+        "start": 40.7,
+        "end": 44.9,
+        "text": "My team can respond inside of the prototype while they're using it,"
+      },
+      {
+        "start": 44.9,
+        "end": 49.5,
+        "text": "and then all of those comments are automatically organized as clear next steps"
+      },
+      {
+        "start": 49.5,
+        "end": 54.7,
+        "text": "that I can pull directly into my coding agent using the InFlight MCP."
+      },
+      {
+        "start": 54.7,
+        "end": 57.3,
+        "text": "We're already seeing some of the top design teams in the world"
+      },
+      {
+        "start": 57.3,
+        "end": 59.6,
+        "text": "using InFlight to supercharge their prototypes."
+      },
+      {
+        "start": 59.6,
+        "end": 63.5,
+        "text": "This is at least one piece of what we believe the future of design looks like."
+      },
+      {
+        "start": 63.5,
+        "end": 67.5,
+        "text": "We built InFlight to make collaborating on our own work easier,"
+      },
+      {
+        "start": 67.5,
+        "end": 71,
+        "text": "and now our toolkit is powering prototypes for"
+      },
+      {
+        "start": 71,
+        "end": 74.8,
+        "text": "thousands of designers and some of the top teams in the world."
+      },
+      {
+        "start": 74.8,
+        "end": 82,
+        "text": "So today, we're launching InFlight to everyone, and you can learn more at InFlight.com."
+      }
+    ]
+  },
+  "88": {
+    "language": null,
+    "segments": []
+  },
+  "89": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 4,
+        "text": "Manage your voice and chat agents where you already work."
+      },
+      {
+        "start": 4,
+        "end": 7,
+        "text": "Introducing the Eleven Labs MCP."
+      },
+      {
+        "start": 7,
+        "end": 9,
+        "text": "Now available in Claude."
+      },
+      {
+        "start": 9,
+        "end": 11,
+        "text": "Install it in a few clicks."
+      },
+      {
+        "start": 15,
+        "end": 17,
+        "text": "Then your team can review performance,"
+      },
+      {
+        "start": 21,
+        "end": 23,
+        "text": "create new agents,"
+      },
+      {
+        "start": 25,
+        "end": 27,
+        "text": "and update their configuration."
+      },
+      {
+        "start": 31,
+        "end": 35,
+        "text": "Sign in securely with no API key needed"
+      },
+      {
+        "start": 35,
+        "end": 39,
+        "text": "and control exactly what the connector can and can't do."
+      },
+      {
+        "start": 39,
+        "end": 43,
+        "text": "Start managing your agents in Claude with the Eleven Labs MCP."
+      }
+    ]
+  },
+  "90": {
+    "language": null,
+    "segments": []
   }
 }

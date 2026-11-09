@@ -4978,37 +4978,10 @@
     "lightDark": "dark"
   },
   "73": {
-    "launchType": "model-release",
-    "styleTags": [
-      "live-action",
-      "cinematic",
-      "product-ui",
-      "motion-graphics",
-      "3d-render"
-    ],
-    "visualSummary": "A warm, filmic vignette anthology: it opens on a 1979 kid in a chair asking a screen for a yellow circle, then cuts between adults in moody, lamp-lit rooms talking to Astra while giant projected screens behind them fill with real UI — a rocket sketch, Blender wireframes, a Google Slides rainwear deck, an eBay listing, a contract draft, an asteroid game — and it closes on a 3D-printed rocket next to the OpenAI logo.",
-    "onScreenText": [
-      {
-        "time": 3,
-        "text": "1979"
-      },
-      {
-        "time": 40,
-        "text": "INTRODUCING GPT-6"
-      },
-      {
-        "time": 42,
-        "text": "ASTRA"
-      },
-      {
-        "time": 156,
-        "text": "OpenAI"
-      },
-      {
-        "time": 159,
-        "text": "FOR THE FULL ASTRA EXPERIENCE, DOWNLOAD THE CHATGPT DESKTOP APP"
-      }
-    ],
+    "launchType": null,
+    "styleTags": [],
+    "visualSummary": null,
+    "onScreenText": [],
     "pacing": {
       "cuts": 34,
       "cutsPerMinute": 12.5,
@@ -5031,24 +5004,10 @@
     "lightDark": "dark"
   },
   "74": {
-    "launchType": "model-release",
-    "styleTags": [
-      "mixed-media",
-      "motion-graphics",
-      "live-action",
-      "cinematic"
-    ],
-    "visualSummary": "A square, wordless montage framed as a look through a circular lens: a great tit on a bare branch at dusk gives way to a rapid flicker of archival plates — bird illustrations, botanical drawings, geological maps, circuit boards, microscopy, a snowflake, star charts, the moon — before opening back out to a blue sky with the Fable 5.1 title, the Claude wordmark over pink clouds, and the bird landing on the branch again.",
-    "onScreenText": [
-      {
-        "time": 18,
-        "text": "Fable 5.1"
-      },
-      {
-        "time": 22,
-        "text": "Claude"
-      }
-    ],
+    "launchType": null,
+    "styleTags": [],
+    "visualSummary": null,
+    "onScreenText": [],
     "pacing": {
       "cuts": 30,
       "cutsPerMinute": 66.7,
@@ -5071,61 +5030,10 @@
     "lightDark": "light"
   },
   "75": {
-    "launchType": "model-release",
-    "styleTags": [
-      "3d-render",
-      "motion-graphics",
-      "kinetic-typography",
-      "product-ui",
-      "live-action"
-    ],
-    "visualSummary": "Sizzle reel of generated worlds: aerial Golden Gate footage, a pier, and a basketball court carry the three-line manifesto, then a particle-built medieval town reveals the ATLAS title; section cards on black introduce camera-controlled generation (an input image, camera path, and output cathedral in a light UI), fly-throughs of a loft, a warehouse robot arm, a felt-craft octopus village, a garden, a copper robot, and a castle diorama, then sparse reconstruction of a mid-century living room from a single photo, robotics point-cloud scenes with a quadruped and humanoid, a mosaic of sample worlds, and the World Labs logo.",
-    "onScreenText": [
-      {
-        "time": 0,
-        "text": "Model the world."
-      },
-      {
-        "time": 3,
-        "text": "Move the camera."
-      },
-      {
-        "time": 6,
-        "text": "Simulate space & time."
-      },
-      {
-        "time": 12,
-        "text": "ATLAS"
-      },
-      {
-        "time": 13,
-        "text": "A next-generation world model"
-      },
-      {
-        "time": 20,
-        "text": "Camera Controlled Generation"
-      },
-      {
-        "time": 42,
-        "text": "Pixel-Perfect Camera Control"
-      },
-      {
-        "time": 49,
-        "text": "Sparse Reconstruction"
-      },
-      {
-        "time": 61,
-        "text": "Robotics Simulation"
-      },
-      {
-        "time": 70,
-        "text": "Build with Atlas"
-      },
-      {
-        "time": 80,
-        "text": "World Labs — worldlabs.ai/blog/atlas"
-      }
-    ],
+    "launchType": null,
+    "styleTags": [],
+    "visualSummary": null,
+    "onScreenText": [],
     "pacing": {
       "cuts": 38,
       "cutsPerMinute": 26.5,
@@ -5255,107 +5163,10 @@
     "lightDark": "light"
   },
   "77": {
-    "launchType": "product-launch",
-    "styleTags": [
-      "live-action",
-      "product-ui",
-      "screen-recording"
-    ],
-    "visualSummary": "Live-action comedy sketch shot in a glass-walled office and a boardroom with a magenta 'Pocket FM' logo on the wall TV and 'BIG STUDIOS ARE DEAD' scrawled on the whiteboard: a bearded investor rants on the phone, hugs CEO Rohan Nayak, then grabs a laptop while Sherpa screen captures are composited beside his face — a story prompt typed into a dark UI, a 'Your storyboard is ready' modal, a 'The Richest Alien' story brief with character cards, voice-selection and 'Finalizing your episode' / 'Episode published' confetti, and a 'The Martian Tycoon' series page — before the CEO gets his face grabbed and the investor walks off on the phone again, with no end slate.",
-    "onScreenText": [
-      {
-        "time": 13,
-        "text": "Pocket FM"
-      },
-      {
-        "time": 136,
-        "text": "A mysterious signal from a distant planet"
-      },
-      {
-        "time": 136,
-        "text": "COSMIC WARRIOR"
-      },
-      {
-        "time": 155,
-        "text": "Your storyboard is ready"
-      },
-      {
-        "time": 156,
-        "text": "The Richest Alien"
-      },
-      {
-        "time": 156,
-        "text": "Start writing"
-      },
-      {
-        "time": 156,
-        "text": "Story trailer"
-      },
-      {
-        "time": 156,
-        "text": "Summary"
-      },
-      {
-        "time": 156,
-        "text": "Themes"
-      },
-      {
-        "time": 157,
-        "text": "World & Setting"
-      },
-      {
-        "time": 157,
-        "text": "Tone & Style"
-      },
-      {
-        "time": 158,
-        "text": "Marcus Neylan"
-      },
-      {
-        "time": 158,
-        "text": "Elena Park"
-      },
-      {
-        "time": 158,
-        "text": "Ava Sinclair"
-      },
-      {
-        "time": 158,
-        "text": "Lyra Neylan"
-      },
-      {
-        "time": 158,
-        "text": "Victor Crane"
-      },
-      {
-        "time": 158,
-        "text": "Director Helena Voss"
-      },
-      {
-        "time": 172,
-        "text": "Add voice to your series"
-      },
-      {
-        "time": 172,
-        "text": "Select a voice for your story"
-      },
-      {
-        "time": 174,
-        "text": "Confirm the voice?"
-      },
-      {
-        "time": 175,
-        "text": "Finalizing your episode"
-      },
-      {
-        "time": 176,
-        "text": "Episode published"
-      },
-      {
-        "time": 176,
-        "text": "The Martian Tycoon"
-      }
-    ],
+    "launchType": null,
+    "styleTags": [],
+    "visualSummary": null,
+    "onScreenText": [],
     "pacing": {
       "cuts": 72,
       "cutsPerMinute": 20.9,
@@ -5378,76 +5189,10 @@
     "lightDark": "dark"
   },
   "78": {
-    "launchType": "product-launch",
-    "styleTags": [
-      "kinetic-typography",
-      "motion-graphics",
-      "3d-render",
-      "product-ui"
-    ],
-    "visualSummary": "Word-by-word kinetic type on an off-white grid with floating 3D props (hair dryer, hard hat, traffic cone, mug, keyboard) alternates with pixel-block wipes to halftone-blue renders of desk phones and a smartphone wearing 'INCOMING CALL' chips; a red 'Until now.' beat gives way to a glowing orb on black, a blurred green-gold gradient behind glassy chat bubbles where the agent books an appointment, then black end cards with three small agent tiles and the Reception.ai / ElevenAgents lockup.",
-    "onScreenText": [
-      {
-        "time": 0,
-        "text": "Someone's calling"
-      },
-      {
-        "time": 2,
-        "text": "Someone's calling to make an appointment."
-      },
-      {
-        "time": 3,
-        "text": "INCOMING CALL"
-      },
-      {
-        "time": 4,
-        "text": "To book a job."
-      },
-      {
-        "time": 6,
-        "text": "INCOMING CALL"
-      },
-      {
-        "time": 8,
-        "text": "To schedule a meeting."
-      },
-      {
-        "time": 9,
-        "text": "INCOMING CALL"
-      },
-      {
-        "time": 10,
-        "text": "But nobody's around to pickup."
-      },
-      {
-        "time": 14,
-        "text": "Until now."
-      },
-      {
-        "time": 18,
-        "text": "Hi there, how can I help you today?"
-      },
-      {
-        "time": 19,
-        "text": "Hey, I'm looking to book an appointment for next week, please?"
-      },
-      {
-        "time": 22,
-        "text": "Sure! When would be a good time for you?"
-      },
-      {
-        "time": 23,
-        "text": "Stop missing calls and opportunities"
-      },
-      {
-        "time": 30,
-        "text": "Reception.ai"
-      },
-      {
-        "time": 30,
-        "text": "ElevenAgents"
-      }
-    ],
+    "launchType": null,
+    "styleTags": [],
+    "visualSummary": null,
+    "onScreenText": [],
     "pacing": {
       "cuts": 11,
       "cutsPerMinute": 20,
@@ -5468,5 +5213,486 @@
       "#f5f5dc"
     ],
     "lightDark": "mixed"
+  },
+  "79": {
+    "launchType": "model-release",
+    "styleTags": [
+      "cinematic",
+      "live-action"
+    ],
+    "visualSummary": "A wordless 19-second montage of curved horizons at every scale — a lone climber on the rim of an ocean under a peach sky, hikers cresting a desert dune, Earth's glowing limb from orbit, a green aurora, a caterpillar on a branch, a cell under a microscope, and annotated technical diagrams. It loops back to the ocean horizon where Fable 5.2 and the Claude wordmark appear in white serif.",
+    "onScreenText": [
+      {
+        "time": 14,
+        "text": "Fable 5.2"
+      },
+      {
+        "time": 16,
+        "text": "Claude"
+      }
+    ],
+    "pacing": {
+      "cuts": 9,
+      "cutsPerMinute": 28.4,
+      "avgShotSeconds": 1.9
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#080606",
+      "#c3b89a",
+      "#7f9496",
+      "#3d3a31",
+      "#e4d9a8"
+    ],
+    "lightDark": "mixed"
+  },
+  "80": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "motion-graphics",
+      "screen-recording",
+      "kinetic-typography"
+    ],
+    "visualSummary": "A frenetic red-on-black pixel-art piece: a terminal agent types \"Start autoresearch for my conversion rate\" and calls RoutingCat skills, then a blackletter RC cat logo sprouts routing lines into A/B variants. Bell curves, revenue counters, and chunky pixel conversion-rate numbers climb from 2.1% to 12% across thousands of experiments and mobile/desktop/paid segments, cut fast with glitch transitions, before resolving on a cream RoutingCat end card.",
+    "onScreenText": [
+      {
+        "time": 2,
+        "text": "Start autoresearch for my conversion rate."
+      },
+      {
+        "time": 13,
+        "text": "conversion rate 2.6%"
+      },
+      {
+        "time": 59,
+        "text": "conversion rate 12.0%"
+      },
+      {
+        "time": 68,
+        "text": "RoutingCat routingcat.com"
+      }
+    ],
+    "pacing": {
+      "cuts": 49,
+      "cutsPerMinute": 42.6,
+      "avgShotSeconds": 1.4
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#161415",
+      "#201718",
+      "#71323d",
+      "#131312",
+      "#1e1315"
+    ],
+    "lightDark": "dark"
+  },
+  "81": {
+    "launchType": "funding",
+    "styleTags": [
+      "live-action",
+      "talking-head",
+      "cinematic"
+    ],
+    "visualSummary": "A warmly lit founder film shot in a coworking office: the two Subvocal founders speak to camera and wearers in chunky black glasses silently mouth commands at laptops, with captions running along the bottom. Cutaways show text appearing on screen as they mouth words and two wearers holding a private silent conversation across a crowded room.",
+    "onScreenText": [
+      {
+        "time": 24,
+        "text": "Can you try out the new model?"
+      }
+    ],
+    "pacing": {
+      "cuts": 23,
+      "cutsPerMinute": 17.9,
+      "avgShotSeconds": 3.2
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.8,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#917a65",
+      "#c2c3c3",
+      "#251e18",
+      "#4c403b",
+      "#6b4f3e"
+    ],
+    "lightDark": "dark"
+  },
+  "82": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "live-action",
+      "cinematic"
+    ],
+    "visualSummary": "A sun-dappled, shallow-focus nature film following a curly-haired kid through a forest with a bright green Freckle device on a lanyard — a cartoon guide animates on screen, she spots mushrooms and a red-eared slider, and a friend with a red Freckle joins her by a pond to talk through the devices. It ends on two kids scootering down a tree-lined path under a green freckle wordmark.",
+    "onScreenText": [
+      {
+        "time": 54,
+        "text": "freckle"
+      }
+    ],
+    "pacing": {
+      "cuts": 22,
+      "cutsPerMinute": 22,
+      "avgShotSeconds": 2.6
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.54,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#121a0e",
+      "#333221",
+      "#4f593b",
+      "#6d7d59",
+      "#99a884"
+    ],
+    "lightDark": "dark"
+  },
+  "83": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "talking-head",
+      "kinetic-typography"
+    ],
+    "visualSummary": "A moody single-interview film: founder David Im in a dark hoodie speaks to camera in a dim studio, with burned-in captions and occasional large white kinetic words (\"really big\", \"be hated\") popping beside him. The Sume API logo slides in mid-frame at the reveal, and it closes on a clean white Sume logo card.",
+    "onScreenText": [
+      {
+        "time": 21,
+        "text": "really big"
+      },
+      {
+        "time": 23,
+        "text": "be hated"
+      },
+      {
+        "time": 26,
+        "text": "Sume API"
+      },
+      {
+        "time": 66,
+        "text": "Sume"
+      }
+    ],
+    "pacing": {
+      "cuts": 5,
+      "cutsPerMinute": 4.4,
+      "avgShotSeconds": 11.3
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.94,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#dae3e8",
+      "#10100f",
+      "#2f2116",
+      "#1a1916",
+      "#6d5b4d"
+    ],
+    "lightDark": "dark"
+  },
+  "84": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "3d-render",
+      "cinematic"
+    ],
+    "visualSummary": "Extreme macro 3D renders glide over fuzzy, felt-textured characters in black space — a blue blob, a pink one with headphones, a green frog, a yellow one in round glasses — each paired with a white tagline. The cast lines up on white, then one appears as \"Alfred\" texting in a phone mockup before a pastel dots wordmark and the OpenAI logo.",
+    "onScreenText": [
+      {
+        "time": 3,
+        "text": "Always-on intelligence"
+      },
+      {
+        "time": 10,
+        "text": "Remarkably capable"
+      },
+      {
+        "time": 18,
+        "text": "Remarkably cute"
+      },
+      {
+        "time": 27,
+        "text": "dots"
+      }
+    ],
+    "pacing": {
+      "cuts": 2,
+      "cutsPerMinute": 4,
+      "avgShotSeconds": 10
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": false
+    },
+    "palette": [
+      "#000000",
+      "#2e1521",
+      "#94837e",
+      "#000108",
+      "#1e020e"
+    ],
+    "lightDark": "dark"
+  },
+  "85": {
+    "launchType": "other",
+    "styleTags": [
+      "mixed-media",
+      "live-action"
+    ],
+    "visualSummary": "A 15-second cut of faded mid-century car-commercial footage from the Prelinger Archives — a sedan materializing in a burst of sparkles, a red concept car on a showroom turntable, a Corvair cruising a coastal road and splashing through a river, and a couple laughing in the back seat as the frame fades to black. Saturated vintage film color throughout.",
+    "onScreenText": [],
+    "pacing": {
+      "cuts": 3,
+      "cutsPerMinute": 12,
+      "avgShotSeconds": 3.8
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": false
+    },
+    "palette": [
+      "#060908",
+      "#3f413e",
+      "#23211e",
+      "#62615d",
+      "#9f9697"
+    ],
+    "lightDark": "dark"
+  },
+  "86": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "mixed-media",
+      "kinetic-typography",
+      "motion-graphics",
+      "screen-recording"
+    ],
+    "visualSummary": "A polished explainer that mixes keyboard close-ups and app screenshots with tabletop scenes — a desk being packed into a cardboard box, handover docs and SOPs, a calendar of crossed-out days — under word-by-word kinetic captions. It moves into dark-blue node diagrams of agents and playbooks resolving requests, then closes on a cream GodHands logo card.",
+    "onScreenText": [
+      {
+        "time": 0,
+        "text": "Every company runs on knowledge"
+      },
+      {
+        "time": 14,
+        "text": "Cue the handovers, SOPs"
+      },
+      {
+        "time": 17,
+        "text": "Spent reconstructing how work gets done"
+      },
+      {
+        "time": 58,
+        "text": "agents work smarter"
+      },
+      {
+        "time": 65,
+        "text": "businesses can reduce operational costs."
+      },
+      {
+        "time": 70,
+        "text": "GodHands — The operational brain for your company"
+      }
+    ],
+    "pacing": {
+      "cuts": 41,
+      "cutsPerMinute": 33.2,
+      "avgShotSeconds": 1.8
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.75,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#d1d1ca",
+      "#000000",
+      "#0d0f12",
+      "#535250",
+      "#000100"
+    ],
+    "lightDark": "dark"
+  },
+  "87": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "talking-head",
+      "product-ui",
+      "screen-recording"
+    ],
+    "visualSummary": "Ridd and other designers talk to camera at their desks, framed inside translucent glassy prototype windows as Inflight panels float over the footage — slider polls (\"How does the site redesign feel?\"), pinned comments, and recorded video replies. Interface close-ups show feedback organized into next steps and pulled into a coding agent via MCP.",
+    "onScreenText": [
+      {
+        "time": 22,
+        "text": "How does the site redesign feel?"
+      }
+    ],
+    "pacing": {
+      "cuts": 1,
+      "cutsPerMinute": 0.7,
+      "avgShotSeconds": 41
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 1,
+      "language": "en",
+      "hasMusic": false
+    },
+    "palette": [
+      "#3d3d36",
+      "#121819",
+      "#61695d",
+      "#889683",
+      "#b8c6b8"
+    ],
+    "lightDark": "dark"
+  },
+  "88": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "motion-graphics",
+      "screen-recording",
+      "3d-render"
+    ],
+    "visualSummary": "A retro beige CRT on a lamplit desk types \"We rebuilt After Effects and Premiere for agents\" in green terminal text, then a wireframe tesseract unfolds into a scrolling agent chat log. A galloping horse-and-rider loop is restyled again and again — wireframe, chrome, heatmap, ASCII, skeleton — inside a 3D grid of Timing, Type, Frame, Easing, Sound, and Mix panels, ending on a Tesseract by Mirage screen.",
+    "onScreenText": [
+      {
+        "time": 5,
+        "text": "We rebuilt After Effects and Premiere for agents."
+      },
+      {
+        "time": 28,
+        "text": "TESSERACT by Mirage"
+      }
+    ],
+    "pacing": {
+      "cuts": 38,
+      "cutsPerMinute": 71.3,
+      "avgShotSeconds": 0.8
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": true
+    },
+    "palette": [
+      "#060909",
+      "#19211b",
+      "#131212",
+      "#383d35",
+      "#838877"
+    ],
+    "lightDark": "dark"
+  },
+  "89": {
+    "launchType": "feature-release",
+    "styleTags": [
+      "product-ui",
+      "kinetic-typography"
+    ],
+    "visualSummary": "A minimal dark Claude interface demo with large typed prompts — reviewing billing trends, \"Can we split billing into its own agent?\", \"Make sure we never offer a discount that's not approved\" — and Claude's replies creating agents and guardrails via the ElevenLabs MCP. It closes on an Authorize screen and a connector permission toggle.",
+    "onScreenText": [
+      {
+        "time": 22,
+        "text": "Can we split billing into its own agent?"
+      },
+      {
+        "time": 28,
+        "text": "Make sure we never offer a discount that's not approved"
+      },
+      {
+        "time": 33,
+        "text": "Authorize"
+      }
+    ],
+    "pacing": {
+      "cuts": 0,
+      "cutsPerMinute": 0,
+      "avgShotSeconds": 46
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 0.63,
+      "language": "en",
+      "hasMusic": true
+    },
+    "palette": [
+      "#1f1f1f",
+      "#3a3a38",
+      "#211f1e",
+      "#1d1f1e",
+      "#1b1b1b"
+    ],
+    "lightDark": "dark"
+  },
+  "90": {
+    "launchType": "product-launch",
+    "styleTags": [
+      "screen-recording",
+      "3d-render"
+    ],
+    "visualSummary": "A silent screen capture of the ThreeUI editor: a \"Step into the living world\" landing page with a procedural blossom branch swaps between pink and red themes while sliders tweak it live. The cursor then browses the library — a vine growing in fog, a CUBE type experiment, a pink river valley, a moonlit temple, a sunset canyon — each rendered in three.js.",
+    "onScreenText": [
+      {
+        "time": 2,
+        "text": "Step into the living world"
+      }
+    ],
+    "pacing": {
+      "cuts": 4,
+      "cutsPerMinute": 5.9,
+      "avgShotSeconds": 8.2
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": false,
+      "speechShare": 0,
+      "language": null,
+      "hasMusic": false
+    },
+    "palette": [
+      "#493a38",
+      "#161819",
+      "#79766b",
+      "#0a0e0f",
+      "#262020"
+    ],
+    "lightDark": "dark"
   }
 }
