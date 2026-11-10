@@ -7208,5 +7208,55 @@
   "90": {
     "language": null,
     "segments": []
+  },
+  "91": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 3,
+        "text": "There's too much to do and never enough time."
+      },
+      {
+        "start": 3,
+        "end": 5,
+        "text": "That's why we built Town."
+      },
+      {
+        "start": 5,
+        "end": 9,
+        "text": "In Town, everyone gets their own AI assistant called a Townie."
+      },
+      {
+        "start": 9,
+        "end": 12,
+        "text": "Townies connect to your tools and get to work."
+      },
+      {
+        "start": 12,
+        "end": 15,
+        "text": "Drafting replies, scheduling meetings, pulling research,"
+      },
+      {
+        "start": 15,
+        "end": 19,
+        "text": "handling the repeat work, then bringing it back finished and ready to approve."
+      },
+      {
+        "start": 19,
+        "end": 23,
+        "text": "And when Townies meet, they work together to keep your team on track,"
+      },
+      {
+        "start": 23,
+        "end": 27,
+        "text": "so people can think bigger, move faster, and do more together."
+      },
+      {
+        "start": 27,
+        "end": 30,
+        "text": "Meet your Townie at town.com"
+      }
+    ]
   }
 }

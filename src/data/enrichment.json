@@ -5694,5 +5694,54 @@
       "#262020"
     ],
     "lightDark": "dark"
+  },
+  "91": {
+    "launchType": "funding",
+    "styleTags": [
+      "animation"
+    ],
+    "visualSummary": "A hand-drawn, watercolor storybook animation of a miniature town seen from above, where a giant human hand taps a keyboard, places houses, and lifts rooftops. Small creature assistants — the Townies — pop out of calendar windows, sort documents under a bell tower, and trade chat bubbles before the camera settles on the skyline and the TOWN wordmark.",
+    "onScreenText": [
+      {
+        "time": 3,
+        "text": "TOWN"
+      },
+      {
+        "time": 7,
+        "text": "DECEMBER"
+      },
+      {
+        "time": 17,
+        "text": "Workwork.pdf"
+      },
+      {
+        "time": 18,
+        "text": "I have that document for you to review!"
+      },
+      {
+        "time": 29,
+        "text": "TOWN"
+      }
+    ],
+    "pacing": {
+      "cuts": 9,
+      "cutsPerMinute": 18,
+      "avgShotSeconds": 3
+    },
+    "audio": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "speechShare": 1,
+      "language": "en",
+      "hasMusic": false
+    },
+    "palette": [
+      "#cdbba6",
+      "#e2e8e2",
+      "#83665b",
+      "#fcfdfa",
+      "#f7f2e9"
+    ],
+    "lightDark": "light"
   }
 }
