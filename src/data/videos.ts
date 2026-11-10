@@ -1944,6 +1944,27 @@ export const videos: Video[] = [
     featured: false,
     publishedDate: '2026-08-21',
   },
+  {
+    id: '91',
+    slug: 'meet-your-townie',
+    companySlug: 'town',
+    title: 'Meet Your Townie',
+    company: 'Town',
+    companyLogoUrl: 'https://img.logo.dev/town.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark',
+    description: 'Town gives everyone on a team their own AI assistant — a Townie — that connects to your tools, drafts replies, schedules meetings, and pulls research, then hands the work back ready to approve. Told as a hand-drawn storybook, the film shows Townies working with each other to keep a whole team on track.',
+    videoUrl: 'https://stream.mux.com/hmRi1rtXCDBxnIMm3UjDEhqRtdC01NxJFU4CBN4pFznM.m3u8',
+    thumbnailUrl: 'https://image.mux.com/hmRi1rtXCDBxnIMm3UjDEhqRtdC01NxJFU4CBN4pFznM/thumbnail.webp?time=5',
+    duration: 30,
+    aspectRatio: '16:9',
+    websiteUrl: 'https://www.town.com',
+    twitterUrl: 'https://x.com/TownAI',
+    sourceUrl: 'https://x.com/TownAI/status/2112947634365415839',
+    credits: [
+      { role: 'In-house', name: 'Town', handle: 'TownAI', url: 'https://www.town.com', bio: 'AI assistant platform for teams. Everyone gets a personal Townie that learns their people, projects, and voice — and works with teammates\' Townies.', contactUrl: 'https://x.com/TownAI', imageUrl: 'https://img.logo.dev/town.com?token=pk_S2abCJUVRued_UW_go8tKA&format=png&theme=dark', twitterHandle: 'TownAI' }
+    ],
+    featured: false,
+    publishedDate: '2026-10-21',
+  },
   // INGEST_ANCHOR — scripts/ingest.mjs inserts new video drafts above this line. Keep it.
 ]
 

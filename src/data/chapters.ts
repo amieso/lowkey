@@ -665,6 +665,11 @@ const videoChapters: Record<string, Chapter[]> = {
     { id: 'c3', title: 'Procedural Scenes', startTime: 21, beat: 'in-action' },
     { id: 'c4', title: 'Temple Night and Beyond', startTime: 32, beat: 'in-action' },
   ],
+  '91': [ // Town — Meet Your Townie (30s)
+    { id: 'c1', title: 'A Townie for Everyone', startTime: 0, beat: 'hook' },
+    { id: 'c2', title: 'Handling the Repeat Work', startTime: 10, beat: 'in-action' },
+    { id: 'c3', title: 'When Townies Meet', startTime: 20, beat: 'in-action' },
+  ],
 }
 
 export function getChaptersForVideo(videoId: string): Chapter[] {
